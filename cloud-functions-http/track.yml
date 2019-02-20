@@ -1,0 +1,161 @@
+slug: cloud-functions-http
+id: xiqfarvnhzx0
+type: track
+title: Cloud Functions - HTTP
+teaser: ' Event-driven serverless compute platform '
+description: |-
+  # What are Google Cloud Functions?
+  Google Cloud Functions is a serverless execution environment for building and connecting cloud services. With Cloud Functions you write simple, single-purpose functions that are attached to events emitted from your cloud infrastructure and services. Your function is triggered when an event being watched is fired. Your code executes in a fully managed environment. There is no need to provision any infrastructure or worry about managing any servers.
+
+  Cloud Functions can be written using JavaScript (Node.js 6.14.0, Node.js 8.14.0), Python (Python 3.7.1), or Go (Go 1.11) runtimes on Google Cloud Platform. You can take your function and run it in any standard Node.js 6, Node.js 8, Python, or Go runtime, which makes both portability and local testing a breeze.
+
+  ![Google Cloud Functions](https://cloud.google.com/images/functions/functions-video-thumbnail.png)
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/gcp-cloud-functions.png
+tags:
+- google
+- ' cloud'
+- ' functions'
+owner: google
+developers:
+- ade@mochtar.nl
+- sandeepdinesh@google.com
+- erik@instruqt.com
+private: true
+published: true
+challenges:
+- slug: writing-functions
+  id: rvqyxhsxbpry
+  type: challenge
+  title: Creating Cloud Functions
+  teaser: Write Cloud Functions in either Node.js, Python, and Go.
+  assignment: |-
+    We have **provided you with a function** written in the different languages (Node.js, Python and Golang) that are supported by Google Cloud Functions.
+
+    Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it, so it returns `Hello, Google` instead of Hello World **when no parameter is passed** into the function.
+  notes:
+  - type: video
+    url: https://www.youtube.com/embed/1r3vMYywNLk?autoplay=1
+  - type: text
+    contents: "Google Cloud Functions is a **serverless execution environment** for
+      building and connecting cloud services. \n\nWith Cloud Functions you write **simple,
+      single-purpose functions** that are **attached to events** emitted from your
+      cloud infrastructure and services. "
+  - type: text
+    contents: "Your function is **triggered when an event being watched is fired**.
+      \n\nYour code executes in a **fully managed environment**. There is **no need
+      to provision any infrastructure** or worry about managing any servers."
+  - type: text
+    contents: "Cloud Functions can be written using JavaScript, Python or Golang.
+      \n\nYou can take your function and run it in **any standard Node.js 6**, **Node.js
+      8**, **Python 3.7.1**, or **Go 1.11** runtime, which makes both **portability
+      and local testing a breeze**."
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: deploying-functions
+  id: dwfaxegitayy
+  type: challenge
+  title: Deploying Cloud Functions
+  teaser: 'Upload your function''s code to a Google Cloud Storage bucket. '
+  assignment: "Using the **gcloud command-line tool**, deploy your function from the
+    directory containing your function code with the `gcloud functions deploy` command.
+    \n\nTo deploy a Cloud Function, your code must contain a method with the same
+    `name` as the Cloud Function.\n\nChoose one of the available functions and combine
+    it with the corresponding `runtime`.\nThe function should `trigger on http` requests.\n\nNote:
+    Deploying a function can take a few minutes."
+  notes:
+  - type: text
+    contents: "In order to run a function, you need to deploy it to a Google Cloud
+      Project.\n\nDeployments work by uploading an archive containing your function's
+      source code to a Google Cloud Storage bucket. "
+  - type: text
+    contents: |-
+      You can deploy Cloud Functions from your **local machine** or from your **GitHub** or **Bitbucket** source repository.
+
+      Using the gcloud command-line tool, you can deploy your function from the directory containing your function code.
+
+      ```
+      gcloud functions deploy NAME --runtime RUNTIME TRIGGER [FLAGS...]
+      ```
+  - type: text
+    contents: "Runtime can be any of: \n- `node6`\n- `node8`\n- `python37`\n- `go111`"
+  - type: text
+    contents: |-
+      Trigger can be any of:
+      - `--trigger-http`
+      - `--trigger-topic`
+      - `--trigger-storage`
+      - a combination of `--trigger-event` and `--trigger-resource`.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: direct-triggers
+  id: teijt3fxzfop
+  type: challenge
+  title: ' Testing Cloud Functions'
+  teaser: Trigger your function with the command-line interface to test it's functionality.
+  assignment: To test the **previously deployed function**, call it manually by using
+    the `gcloud functions call` command.
+  notes:
+  - type: text
+    contents: "Cloud **events** are things that happen in your cloud environment.
+      \n\nThese might be things like **changes to data in a database**, **files added
+      to a storage system**, or a **new virtual machine instance** being created."
+  - type: text
+    contents: "Events occur whether or not you choose to respond to them. You **create
+      a response to an event with a trigger**.\n\nA trigger is a declaration that
+      you are interested in a certain event or set of events. \n\nBinding a function
+      to a trigger allows you to capture and act on events. "
+  - type: text
+    contents: "To support **quick iteration and debugging**, Cloud Functions provides
+      a `gcloud functions call` command in the command-line interface.\n\nThis allows
+      you to **directly invoke** a function to ensure it is behaving as expected.
+      \n\nThis causes the function to execute immediately, even though it may have
+      been deployed to respond to a specific event."
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: http-triggers
+  id: xjf4ojzf0dyg
+  type: challenge
+  title: Calling Cloud Functions
+  teaser: Invoke Cloud Functions with an HTTP request.
+  assignment: Calling functions
+  notes:
+  - type: text
+    contents: |-
+      You can invoke Cloud Functions with an HTTP request using the `POST`, `PUT`, `GET`, `DELETE`, and `OPTIONS` HTTP methods.
+
+      From the caller's perspective, **HTTP invocations are synchronous**, meaning that the result of the function execution will be returned in the response to the HTTP request.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: writing-logs
+  id: 5re4cy2eakpp
+  type: challenge
+  title: Writing logs
+  teaser: Emit log lines by writing to standard output or standard error.
+  assignment: Writing logs
+  difficulty: basic
+  timelimit: 500
+- slug: reading-logs
+  id: n8ulhbf0b5jw
+  type: challenge
+  title: Reading logs
+  teaser: Read log lines via the gcloud command-line tool.
+  assignment: Reading logs
+  difficulty: basic
+  timelimit: 500
+checksum: "12045633051971368943"

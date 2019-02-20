@@ -1,0 +1,6 @@
+#!/bin/bash
+grep "gcloud functions call" ~/.bash_history
+if [ $? -ne 0 ]; then
+    fail-message "The function was not triggered manually"
+    exit 1
+fi

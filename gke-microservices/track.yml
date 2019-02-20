@@ -1,0 +1,35 @@
+slug: gke-microservices
+id: 3ugxzwhjqfp6
+type: track
+title: Microservices on Google Kubernetes Engine
+teaser: Are you a master of microservices?
+description: |-
+  Kubernetes Engine is a managed, production-ready environment for deploying containerized applications. It brings our latest innovations in developer productivity, resource efficiency, automated operations, and open source flexibility to accelerate your time to market.
+
+  Kubernetes gives you the power to create, deploy and manage microservices, and Kubernetes Engine gives you this power in a fully managed environemnt.
+
+  Are you a GKE expert? Think you have what it takes to manage some microservices? Let's find out!
+icon: https://storage.googleapis.com/test-sandeep-permissions-demo/gke-50x50.png
+tags:
+- kubernetes
+- ' google'
+- ' containers'
+- ' microservices'
+owner: google
+developers:
+- sandeepdinesh@google.com
+private: false
+published: false
+challenges:
+- slug: create-a-cluster
+  id: r3bxw1jxvzfm
+  type: challenge
+  title: Create a cluster
+  teaser: Let's start easy
+  assignment: |-
+    GKE makes creating Kubernetes clusters a breeze. Do you know how to make a cluster with GKE?
+
+    Create a GKE cluster with two nodes. Make the nodes be a 'g1-small' VM.
+  difficulty: basic
+  timelimit: 500
+checksum: "7119360669166412215"

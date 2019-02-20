@@ -1,0 +1,12 @@
+version: "2"
+containers:
+- name: shell
+  image: gcr.io/instruqt/gcp-project-client
+  shell: /bin/bash
+  memory: 128
+gcp_projects:
+- name: cloud-functions
+  services:
+  - cloudfunctions.googleapis.com
+  - storage-component.googleapis.com
+  - storage-api.googleapis.com
