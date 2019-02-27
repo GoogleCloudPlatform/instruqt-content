@@ -26,10 +26,24 @@ challenges:
   type: challenge
   title: Create a cluster
   teaser: Let's start easy
-  assignment: |-
-    GKE makes creating Kubernetes clusters a breeze. Do you know how to make a cluster with GKE?
-
-    Create a GKE cluster with two nodes. Make the nodes be a 'g1-small' VM.
+  assignment: "Create a GKE cluster called 'challenge' with two nodes. \nMake the
+    nodes 'g1-small' VMs. The zone has already been set for you! \n\nNote: Creating
+    a cluster can take a few minutes. However, you can check your solution before the cluster is fully deployed."
+  notes:
+  - type: text
+    contents: "Google Kubernetes Engine is a **fully managed and enterprise grade**
+      Kubernetes platform. \n\nWith Kubernetes Engine you can focus on deploying and
+      managing **containerized microservices** while leaving the **node, netowrk,
+      and other low level maintence** to Google."
+  - type: text
+    contents: "Kubernetes Engine is a **Certified Kubernetes** platform with many additional
+      features designed to give you the power and flexibility you need. \n\nFrom **built
+      in autoscaling, VPC native netowrking, global load balancing, and addons like
+      Knative and Istio**, Kubernetes Engine gives you the tools you need to build **cloud native applications**."
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
   difficulty: basic
-  timelimit: 500
-checksum: "7119360669166412215"
+  timelimit: 800
+checksum: "11110544640904606180"

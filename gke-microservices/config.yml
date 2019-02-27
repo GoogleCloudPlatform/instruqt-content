@@ -1,1 +1,14 @@
 version: "2"
+containers:
+- name: shell
+  image: gcr.io/instruqt/gcp-project-client
+  shell: /bin/bash
+  memory: 128
+gcp_projects:
+- name: gke-microservices
+  services:
+  - compute.googleapis.com
+  - container.googleapis.com
+  - containerregistry.googleapis.com
+  - storage-component.googleapis.com
+  - storage-api.googleapis.com
