@@ -28,7 +28,8 @@ challenges:
   teaser: Let's start easy
   assignment: "Create a GKE cluster called 'challenge' with two nodes. \nMake the
     nodes 'g1-small' VMs. The zone has already been set for you! \n\nNote: Creating
-    a cluster can take a few minutes. However, you can check your solution before the cluster is fully deployed."
+    a cluster can take a few minutes. However, you can check your solution before
+    the cluster is fully deployed."
   notes:
   - type: text
     contents: "Google Kubernetes Engine is a **fully managed and enterprise grade**
@@ -36,14 +37,39 @@ challenges:
       managing **containerized microservices** while leaving the **node, netowrk,
       and other low level maintence** to Google."
   - type: text
-    contents: "Kubernetes Engine is a **Certified Kubernetes** platform with many additional
-      features designed to give you the power and flexibility you need. \n\nFrom **built
-      in autoscaling, VPC native netowrking, global load balancing, and addons like
-      Knative and Istio**, Kubernetes Engine gives you the tools you need to build **cloud native applications**."
+    contents: "Kubernetes Engine is a **Certified Kubernetes** platform with many
+      additional features designed to give you the power and flexibility you need.
+      \n\nFrom **built in autoscaling, VPC native netowrking, global load balancing,
+      and addons like Knative and Istio**, Kubernetes Engine gives you the tools you
+      need to build **cloud native applications**."
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 800
-checksum: "11110544640904606180"
+  timelimit: 400
+- slug: configmaps-secrets
+  id: gyahomlke8uv
+  type: challenge
+  title: ConfigMaps and Secrets
+  teaser: Harness the power of distributed environment variables
+  assignment: "Create a ConfigMap called 'app' with a key named 'username', and create
+    a generic Secret called 'app' with a key named 'password'. \n\n Feel free to use
+    any values for the data"
+  notes:
+  - type: text
+    contents: 'Running your containers is just the tip of the iceberg when it comes
+      to Kubernetes. Configuring and managing your app is equally important. Kubernetes
+      provides two powerful config management primitives out of the box: **ConfigMaps**
+      and **Secrets**'
+  - type: text
+    contents: Kubernetes **ConfigMaps** allow you to decouple configuration artifacts
+      from image content to keep containerized applications portable. ConfigMaps allow
+      envrionment specific data and files to be injected into your containers at runtime,
+      allowing containers to be reused more easily.
+  - type: text
+    contents: Kubernetes **Secrets** are similar, except they are for storing confidential
+      information.
+  difficulty: basic
+  timelimit: 500
+checksum: "18135955093080520015"

@@ -17,9 +17,9 @@ tags:
 - ' functions'
 owner: google
 developers:
-- ade@mochtar.nl
+- null
 - sandeepdinesh@google.com
-- erik@instruqt.com
+- null
 private: true
 published: true
 challenges:
@@ -158,4 +158,4 @@ challenges:
   assignment: Reading logs
   difficulty: basic
   timelimit: 500
-checksum: "12045633051971368943"
+checksum: "15359291783971647524"

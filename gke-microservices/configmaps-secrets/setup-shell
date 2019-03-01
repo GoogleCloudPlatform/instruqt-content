@@ -1,0 +1,2 @@
+#!/bin/bash
+gcloud container clusters get-credentials challenge
