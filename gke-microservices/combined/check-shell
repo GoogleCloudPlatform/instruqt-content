@@ -1,0 +1,12 @@
+kubectl get deployment app -n challenge
+if [ $? -ne 0 ]; then
+    fail-message "Could not find Deployment called 'app' in the namespace 'challenge'"
+    exit 1
+fi
+
+#!/bin/bash
+kubectl get deployment app -n challenge -o json | jq -e '.spec.template.metadata.labels != null and .spec.template.metadata.labels.name != null and .spec.template.metadata.labels.name == "app" and .spec.template.spec.containers[0].image == "gcr.io/instruqt-shadow/challenge" and .spec.template.spec.containers[0].env != null and (.spec.template.spec.containers[0].env[] | .name == "USERNAME" or .name == "PASSWORD") and (.spec.template.spec.containers[0].env[] | .valueFrom != null and ((.valueFrom.configMapKeyRef != null and .valueFrom.configMapKeyRef.key == "username" and .valueFrom.configMapKeyRef.name == "app") or (.valueFrom.secretKeyRef != null and .valueFrom.secretKeyRef.key == "password" and .valueFrom.secretKeyRef.name == "app")))'
+if [ $? -ne 0 ]; then
+    fail-message "Deployment does not have the environment variables properly defined"
+    exit 1
+fi

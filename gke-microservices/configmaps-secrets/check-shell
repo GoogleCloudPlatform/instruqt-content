@@ -1,12 +1,12 @@
 #!/bin/bash
 kubectl get configmap app -o json | jq -e '.data.username != null'
 if [ $? -ne 0 ]; then
-    fail-message "Could not find ConfigMap called 'app' with a key called 'username'"
+    fail-message "Could not find ConfigMap called 'app' with a key called 'username' in the namespace `challenge`"
     exit 1
 fi
 
 kubectl get secret app -o json | jq -e '.data.password != null'
 if [ $? -ne 0 ]; then
-    fail-message "Could not find Secret called 'app' with a key called 'password'"
+    fail-message "Could not find Secret called 'app' with a key called 'password' in the namespace `challenge`"
     exit 1
 fi

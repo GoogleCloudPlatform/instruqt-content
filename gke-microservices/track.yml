@@ -4,12 +4,12 @@ type: track
 title: Microservices on Google Kubernetes Engine
 teaser: Are you a master of microservices?
 description: |-
-  Kubernetes Engine is a managed, production-ready environment for deploying containerized applications. It brings our latest innovations in developer productivity, resource efficiency, automated operations, and open source flexibility to accelerate your time to market.
+  Kubernetes Engine is a managed, production-ready environment for deploying and managing containerized applications. It brings our latest innovations in developer productivity, resource efficiency, automated operations, and open source flexibility to accelerate your time to market.
 
   Kubernetes gives you the power to create, deploy and manage microservices, and Kubernetes Engine gives you this power in a fully managed environemnt.
 
   Are you a GKE expert? Think you have what it takes to manage some microservices? Let's find out!
-icon: https://storage.googleapis.com/test-sandeep-permissions-demo/gke-50x50.png
+icon: https://storage.googleapis.com/instruqt-shadow-resources/gke.png
 tags:
 - kubernetes
 - ' google'
@@ -19,17 +19,17 @@ owner: google
 developers:
 - sandeepdinesh@google.com
 private: false
-published: false
+published: true
 challenges:
-- slug: create-a-cluster
+- slug: create-a-namespace
   id: r3bxw1jxvzfm
   type: challenge
-  title: Create a cluster
+  title: Create a namespace
   teaser: Let's start easy
-  assignment: "Create a GKE cluster called 'challenge' with two nodes. \nMake the
-    nodes 'g1-small' VMs. The zone has already been set for you! \n\nNote: Creating
-    a cluster can take a few minutes. However, you can check your solution before
-    the cluster is fully deployed."
+  assignment: |-
+    A GKE Cluster has been provisioned for you, and the `kubectl` CLI has been pre-authenticated.
+
+    Create a namespace called `challenge`
   notes:
   - type: text
     contents: "Google Kubernetes Engine is a **fully managed and enterprise grade**
@@ -42,20 +42,77 @@ challenges:
       \n\nFrom **built in autoscaling, VPC native netowrking, global load balancing,
       and addons like Knative and Istio**, Kubernetes Engine gives you the tools you
       need to build **cloud native applications**."
+  - type: text
+    contents: One of the most important concepts in Kubernetes is that of a `Namespace`.
+      Namespaces are used to organize resources in your cluster.
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 400
+  timelimit: 300
+- slug: deployment
+  id: ibrsq1fnrxyx
+  type: challenge
+  title: Deployments
+  teaser: Running your microservice
+  assignment: |-
+    In the `challenge` namespace you previously created, create a **Deployment** called `app` that runs a single Pod with the `gcr.io/instruqt-shadow/challenge` image.
+
+    The Pod should be labeled with `name = app`.
+
+    If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
+  notes:
+  - type: text
+    contents: One of the fundamental building blocks of Kubernetes is the **Pod**.
+      Pods are a group of one or more containers that are scheduled together, for
+      example a web server and a log collector.
+  - type: text
+    contents: Pods are scheduled onto the cluster with a scheduler. The most common
+      scheduler is a **Deployment**. Deployments let you run, scale, and update your
+      Pods in a declarative fashion.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 300
+- slug: service
+  id: sxvpvju1jlg5
+  type: challenge
+  title: Services
+  teaser: Exposing your microservice to the world
+  assignment: |-
+    In the `challenge` namespace you previously created, create a **Service** called `app` of type `LoadBalancer` that exposes port 3000 of the Pods in the `app` Deployment on port 80.
+
+    cURL or wget the exposed service, and save the output of the service to a file called "output.txt"
+
+    If you need it, there is a template called `service.yaml` that has been created for you. You don't need to use it though :)
+  notes:
+  - type: text
+    contents: "While Deployments run your containers, **Services** tie them all together.
+      Services act a service discovery and load balancing endpoints for your microservices.
+      \nThis allows you to run multiple copies of your app without worrying about
+      how other microservices in the cluster will find them."
+  - type: text
+    contents: Services also let you create Network Load Balancers on GCP, allowing
+      you to expose your microservices directly to the world behind an automatically
+      configured and scalable load balancer.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 300
 - slug: configmaps-secrets
   id: gyahomlke8uv
   type: challenge
   title: ConfigMaps and Secrets
   teaser: Harness the power of distributed environment variables
-  assignment: "Create a ConfigMap called 'app' with a key named 'username', and create
-    a generic Secret called 'app' with a key named 'password'. \n\n Feel free to use
-    any values for the data"
+  assignment: |-
+    In the `challenge` namespace you previously created, create a **ConfigMap** called `app` with a key named `username` with any value.
+
+     Then create a **generic Secret** called `app` with a key named `password` with any value in the challenge namespace.
   notes:
   - type: text
     contents: 'Running your containers is just the tip of the iceberg when it comes
@@ -70,6 +127,32 @@ challenges:
   - type: text
     contents: Kubernetes **Secrets** are similar, except they are for storing confidential
       information.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
   difficulty: basic
-  timelimit: 500
-checksum: "18135955093080520015"
+  timelimit: 300
+- slug: combined
+  id: yyvnqbslzg1g
+  type: challenge
+  title: Putting it all together
+  teaser: A short description of the challenge.
+  assignment: |-
+    Update the `app` Deployment to have an environemnt variable called `USERNAME` that gets its value from the ConfigMap you created, and another environment variable called `PASSWORD` that gets is value from the Secret you created.
+
+    cURL or wget the exposed service, and save the output of the service to a file called "finished.txt"
+
+    If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
+  notes:
+  - type: text
+    contents: Kubernetes makes it easy to update your microservices in a declarative
+      fashion. When a change to a configuration is detected, Kubernetes takes care
+      of redeploying and rolling out the updates.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 300
+checksum: "3434728507664645855"

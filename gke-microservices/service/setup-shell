@@ -1,0 +1,18 @@
+#!/bin/bash
+kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
+
+cat <<EOF > service.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: <?>
+  name: <?>
+spec:
+  selector:
+    <?>: <?>
+  ports:
+  - protocol: TCP
+    port: <?>
+    targetPort: <?>
+  type: <?>
+EOF

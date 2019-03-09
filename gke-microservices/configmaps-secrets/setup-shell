@@ -1,2 +1,2 @@
 #!/bin/bash
-gcloud container clusters get-credentials challenge
+kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used

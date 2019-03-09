@@ -1,0 +1,1 @@
+const s=require('http').createServer((req, res) => res.end(`Username: ${process.env.USERNAME || 'Not Set'}\nPassword: ${process.env.PASSWORD || 'Not Set'}`));s.listen(3000)

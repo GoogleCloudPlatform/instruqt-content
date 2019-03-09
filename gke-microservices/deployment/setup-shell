@@ -1,0 +1,26 @@
+#!/bin/bash
+kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
+
+cat <<EOF > deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: <?>
+  name: <?>
+spec:
+  replicas: <?>
+  selector:
+    matchLabels:
+      name: <?>
+  template:
+    metadata:
+      labels:
+        name: <?>
+    spec:
+      containers:
+      - image: <?>
+        name: app
+        ports:
+          - name: http
+            containerPort: 3000
+EOF

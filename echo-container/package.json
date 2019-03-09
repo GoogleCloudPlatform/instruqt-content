@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "Apache-2.0"
+}

@@ -1,0 +1,13 @@
+#!/bin/bash
+kubectl get service app -n challenge
+if [ $? -ne 0 ]; then
+    fail-message "Could not find Service called 'app' in the namespace 'challenge'"
+    exit 1
+fi
+
+
+kubectl get service app -n challenge -o json | jq -e '.spec.selector != null and .spec.selector.name != null and .spec.selector.name == "app" and .spec.type == "LoadBalancer"'
+if [ $? -ne 0 ]; then
+    fail-message "Service is not configured correctly"
+    exit 1
+fi

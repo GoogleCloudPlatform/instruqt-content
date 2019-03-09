@@ -1,0 +1,35 @@
+slug: cloud-journey
+id: n7ifocquxdr5
+type: track
+title: Cloud Journey
+teaser: A short description of the track.
+description: A Google Cloud RPG
+icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+tags:
+- quest
+owner: google
+developers:
+- sandeepdinesh@google.com
+private: false
+published: false
+challenges:
+- slug: start
+  id: 19foiza2pnpi
+  type: challenge
+  title: Starting your Cloud Journey
+  teaser: Start your Google Cloud quest!
+  assignment: Play the game!
+  tabs:
+  - title: Game
+    type: service
+    hostname: redirect
+    path: /
+    port: 80
+  - title: GCP Console
+    type: service
+    hostname: shell
+    path: /
+    port: 80
+  difficulty: basic
+  timelimit: 600
+checksum: "1865946838284905985"

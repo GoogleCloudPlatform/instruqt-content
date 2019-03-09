@@ -1,6 +1,0 @@
-#!/bin/bash
-gcloud container clusters list --format json | jq -e '.[] | .name == "challenge" and .currentNodeCount == 2 and .nodePools[0].config.machineType == "g1-small"'
-if [ $? -ne 0 ]; then
-    fail-message "Could not find a GKE cluster called 'challenge' with two g1-small VMs"
-    exit 1
-fi
