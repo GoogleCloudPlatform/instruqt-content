@@ -27,7 +27,7 @@ challenges:
   teaser: Create a bucket in either Node.js, Python, and Go.
   assignment: |-
     We have provided you with stubbed out code written in Node.js, Python, and
-    Go. Extend on the code to create Google Cloud Storage Bucket
+    Go. Extend on the code to create Google Cloud Storage Bucket. See help.txt for more information.
   notes:
   - type: video
     url: https://www.youtube.com/embed/1r3vMYywNLk?autoplay=1
