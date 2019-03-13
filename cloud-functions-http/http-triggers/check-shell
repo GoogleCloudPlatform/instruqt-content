@@ -1,0 +1,6 @@
+#!/bin/bash
+value=$(cat result.txt)
+if [ "$value" != 'Hello, Google!' ]; then
+    fail-message "The correct function call output was not saved to a file"
+    exit 1
+fi

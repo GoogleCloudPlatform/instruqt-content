@@ -1,7 +1,7 @@
 slug: cloud-functions-http
 id: xiqfarvnhzx0
 type: track
-title: Cloud Functions - HTTP
+title: Cloud Functions
 teaser: ' Event-driven serverless compute platform '
 description: |-
   # What are Google Cloud Functions?
@@ -29,7 +29,7 @@ challenges:
   assignment: |-
     We have **provided you with a function** written in the different languages (Node.js, Python and Golang) that are supported by Google Cloud Functions.
 
-    Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it, so it returns `Hello, Google` instead of Hello World **when no parameter is passed** into the function.
+    Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it, so it returns `Hello, Google!` instead of Hello, World!.
   notes:
   - type: video
     url: https://www.youtube.com/embed/1r3vMYywNLk?autoplay=1
@@ -44,31 +44,30 @@ challenges:
       to provision any infrastructure** or worry about managing any servers."
   - type: text
     contents: "Cloud Functions can be written using JavaScript, Python or Golang.
-      \n\nYou can take your function and run it in **any standard Node.js 6**, **Node.js
-      8**, **Python 3.7.1**, or **Go 1.11** runtime, which makes both **portability
-      and local testing a breeze**."
+      \n\nYou can take your function and run it in a **Node.js 8**, **Python 3.7.1**,
+      or **Go 1.11** runtime, which makes both **portability and local testing a breeze**."
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 500
+  timelimit: 300
 - slug: deploying-functions
   id: dwfaxegitayy
   type: challenge
   title: Deploying Cloud Functions
   teaser: 'Upload your function''s code to a Google Cloud Storage bucket. '
-  assignment: "Using the **gcloud command-line tool**, deploy your function from the
-    directory containing your function code with the `gcloud functions deploy` command.
-    \n\nTo deploy a Cloud Function, your code must contain a method with the same
-    `name` as the Cloud Function.\n\nChoose one of the available functions and combine
-    it with the corresponding `runtime`.\nThe function should `trigger on http` requests.\n\nNote:
+  assignment: "Using the **gcloud command-line tool**, deploy your function. \n\nTo
+    deploy a Cloud Function, your code must contain a method with the same `name`
+    as the Cloud Function.\n\nChoose one of the available functions and combine it
+    with the corresponding `runtime`.\nThe function should `trigger on http` requests.\n\nNote:
     Deploying a function can take a few minutes."
   notes:
   - type: text
-    contents: "In order to run a function, you need to deploy it to a Google Cloud
-      Project.\n\nDeployments work by uploading an archive containing your function's
-      source code to a Google Cloud Storage bucket. "
+    contents: |-
+      In order to run a function, you need to deploy it to a Google Cloud Project.
+
+      When you deploy your function, Cloud Functions automatically installs dependencies and compile your code if necessary.
   - type: text
     contents: |-
       You can deploy Cloud Functions from your **local machine** or from your **GitHub** or **Bitbucket** source repository.
@@ -79,7 +78,7 @@ challenges:
       gcloud functions deploy NAME --runtime RUNTIME TRIGGER [FLAGS...]
       ```
   - type: text
-    contents: "Runtime can be any of: \n- `node6`\n- `node8`\n- `python37`\n- `go111`"
+    contents: "Runtime can be any of: \n- `nodejs8`\n- `python37`\n- `go111`"
   - type: text
     contents: |-
       Trigger can be any of:
@@ -96,7 +95,7 @@ challenges:
 - slug: direct-triggers
   id: teijt3fxzfop
   type: challenge
-  title: ' Testing Cloud Functions'
+  title: Testing Cloud Functions
   teaser: Trigger your function with the command-line interface to test it's functionality.
   assignment: To test the **previously deployed function**, call it manually by using
     the `gcloud functions call` command.
@@ -121,39 +120,52 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 500
+  timelimit: 300
 - slug: http-triggers
   id: xjf4ojzf0dyg
   type: challenge
   title: Calling Cloud Functions
   teaser: Invoke Cloud Functions with an HTTP request.
-  assignment: Calling functions
+  assignment: "Use `wget`, `cURL` or another method to call your HTTP function and
+    store the result in a file called `result.txt` \n\n Note: You can get your function's
+    URL with the `gcloud functions describe` command"
   notes:
   - type: text
     contents: |-
       You can invoke Cloud Functions with an HTTP request using the `POST`, `PUT`, `GET`, `DELETE`, and `OPTIONS` HTTP methods.
 
       From the caller's perspective, **HTTP invocations are synchronous**, meaning that the result of the function execution will be returned in the response to the HTTP request.
+
+      HTTP Functions automatically get a fully qualified domain name and URL. This allows you to quickly build RESTful APIs and Webhooks that can immediately be used.
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 500
-- slug: writing-logs
-  id: 5re4cy2eakpp
-  type: challenge
-  title: Writing logs
-  teaser: Emit log lines by writing to standard output or standard error.
-  assignment: Writing logs
-  difficulty: basic
-  timelimit: 500
+  timelimit: 300
 - slug: reading-logs
   id: n8ulhbf0b5jw
   type: challenge
   title: Reading logs
   teaser: Read log lines via the gcloud command-line tool.
-  assignment: Reading logs
+  assignment: |-
+    Use `gcloud` to read the logs from your function.
+
+     Note: Your functions is being called in the background every five seconds, so just wait for the logs to show up!
+  notes:
+  - type: text
+    contents: |-
+      One of the simplest ways to debug your application is to use logging. Cloud Functions makes this simple to do.
+      By default, everything sent to `stdout` and `stderr` is automatically sent to **Stackdriver Logging**.
+      You can read these logs in the Stackdriver UI or using the `gcloud` CLI.
+  - type: text
+    contents: |-
+      For more advanced debugging, Cloud Functions supports the **Stackdriver Debugger**.
+      This let's you set watchpoints and debug your function, even in production!
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
   difficulty: basic
-  timelimit: 500
-checksum: "15359291783971647524"
+  timelimit: 300
+checksum: "2878716893534969295"

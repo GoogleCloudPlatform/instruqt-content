@@ -1,13 +1,13 @@
 version: "2"
 containers:
-- name: redirect
-  image: gcr.io/instruqt-shadow/redirect
-  ports:
-  - 80
-  memory: 128
 - name: shell
   image: gcr.io/instruqt-shadow/cloudjourneybootstrap
   shell: /bin/bash
+  ports:
+  - 80
+  memory: 128
+- name: redirect
+  image: gcr.io/instruqt-shadow/redirect
   ports:
   - 80
   memory: 128

@@ -1,0 +1,7 @@
+#!/bin/bash
+ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .entryPoint')
+grep "gcloud functions logs read $ENDPOINT" ~/.bash_history
+if [ $? -ne 0 ]; then
+    fail-message "Functions logs have not been read with gcloud"
+    exit 1
+fi

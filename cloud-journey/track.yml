@@ -2,16 +2,16 @@ slug: cloud-journey
 id: n7ifocquxdr5
 type: track
 title: Cloud Journey
-teaser: A short description of the track.
+teaser: Start your Google Cloud adventure!
 description: A Google Cloud RPG
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/default.png
+icon: https://cdn.instruqt.com/arcade/images/developer-animated.gif
 tags:
 - quest
 owner: google
 developers:
 - sandeepdinesh@google.com
 private: false
-published: false
+published: true
 challenges:
 - slug: start
   id: 19foiza2pnpi
@@ -19,6 +19,9 @@ challenges:
   title: Starting your Cloud Journey
   teaser: Start your Google Cloud quest!
   assignment: Play the game!
+  notes:
+  - type: video
+    url: https://www.youtube.com/embed/4D3X6Xl5c_Y?autoplay=1
   tabs:
   - title: Game
     type: service
@@ -32,4 +35,4 @@ challenges:
     port: 80
   difficulty: basic
   timelimit: 600
-checksum: "1865946838284905985"
+checksum: "1377146633518556837"

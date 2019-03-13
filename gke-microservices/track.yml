@@ -1,12 +1,12 @@
 slug: gke-microservices
 id: 3ugxzwhjqfp6
 type: track
-title: Microservices on Google Kubernetes Engine
+title: Google Kubernetes Engine
 teaser: Are you a master of microservices?
 description: |-
   Kubernetes Engine is a managed, production-ready environment for deploying and managing containerized applications. It brings our latest innovations in developer productivity, resource efficiency, automated operations, and open source flexibility to accelerate your time to market.
 
-  Kubernetes gives you the power to create, deploy and manage microservices, and Kubernetes Engine gives you this power in a fully managed environemnt.
+  Kubernetes gives you the power to create, deploy and manage microservices, and Kubernetes Engine gives you this power in a fully managed environment.
 
   Are you a GKE expert? Think you have what it takes to manage some microservices? Let's find out!
 icon: https://storage.googleapis.com/instruqt-shadow-resources/gke.png
@@ -34,12 +34,12 @@ challenges:
   - type: text
     contents: "Google Kubernetes Engine is a **fully managed and enterprise grade**
       Kubernetes platform. \n\nWith Kubernetes Engine you can focus on deploying and
-      managing **containerized microservices** while leaving the **node, netowrk,
-      and other low level maintence** to Google."
+      managing **containerized microservices** while leaving the **node, network,
+      and other low level maintenance** to Google."
   - type: text
     contents: "Kubernetes Engine is a **Certified Kubernetes** platform with many
       additional features designed to give you the power and flexibility you need.
-      \n\nFrom **built in autoscaling, VPC native netowrking, global load balancing,
+      \n\nFrom **built in autoscaling, VPC native networking, global load balancing,
       and addons like Knative and Istio**, Kubernetes Engine gives you the tools you
       need to build **cloud native applications**."
   - type: text
@@ -122,7 +122,7 @@ challenges:
   - type: text
     contents: Kubernetes **ConfigMaps** allow you to decouple configuration artifacts
       from image content to keep containerized applications portable. ConfigMaps allow
-      envrionment specific data and files to be injected into your containers at runtime,
+      environment specific data and files to be injected into your containers at runtime,
       allowing containers to be reused more easily.
   - type: text
     contents: Kubernetes **Secrets** are similar, except they are for storing confidential
@@ -139,7 +139,7 @@ challenges:
   title: Putting it all together
   teaser: A short description of the challenge.
   assignment: |-
-    Update the `app` Deployment to have an environemnt variable called `USERNAME` that gets its value from the ConfigMap you created, and another environment variable called `PASSWORD` that gets is value from the Secret you created.
+    Update the `app` Deployment to have an environment variable called `USERNAME` that gets its value from the ConfigMap you created, and another environment variable called `PASSWORD` that gets is value from the Secret you created.
 
     cURL or wget the exposed service, and save the output of the service to a file called "finished.txt"
 
@@ -155,4 +155,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 300
-checksum: "3434728507664645855"
+checksum: "16668188069137876348"
