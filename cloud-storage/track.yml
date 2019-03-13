@@ -1,25 +1,27 @@
 slug: cloud-storage
+id: jm5jv3harqya
 type: track
 title: Storage Products - Google Cloud Storage
 teaser: Unified object storage for developers and enterprises.
 description: |-
-    # What is Google Cloud Storage?
+  # What is Google Cloud Storage?
 
-    Cloud Storage allows world-wide storage and retrieval of any amount of data
-    at any time. You can use Cloud Storage for a range of scenarios including
-    serving website content, storing data for archival and disaster recovery,
-    or distributing large data objects to users via direct download.
+  Cloud Storage allows world-wide storage and retrieval of any amount of data
+  at any time. You can use Cloud Storage for a range of scenarios including
+  serving website content, storing data for archival and disaster recovery,
+  or distributing large data objects to users via direct download.
 icon: https://storage.googleapis.com/instruqt-shadow-resources/cloud-storage.png
-tags: []
+tags:
+- cloud
+- storage
 owner: google
 developers:
 - bencoe@google.com
-- laylas@google.com
 private: true
 published: true
 challenges:
 - slug: creating-buckets
-  id: c1ebc864-6ec7-46a4-bcb2-0dd3d6c97872
+  id: hmbjhukm8uto
   type: challenge
   title: Create a Bucket
   teaser: Create a bucket in either Node.js, Python, and Go.
@@ -35,3 +37,4 @@ challenges:
     hostname: shell
   difficulty: intermediate
   timelimit: 500
+checksum: "15761287388122576613"

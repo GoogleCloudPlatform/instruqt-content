@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> .bashrc
+
+cat <<EOF > create-bucket.js
+// provides an authenticated client for interacting with the
+// Google Cloud Storage API. See js-docs.txt, for JavaScript API
+// documentation.
+const foo = 'bar'
+EOF

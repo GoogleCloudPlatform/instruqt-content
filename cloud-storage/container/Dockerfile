@@ -2,6 +2,11 @@
 # so that folks can play with the cloud storage API.
 FROM ubuntu:xenial
 
+# install text editors
+
+# install cloud SDK.
+
+
 # install curl.
 RUN apt-get update && \
     apt-get install -y curl software-properties-common
