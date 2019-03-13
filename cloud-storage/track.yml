@@ -1,0 +1,37 @@
+slug: cloud-storage
+type: track
+title: Storage Products - Google Cloud Storage
+teaser: Unified object storage for developers and enterprises.
+description: |-
+    # What is Google Cloud Storage?
+
+    Cloud Storage allows world-wide storage and retrieval of any amount of data
+    at any time. You can use Cloud Storage for a range of scenarios including
+    serving website content, storing data for archival and disaster recovery,
+    or distributing large data objects to users via direct download.
+icon: https://storage.googleapis.com/instruqt-shadow-resources/cloud-storage.png
+tags: []
+owner: google
+developers:
+- bencoe@google.com
+- laylas@google.com
+private: true
+published: true
+challenges:
+- slug: creating-buckets
+  id: c1ebc864-6ec7-46a4-bcb2-0dd3d6c97872
+  type: challenge
+  title: Create a Bucket
+  teaser: Create a bucket in either Node.js, Python, and Go.
+  assignment: |-
+    We have provided you with stubbed out code written in Node.js, Python, and
+    Go. Extend on the code to create Google Cloud Storage Bucket
+  notes:
+  - type: video
+    url: https://www.youtube.com/embed/1r3vMYywNLk?autoplay=1
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: intermediate
+  timelimit: 500

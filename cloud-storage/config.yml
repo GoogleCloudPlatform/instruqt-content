@@ -1,0 +1,10 @@
+version: "2"
+containers:
+- name: shell
+  image: gcr.io/instruqt-shadow/cloud-storage
+  shell: /bin/bash
+  memory: 128
+gcp_projects:
+- name: cloud-functions
+  services:
+  - storage-api.googleapis.com
