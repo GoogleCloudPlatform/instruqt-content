@@ -34,5 +34,5 @@ challenges:
     path: /
     port: 80
   difficulty: basic
-  timelimit: 600
-checksum: "1377146633518556837"
+  timelimit: 1500
+checksum: "6931857129850610263"
