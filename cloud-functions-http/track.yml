@@ -18,7 +18,7 @@ tags:
 owner: google
 developers:
 - sandeepdinesh@google.com
-private: true
+private: false
 published: true
 challenges:
 - slug: writing-functions
@@ -168,4 +168,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 300
-checksum: "14102681396672776921"
+checksum: "4908300260048383438"
