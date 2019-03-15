@@ -13,20 +13,21 @@ echo "/usr/local/lib/google-cloud-sdk/bin/gcloud auth activate-service-account -
 printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\" ]\nthen\n  /usr/local/lib/google-cloud-sdk/bin/gcloud config set project \$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\nfi\n" >> ~/.bashrc
 echo "export GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
 
+echo $(/usr/local/bin/uuid) > /usr/local/lib/UUID
+
 cat <<EOF > example.js
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage')
 
 // Globally unique bucket name (don't change this).
-const bucketName = "bucket-$(/usr/local/bin/uuid)"
+const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
 
 // An authenticated storage API client.
 const storage = new Storage()
 
 async function createBucket () {
-    // Create a bucket using the storage instance (which has already been initialized).
-    // Run ./nodejs-docs to read through code examples, including a demonstration of
-    // using the createBucket instance method.
+    // Implement the logic for creating a bucket
+    // named bucketName.
 }
 
 createBucket()

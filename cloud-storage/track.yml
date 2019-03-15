@@ -44,4 +44,18 @@ challenges:
     hostname: shell
   difficulty: intermediate
   timelimit: 800
-checksum: "5713579762937329950"
+- slug: uploading
+  id: fuf3z0i5im2d
+  type: challenge
+  title: Uploading to Bucket
+  teaser: Upload content to a bucket.
+  assignment: |-
+    We have provided you with stubbed out code written in Node.js and Python (
+    example.js, and example.py).
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: intermediate
+  timelimit: 800
+checksum: "16965069914522353925"

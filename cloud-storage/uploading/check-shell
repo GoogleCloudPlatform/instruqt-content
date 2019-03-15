@@ -1,0 +1,6 @@
+ln -sf /root/node_modules /usr/local/lib/google-cloud-sdk/bin/node_modules
+node /usr/local/lib/google-cloud-sdk/bin/check-for-file.js bar.txt
+if [ $? -ne 0 ]; then
+    fail-message "We could not find the file bar.txt in the bucket."
+    exit 1
+fi

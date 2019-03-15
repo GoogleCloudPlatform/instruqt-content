@@ -1,0 +1,43 @@
+#!/bin/bash
+
+cat <<EOF > example.js
+// Imports the Google Cloud client library
+const {Storage} = require('@google-cloud/storage')
+
+// Globally unique bucket name (don't change this).
+const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
+
+// An authenticated storage API client.
+const storage = new Storage()
+
+async function uploadFile () {
+    // Implement the logic for uploading the file
+    // ./foo.txt to the remote bucket, with the name
+    // bar.txt. 
+}
+
+uploadFile()
+EOF
+
+cat <<EOF > foo.txt
+hello world!
+EOF
+
+cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-for-file.js
+const {Storage} = require('@google-cloud/storage')
+const storage = new Storage()
+const name = process.argv[2]
+const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
+async function checkForFile () {
+    const [files] = await storage.bucket(bucketName).getFiles()
+    let foundFile = false
+    files.forEach(file => {
+        if (file.name === name) foundFile = true
+    });
+    if (!foundFile) {
+        console.error('could not find file ' + name)
+        process.exit(1)
+    }
+}
+checkForFile()
+EOF
