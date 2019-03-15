@@ -2,9 +2,7 @@
 
 rm /root/foo.txt
 
-gsutil cp /usr/local/lib/buddy.png gs://bucket-$(cat /usr/local/lib/UUID)/challenge.png
-
-cat <<EOF > example.js
+cat <<EOF > challenge.js
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage')
 
@@ -14,5 +12,50 @@ const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
 // An authenticated storage API client.
 const storage = new Storage()
 
-// tk tk tk.
+// put your code here for downloading challenge.png.
+EOF
+
+cat <<EOF > code-sample.js
+// Imports the Google Cloud client library
+const {Storage} = require('@google-cloud/storage');
+
+// Creates a client
+const storage = new Storage();
+
+/**
+ * TODO(developer): Uncomment the following lines before running the sample.
+ */
+// const bucketName = 'Name of a bucket, e.g. my-bucket';
+// const srcFilename = 'Remote file to download, e.g. file.txt';
+// const destFilename = 'Local destination for file, e.g. ./local/path/to/file.txt';
+
+const options = {
+  // The path to which the file should be downloaded, e.g. "./file.txt"
+  destination: destFilename,
+};
+
+// Downloads the file
+await storage
+  .bucket(bucketName)
+  .file(srcFilename)
+  .download(options);
+
+console.log(
+  `gs://${bucketName}/${srcFilename} downloaded to ${destFilename}.`
+);
+EOF
+
+cat <<EOF > answer.txt
+// what was challenge.png a picture of? on the last line of this file, type
+// one of: horse, television, house, person, dog, orange.
+EOF
+
+cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-answer.js
+const {readFileSync} = require('fs')
+const lines = readFileSync('/root/answer.txt', 'utf8').trim().split('\n')
+const lastLine = lines[lines.length - 1].toLowerCase()
+if (lastLine !== 'dog') {
+    console.error('incorrect answer')
+    process.exit(1)
+}
 EOF

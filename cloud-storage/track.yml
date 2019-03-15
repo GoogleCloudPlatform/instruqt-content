@@ -58,25 +58,16 @@ challenges:
     hostname: shell
   difficulty: intermediate
   timelimit: 800
-checksum: "576371690274202991"
 - slug: downloading
-  type: quiz
+  id: uuvgtwfpmtsd
+  type: challenge
   title: Downloading an Image
   teaser: Download an image from a bucket.
-  assignment: |-
-    Using the command print-png, tell us what the image challenge.png is`.
-  answers:
-    - Horse
-    - House
-    - President
-    - Dog
-    - Potato
-  solution:
-    - 4
+  assignment: Using the command print-png, tell us what the image challenge.png is`.
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: intermediate
   timelimit: 800
-checksum: "576371690274202991"
+checksum: "17456815433961598934"
