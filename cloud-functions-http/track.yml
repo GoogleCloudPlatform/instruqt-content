@@ -126,9 +126,9 @@ challenges:
   type: challenge
   title: Calling Cloud Functions
   teaser: Invoke Cloud Functions with an HTTP request.
-  assignment: "Use `wget`, `cURL` or another method to call your HTTP function and
-    store the result in a file called `result.txt` \n\n Note: You can get your function's
-    URL with the `gcloud functions describe` command"
+  assignment: "Use `curl -o result.txt <URL>` or another method to call your HTTP
+    function and store the result in a file called `result.txt` \n\n Note: You can
+    get your function's URL with the `gcloud functions describe` command"
   notes:
   - type: text
     contents: |-
@@ -151,7 +151,7 @@ challenges:
   assignment: |-
     Use `gcloud` to read the logs from your function.
 
-     Note: Your functions is being called in the background every five seconds, so just wait for the logs to show up!
+     Note: Your functions is being called in the background every minute, so just wait for the logs to show up!
   notes:
   - type: text
     contents: |-
@@ -168,4 +168,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 300
-checksum: "2878716893534969295"
+checksum: "14102681396672776921"

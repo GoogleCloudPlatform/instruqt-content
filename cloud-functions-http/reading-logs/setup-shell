@@ -1,7 +1,0 @@
-#!/bin/bash
-ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .entryPoint')
-while true
-do
-  gcloud functions call $ENDPOINT 
-  sleep 2
-done &

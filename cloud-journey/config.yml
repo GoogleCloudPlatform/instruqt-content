@@ -5,7 +5,7 @@ containers:
   shell: /bin/bash
   ports:
   - 80
-  memory: 128
+  memory: 256
 - name: redirect
   image: gcr.io/instruqt-shadow/redirect
   ports:
@@ -15,7 +15,7 @@ gcp_projects:
 - name: gcp-project
   services:
   - cloudresourcemanager.googleapis.com
-  - compute.googleapis.com
-  - bigquery-json.googleapis.com
   - appengine.googleapis.com
-  - cloudfunctions.googleapis.com
+  - storage-component.googleapis.com
+  - storage-api.googleapis.com
+  - serviceusage.googleapis.com

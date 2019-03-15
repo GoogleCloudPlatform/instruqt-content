@@ -33,6 +33,9 @@ challenges:
     hostname: shell
     path: /
     port: 80
+  - title: GCP Console
+    type: terminal
+    hostname: shell
   difficulty: basic
   timelimit: 1500
-checksum: "6931857129850610263"
+checksum: "4018752037953353271"

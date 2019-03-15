@@ -1,2 +1,4 @@
 #!/bin/bash
-apt-get install wget
+gcloud app create --region=us-central -q
+ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .httpsTrigger.url')
+gcloud beta scheduler jobs create http pinggcf --schedule="* * * * *" --uri="${ENDPOINT}" --http-method="get"
