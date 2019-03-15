@@ -27,7 +27,7 @@ challenges:
   teaser: Create a bucket in either Node.js or Python.
   assignment: |-
     We have provided you with stubbed out code written in Node.js and Python (
-    example.js, and example.py).
+    challenge.js, and challenge.py).
 
     Read the appropriate Cloud Storage docs, by running ./nodejs-docs, or ./python-docs.
     And finish implementing the logic for creating a bucket (you may use
@@ -51,7 +51,28 @@ challenges:
   teaser: Upload content to a bucket.
   assignment: |-
     We have provided you with stubbed out code written in Node.js and Python (
-    example.js, and example.py).
+    challenge.js, and challenge.py).
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: intermediate
+  timelimit: 800
+checksum: "576371690274202991"
+- slug: downloading
+  type: quiz
+  title: Downloading an Image
+  teaser: Download an image from a bucket.
+  assignment: |-
+    Using the command print-png, tell us what the image challenge.png is`.
+  answers:
+    - Horse
+    - House
+    - President
+    - Dog
+    - Potato
+  solution:
+    - 4
   tabs:
   - title: Shell
     type: terminal

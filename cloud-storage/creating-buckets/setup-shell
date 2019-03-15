@@ -2,6 +2,7 @@
 
 # default to Python 3.
 echo "alias python=python3" >> /root/.bashrc
+echo "alias print-png="
 
 # gcloud installs with the CHECKSUM not present in all
 # necessry folders *shrug emoji*.
@@ -16,6 +17,11 @@ echo "ln -s /usr/local/lib/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud" >>
 echo "ln -s /usr/local/lib/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil" >> /root/.bashrc
 
 echo $(/usr/local/bin/uuid) > /usr/local/lib/UUID
+
+cat <<EOF > /usr/local/bin/print-png
+tiv -256 "$@"
+EOF
+chmod 755 /usr/local/bin/print-png
 
 cat <<EOF > challenge.js
 // Imports the Google Cloud client library

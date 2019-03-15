@@ -38,3 +38,5 @@ RUN git clone https://github.com/stefanhaustein/TerminalImageViewer.git && \
 
 # cleanup libraries used during building.
 RUN apt-get remove -y git build-essential
+
+COPY ./buddy.png /usr/local/lib/buddy.png
