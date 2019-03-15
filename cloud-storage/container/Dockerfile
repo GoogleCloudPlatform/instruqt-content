@@ -5,7 +5,7 @@ FROM ubuntu:xenial
 # install curl and other dependencies.
 RUN apt-get update && \
     apt-get install -y curl software-properties-common \
-    emacs vim nano imagemagick build-essential git lynx
+    emacs vim nano imagemagick build-essential git
 
 # install node.js
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash

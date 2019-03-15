@@ -12,10 +12,12 @@ printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY\" ]
 echo "/usr/local/lib/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
 printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\" ]\nthen\n  /usr/local/lib/google-cloud-sdk/bin/gcloud config set project \$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\nfi\n" >> ~/.bashrc
 echo "export GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
+echo "ln -s /usr/local/lib/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud" >> /root/.bashrc
+echo "ln -s /usr/local/lib/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil" >> /root/.bashrc
 
 echo $(/usr/local/bin/uuid) > /usr/local/lib/UUID
 
-cat <<EOF > example.js
+cat <<EOF > challenge.js
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage')
 
@@ -26,17 +28,42 @@ const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
 const storage = new Storage()
 
 async function createBucket () {
-    // Implement the logic for creating a bucket
-    // named bucketName.
+  // Implement the logic for creating a bucket
+  // named bucketName.
 }
 
 createBucket()
 EOF
 
-cat <<EOF > nodejs-docs
-lynx https://raw.githubusercontent.com/googleapis/nodejs-storage/master/samples/buckets.js
+cat <<EOF > code-sample.js
+// [START storage_create_bucket]
+// Imports the Google Cloud client library
+const {Storage} = require('@google-cloud/storage');
+
+// Creates a client
+const storage = new Storage();
+
+/**
+* TODO(developer): Uncomment the following line before running the sample.
+*/
+// const bucketName = 'Name of a bucket, e.g. my-bucket';
+
+// Creates a new bucket in the Asia region with the coldline default storage
+// class. Leave the second argument blank for default settings.
+//
+// For default values see: https://cloud.google.com/storage/docs/locations and
+// https://cloud.google.com/storage/docs/storage-classes
+await storage.createBucket(bucketName, {
+  location: 'ASIA',
+  storageClass: 'COLDLINE',
+});
+
+console.log(`Bucket ${bucketName} created.`);
+// [END storage_create_bucket]
+
+// don't forget to run your code when it's ready:
+// node challenge.js
 EOF
-chmod 755 nodejs-docs
 
 cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/require-n-buckets.js
 const {Storage} = require('@google-cloud/storage');
