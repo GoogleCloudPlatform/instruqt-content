@@ -1,10 +1,52 @@
 #!/bin/bash
 
-echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> .bashrc
+# default to Python 3.
+echo "alias python=python3" >> /root/.bashrc
 
-cat <<EOF > create-bucket.js
-// provides an authenticated client for interacting with the
-// Google Cloud Storage API. See js-docs.txt, for JavaScript API
-// documentation.
-const foo = 'bar'
+# gcloud installs with the CHECKSUM not present in all
+# necessry folders *shrug emoji*.
+cp /usr/local/lib/google-cloud-sdk/platform/gsutil/CHECKSUM /usr/local/lib/google-cloud-sdk/platform/gsutil/gslib/CHECKSUM
+
+# output and load GCP credentials.
+printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY\" ]\nthen\n  node -e \"console.info(Buffer.from(process.env.INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'))\" > /root/.config/gcloud/default_credentials.json\nfi\n" >> ~/.bashrc
+echo "/usr/local/lib/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
+printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\" ]\nthen\n  /usr/local/lib/google-cloud-sdk/bin/gcloud config set project \$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\nfi\n" >> ~/.bashrc
+echo "export GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
+
+cat <<EOF > example.js
+// Imports the Google Cloud client library
+const {Storage} = require('@google-cloud/storage')
+
+// Globally unique bucket name (don't change this).
+const bucketName = "bucket-$(/usr/local/bin/uuid)"
+
+// An authenticated storage API client.
+const storage = new Storage()
+
+async function createBucket () {
+    // Create a bucket using the storage instance (which has already been initialized).
+    // Run ./nodejs-docs to read through code examples, including a demonstration of
+    // using the createBucket instance method.
+}
+
+createBucket()
+EOF
+
+cat <<EOF > nodejs-docs
+lynx https://raw.githubusercontent.com/googleapis/nodejs-storage/master/samples/buckets.js
+EOF
+chmod 755 nodejs-docs
+
+cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/require-n-buckets.js
+const {Storage} = require('@google-cloud/storage');
+const storage = new Storage();
+const n = Number(process.argv[2])
+async function listBuckets () {
+    const [buckets] = await storage.getBuckets();
+    if (buckets.length < n) {
+        console.error('expected ' + n + ' buckets, got ' + buckets.length)
+        process.exit(1)
+    }
+}
+listBuckets()
 EOF

@@ -1,5 +1,6 @@
-grep "Google" function.*
+ln -s /root/node_modules /usr/local/lib/google-cloud-sdk/bin/node_modules
+node /usr/local/lib/google-cloud-sdk/bin/require-n-buckets.js 1
 if [ $? -ne 0 ]; then
-    fail-message "None of the functions return 'Hello, Google!' when no parameters are passed in."
+    fail-message "You do not appear to have created any buckets."
     exit 1
 fi
