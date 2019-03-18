@@ -29,7 +29,7 @@ challenges:
   assignment: |-
     We have **provided you with a function** written in the different languages (Node.js, Python and Golang) that are supported by Google Cloud Functions.
 
-    Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it, so it returns `Hello, Google!` instead of Hello, World!.
+    Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it, so it returns **Hello, Google!** instead of Hello, World!.
   notes:
   - type: video
     url: https://www.youtube.com/embed/1r3vMYywNLk?autoplay=1
@@ -60,7 +60,7 @@ challenges:
   assignment: "Using the **gcloud command-line tool**, deploy your function. \n\nTo
     deploy a Cloud Function, your code must contain a method with the same `name`
     as the Cloud Function.\n\nChoose one of the available functions and combine it
-    with the corresponding `runtime`.\nThe function should `trigger on http` requests.\n\nNote:
+    with the corresponding `runtime`.\nThe function should **trigger on http** requests.\n\nNote:
     Deploying a function can take a few minutes."
   notes:
   - type: text
@@ -126,8 +126,8 @@ challenges:
   type: challenge
   title: Calling Cloud Functions
   teaser: Invoke Cloud Functions with an HTTP request.
-  assignment: "Use `curl -o result.txt <URL>` or another method to call your HTTP
-    function and store the result in a file called `result.txt` \n\n Note: You can
+  assignment: "Use **curl -o result.txt <URL>** or another method to call your HTTP
+    function and store the result in a file called **result.txt** \n\n Note: You can
     get your function's URL with the `gcloud functions describe` command"
   notes:
   - type: text
@@ -149,7 +149,7 @@ challenges:
   title: Reading logs
   teaser: Read log lines via the gcloud command-line tool.
   assignment: |-
-    Use `gcloud` to read the logs from your function.
+    Use **gcloud** to read the logs from your function.
 
      Note: Your functions is being called in the background every minute, so just wait for the logs to show up!
   notes:

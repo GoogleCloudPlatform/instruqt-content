@@ -27,9 +27,9 @@ challenges:
   title: Create a namespace
   teaser: Let's start easy
   assignment: |-
-    A GKE Cluster has been provisioned for you, and the `kubectl` CLI has been pre-authenticated.
+    A GKE Cluster has been provisioned for you, and the **kubectl** CLI has been pre-authenticated.
 
-    Create a namespace called `challenge`
+    Create a namespace called **challenge**
   notes:
   - type: text
     contents: "Google Kubernetes Engine is a **fully managed and enterprise grade**
@@ -43,7 +43,7 @@ challenges:
       and addons like Knative and Istio**, Kubernetes Engine gives you the tools you
       need to build **cloud native applications**."
   - type: text
-    contents: One of the most important concepts in Kubernetes is that of a `Namespace`.
+    contents: One of the most important concepts in Kubernetes is that of a **Namespace**.
       Namespaces are used to organize resources in your cluster.
   tabs:
   - title: Shell
@@ -57,9 +57,9 @@ challenges:
   title: Deployments
   teaser: Running your microservice
   assignment: |-
-    In the `challenge` namespace you previously created, create a **Deployment** called `app` that runs a single Pod with the `gcr.io/instruqt-shadow/challenge` image.
+    In the **challenge** namespace you previously created, create a **Deployment** called **app** that runs a single Pod with the **gcr.io/instruqt-shadow/challenge** image.
 
-    The Pod should be labeled with `name = app`.
+    The Pod should be labeled with **name = app**.
 
     If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
   notes:
@@ -83,9 +83,9 @@ challenges:
   title: Services
   teaser: Exposing your microservice to the world
   assignment: |-
-    In the `challenge` namespace you previously created, create a **Service** called `app` of type `LoadBalancer` that exposes port 3000 of the Pods in the `app` Deployment on port 80.
+    In the **challenge** namespace you previously created, create a **Service** called **app** of type **LoadBalancer** that routes traffic from port 80 to port 3000 of the pods in the `app` Deployment.
 
-    cURL or wget the exposed service, and save the output of the service to a file called "output.txt"
+    cURL the exposed service, and save the output of the service to a file called **output.txt**
 
     If you need it, there is a template called `service.yaml` that has been created for you. You don't need to use it though :)
   notes:
@@ -110,9 +110,9 @@ challenges:
   title: ConfigMaps and Secrets
   teaser: Harness the power of distributed environment variables
   assignment: |-
-    In the `challenge` namespace you previously created, create a **ConfigMap** called `app` with a key named `username` with any value.
+    In the **challenge** namespace you previously created, create a **ConfigMap** called **app** with a key named **username** with _any value_.
 
-     Then create a **generic Secret** called `app` with a key named `password` with any value in the challenge namespace.
+     Then create a **generic Secret** called **app** with a key named **password** with _any value_ in the challenge namespace.
   notes:
   - type: text
     contents: 'Running your containers is just the tip of the iceberg when it comes
@@ -139,9 +139,9 @@ challenges:
   title: Putting it all together
   teaser: A short description of the challenge.
   assignment: |-
-    Update the `app` Deployment to have an environment variable called `USERNAME` that gets its value from the ConfigMap you created, and another environment variable called `PASSWORD` that gets is value from the Secret you created.
+    Update the **app** Deployment to have an **environment variable** called **USERNAME** that gets its value from the ConfigMap you created, and another environment variable called **PASSWORD** that gets is value from the Secret you created.
 
-    cURL or wget the exposed service, and save the output of the service to a file called "finished.txt"
+    cURL the exposed service, and save the output of the service to a file called **finished.txt**
 
     If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
   notes:
