@@ -76,7 +76,7 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 500
 - slug: service
   id: sxvpvju1jlg5
   type: challenge
@@ -103,7 +103,7 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 600
 - slug: configmaps-secrets
   id: gyahomlke8uv
   type: challenge
@@ -132,7 +132,7 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 600
 - slug: combined
   id: yyvnqbslzg1g
   type: challenge
@@ -154,5 +154,5 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 500
 checksum: "9784726805199188273"

@@ -51,7 +51,7 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 500
 - slug: deploying-functions
   id: dwfaxegitayy
   type: challenge
@@ -91,7 +91,7 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 500
+  timelimit: 600
 - slug: direct-triggers
   id: teijt3fxzfop
   type: challenge
@@ -120,7 +120,7 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 500
 - slug: http-triggers
   id: xjf4ojzf0dyg
   type: challenge
@@ -142,7 +142,7 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 500
 - slug: reading-logs
   id: n8ulhbf0b5jw
   type: challenge
@@ -167,5 +167,5 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 500
 checksum: "4908300260048383438"
