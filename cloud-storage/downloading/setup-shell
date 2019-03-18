@@ -7,12 +7,13 @@ cat <<EOF > challenge.js
 const {Storage} = require('@google-cloud/storage')
 
 // Globally unique bucket name (don't change this).
-const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
+const bucketName = process.env.BUCKET_NAME
 
 // An authenticated storage API client.
 const storage = new Storage()
 
-// put your code here for downloading challenge.png.
+// put your code here for downloading the .png image in
+// bucket-$(cat /usr/local/lib/UUID).
 EOF
 
 cat <<EOF > code-sample.js
@@ -46,8 +47,8 @@ console.log(
 EOF
 
 cat <<EOF > answer.txt
-// what was challenge.png a picture of? on the last line of this file, type
-// one of: horse, television, house, person, dog, orange.
+What was the .png an image of? (On the next line of this file type
+one of: horse, television, house, person, dog, orange).
 EOF
 
 cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-answer.js

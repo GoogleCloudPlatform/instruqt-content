@@ -17,7 +17,7 @@ tags:
 owner: google
 developers:
 - bencoe@google.com
-private: true
+private: false
 published: true
 challenges:
 - slug: creating-buckets
@@ -29,21 +29,23 @@ challenges:
     We have provided you with stubbed out code written in Node.js and Python (
     challenge.js, and challenge.py).
 
-    Read the appropriate Cloud Storage docs, by running ./nodejs-docs, or ./python-docs.
-    And finish implementing the logic for creating a bucket (you may use
-    vim, nano, or emacs as your editor).
+    Using this code as a starting point, create a bucket using the environment
+    variable $BUCKET_NAME.
 
-    Use python or node to execute your application, and then click "check" to test
-    your solution.
+    Click "Check" when you've done so.
   notes:
-  - type: video
-    url: https://www.youtube.com/embed/1r3vMYywNLk?autoplay=1
+  - type: text
+    contents: |-
+      Buckets are a lot like folders on your computer, they provide a central
+      place for you to store binary data for your application.
+
+      In this first challenge, you will create a bucket.
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: intermediate
-  timelimit: 800
+  timelimit: 300
 - slug: uploading
   id: fuf3z0i5im2d
   type: challenge
@@ -52,22 +54,35 @@ challenges:
   assignment: |-
     We have provided you with stubbed out code written in Node.js and Python (
     challenge.js, and challenge.py).
+  notes:
+  - type: text
+    contents: In this next challenge you will upload a file to the bucket.
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: intermediate
-  timelimit: 800
+  timelimit: 300
 - slug: downloading
   id: uuvgtwfpmtsd
   type: challenge
   title: Downloading an Image
   teaser: Download an image from a bucket.
-  assignment: Using the command print-png, tell us what the image challenge.png is`.
+  assignment: |-
+    We've uploaded a .png image to the bucket you created in the previous
+    challenge.
+
+    Use the tool print-png to tell us what the image is, by answering the
+    question in answer.txt.
+  notes:
+  - type: text
+    contents: |-
+      In the last challenge you will download an image from the bucket,
+      and tell us what it is.
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: intermediate
-  timelimit: 800
-checksum: "17456815433961598934"
+  timelimit: 300
+checksum: "14308444460331296080"

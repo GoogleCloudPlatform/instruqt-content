@@ -10,14 +10,15 @@ cp /usr/local/lib/google-cloud-sdk/platform/gsutil/CHECKSUM /usr/local/lib/googl
 
 # output and load GCP credentials.
 printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY\" ]\nthen\n  node -e \"console.info(Buffer.from(process.env.INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'))\" > /root/.config/gcloud/default_credentials.json\nfi\n" >> ~/.bashrc
-echo "/usr/local/lib/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
+echo "/usr/local/lib/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=/root/.config/gcloud/default_credentials.json &>/dev/null" >> /root/.bashrc
 echo "gsutil cp /usr/local/lib/buddy.png gs://bucket-\$(cat /usr/local/lib/UUID)/challenge.png &>/dev/null" >> /root/.bashrc
-printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\" ]\nthen\n  /usr/local/lib/google-cloud-sdk/bin/gcloud config set project \$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\nfi\n" >> ~/.bashrc
+printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\" ]\nthen\n  /usr/local/lib/google-cloud-sdk/bin/gcloud config set project \$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID &>/dev/null\nfi\n" >> ~/.bashrc
 echo "export GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
 echo "ln -sf /usr/local/lib/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud" >> /root/.bashrc
 echo "ln -sf /usr/local/lib/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil" >> /root/.bashrc
 
 echo $(/usr/local/bin/uuid) > /usr/local/lib/UUID
+echo "export BUCKET_NAME=bucket-\$(cat /usr/local/lib/UUID)" >> /root/.bashrc
 
 cat <<EOF > /usr/local/bin/print-png
 tiv -256 "\$@"
@@ -29,7 +30,7 @@ cat <<EOF > challenge.js
 const {Storage} = require('@google-cloud/storage')
 
 // Globally unique bucket name (don't change this).
-const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
+const bucketName = process.env.BUCKET_NAME
 
 // An authenticated storage API client.
 const storage = new Storage()

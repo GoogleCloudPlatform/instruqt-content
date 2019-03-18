@@ -26,7 +26,7 @@ cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-for-file.js
 const {Storage} = require('@google-cloud/storage')
 const storage = new Storage()
 const name = process.argv[2]
-const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
+const bucketName = process.env.BUCKET_NAME
 async function checkForFile () {
     const [files] = await storage.bucket(bucketName).getFiles()
     let foundFile = false
