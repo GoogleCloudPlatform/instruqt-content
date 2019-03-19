@@ -1,6 +1,46 @@
 #!/bin/bash
 
-cat <<EOF > challenge.js
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, upload
+the local file foo.txt to a file named bar.txt in the bucket you created in the
+last challenge.
+
+If you use python, JavaScript, or go, ensure that you run your application
+(with python, node, or go respectively).
+
+Feeling stuck? run gsutil --help, or cat help.txt.
+
+Hit the "Check" button when you are done.
+
+Coding Your Solution
+-------------------------------
+
+If you run 'ls', you will see folders for each supported language; currently
+python, node (JavaScript), and go.
+
+Use 'cd' to enter one of these folders. There will be a file with the name
+'code-sample' and a file with the name 'challenge' (with an extension
+corresponding to the language you're using).
+
+If you need help getting started, use 'cat' to display the code sample.
+
+Once you're ready to write some code, use vim, nano, or emacs to edit the
+challenge file.
+
+Before clicking the "Check" button, run your application with node, go, or
+Python.
+
+# Using gsutil
+-------------------------------
+
+You will also find the gsutil utility installed, and the environment variable
+\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+EOF
+
+cat <<EOF > node/challenge.js
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage')
 
@@ -11,14 +51,14 @@ const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
 const storage = new Storage()
 
 async function uploadFile () {
-  // Implement the logic for uploading the file ./foo.txt to the remote bucket,
+  // Implement the logic for uploading the file ./foo.txt to the remote bucket
   // with the name bar.txt.
 }
 
 uploadFile()
 EOF
 
-cat <<EOF > foo.txt
+cat <<EOF > node/foo.txt
 hello world!
 EOF
 
@@ -41,7 +81,7 @@ async function checkForFile () {
 checkForFile()
 EOF
 
-cat <<EOF > code-sample.js
+cat <<EOF > node/code-sample.js
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage');
 

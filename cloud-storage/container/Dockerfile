@@ -29,8 +29,8 @@ RUN mkdir -p /usr/local/lib/node_modules && \
     ln -s /usr/local/lib/node_modules/.bin/uuid /usr/local/bin/uuid
 
 # install dependencies for challenges.
-RUN mkdir /root/node_modules
-RUN cd /root; npm i @google-cloud/storage
+RUN mkdir -p /root/node/node_modules
+RUN cd /root/node; npm i @google-cloud/storage
 
 # install tiv image viewer
 RUN git clone https://github.com/stefanhaustein/TerminalImageViewer.git && \

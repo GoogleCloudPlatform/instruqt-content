@@ -1,8 +1,46 @@
 #!/bin/bash
 
-rm /root/foo.txt
+rm /root/node/foo.txt
 
-cat <<EOF > challenge.js
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil
+directly, download the image we've hidden in \$BUCKET_NAME. Using print-png,
+view the image, and use a text editor to write your answer in /root/answer.txt.
+
+Feeling stuck? run gsutil --help, or cat help.txt.
+
+Hit the "Check" button when you are done.
+
+Coding Your Solution
+-------------------------------
+
+If you run 'ls', you will see folders for each supported language; currently
+python, node (JavaScript), and go.
+
+Use 'cd' to enter one of these folders. There will be a file with the name
+'code-sample' and a file with the name 'challenge' (with an extension
+corresponding to the language you're using).
+
+If you need help getting started, use 'cat' to display the code sample.
+
+Once you're ready to write some code, use vim, nano, or emacs to edit the
+challenge file.
+
+Before clicking the "Check" button, run your application with node, go, or
+Python.
+
+# Using gsutil
+-------------------------------
+
+You will also find the gsutil utility installed, and the environment variable
+\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+EOF
+
+
+cat <<EOF > node/challenge.js
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage')
 
@@ -12,11 +50,20 @@ const bucketName = process.env.BUCKET_NAME
 // An authenticated storage API client.
 const storage = new Storage()
 
-// put your code here for downloading the .png image in
-// bucket-$(cat /usr/local/lib/UUID).
+async function downloadImage () {
+  // put your code here for downloading the .png image stored in
+  // bucketName.
+  const [files] = await storage.bucket(bucketName).getFiles();
+
+  files.forEach(file => {
+    console.info(file.name)
+  });
+}
+
+downloadImage()
 EOF
 
-cat <<EOF > code-sample.js
+cat <<EOF > node/code-sample.js
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage');
 
@@ -42,13 +89,13 @@ await storage
   .download(options);
 
 console.log(
-  `gs://${bucketName}/${srcFilename} downloaded to ${destFilename}.`
+  \`gs://${bucketName}/${srcFilename} downloaded to ${destFilename}.\`
 );
 EOF
 
 cat <<EOF > answer.txt
 What was the .png an image of? (On the next line of this file type
-one of: horse, television, house, person, dog, orange).
+one of: horse, television, house, person, dog, orange, pizza).
 EOF
 
 cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-answer.js

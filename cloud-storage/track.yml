@@ -23,23 +23,37 @@ challenges:
 - slug: creating-buckets
   id: hmbjhukm8uto
   type: challenge
-  title: Create a Bucket
-  teaser: Create a bucket in either Node.js or Python.
+  title: Level 1 - it all begins with a bucket
+  teaser: Demonstrate that you can create a Cloud Storage bucket... before time runs
+    out.
   assignment: |-
-    We have provided you with stubbed out code written in Node.js and Python (
-    challenge.js, and challenge.py).
+    By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, create
+    a bucket named $BUCKET_NAME.
 
-    Using this code as a starting point, create a bucket using the environment
-    variable $BUCKET_NAME.
+    If you use python, JavaScript, or go, ensure that you run your application
+    (with python, node, or go respectively).
 
-    Click "Check" when you've done so.
+    Feeling stuck? run gsutil --help, or cat help.txt.
+
+    Hit the "Check" button when you are done.
   notes:
+  - type: image
+    url: https://storage.googleapis.com/instruqt-shadow-resources/storage-title.png
+  - type: text
+    contents: "In this quest you will use Google Cloud storage. Unlike many of the
+      options,\nGCS is unstructured. Everything is an object and can be stored in
+      buckets (images, text, music, you name it). "
+  - type: text
+    contents: Demonstrate that you can create a Cloud Storage bucket... before time
+      runs out.
   - type: text
     contents: |-
-      Buckets are a lot like folders on your computer, they provide a central
-      place for you to store binary data for your application.
-
-      In this first challenge, you will create a bucket.
+      We have provided you a development environment with python, JavaScript, go, and gsutil
+      installed.
+  - type: text
+    contents: |-
+      If you choose to code your solution, use nano, vim, or emacs to edit the
+      incomplete solution we've provided.
   tabs:
   - title: Shell
     type: terminal
@@ -49,14 +63,30 @@ challenges:
 - slug: uploading
   id: fuf3z0i5im2d
   type: challenge
-  title: Uploading to Bucket
-  teaser: Upload content to a bucket.
+  title: Level 2 - a foo by any other name?
+  teaser: It's time to upload some content to your newly created bucket.
   assignment: |-
-    We have provided you with stubbed out code written in Node.js and Python (
-    challenge.js, and challenge.py).
+    By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, upload
+    the local file foo.txt to a file named bar.txt in the bucket you created in the
+    last challenge.
+
+    If you use python, JavaScript, or go, ensure that you run your application
+    (with python, node, or go respectively).
+
+    Feeling stuck? run gsutil --help, or cat help.txt.
+
+    Hit the "Check" button when you are done.
   notes:
   - type: text
-    contents: In this next challenge you will upload a file to the bucket.
+    contents: It's time to upload some content to your newly created bucket.
+  - type: text
+    contents: |-
+      We have provided you a development environment with python, JavaScript, go, and gsutil
+      installed.
+  - type: text
+    contents: |-
+      If you choose to code your solution, use nano, vim, or emacs to edit the
+      incomplete solution we've provided.
   tabs:
   - title: Shell
     type: terminal
@@ -66,23 +96,35 @@ challenges:
 - slug: downloading
   id: uuvgtwfpmtsd
   type: challenge
-  title: Downloading an Image
-  teaser: Download an image from a bucket.
+  title: Level 3 - putting everything together
+  teaser: we've hidden an important piece of information in your bucket.
   assignment: |-
-    We've uploaded a .png image to the bucket you created in the previous
-    challenge.
+    By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil
+    directly, download the image we've hidden in $BUCKET_NAME. Using print-png,
+    view the image, and use a text editor to write your answer in /root/answer.txt.
 
-    Use the tool print-png to tell us what the image is, by answering the
-    question in answer.txt.
+    Feeling stuck? run gsutil --help, or cat help.txt.
+
+    Hit the "Check" button when you are done.
   notes:
   - type: text
+    contents: we've hidden an important piece of information in your bucket.
+  - type: text
     contents: |-
-      In the last challenge you will download an image from the bucket,
-      and tell us what it is.
+      We have provided you a development environment with python, JavaScript, go, and gsutil
+      installed.
+  - type: text
+    contents: |-
+      We've also installed the additional tool "print-png", which you will need to
+      use to solve this challenge.
+  - type: text
+    contents: |-
+      If you choose to code your solution, use nano, vim, or emacs to edit the
+      incomplete solution we've provided.
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: intermediate
   timelimit: 300
-checksum: "14308444460331296080"
+checksum: "13300632631908659875"

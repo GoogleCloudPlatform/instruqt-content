@@ -8,6 +8,7 @@ echo "alias python=python3" >> /root/.bashrc
 cp /usr/local/lib/google-cloud-sdk/platform/gsutil/CHECKSUM /usr/local/lib/google-cloud-sdk/platform/gsutil/gslib/CHECKSUM
 
 # output and load GCP credentials.
+echo "cat /root/help.txt" >> /root/.bashrc
 printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY\" ]\nthen\n  node -e \"console.info(Buffer.from(process.env.INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'))\" > /root/.config/gcloud/default_credentials.json\nfi\n" >> ~/.bashrc
 echo "/usr/local/lib/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=/root/.config/gcloud/default_credentials.json &>/dev/null" >> /root/.bashrc
 echo "gsutil cp /usr/local/lib/buddy.png gs://bucket-\$(cat /usr/local/lib/UUID)/challenge.png &>/dev/null" >> /root/.bashrc
@@ -24,7 +25,48 @@ tiv -256 "\$@"
 EOF
 chmod 755 /usr/local/bin/print-png
 
-cat <<EOF > challenge.js
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, create a bucket named \$BUCKET_NAME.
+
+If you use python, JavaScript, or go, ensure that you run your application (with python, node, or go respectively).
+
+Feeling stuck? run gsutil --help, or cat help.txt.
+
+Hit the "Check" button when you are done.
+
+Coding Your Solution
+-------------------------------
+
+If you run 'ls', you will see folders for each supported language; currently
+python, node (JavaScript), and go.
+
+Use 'cd' to enter one of these folders. There will be a file with the name
+'code-sample' and a file with the name 'challenge' (with an extension
+corresponding to the language you're using).
+
+If you need help getting started, use 'cat' to display the code sample.
+
+Once you're ready to write some code, use vim, nano, or emacs to edit the
+challenge file.
+
+Before clicking the "Check" button, run your application with node, go, or
+Python.
+
+# Using gsutil
+-------------------------------
+
+You will also find the gsutil utility installed, and the environment variable
+\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+EOF
+
+# Node.js examples.
+
+mkdir node
+
+cat <<EOF > node/challenge.js
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage')
 
@@ -42,7 +84,7 @@ async function createBucket () {
 createBucket()
 EOF
 
-cat <<EOF > code-sample.js
+cat <<EOF > node/code-sample.js
 // [START storage_create_bucket]
 // Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage');
