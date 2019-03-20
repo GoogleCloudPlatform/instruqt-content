@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cat <<EOF > /usr/local/bin/answer
+#!/usr/bin/env python3
+import sys, os
+
+answer = input("What is the most prominent dog breed? ")
+
+f = open(os.path.dirname(__file__) + "/answer.txt", "w+")
+f.write(answer.lower().strip())
+
+print("Now press the A button to verify your answer")
+EOF
+chmod 755 /usr/local/bin/answer
+
+echo <<EOF >
+The image in file "files/image1.png" contains an adorable dog, yes, but what is the
+breed? Using "gcloud", send this precious pup through Google's Vision API and report
+back what the most prominent breed is. When you think you know the answer,
+type "answer" and press ENTER.
+HINT: Use the command "gcloud ml vision" to get started.
+EOF

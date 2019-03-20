@@ -1,0 +1,11 @@
+#!/bin/bash
+gcloud functions list --limit 1 --format=json | jq -e '.[] | .entryPoint != null and .runtime != null and .httpsTrigger.url != null'
+if [ ! -f /usr/local/bin/answer.txt ]; then
+    fail-message $'Your answers are incorrect! Try running the command \n\n\tgcloud ml vision detect labels files/doggo1.jpg\n'
+fi
+
+CORRECT="corgo"
+ANSWER=$(cat /usr/local/bin/answer.txt)
+if [[ "$CORRECT" != "$ANSWER" ]]; then
+    fail-message $'Your answers are incorrect! Try running the command \n\n\tgcloud ml vision detect labels files/doggo1.jpg\n'
+fi
