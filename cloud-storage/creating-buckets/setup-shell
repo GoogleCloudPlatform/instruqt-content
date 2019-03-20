@@ -114,6 +114,60 @@ console.log(`Bucket ${bucketName} created.`);
 // node challenge.js
 EOF
 
+# go examples.
+
+mkdir /root/go
+
+cat <<EOF > go/challenge.go
+package main
+
+import (
+	"context"
+	"fmt"
+	"log"
+	"os"
+	"cloud.google.com/go/storage"
+	)
+
+func main() {
+	ctx := context.Background()
+
+	// [START setup]
+	client, err := storage.NewClient(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	// [END setup]
+
+	// Give the bucket a unique name.
+	name := os.Getenv("BUCKET_NAME")
+	if err := create(client, "foo", name); err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("created bucket: %v\n", name)
+}
+
+func create(client *storage.Client, projectID, bucketName string) error {
+	ctx := context.Background()
+
+	return nil
+}
+EOF
+
+cat <<EOF > go/code-sample.go
+bucket := client.Bucket(bucketName)
+if err := bucket.Create(ctx, projectID, &storage.BucketAttrs{
+        // optional configuration variables, such as storage type
+        // and data-center location.
+        // StorageClass: "COLDLINE",
+        // Location:     "asia",
+}); err != nil {
+        return err
+}
+EOF
+
+# challenge validation scripts.
+
 cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/require-n-buckets.js
 const {Storage} = require('@google-cloud/storage');
 const storage = new Storage();

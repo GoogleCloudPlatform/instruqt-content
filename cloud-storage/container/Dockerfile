@@ -14,7 +14,7 @@ RUN apt-get update && \
 # install go
 RUN add-apt-repository ppa:gophers/archive && \
     apt-get update && \
-    apt-get install -y golang-go
+    apt-get install -y golang-1.10-go
 
 # install google cloud SDK.
 RUN mkdir -p /usr/local/lib/
@@ -37,6 +37,11 @@ RUN git clone https://github.com/stefanhaustein/TerminalImageViewer.git && \
     cd TerminalImageViewer/src/main/cpp && make && make install
 
 # cleanup libraries used during building.
-RUN apt-get remove -y git build-essential
+RUN apt-get remove -y build-essential
 
 COPY ./buddy.png /usr/local/lib/buddy.png
+
+# ensure google cloud is available.
+ENV GOPATH /usr/local/lib
+RUN ln -sf /usr/lib/go-1.10/bin/go /usr/local/bin/go
+RUN go get -u cloud.google.com/go/storage
