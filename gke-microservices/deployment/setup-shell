@@ -9,7 +9,9 @@ In the 'challenge' namespace you previously created, create a Deployment called 
 
 The Pod should be labeled with 'name = app'.
 
-If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
+If you need it, there is a template called 'deployment.yaml' that has been created for you. You don't need to use it though :)
+
+Press the red button to see this message at any time!
 
 EOF
 

@@ -9,7 +9,9 @@ In the "challenge" namespace you previously created, create a Service called "ap
 
 cURL the exposed service, and save the output of the service to a file called output.txt
 
-If you need it, there is a template called `service.yaml` that has been created for you. You don't need to use it though :)
+If you need it, there is a template called 'service.yaml' that has been created for you. You don't need to use it though :)
+
+Press the red button to see this message at any time!
 
 EOF
 

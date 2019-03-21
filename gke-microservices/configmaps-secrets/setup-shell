@@ -9,4 +9,6 @@ In the "challenge" namespace you previously created, create a ConfigMap called "
 
 Then create a generic Secret called "app" with a key named "password" with any value in the challenge namespace.
 
+Press the red button to see this message at any time!
+
 EOF
