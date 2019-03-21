@@ -1,5 +1,4 @@
 #!/bin/bash
-kubectl label namespace default time=0 --overwrite # mark cluster as unused
 kubectl delete deployment --all
 kubectl delete svc --all
 kubectl delete pod --all

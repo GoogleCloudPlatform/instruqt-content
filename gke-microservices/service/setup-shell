@@ -1,6 +1,18 @@
 #!/bin/bash
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+In the "challenge" namespace you previously created, create a Service called "app" of type "LoadBalancer" that routes traffic from port 80 to port 3000 of the pods in the 'app' Deployment.
+
+cURL the exposed service, and save the output of the service to a file called output.txt
+
+If you need it, there is a template called `service.yaml` that has been created for you. You don't need to use it though :)
+
+EOF
+
 cat <<EOF > service.yaml
 kind: Service
 apiVersion: v1

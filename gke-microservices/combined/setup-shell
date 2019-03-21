@@ -1,6 +1,18 @@
 #!/bin/bash
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+Update the "app" Deployment to have an environment variable called "USERNAME" that gets its value from the ConfigMap you created, and another environment variable called "PASSWORD" that gets is value from the Secret you created.
+
+cURL the exposed service, and save the output of the service to a file called finished.txt
+
+If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
+
+EOF
+
 cat <<EOF > deployment.yaml
 apiVersion: apps/v1
 kind: Deployment

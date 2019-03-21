@@ -1,9 +1,10 @@
 #!/bin/sh
 cd /app/GCPQuest-Companion
+project=$(gcloud config list project --format=flattened | awk 'FNR == 1 {print $2}')
+echo $PROJECT
 gcloud app create --region=us-central -q
 gcloud app deploy -q &
 gcloud services enable compute.googleapis.com cloudfunctions.googleapis.com bigquery-json.googleapis.com &
-project=$(gcloud config list project --format=flattened | awk 'FNR == 1 {print $2}')
 gcloud projects add-iam-policy-binding ${project} --member serviceAccount:${project}@appspot.gserviceaccount.com --role roles/bigquery.admin
 gcloud config set compute/zone us-central1-c
 echo "Wait for files to be uploaded to GCS"

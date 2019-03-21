@@ -1,6 +1,18 @@
 #!/bin/bash
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+In the 'challenge' namespace you previously created, create a Deployment called 'app' that runs a single Pod with the 'gcr.io/instruqt-shadow/challenge' image.
+
+The Pod should be labeled with 'name = app'.
+
+If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
+
+EOF
+
 cat <<EOF > deployment.yaml
 apiVersion: apps/v1
 kind: Deployment

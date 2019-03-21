@@ -1,2 +1,12 @@
 #!/bin/bash
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
+
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+In the "challenge" namespace you previously created, create a ConfigMap called "app" with a key named "username" with any value.
+
+Then create a generic Secret called "app" with a key named "password" with any value in the challenge namespace.
+
+EOF
