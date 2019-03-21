@@ -7,8 +7,8 @@ fi
 
 ANSWER=$(cat /usr/local/bin/answer.txt)
 
-CORRECT="12"
+CORRECT="6"
 if [[ "$CORRECT" != "$ANSWER" ]]; then
-    fail-message "Your answer is incorrect! Try running the command \"gcloud ml video detect-labels files/doggo1.jpg\""
+    fail-message "Your answer is incorrect! Try running the command \"gcloud ml video detect-labels files/video1.mp4\""
     exit 1
 fi
