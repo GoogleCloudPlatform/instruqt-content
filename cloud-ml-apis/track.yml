@@ -10,6 +10,7 @@ description: |-
   Google ML APIs provide access to use machine learning models. These APIs
   include Cloud Vision, Cloud Video Intelligence, Cloud Natural Language, Cloud
   Speech, Cloud Translate, and many more.
+  ![](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/cloud-ml-apis.png)
 icon: https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/cloud-ml-apis.png
 tags:
 - cloud
@@ -22,20 +23,40 @@ owner: google
 developers:
 - betterbrent@google.com
 private: false
-published: false
+published: true
 challenges:
 - slug: analyzing-images
-  id: ppvpidhflcox
+  id: 8wxbtr6i9ivx
   type: challenge
-  title: Analyzing Images
-  teaser: Find information about the image
-  assignment: |-
-    ![Adorable pup #1](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/doggo1.jpg "Adorable pup #1")
-    The image in file `files/image1.png` contains an adorable dog, yes, but what is the
-    breed? Using `gcloud`, send this precious pup through Google's Vision API and report
-    back what the most prominent breed is. When you think you know the answer,
-    type `answer` and press ENTER.   
-    **Hint**: Use the command `gcloud ml vision` to get started.
+  title: 'Level 1: Analyze an Image'
+  teaser: Show you can detect information about an image we provide.
+  assignment: "![Adorable pup #1](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/doggo1.jpg
+    \"Adorable pup #1\")  \n    The image in file `files/doggo1.jpg` contains an adorable
+    dog, yes, but what is the\n    breed? Using `gcloud`, send this precious pup through
+    Google's Vision API and report\n    back what the most prominent breed is. When
+    you think you know the answer,\n    type `answer` and press ENTER.   \n    **Hint**:
+    Use the command `gcloud ml vision` to get started."
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "8947296783538433329"
+- slug: convert-speech-to-text
+  id: fuedgkkozj8r
+  type: challenge
+  title: 'Level 2: Convert Speech to Text'
+  teaser: Show you can detect information about some audio files we provide.
+  assignment: "There are three audio files in the `files` directory: `quote1.wav`,
+    `quote2.wav`, and `quote3.wav`. Test your pop culture knowledge by identifying
+    the undeniably classic 90s movie these quotes are from. Convert the audio into
+    text using the Speech to Text API and report back with the title of the film.
+    When you think you know the answer, type `answer` and press ENTER.  \n**Hint**:
+    Use the command `gcloud ml speech` to get started."
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+checksum: "187554623315585727"

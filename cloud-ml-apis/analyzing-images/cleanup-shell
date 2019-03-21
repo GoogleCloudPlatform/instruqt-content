@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Delete the answer file
+rm /usr/local/bin/answer.txt

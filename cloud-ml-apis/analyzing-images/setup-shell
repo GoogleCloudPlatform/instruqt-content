@@ -1,22 +1,22 @@
 #!/bin/bash
 
-cat <<EOF > /usr/local/bin/answer
-#!/usr/bin/env python3
-import sys, os
+# Put the user in the $HOME directory (/root)
+cd $HOME
 
-answer = input("What is the most prominent dog breed? ")
+# Append echoing the help.txt to .bashrc
+echo "cat /root/help.txt" >> /root/.bashrc
 
-f = open(os.path.dirname(__file__) + "/answer.txt", "w+")
-f.write(answer.lower().strip())
+# Put the help text in help.txt
+cat <<EOF > /root/help.txt
+# Your Quest
+-------------------------------
 
-print("Now press the A button to verify your answer")
-EOF
-chmod 755 /usr/local/bin/answer
-
-echo <<EOF >
-The image in file "files/image1.png" contains an adorable dog, yes, but what is the
+The image in file "files/doggo1.jpg" contains an adorable dog, yes, but what is the
 breed? Using "gcloud", send this precious pup through Google's Vision API and report
-back what the most prominent breed is. When you think you know the answer,
-type "answer" and press ENTER.
-HINT: Use the command "gcloud ml vision" to get started.
+back what the most prominent breed is.
+
+When you think you know the answer, type "answer" and press ENTER.
+
+*HINT* Use the command "gcloud ml vision" to get started.
+
 EOF

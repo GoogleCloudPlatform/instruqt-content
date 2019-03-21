@@ -1,13 +1,6 @@
 version: "2"
 containers:
 - name: shell
-  image: gcr.io/instruqt/gcp-project-client
+  image: gcr.io/instruqt-shadow/cloud-ml-apis
   shell: /bin/bash
   memory: 128
-gcp_projects:
-- name: gcp-project
-  services:
-  - language.googleapis.com
-  - speech.googleapis.com
-  - videointelligence.googleapis.com
-  - vision.googleapis.com
