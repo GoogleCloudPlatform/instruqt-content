@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ ! -f /usr/local/bin/answer.txt ]; then
+    fail-message "You haven't answered yet! You must run the \"answer\" command and press ENTER"
+    exit 1
+fi
+
+ANSWER=$(cat /usr/local/bin/answer.txt)
+
+CORRECT="12"
+if [[ "$CORRECT" != "$ANSWER" ]]; then
+    fail-message "Your answer is incorrect! Try running the command \"gcloud ml video detect-labels files/doggo1.jpg\""
+    exit 1
+fi
