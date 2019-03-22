@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -f /root/help.png ]; then
+	tiv -256 /root/help.png -h 40
+fi
+
+if [ -f /home/help.txt ]; then
+	cat /home/help.txt
+fi

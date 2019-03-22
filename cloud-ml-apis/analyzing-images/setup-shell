@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# Put the user in the $HOME directory (/root)
-cd $HOME
+# Starts the user in the /home directory
+set-workdir /home
 
 # Append echoing the help.txt to .bashrc
-echo "cat /root/help.txt" >> /root/.bashrc
+echo "alias help=\"/usr/local/bin/help\"" >> /root/.bashrc
+echo "help" >> /root/.bashrc
 
 # Put the help text in help.txt
-cat <<EOF > /root/help.txt
+cat <<EOF > /home/help.txt
+
 # Your Quest
 -------------------------------
 
-The image in file "files/doggo1.jpg" contains an adorable dog, yes, but what is the
+The image in file "images/doggo1.png" contains an adorable dog, yes, but what is his
 breed? Using "gcloud", send this precious pup through Google's Vision API and report
 back what the most prominent breed is.
 
@@ -20,3 +22,5 @@ When you think you know the answer, type "answer" and press ENTER.
 *HINT* Use the command "gcloud ml vision" to get started.
 
 EOF
+
+cp /home/images/doggo1.png /root/help.png

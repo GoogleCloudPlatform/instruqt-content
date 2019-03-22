@@ -1,17 +1,17 @@
 #!/bin/bash
 
-# Put the user in the $HOME directory (/root)
-cd $HOME
+# Put the user in the /home directory
+set-workdir /home
 
 # Put the help text in help.txt
-cat <<EOF > /root/help.txt
+cat <<EOF > /home/help.txt
 # Your Quest
 -------------------------------
 
-The puppy in "files/video1.mp4" wants to be your friend! But only if you can
-find her. Using "gcloud", send this precious pup through Google's
-Video Intelligence API and report back the starting time (in seconds) when she
-appears.
+There are three audio files: "quotes/quote1.wav", "quotes/quote2.wav",
+and "quotes/quote3.wav". Test your pop culture knowledge by identifying
+the undeniably classic 90's movie these quotes are from. Convert the audio into
+text using the Speech to Text API and report back with the title of the film.
 
 When you think you know the answer, type "answer" and press ENTER.
 

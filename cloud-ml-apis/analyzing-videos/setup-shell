@@ -1,20 +1,23 @@
 #!/bin/bash
 
-# Put the user in the $HOME directory (/root)
-cd $HOME
+# Put the user in the /home directory
+set-workdir /home
 
 # Put the help text in help.txt
-cat <<EOF > /root/help.txt
+cat <<EOF > /home/help.txt
+
 # Your Quest
 -------------------------------
 
-The puppy in "files/video1.mp4" wants to be your friend! But only if you can
-find her. Using "gcloud", send this precious pup through Google's Video
+The puppy in "videos/video1.mp4" wants to be your friend! But only if you can
+find her. Using "gcloud", send this good girl through Google's Video
 Intelligence API and report back the starting time in seconds (for example, "7")
 when she appears.
 
 When you think you know the answer, type "answer" and press ENTER.
 
-*HINT* Use the command "gcloud ml vision" to get started.
+*HINT* Use the command "gcloud ml video" to get started.
 
 EOF
+
+mv /home/videos/video1.png /root/help.png

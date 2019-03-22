@@ -15,6 +15,6 @@ fi
 
 CORRECT="boston terrier"
 if [[ "$CORRECT" != "$ANSWER" ]]; then
-    fail-message "Your answer is incorrect! Try running the command \"gcloud ml vision detect-labels files/doggo1.jpg\""
+    fail-message "Your answer is incorrect! Try running the command \"gcloud ml vision detect-labels images/doggo1.png\""
     exit 1
 fi

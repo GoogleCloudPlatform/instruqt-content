@@ -30,12 +30,12 @@ challenges:
   type: challenge
   title: 'Level 1: Analyze an Image'
   teaser: Show you can detect information about an image.
-  assignment: "![Adorable pup #1](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/doggo1.jpg
-    \"Adorable pup #1\")  \n    The image in file `files/doggo1.jpg` contains an adorable
-    dog, yes, but what is the\n    breed? Using `gcloud`, send this precious pup through
-    Google's Vision API and report\n    back what the most prominent breed is. When
-    you think you know the answer,\n    type `answer` and press ENTER.   \n    **Hint**:
-    Use the command `gcloud ml vision` to get started."
+  assignment: " ![](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/doggo1.png)
+    \n The image in file **images/doggo1.png** contains an adorable dog, yes, but
+    what is his\n    breed? Using **gcloud**, send this precious pup through Google's
+    Vision API and report\n    back what the most prominent breed is. When you think
+    you know the answer,\n    type **answer** and press ENTER.   \n    **Hint**: Use
+    the command **gcloud ml vision** to get started."
   tabs:
   - title: Shell
     type: terminal
@@ -47,12 +47,12 @@ challenges:
   type: challenge
   title: 'Level 2: Convert Speech to Text'
   teaser: Show you can detect information about some audio files.
-  assignment: "There are three audio files in the `files` directory: `quote1.wav`,
-    `quote2.wav`, and `quote3.wav`. Test your pop culture knowledge by identifying
-    the undeniably classic 90's movie these quotes are from. Convert the audio into
-    text using the Speech to Text API and report back with the title of the film.
-    When you think you know the answer, type `answer` and press ENTER.  \n**Hint**:
-    Use the command `gcloud ml speech` to get started."
+  assignment: "There are three audio files: **quotes/quote1.wav**, **quotes/quote2.wav**,
+    and **quotes/quote3.wav**. Test your pop culture knowledge by identifying the
+    undeniably classic 90's movie these quotes are from. Convert the audio into text
+    using the Speech to Text API and report back with the title of the film. When
+    you think you know the answer, type **answer** and press ENTER.  \n**Hint**: Use
+    the command **gcloud ml speech** to get started."
   tabs:
   - title: Shell
     type: terminal
@@ -65,15 +65,15 @@ challenges:
   title: 'Level 3: Analyze a video'
   teaser: Show you can detect information about a video.
   assignment: "![](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/video1.gif)
-    \ \nThe puppy in `files/video1.mp4` wants to be your friend! But only if you can
-    find her. Using `gcloud`, send this precious pup through Google's Video Intelligence
+    \nThe puppy in **videos/video1.mp4** wants to be your friend! But only if you
+    can find her. Using **gcloud**, send this good girl through Google's Video Intelligence
     API and report back the starting time in seconds (for example, \"7\") when she
-    appears. \nWhen youthink you know the answer, type `answer` and press ENTER.\n\n**Hint**:
-    Use the command `gcloud ml video` to get started."
+    appears. \nWhen you think you know the answer, type **answer** and press ENTER.\n\n**Hint**:
+    Use the command **gcloud ml video** to get started."
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "7787854379096645968"
+checksum: "6831302753468204135"
