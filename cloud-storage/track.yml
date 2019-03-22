@@ -52,7 +52,7 @@ challenges:
       installed.
   - type: text
     contents: |-
-      If you choose to code your solution, use nano, vim, or emacs to edit the
+      To code your solution, use nano, vim, or emacs to edit the
       incomplete solution we've provided.
   tabs:
   - title: Shell
@@ -66,11 +66,11 @@ challenges:
   title: Level 2 - a foo by any other name?
   teaser: It's time to upload some content to your newly created bucket.
   assignment: |-
-    By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, upload
-    the local file /root/foo.txt to a file named bar.txt in the bucket you created in the
+    Modify the python/challeng.py, node/challenge.js, go/challenge.go, or use gsutil directly. Upload
+    the local file foo.txt to a file named bar.txt in the bucket you created in the
     last challenge.
 
-    If you use python, JavaScript, or go, ensure that you run your application
+    If you modify a challenge file (instead of using gsutil), ensure that you run your application
     (with python, node, or go respectively).
 
     Feeling stuck? run gsutil --help, or cat help.txt.
@@ -81,12 +81,7 @@ challenges:
     contents: It's time to upload some content to your newly created bucket.
   - type: text
     contents: |-
-      We have provided you a development environment with python, JavaScript, go, and gsutil
-      installed.
-  - type: text
-    contents: |-
-      If you choose to code your solution, use nano, vim, or emacs to edit the
-      incomplete solution we've provided.
+      There is a local file named foo.txt for you to upload as bar.txt. 
   tabs:
   - title: Shell
     type: terminal
@@ -115,12 +110,12 @@ challenges:
       installed.
   - type: text
     contents: |-
-      We've also installed the additional tool "print-png", which you will need to
+      We've installed the additional tool "print-png", which you will need to
       use to solve this challenge.
   - type: text
     contents: |-
-      If you choose to code your solution, use nano, vim, or emacs to edit the
-      incomplete solution we've provided.
+      Before you can download the file we've placed in your bucket, you'll need to figure 
+      out it's name. 
   tabs:
   - title: Shell
     type: terminal

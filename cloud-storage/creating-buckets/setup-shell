@@ -192,7 +192,7 @@ from google.cloud import storage
 
 def create_bucket():
     storage_client = storage.Client()
-    bucket_name = os.environ['BUCKET_NAME']
+    bucket_name = os.environ['BUCKET_NAME'])
     
     # create a bucket
     
@@ -206,6 +206,4 @@ def create_bucket():
     storage_client = storage.Client()
     bucket = storage_client.create_bucket(bucket_name)
     print('Bucket {} created'.format(bucket.name))
-
 EOF
-

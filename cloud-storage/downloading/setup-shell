@@ -118,16 +118,16 @@ from google.cloud import storage
    been uploaded.  Download and view the .png file"""
 
 def download_blob():
-    storage_client = storage.Client()
-    bucket = storage_client.get_bucket(os.environ['BUCKET_NAME'])
+    stoarge_client = storage.Client()
+    bucket = storage_client.get_bucket(os.environ['BUCKET_NAME']
 
     blobs = bucket.list_blobs()
 
     for blob in blobs:
         print(blob.name)
-
-    # Add code to download the .png file
-
+        # Add code to download the .png file
+        if blob.name[-3:] == 'png':
+           print('Blob {} downloaded'.format(blob.name))
 
 if __name__ == '__main__':
     download_blob()

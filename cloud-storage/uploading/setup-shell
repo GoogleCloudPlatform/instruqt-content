@@ -125,6 +125,8 @@ from google.cloud import storage
 def upload_blob():
     storage_client = storage.Client()
     bucket_name = os.environ['BUCKET_NAME']
+    bucket = storage_client.get_bucket(bucket_name)
+    
     # add your code to upload the file
 
 if __name__ == '__main__':
