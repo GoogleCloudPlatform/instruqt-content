@@ -3,9 +3,6 @@
 # Put the user in the $HOME directory (/root)
 cd $HOME
 
-# Append echoing the help.txt to .bashrc
-echo "cat /root/help.txt" >> /root/.bashrc
-
 # Put the help text in help.txt
 cat <<EOF > /root/help.txt
 # Your Quest

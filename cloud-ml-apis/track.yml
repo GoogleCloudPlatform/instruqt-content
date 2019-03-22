@@ -70,6 +70,10 @@ challenges:
     API and report back the starting time in seconds (for example, \"7\") when she
     appears. \nWhen youthink you know the answer, type `answer` and press ENTER.\n\n**Hint**:
     Use the command `gcloud ml video` to get started."
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "10898754714229338670"
+checksum: "7787854379096645968"
