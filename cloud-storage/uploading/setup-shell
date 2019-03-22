@@ -58,7 +58,7 @@ async function uploadFile () {
 uploadFile()
 EOF
 
-cat <<EOF > node/foo.txt
+cat <<EOF > /root/foo.txt
 hello world!
 EOF
 
@@ -117,7 +117,7 @@ mkdir root/python
 
 cat <<EOF > python/challenge.py
 import os
-from google-cloud import storage
+from google.cloud import storage
 
 # the bucket was already created
 # filename =  the source  file name

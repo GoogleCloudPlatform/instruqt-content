@@ -201,7 +201,7 @@ if __name__ == "__main__":
 
 EOF
 
-cat <<EOF > python/code_sample.py
+cat <<EOF > python/code-sample.py
 def create_bucket():
     storage_client = storage.Client()
     bucket = storage_client.create_bucket(bucket_name)

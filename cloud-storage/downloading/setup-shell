@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm /root/node/foo.txt
+rm /root/foo.txt
 
 cat <<EOF > help.txt
 # Your Quest
@@ -112,14 +112,14 @@ mkdir /root/python
 
 cat <<EOF > python/challenge.py
 import os
-from google-cloud import storage
+from google.cloud import storage
 
 """The bucket has already been created and an additional file has 
    been uploaded.  Download and view the .png file"""
 
 def download_blob():
-    stoarge_client = storage.Client()
-    bucket = storage_client.get_bucket(os.environ['BUCKET_NAME']
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(os.environ['BUCKET_NAME'])
 
     blobs = bucket.list_blobs()
 

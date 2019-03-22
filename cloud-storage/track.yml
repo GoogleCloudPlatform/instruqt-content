@@ -67,7 +67,7 @@ challenges:
   teaser: It's time to upload some content to your newly created bucket.
   assignment: |-
     By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, upload
-    the local file foo.txt to a file named bar.txt in the bucket you created in the
+    the local file /root/foo.txt to a file named bar.txt in the bucket you created in the
     last challenge.
 
     If you use python, JavaScript, or go, ensure that you run your application
@@ -127,4 +127,4 @@ challenges:
     hostname: shell
   difficulty: intermediate
   timelimit: 300
-checksum: "2232590716765184749"
+checksum: "15737971469660442796"
