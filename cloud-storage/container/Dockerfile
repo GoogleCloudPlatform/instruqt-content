@@ -29,8 +29,9 @@ RUN mv /root/google-cloud-sdk /usr/local/lib/
 # install node bins used on machine.
 RUN mkdir -p /usr/local/lib/node_modules && \
     cd /usr/local/lib/node_modules && \
-    npm i uuid@3.3.2 && \
-    ln -s /usr/local/lib/node_modules/.bin/uuid /usr/local/bin/uuid
+    npm i uuid@3.3.2 json@9.0.6 && \
+    ln -s /usr/local/lib/node_modules/.bin/uuid /usr/local/bin/uuid && \
+    ln -s /usr/local/lib/node_modules/.bin/json /usr/local/bin/json
 
 # install dependencies for challenges.
 RUN mkdir -p /root/node/node_modules
@@ -49,3 +50,4 @@ COPY ./buddy.png /usr/local/lib/buddy.png
 ENV GOPATH /usr/local/lib
 RUN ln -sf /usr/lib/go-1.10/bin/go /usr/local/bin/go
 RUN go get -u cloud.google.com/go/storage
+RUN go get -u google.golang.org/api/iterator

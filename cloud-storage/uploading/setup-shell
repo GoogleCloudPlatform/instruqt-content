@@ -8,8 +8,8 @@ By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gs
 the local file foo.txt to a file named bar.txt in the bucket you created in the
 last challenge.
 
-If you use python, JavaScript, or go, ensure that you run your application
-(with python, node, or go respectively).
+If you use python, node, or go, ensure that you run your application
+(with python, node, or go run respectively).
 
 Feeling stuck? run gsutil --help, or cat help.txt.
 
@@ -143,4 +143,58 @@ def upload_blob(bucket_name, source_file_name, destination_blob_name):
     blob.upload_from_filename(source_file_name)
 
     print('File {} uploaded to {}.'.format(source_file_name, desitnation_blob_name))
+EOF
+
+# go code samples and stubbed out challenge.
+cat <<EOF > go/challenge.go
+package main
+
+import (
+	"context"
+	"log"
+	"os"
+  "io"
+	"cloud.google.com/go/storage"
+	)
+
+func main() {
+  ctx := context.Background()
+
+  // [START setup]
+  client, err := storage.NewClient(ctx)
+  if err != nil {
+    log.Fatal(err)
+  }
+  // [END setup]
+
+  // Give the bucket a unique name.
+  bucketName := os.Getenv("BUCKET_NAME")
+  if err := write(client, bucketName, "bar.txt"); err != nil {
+    log.Fatalf("Cannot write object: %v", err)
+  }
+}
+
+func write(client *storage.Client, bucketName, object string) error {
+  ctx := context.Background()
+
+  return nil
+}
+EOF
+
+cat <<EOF > go/code-sample.go
+// [START upload_file]
+f, err := os.Open("/root/foo.txt")
+if err != nil {
+  return err
+}
+defer f.Close()
+
+wc := client.Bucket(bucketName).Object(object).NewWriter(ctx)
+if _, err = io.Copy(wc, f); err != nil {
+  return err
+}
+if err := wc.Close(); err != nil {
+  return err
+}
+// [END upload_file]
 EOF

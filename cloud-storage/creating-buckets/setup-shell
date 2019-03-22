@@ -16,6 +16,7 @@ printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\" ]\nthen\n 
 echo "export GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
 echo "ln -sf /usr/local/lib/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud" >> /root/.bashrc
 echo "ln -sf /usr/local/lib/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil" >> /root/.bashrc
+echo "export GOOGLE_CLOUD_PROJECT=\$(cat /root/.config/gcloud/default_credentials.json | json project_id)" >> /root/.bashrc
 
 echo $(/usr/local/bin/uuid) > /usr/local/lib/UUID
 echo "export BUCKET_NAME=bucket-\$(cat /usr/local/lib/UUID)" >> /root/.bashrc
@@ -31,7 +32,7 @@ cat <<EOF > help.txt
 
 By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, create a bucket named \$BUCKET_NAME.
 
-If you use python, JavaScript, or go, ensure that you run your application (with python, node, or go respectively).
+If you use python, node, or go, ensure that you run your application (with python, node, or go run respectively).
 
 Feeling stuck? run gsutil --help, or cat help.txt.
 
@@ -130,21 +131,23 @@ import (
 	)
 
 func main() {
-	ctx := context.Background()
+  ctx := context.Background()
 
-	// [START setup]
-	client, err := storage.NewClient(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-	// [END setup]
+  projectID := os.Getenv("GOOGLE_CLOUD_PROJECT")
 
-	// Give the bucket a unique name.
-	name := os.Getenv("BUCKET_NAME")
-	if err := create(client, "foo", name); err != nil {
-		log.Fatal(err)
-	}
-	fmt.Printf("created bucket: %v\n", name)
+  // [START setup]
+  client, err := storage.NewClient(ctx)
+  if err != nil {
+    log.Fatal(err)
+  }
+  // [END setup]
+
+  // Give the bucket a unique name.
+  name := os.Getenv("BUCKET_NAME")
+  if err := create(client, projectID, name); err != nil {
+    log.Fatal(err)
+  }
+  fmt.Printf("created bucket: %v\n", name)
 }
 
 func create(client *storage.Client, projectID, bucketName string) error {

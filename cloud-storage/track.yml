@@ -30,8 +30,8 @@ challenges:
     By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, create
     a bucket named $BUCKET_NAME.
 
-    If you use python, JavaScript, or go, ensure that you run your application
-    (with python, node, or go respectively).
+    If you use python, node, or go, ensure that you run your application
+    (with python, node, or go run respectively).
 
     Feeling stuck? run gsutil --help, or cat help.txt.
 
@@ -48,7 +48,7 @@ challenges:
       runs out.
   - type: text
     contents: |-
-      We have provided you a development environment with python, JavaScript, go, and gsutil
+      We have provided you a development environment with python, node, go, and gsutil
       installed.
   - type: text
     contents: |-
@@ -70,8 +70,8 @@ challenges:
     the local file foo.txt to a file named bar.txt in the bucket you created in the
     last challenge.
 
-    If you modify a challenge file (instead of using gsutil), ensure that you run your application
-    (with python, node, or go respectively).
+    If you use python, node, or go, ensure that you run your application
+    (with python, node, or go run respectively).
 
     Feeling stuck? run gsutil --help, or cat help.txt.
 
@@ -106,7 +106,7 @@ challenges:
     contents: we've hidden an important piece of information in your bucket.
   - type: text
     contents: |-
-      We have provided you a development environment with python, JavaScript, go, and gsutil
+      We have provided you a development environment with python, node, go, and gsutil
       installed.
   - type: text
     contents: |-
@@ -122,4 +122,4 @@ challenges:
     hostname: shell
   difficulty: intermediate
   timelimit: 300
-checksum: "15737971469660442796"
+checksum: "5976657869955739575"
