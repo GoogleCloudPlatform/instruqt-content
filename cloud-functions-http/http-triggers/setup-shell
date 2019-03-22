@@ -1,4 +1,10 @@
 #!/bin/bash
-gcloud app create --region=us-central -q
-ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .httpsTrigger.url')
-gcloud beta scheduler jobs create http pinggcf --schedule="* * * * *" --uri="${ENDPOINT}" --http-method="get"
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+Use "curl -o result.txt <URL>" or another method to call your HTTP function and store the result in a file called "result.txt"
+
+Note: You can get your function's URL with the "gcloud functions describe" command
+
+EOF

@@ -1,0 +1,13 @@
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+Using the gcloud cli, deploy your modified function.
+
+To deploy a Cloud Function, your code must contain a method with the same name as the Cloud Function.
+
+The function should "trigger on http" requests.
+
+Note: Deploying a function can take a few minutes.
+
+EOF

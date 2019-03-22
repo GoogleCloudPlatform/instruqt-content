@@ -1,6 +1,6 @@
 #!/bin/bash
-grep "Google" *.*
+grep "Hello, Google!" *.*
 if [ $? -ne 0 ]; then
-    fail-message "None of the functions return 'Hello, Google!' when no parameters are passed in."
+    fail-message "None of the functions return 'Hello, Google!'"
     exit 1
 fi

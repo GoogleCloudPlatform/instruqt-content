@@ -2,6 +2,19 @@
 
 echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> .bashrc
 
+echo "cat /root/help.txt" >> /root/.bashrc
+
+cat <<EOF > help.txt
+# Your Quest
+-------------------------------
+
+We have provided you with a function written in the different languages (Node.js, Python and Golang) that are supported by Google Cloud Functions.
+
+Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it, so it returns "Hello, Google!" instead of "Hello, World!".
+
+EOF
+
+
 cat <<EOF > function.go
 // Package helloworld provides a set of Cloud Function samples.
 package helloworld

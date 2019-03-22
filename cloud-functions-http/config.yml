@@ -10,6 +10,3 @@ gcp_projects:
   - cloudfunctions.googleapis.com
   - storage-component.googleapis.com
   - storage-api.googleapis.com
-  - cloudscheduler.googleapis.com
-  - cloudresourcemanager.googleapis.com
-  - appengine.googleapis.com
