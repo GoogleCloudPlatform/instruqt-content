@@ -112,3 +112,33 @@ console.log(`${filename} uploaded to ${bucketName}.`);
 // don't forget to run your code when it's ready:
 // node challenge.js
 EOF
+
+mkdir root/python
+
+cat <<EOF > python/challenge.py
+import os
+from google-cloud import storage
+
+# the bucket was already created
+# filename =  the source  file name
+# desitnation_name = the name to give the uploaded object
+def upload_blob():
+    storage_client = storage.Client()
+    bucket_name = os.environ['BUCKET_NAME']
+    # add your code to upload the file
+
+if __name__ == '__main__':
+    upload_blob()
+EOF
+
+cat <<EOF > python/code-sample.py
+def upload_blob(bucket_name, source_file_name, destination_blob_name):
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucket_name)
+
+    blob = bucket.blob(desitnation_blob_name)
+
+    blob.upload_from_filename(source_file_name)
+
+    print('File {} uploaded to {}.'.format(source_file_name, desitnation_blob_name))
+EOF

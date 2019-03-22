@@ -107,3 +107,41 @@ if (lastLine !== 'dog') {
     process.exit(1)
 }
 EOF
+
+mkdir /root/python
+
+cat <<EOF > python/challenge.py
+import os
+from google-cloud import storage
+
+"""The bucket has already been created and an additional file has 
+   been uploaded.  Download and view the .png file"""
+
+def download_blob():
+    stoarge_client = storage.Client()
+    bucket = storage_client.get_bucket(os.environ['BUCKET_NAME']
+
+    blobs = bucket.list_blobs()
+
+    for blob in blobs:
+        print(blob.name)
+
+    # Add code to download the .png file
+
+
+if __name__ == '__main__':
+    download_blob()
+
+EOF
+
+cat <<EOF > python/code-sample.py
+def download_blob(bucket_name, source_blog_name, destination_file_name):
+    """Downloads an object from the bucket"""
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(bucket_name)
+    blob = bucket.blob(source_blob_name)
+
+    blob.download_to_filename(destination_file_name)
+
+    print('Blob {} downloaded to {}'.format(source_blob_name, destination_file_name)
+EOF

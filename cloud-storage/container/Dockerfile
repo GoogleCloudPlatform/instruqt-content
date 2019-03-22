@@ -16,6 +16,10 @@ RUN add-apt-repository ppa:gophers/archive && \
     apt-get update && \
     apt-get install -y golang-1.10-go
 
+#install pip
+RUN apt-get install -y python3-pip
+RUN pip3 install --upgrade google-cloud-storage
+
 # install google cloud SDK.
 RUN mkdir -p /usr/local/lib/
 RUN mkdir -p /root/.config/gcloud/

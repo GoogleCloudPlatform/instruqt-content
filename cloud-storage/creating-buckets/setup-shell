@@ -181,3 +181,31 @@ async function listBuckets () {
 }
 listBuckets()
 EOF
+
+#python challenge
+
+mkdir /root/python
+
+cat <<EOF > python/challenge.py
+import os
+from google.cloud import storage
+
+def create_bucket():
+    storage_client = storage.Client()
+    bucket_name = os.environ['BUCKET_NAME']
+    
+    # create a bucket
+    
+if __name__ == "__main__":
+    create_bucket()
+
+EOF
+
+cat <<EOF > python/code_sample.py
+def create_bucket():
+    storage_client = storage.Client()
+    bucket = storage_client.create_bucket(bucket_name)
+    print('Bucket {} created'.format(bucket.name))
+
+EOF
+
