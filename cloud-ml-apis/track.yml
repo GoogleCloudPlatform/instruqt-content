@@ -2,12 +2,12 @@ slug: cloud-ml-apis
 id: fzqlvljabsgm
 version: 0.0.1
 type: track
-title: Google Cloud ML-driven APIs
+title: Cloud ML-driven APIs
 teaser: Access Google's ready to use machine learning models.
 description: |-
-  # What are the Google Machine Learning APIs?
+  # What are the Cloud Machine Learning APIs?
 
-  Google ML APIs provide access to use machine learning models. These APIs
+  Cloud ML APIs provide access to use machine learning models. These APIs
   include Cloud Vision, Cloud Video Intelligence, Cloud Natural Language, Cloud
   Speech, Cloud Translate, and many more.
   ![](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/cloud-ml-apis.png)
@@ -76,4 +76,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "6831302753468204135"
+checksum: "12008601015639222521"
