@@ -4,6 +4,6 @@ if [ -f /root/hint.png ]; then
 	tiv -256 /root/hint.png -h 40
 fi
 
-if [ -f /home/hint.txt ]; then
-	cat /home/hint.txt
+if [ -f /root/hint.txt ]; then
+	cat /root/hint.txt
 fi

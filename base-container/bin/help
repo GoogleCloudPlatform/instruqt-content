@@ -4,17 +4,17 @@ if [ -f /root/help.png ]; then
 	tiv -256 /root/help.png -h 40
 fi
 
-if [ -f /home/help.txt ]; then
+if [ -f /root/help.txt ]; then
 	echo "# Your Quest"
 	echo "-------------------------------"
 	echo ""
 
-	cat /home/help.txt
+	cat /root/help.txt
 
 	echo ""
 	echo "Type \"help\" to display this message again."
 fi
 
-if [ -f /home/hint.txt ]; then
+if [ -f /root/hint.txt ]; then
 	echo "Type \"hint\" if you get REALLY stuck."
 fi
