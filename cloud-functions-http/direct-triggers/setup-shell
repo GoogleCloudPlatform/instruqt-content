@@ -1,0 +1,17 @@
+#!/bin/bash
+cat <<EOF > /root/help.txt
+Test the previously deployed function by calling it with the gcloud cli.
+
+EOF
+
+ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .entryPoint')
+
+cat <<EOF > /root/hint.txt
+The function you want to test is called $ENDPOINT
+
+This means you can test the function with:
+gcloud functions call $ENDPOINT
+
+EOF
+
+set-workdir /home

@@ -2,5 +2,8 @@
   "scripts": {
     "start": "node index.js"
   },
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cowsay": "^1.4.0"
+  }
 }

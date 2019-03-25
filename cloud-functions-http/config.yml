@@ -1,7 +1,7 @@
 version: "2"
 containers:
 - name: shell
-  image: gcr.io/instruqt/gcp-project-client
+  image: gcr.io/instruqt-shadow/base
   shell: /bin/bash
   memory: 128
 gcp_projects:

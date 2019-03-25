@@ -1,0 +1,17 @@
+#!/bin/bash
+cat <<EOF > /root/help.txt
+Use gcloud to read the logs from your function.
+
+EOF
+
+ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .entryPoint')
+cat <<EOF > /root/hint.txt
+To read all your functions logs, use:
+ gcloud functions logs read
+
+To read logs from your specific function, use:
+ gcloud functions logs read $ENDPOINT
+
+EOF
+
+set-workdir /home

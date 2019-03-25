@@ -1,6 +1,6 @@
 #!/bin/bash
 gcloud functions list --limit 1 --format=json | jq -e '.[] | .entryPoint != null and .runtime != null and .httpsTrigger.url != null'
 if [ $? -ne 0 ]; then
-    fail-message "Could not find a function that triggers on HTTP requests"
+    fail-message "Could not find a function that triggers on HTTP requests. Type 'hint' if you are stuck."
     exit 1
 fi

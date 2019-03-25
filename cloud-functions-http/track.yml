@@ -62,30 +62,6 @@ challenges:
     as the Cloud Function.\n\nChoose one of the available functions and combine it
     with the corresponding `runtime`.\nThe function should **trigger on http** requests.\n\nNote:
     Deploying a function can take a few minutes."
-  notes:
-  - type: text
-    contents: |-
-      In order to run a function, you need to deploy it to a Google Cloud Project.
-
-      When you deploy your function, Cloud Functions automatically installs dependencies and compile your code if necessary.
-  - type: text
-    contents: |-
-      You can deploy Cloud Functions from your **local machine** or from your **GitHub** or **Bitbucket** source repository.
-
-      Using the gcloud command-line tool, you can deploy your function from the directory containing your function code.
-
-      ```
-      gcloud functions deploy NAME --runtime RUNTIME TRIGGER [FLAGS...]
-      ```
-  - type: text
-    contents: "Runtime can be any of: \n- `nodejs8`\n- `python37`\n- `go111`"
-  - type: text
-    contents: |-
-      Trigger can be any of:
-      - `--trigger-http`
-      - `--trigger-topic`
-      - `--trigger-storage`
-      - a combination of `--trigger-event` and `--trigger-resource`.
   tabs:
   - title: Shell
     type: terminal
@@ -100,15 +76,6 @@ challenges:
   assignment: To test the **previously deployed function**, call it manually by using
     the `gcloud functions call` command.
   notes:
-  - type: text
-    contents: "Cloud **events** are things that happen in your cloud environment.
-      \n\nThese might be things like **changes to data in a database**, **files added
-      to a storage system**, or a **new virtual machine instance** being created."
-  - type: text
-    contents: "Events occur whether or not you choose to respond to them. You **create
-      a response to an event with a trigger**.\n\nA trigger is a declaration that
-      you are interested in a certain event or set of events. \n\nBinding a function
-      to a trigger allows you to capture and act on events. "
   - type: text
     contents: "To support **quick iteration and debugging**, Cloud Functions provides
       a `gcloud functions call` command in the command-line interface.\n\nThis allows
@@ -129,14 +96,6 @@ challenges:
   assignment: "Use **curl -o result.txt <URL>** or another method to call your HTTP
     function and store the result in a file called **result.txt** \n\n Note: You can
     get your function's URL with the `gcloud functions describe` command"
-  notes:
-  - type: text
-    contents: |-
-      You can invoke Cloud Functions with an HTTP request using the `POST`, `PUT`, `GET`, `DELETE`, and `OPTIONS` HTTP methods.
-
-      From the caller's perspective, **HTTP invocations are synchronous**, meaning that the result of the function execution will be returned in the response to the HTTP request.
-
-      HTTP Functions automatically get a fully qualified domain name and URL. This allows you to quickly build RESTful APIs and Webhooks that can immediately be used.
   tabs:
   - title: Shell
     type: terminal
@@ -148,10 +107,7 @@ challenges:
   type: challenge
   title: Reading logs
   teaser: Read log lines via the gcloud command-line tool.
-  assignment: |-
-    Use **gcloud** to read the logs from your function.
-
-     Note: Your functions is being called in the background every minute, so just wait for the logs to show up!
+  assignment: Use **gcloud** to read the logs from your function.
   notes:
   - type: text
     contents: |-
@@ -168,4 +124,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "1826876565899985758"
+checksum: "16484925024667603981"

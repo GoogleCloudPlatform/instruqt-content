@@ -1,7 +1,7 @@
 slug: gke-microservices
 id: 3ugxzwhjqfp6
 type: track
-title: Google Kubernetes Engine
+title: Kubernetes Engine
 teaser: Are you a master of microservices?
 description: |-
   Kubernetes Engine is a managed, production-ready environment for deploying and managing containerized applications. It brings our latest innovations in developer productivity, resource efficiency, automated operations, and open source flexibility to accelerate your time to market.
@@ -155,4 +155,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "9442542972513251548"
+checksum: "6899510207417001810"

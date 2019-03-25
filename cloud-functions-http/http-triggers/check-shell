@@ -1,6 +1,6 @@
 #!/bin/bash
-value=$(cat result.txt)
+value=$(cat /home/result.txt)
 if [ "$value" != 'Hello, Google!' ]; then
-    fail-message "The correct function call output was not saved to a file"
+    fail-message "The correct function call output was not saved to a file. Type 'hint' if you are stuck."
     exit 1
 fi
