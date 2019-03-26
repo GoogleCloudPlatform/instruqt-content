@@ -12,10 +12,11 @@ The base container `gcr.io/instruqt-shadow/base` has the following features:
  * Adds `tiv` for printing images in the terminal via `tiv -256 /path/to/image.png`.
 
 Use it by adding `gcr.io/instruqt-shadow/base` to your `Dockerfile`, or setting it as your image in `config.yaml`.
-
 Modify it by editing the contents of `base-container/git diff `.
 
 ## Convensions
 
-It's recommended that you put `set-workdir /home` in `setup-shell` so the user has a clean working directory with whatever challenge files exist,
+ * It's recommended that you put `set-workdir /home` in `setup-shell` so the user has a clean working directory plus relevant challenge files,
 as opposed to `/root` which is the Instruqt default.
+
+ * At the end of `fail-message`, add `Type "hint" if you get stuck.` and put a hint in `/root/hint.txt` so there's always a way to move forward.

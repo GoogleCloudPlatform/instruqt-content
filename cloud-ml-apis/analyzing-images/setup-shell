@@ -4,14 +4,24 @@
 set-workdir /home
 
 # Put the help text in help.txt
-cat <<EOF > /home/help.txt
-The image in file "images/doggo1.png" contains an adorable dog, yes, but what is his
+cat <<EOF > /root/help.txt
+The image in file "doggo1.png" contains an adorable dog, yes, but what is his
 breed? Using "gcloud", send this precious pup through Google's Vision API and report
-back what the most prominent breed is.
-
-When you think you know the answer, type "answer" and press ENTER.
+back what the most prominent breed is. 
 
 *HINT* Use the command "gcloud ml vision" to get started.
+
+When you think you know the answer, type "answer" and press ENTER.
 EOF
 
-cp /home/images/doggo1.png /root/help.png
+cat <<EOF > /root/hint.txt
+Try running the following command:
+
+    gcloud ml vision detect-labels doggo1.png
+
+And look for the first value of "description" which describes a dog breed. Be 
+sure to select the breed with the highest "score" value!
+EOF
+
+cp /root/images/doggo1.png /home/doggo1.png
+cp /root/images/doggo1.png /root/help.png

@@ -2,6 +2,7 @@
 
 if [ -f /root/help.png ]; then
 	tiv -256 /root/help.png -h 40
+	echo ""
 fi
 
 if [ -f /root/help.txt ]; then

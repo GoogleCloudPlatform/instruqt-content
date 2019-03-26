@@ -6,6 +6,6 @@ ADD  svc.json svc.json
 RUN  gcloud auth activate-service-account --key-file=svc.json && rm svc.json
 
 # Copy over challenge assets
-COPY ./images /home/images
-COPY ./quotes /home/quotes
-COPY ./videos /home/videos
+COPY ./images /root/images
+COPY ./audio /root/audio
+COPY ./videos /root/videos

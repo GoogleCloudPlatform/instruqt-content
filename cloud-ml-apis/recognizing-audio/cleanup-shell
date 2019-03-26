@@ -6,11 +6,10 @@ rm /usr/local/bin/answer.txt
 # Delete the help file
 rm /root/help.txt
 
-# Delete the help image
-rm /root/help.png
-
 # Delete the hint file
 rm /root/hint.txt
 
 # Delete the challenge assets
-rm /home/video1.mp4
+rm /home/quote1.wav
+rm /home/quote2.wav
+rm /home/quote3.wav

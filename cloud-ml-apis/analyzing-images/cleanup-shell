@@ -4,7 +4,13 @@
 rm /usr/local/bin/answer.txt
 
 # Delete the help file
-rm /home/help.txt
+rm /root/help.txt
 
 # Delete the help image
 rm /root/help.png
+
+# Delete the hint file
+rm /root/hint.txt
+
+# Delete the challenge assets
+rm /home/doggo1.png

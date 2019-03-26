@@ -8,6 +8,6 @@ ANSWER=$(cat /usr/local/bin/answer.txt)
 
 CORRECT="jurassic park"
 if [[ "$CORRECT" != "$ANSWER" ]]; then
-    fail-message "Your answer is incorrect! Try running the command \"gcloud ml speech recognize quotes/quote1.wav --language-code=en\""
+    fail-message "Your answer is incorrect! Type \"hint\" if you are stuck."
     exit 1
 fi
