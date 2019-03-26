@@ -1,14 +1,32 @@
 #!/bin/bash
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
-cat <<EOF > help.txt
-# Your Quest
--------------------------------
+cat <<EOF > /root/help.txt
 
 In the "challenge" namespace you previously created, create a ConfigMap called "app" with a key named "username" with any value.
 
 Then create a generic Secret called "app" with a key named "password" with any value in the challenge namespace.
 
-Press the red button to see this message at any time!
+EOF
+
+cat <<EOF > /root/hint.txt
+
+The kubectl cli can be used to create ConfigMaps.
+
+You can do this with: kubectl create configmap <NAME OF CONFIGMAP> <OPTIONS>
+
+To create a ConfigMap called 'app' and to create a key inside that ConfigMap called 'username', run:
+
+kubectl create configmap app --from-literal=username=Your_Value_Here --namespace=challenge
+
+The kubectl cli can also be used to create Secrets.
+
+You can do this with: kubectl create secret <TYPE OF SECRET> <NAME OF SECRET> <OPTIONS>
+
+To create a Secret called 'app' and to create a key inside that Secret called 'password', run:
+
+kubectl create secret generic app --from-literal=password=Your_Value_Here --namespace=challenge
 
 EOF
+
+set-workdir /home

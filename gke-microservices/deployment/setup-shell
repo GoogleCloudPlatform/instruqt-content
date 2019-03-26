@@ -1,9 +1,7 @@
 #!/bin/bash
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
-cat <<EOF > help.txt
-# Your Quest
--------------------------------
+cat <<EOF > /root/help.txt
 
 In the 'challenge' namespace you previously created, create a Deployment called 'app' that runs a single Pod with the 'gcr.io/instruqt-shadow/challenge' image.
 
@@ -11,11 +9,24 @@ The Pod should be labeled with 'name = app'.
 
 If you need it, there is a template called 'deployment.yaml' that has been created for you. You don't need to use it though :)
 
-Press the red button to see this message at any time!
+EOF
+
+cat <<EOF > /root/hint.txt
+
+Open the 'deployment.yaml' file that was created for you.
+
+For the namepsace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
+For the metadata name, use 'app'. This determins the name of the Deployment.
+For replicas, use '1'. This tells Kubernetes how many copies of your app to run.
+For the matchLabels name, use 'app'. This tells Kubernetes what pods this Deployment controls.
+For the template metadata labels name, use 'app'. This gives the Pods created by this Deployment the label 'app'.
+For the image, use 'gcr.io/instruqt-shadow/challenge'. This tells the Pods which Docker container to run.
 
 EOF
 
-cat <<EOF > deployment.yaml
+set-workdir /home
+
+cat <<EOF > /home/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -1,9 +1,15 @@
 #!/bin/bash
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
-cat <<EOF > help.txt
-# Your Quest
--------------------------------
+EXTERNAL_IP=$(kubectl get service app -n challenge -o jsonpath="{.status.loadBalancer.ingress[*].ip}")
+OUTPUT=$(curl -s $EXTERNAL_IP)
+
+cat <<EOF > /root/help.txt
+You can see that your app is now serving traffic on a public IP address!
+
+$OUTPUT
+
+While it looks slick, you can see that the username and password we created aren't being used!
 
 Update the "app" Deployment to have an environment variable called "USERNAME" that gets its value from the ConfigMap you created, and another environment variable called "PASSWORD" that gets is value from the Secret you created.
 
@@ -11,11 +17,37 @@ cURL the exposed service, and save the output of the service to a file called fi
 
 If you need it, there is a template called 'deployment.yaml' that has been created for you. You don't need to use it though :)
 
-Press the red button to see this message at any time!
+EOF
+
+cat <<EOF > /root/hint.txt
+
+Open the 'deployment.yaml' file that was created for you.
+
+For the first name, use 'USERNAME'. This tells Kubernetes what the environment variable will be called.
+For the ConfigMap name, use 'app'. This tells Kubernetes which ConfigMap to look in.
+For the ConfigMap key, use 'username'. This tells Kubernetes which key in the ConfigMap to use.
+
+For the second name, use 'PASSWORD'. This tells Kubernetes what the environment variable will be called.
+For the Secret name, use 'app'. This tells Kubernetes which Secret to look in.
+For the Secret key, use 'username'. This tells Kubernetes which key in the Secret to use.
+
+Save the file, and deploy it with:
+
+kubectl apply -f deployment.yaml
+
+Now, get the External IP address of your service:
+
+kubectl get service app --namespace challenge
+
+Then, curl the output and save it to finished.txt
+
+curl -o finished.txt $EXTERNAL_IP
 
 EOF
 
-cat <<EOF > deployment.yaml
+set-workdir /home
+
+cat <<EOF > /home/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -48,4 +80,8 @@ spec:
             secretKeyRef:
               name: <?>
               key:  <?>
+EOF
+
+cat <<EOF > /root/.customenv
+URL=$EXTERNAL_IP
 EOF

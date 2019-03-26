@@ -1,9 +1,7 @@
 #!/bin/bash
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
-cat <<EOF > help.txt
-# Your Quest
--------------------------------
+cat <<EOF > /root/help.txt
 
 In the "challenge" namespace you previously created, create a Service called "app" of type "LoadBalancer" that routes traffic from port 80 to port 3000 of the pods in the 'app' Deployment.
 
@@ -11,11 +9,38 @@ cURL the exposed service, and save the output of the service to a file called ou
 
 If you need it, there is a template called 'service.yaml' that has been created for you. You don't need to use it though :)
 
-Press the red button to see this message at any time!
+EOF
+
+cat <<EOF > /root/hint.txt
+
+Open the 'service.yaml' file that was created for you.
+
+For the namepsace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
+For the metadata name, use 'app'. This determins the name of the Service.
+For the selector, use 'name: app'. This tells Kubernetes to forward traffic to Pods with the label "name" set to "app".
+For the port name, use '80'. This is the port we want to expose.
+For the targetPort, use '3000'. This is the port the Pod is listening on.
+For the type, use 'LoadBalancer'. This tells Kubernetes to provision a cloud load balancer.
+
+Save the file, and deploy it with:
+
+kubectl apply -f service.yaml
+
+Now, get the External IP address of your service:
+
+kubectl get service app --namespace challenge
+
+Wait until the External IP goes from <pending> to an actual IP address. This means the load balancer is provisioned.
+
+Then, curl the output and save it to finished.txt
+
+curl -o output.txt <EXTERNAL_IP>
 
 EOF
 
-cat <<EOF > service.yaml
+set-workdir /home
+
+cat <<EOF > /home/service.yaml
 kind: Service
 apiVersion: v1
 metadata:
