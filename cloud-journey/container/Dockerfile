@@ -1,4 +1,4 @@
-FROM gcr.io/instruqt/gcp-project-client
+FROM gcr.io/instruqt-shadow/base
 RUN mkdir /app
 WORKDIR '/app'
 RUN apt-get update -y && \
