@@ -1,1 +1,4 @@
-a
+#!/bin/bash
+
+# Delete the help file
+rm /root/help.txt
