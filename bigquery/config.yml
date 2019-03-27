@@ -1,0 +1,6 @@
+version: "2"
+containers:
+- name: shell
+  image: gcr.io/instruqt-shadow/bigquery
+  shell: /bin/bash
+  memory: 128

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Starts the user in the /home directory
+set-workdir /home
+
+random_id=$(uuidgen)
+random_dataset_id=${random_id//-}"_bigquery"
+
+echo "export DATASET_ID="$random_dataset_id >> /root/.customenv
+
+# Put the help text in help.txt
+cat <<EOF >> /root/help.txt
+In this challenge we are going to create a new dataset. Use the bq cli again to
+create a dataset called $random_dataset_id.
+
+The name of the table is accesible in the environment variable \$DATASET_ID for
+you convenience. Once the dataset is created, press the A button to verify it.
+EOF

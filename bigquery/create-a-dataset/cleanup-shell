@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Delete the answer file
+rm /usr/local/bin/answer.txt
+
+# Delete the help file
+rm /root/help.txt

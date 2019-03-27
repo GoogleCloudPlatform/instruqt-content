@@ -1,0 +1,39 @@
+#!/bin/bash
+
+gcloud config set project instruqt-shadow
+
+# Starts the user in the /home directory
+set-workdir /home
+
+echo "export USA_NAMES=\\\`bigquery-public-data.usa_names.usa_1910_current\\\`" >> /root/.customenv
+source /root/.customenv
+
+# Put the help text in help.txt
+cat <<EOF > /root/help.txt
+Let's use the bigquery-public-data.usa_names.usa_1910_current table to
+figure out what's the most common name in the US. The name of the table is
+available in the environment variable \$USA_NAME for your convenience.
+
+Each row represents the number of applicants for a Social Security card by year
+of birth. The schema of the table looks like this:
+
+       Schema
+ --------------------
+ |- state: string
+ |- gender: string
+ |- year: integer
+ |- name: string
+ |- number: integer
+
+When you think you know the answer, type "answer" and press ENTER.
+
+**Hint**:
+Example query:
+bq query 'SELECT * FROM '\$USA_NAMES' LIMIT 1'
+
+Or use this command to check the schema of the table again:
+bq show bigquery-public-data:usa_names.usa_1910_current
+EOF
+
+bq query "SELECT 1"
+echo $'\n'"[query]"$'\n'"--use_legacy_sql=false" >> $HOME/.bigqueryrc

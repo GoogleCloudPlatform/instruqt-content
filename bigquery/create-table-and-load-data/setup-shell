@@ -1,0 +1,46 @@
+#!/bin/bash
+
+# Put the help text in help.txt
+cat <<EOF > /root/help.txt
+Now that we have our $DATASET_ID dataset created, let's create a table called
+"cloud_next" in that dataset and load some data using the data.csv file
+available in the home directory.
+
+The first row of the data.csv file has the name of the fields (timestamp, sales
+and zipcode). The rest of the rows and some sample data for the next challenge.
+BigQuery can auto detect the schema for your table based on the data being
+loaded.
+
+Alternatively, you can use ther schema.json file in the same directory.
+
+EOF
+
+cat <<EOF > data.csv
+timestamp,sales,zipcode
+2019-02-14 17:01:39Z,104.2,94112
+2019-03-11 15:09:26Z,82.7,90028
+2019-01-01 05:59:47Z,4.5,10012
+EOF
+
+cat <<EOF > schema.json
+[
+ {
+   "description": "When was the product sold",
+   "name": "timestamp",
+   "type": "TIMESTAMP",
+   "mode": "REQUIRED"
+ },
+ {
+   "description": "What was the sales price",
+   "name": "sales",
+   "type": "FLOAT",
+   "mode": "REQUIRED"
+ },
+ {
+   "description": "In what zip code did the sales happen",
+   "name": "zipcode",
+   "type": "INTEGER",
+   "mode": "NULLABLE"
+ }
+]
+EOF

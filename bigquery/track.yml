@@ -1,0 +1,105 @@
+slug: bigquery
+id: qfqvbbq1oqdv
+type: track
+title: Bigquery
+teaser: Let's see how much you know about BigQuery.
+description: |-
+  # What is BigQuery?
+
+  BigQuery is Google's serverless, highly scalable enterprise data warehouse.
+
+  Because there is no infrastructure to manage, you don't need to deploy any
+  resources such as disks or virtual machines, so that you can focus on
+  analyzing data to find meaningful insights using familiar SQL without the need
+  for a database administrator.
+
+  Let's see how much you know about BigQuery!
+
+  ![](https://storage.googleapis.com/instruqt-shadow-resources/bigquery/gcp-cloud-functions.png)
+icon: https://storage.googleapis.com/instruqt-shadow-resources/bigquery/gcp-cloud-functions.png
+tags:
+- cloud
+- bigquery
+- data warehouse
+- bigdata
+owner: google
+developers:
+- martinv@google.com
+private: false
+published: true
+challenges:
+- slug: public-dataset
+  id: qd6ygsnsdhco
+  type: challenge
+  title: 'Level 1: Public Dataset'
+  teaser: Query a dataset and figure out what's the most common name in the US.
+  assignment: "Let's use the **`bigquery-public-data.usa_names.usa_1910_current`**
+    table to figure out what's the most common name in the US.\n Each row represents
+    the number of applicants for a Social Security card by year of birth.\n When you
+    think you know the answer,\n    type **answer** and press ENTER.\n **Hint**: If
+    in doubt, start with **bq help** or use this command to check the schema of the
+    table: \n **bq show bigquery-public-data:usa_names.usa_1910_current**"
+  notes:
+  - type: video
+    url: https://www.youtube.com/embed/eyBK9nj-7AA?autoplay=1
+  - type: text
+    contents: |-
+      There are several public datasets hosted in BigQuery for you to access and integrate into your applications.
+       In this first challenge you will have to use a public dataset created by the Social Security Administration with a list of applicants for a SS card by year of birth to figure out what's the most common name in the US.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 1000
+- slug: create-a-dataset
+  id: laudkslxntnw
+  type: challenge
+  title: 'Level 2: Create a dataset'
+  teaser: First things first. Let’s create a dataset.
+  assignment: |-
+    Now it’s your turn to create a dataset. Let's get started with this second
+    challenge!
+  notes:
+  - type: text
+    contents: |-
+      A dataset is a collection of tables that are contained within a specific
+      **project**. Datasets are top-level containers that are used to organize
+      and control access to your **tables and views**.
+
+      A table or view must belong to a dataset, so you need to create at least
+      one dataset before **loading data into BigQuery**.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 300
+- slug: create-table-and-load-data
+  id: ewkxvgbktfyy
+  type: challenge
+  title: 'Level 3: Create a table with some data'
+  teaser: Create a table and load some sample data
+  assignment: |-
+    Now that we have out $DATASE_ID dataset created, let's create a table in
+    that dataset called "cloud_next" and load some data using the data.csv file
+    available in the home directory.
+  notes:
+  - type: text
+    contents: |-
+      A BigQuery table contains individual records organized in rows.
+      Each record is composed of columns (also called fields).
+
+      Every table is defined by a schema that describes the column names, data
+      types, and other information.
+
+      You can specify the schema of a table when it is created, or you can create
+      a table without a schema and declare the schema in the load job that first
+      populates it with data.
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 300
+checksum: "4297353521212343521"

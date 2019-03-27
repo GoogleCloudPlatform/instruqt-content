@@ -1,0 +1,21 @@
+#!/bin/bash
+
+bq show $DATASET_ID.cloud_next
+if [ $? -ne 0 ]; then
+  fail-message "Could not find a table called 'challenge.cloud_next'"
+  exit 1
+fi
+
+OUTPUT=$(bq show --schema $DATASET_ID.cloud_next)
+echo $OUTPUT | jq -e 'sort_by(.name) | .[0].name == "sales" and .[1].name == "timestamp" and .[2].name == "zipcode"'
+if [ $? -ne 0 ]; then
+  fail-message "Please make sure the table has the following 3 fields: sales, timestamp and zipcode"
+  exit 1
+fi
+
+echo $OUTPUT | jq -e 'sort_by(.name) | .[0].type == "FLOAT" and .[1].type == "TIMESTAMP" and .[2].type == "INTEGER"'
+if [ $? -ne 0 ]; then
+  fail-message "Please make sure the table has the correct fields types"
+  exit 1
+fi
+
