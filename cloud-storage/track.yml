@@ -80,8 +80,7 @@ challenges:
   - type: text
     contents: It's time to upload some content to your newly created bucket.
   - type: text
-    contents: |-
-      There is a local file named foo.txt for you to upload as bar.txt. 
+    contents: 'There is a local file named foo.txt for you to upload as bar.txt. '
   tabs:
   - title: Shell
     type: terminal
@@ -113,13 +112,12 @@ challenges:
       We've installed the additional tool "print-png", which you will need to
       use to solve this challenge.
   - type: text
-    contents: |-
-      Before you can download the file we've placed in your bucket, you'll need to figure 
-      out it's name. 
+    contents: "Before you can download the file we've placed in your bucket, you'll
+      need to figure \nout it's name. "
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: intermediate
   timelimit: 300
-checksum: "5976657869955739575"
+checksum: "15306401620395247580"
