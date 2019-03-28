@@ -8,7 +8,7 @@ cat <<EOF > help.txt
 
 By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil
 directly, download the image we've hidden in \$BUCKET_NAME. Using print-png,
-view the image, and use a text editor to write your answer in /root/answer.txt.
+view the image, and type "answer" when you're ready to tell us what it is.
 
 Feeling stuck? run gsutil --help, or cat help.txt.
 
@@ -93,14 +93,9 @@ console.log(
 );
 EOF
 
-cat <<EOF > answer.txt
-What was the .png an image of? (On the next line of this file type
-one of: horse, television, house, person, dog, orange, pizza).
-EOF
-
 cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-answer.js
 const {readFileSync} = require('fs')
-const lines = readFileSync('/root/answer.txt', 'utf8').trim().split('\n')
+const lines = readFileSync('/root/.quiz/answer.txt', 'utf8').trim().split('\n')
 const lastLine = lines[lines.length - 1].toLowerCase()
 if (lastLine !== 'dog') {
     console.error('incorrect answer')
@@ -151,52 +146,52 @@ cat <<EOF > go/challenge.go
 package main
 
 import (
-  "context"
-  "log"
-  "os"
-  "io/ioutil"
-  "strings"
+	"cloud.google.com/go/storage"
+	"context"
 	"google.golang.org/api/iterator"
-  "cloud.google.com/go/storage"
-	)
+	"io/ioutil"
+	"log"
+	"os"
+	"strings"
+)
 
 func main() {
-  ctx := context.Background()
+	ctx := context.Background()
 
-  // [START setup]
-  client, err := storage.NewClient(ctx)
-  if err != nil {
-    log.Fatal(err)
-  }
-  // [END setup]
+	// [START setup]
+	client, err := storage.NewClient(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	// [END setup]
 
-  // Give the bucket a unique name.
-  bucketName := os.Getenv("BUCKET_NAME")
-  if err := download(client, bucketName, "bar.txt"); err != nil {
-    log.Fatalf("Cannot write object: %v", err)
-  }
+	// Give the bucket a unique name.
+	bucketName := os.Getenv("BUCKET_NAME")
+	if err := download(client, bucketName, "bar.txt"); err != nil {
+		log.Fatalf("Cannot write object: %v", err)
+	}
 }
 
 func download(client *storage.Client, bucketName, object string) error {
-  ctx := context.Background()
-  it := client.Bucket(bucketName).Objects(ctx, nil)
-  for {
-          oattrs, err := it.Next()
-          if err == iterator.Done {
-                  break
-          }
-          if err != nil {
-                  return err
-          }
+	ctx := context.Background()
+	it := client.Bucket(bucketName).Objects(ctx, nil)
+	for {
+		oattrs, err := it.Next()
+		if err == iterator.Done {
+			break
+		}
+		if err != nil {
+			return err
+		}
 
-          if (strings.Index(oattrs.Name, "png") != -1) {
-            //
-            // logic for writing file to disk.
-            //
-          }
-  }
+		if strings.Index(oattrs.Name, "png") != -1 {
+			//
+			// logic for writing file to disk.
+			//
+		}
+	}
 
-  return nil
+	return nil
 }
 EOF
 

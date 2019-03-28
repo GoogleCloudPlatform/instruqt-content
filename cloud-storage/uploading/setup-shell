@@ -51,7 +51,7 @@ const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
 const storage = new Storage()
 
 async function uploadFile () {
-  // Implement the logic for uploading the file ./foo.txt to the remote bucket
+  // Implement the logic for uploading the file /root/foo.txt to the remote bucket
   // with the name bar.txt.
 }
 
@@ -150,34 +150,34 @@ cat <<EOF > go/challenge.go
 package main
 
 import (
+	"cloud.google.com/go/storage"
 	"context"
+	"io"
 	"log"
 	"os"
-  "io"
-	"cloud.google.com/go/storage"
-	)
+)
 
 func main() {
-  ctx := context.Background()
+	ctx := context.Background()
 
-  // [START setup]
-  client, err := storage.NewClient(ctx)
-  if err != nil {
-    log.Fatal(err)
-  }
-  // [END setup]
+	// [START setup]
+	client, err := storage.NewClient(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	// [END setup]
 
-  // Give the bucket a unique name.
-  bucketName := os.Getenv("BUCKET_NAME")
-  if err := write(client, bucketName, "bar.txt"); err != nil {
-    log.Fatalf("Cannot write object: %v", err)
-  }
+	// Give the bucket a unique name.
+	bucketName := os.Getenv("BUCKET_NAME")
+	if err := write(client, bucketName, "bar.txt"); err != nil {
+		log.Fatalf("Cannot write object: %v", err)
+	}
 }
 
 func write(client *storage.Client, bucketName, object string) error {
-  ctx := context.Background()
+	ctx := context.Background()
 
-  return nil
+	return nil
 }
 EOF
 

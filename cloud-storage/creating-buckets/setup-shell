@@ -123,31 +123,31 @@ cat <<EOF > go/challenge.go
 package main
 
 import (
+	"cloud.google.com/go/storage"
 	"context"
 	"fmt"
 	"log"
 	"os"
-	"cloud.google.com/go/storage"
-	)
+)
 
 func main() {
-  ctx := context.Background()
+	ctx := context.Background()
 
-  projectID := os.Getenv("GOOGLE_CLOUD_PROJECT")
+	projectID := os.Getenv("GOOGLE_CLOUD_PROJECT")
 
-  // [START setup]
-  client, err := storage.NewClient(ctx)
-  if err != nil {
-    log.Fatal(err)
-  }
-  // [END setup]
+	// [START setup]
+	client, err := storage.NewClient(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+	// [END setup]
 
-  // Give the bucket a unique name.
-  name := os.Getenv("BUCKET_NAME")
-  if err := create(client, projectID, name); err != nil {
-    log.Fatal(err)
-  }
-  fmt.Printf("created bucket: %v\n", name)
+	// Give the bucket a unique name.
+	name := os.Getenv("BUCKET_NAME")
+	if err := create(client, projectID, name); err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("created bucket: %v\n", name)
 }
 
 func create(client *storage.Client, projectID, bucketName string) error {
@@ -160,12 +160,12 @@ EOF
 cat <<EOF > go/code-sample.go
 bucket := client.Bucket(bucketName)
 if err := bucket.Create(ctx, projectID, &storage.BucketAttrs{
-        // optional configuration variables, such as storage type
-        // and data-center location.
-        // StorageClass: "COLDLINE",
-        // Location:     "asia",
+  // optional configuration variables, such as storage type
+  // and data-center location.
+  // StorageClass: "COLDLINE",
+  // Location:     "asia",
 }); err != nil {
-        return err
+  return err
 }
 EOF
 
@@ -195,7 +195,7 @@ from google.cloud import storage
 
 def create_bucket():
     storage_client = storage.Client()
-    bucket_name = os.environ['BUCKET_NAME'])
+    bucket_name = os.environ['BUCKET_NAME']
     
     # create a bucket
     
@@ -210,3 +210,29 @@ def create_bucket():
     bucket = storage_client.create_bucket(bucket_name)
     print('Bucket {} created'.format(bucket.name))
 EOF
+
+# configure a few additional bins for the user.
+mkdir /root/.quiz
+cat <<EOF > /root/.quiz/choices.txt
+What was the .png an image of?
+horse
+television
+house
+person
+dog
+orange
+pizza
+EOF
+
+EOF
+
+cat <<EOF > /usr/local/bin/answer
+/usr/local/bin/terminal-quiz --exit-message="Click the 'Check' button if you're happy with your answer"
+EOF
+chmod 755 /usr/local/bin/answer
+
+cat <<EOF > /usr/local/bin/help
+#!/bin/bash
+cat /root/help.txt | more
+EOF
+chmod 755 /usr/local/bin/help

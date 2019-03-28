@@ -37,8 +37,9 @@ challenges:
 
     Hit the "Check" button when you are done.
   notes:
-  - type: image
-    url: https://storage.googleapis.com/instruqt-shadow-resources/storage-title.png
+  # images are currently not working on the arcade machine.
+  #- type: image
+  #  url: https://storage.googleapis.com/instruqt-shadow-resources/storage-title.png
   - type: text
     contents: "In this quest you will use Google Cloud storage. Unlike many of the
       options,\nGCS is unstructured. Everything is an object and can be stored in
@@ -95,7 +96,7 @@ challenges:
   assignment: |-
     By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil
     directly, download the image we've hidden in $BUCKET_NAME. Using print-png,
-    view the image, and use a text editor to write your answer in /root/answer.txt.
+    view the image, and type "answer" when you're ready to tell us what it is.
 
     Feeling stuck? run gsutil --help, or cat help.txt.
 
@@ -120,4 +121,4 @@ challenges:
     hostname: shell
   difficulty: intermediate
   timelimit: 300
-checksum: "15306401620395247580"
+checksum: "1384784106312896944"

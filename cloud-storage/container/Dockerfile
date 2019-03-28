@@ -29,9 +29,10 @@ RUN mv /root/google-cloud-sdk /usr/local/lib/
 # install node bins used on machine.
 RUN mkdir -p /usr/local/lib/node_modules && \
     cd /usr/local/lib/node_modules && \
-    npm i uuid@3.3.2 json@9.0.6 && \
+    npm i uuid@3.3.2 json@9.0.6 terminal-quiz@1.2.0 && \
     ln -s /usr/local/lib/node_modules/.bin/uuid /usr/local/bin/uuid && \
-    ln -s /usr/local/lib/node_modules/.bin/json /usr/local/bin/json
+    ln -s /usr/local/lib/node_modules/.bin/json /usr/local/bin/json && \
+    ln -s /usr/local/lib/node_modules/.bin/terminal-quiz /usr/local/bin/terminal-quiz
 
 # install dependencies for challenges.
 RUN mkdir -p /root/node/node_modules
