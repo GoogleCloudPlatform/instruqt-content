@@ -2,7 +2,7 @@
 
 # setup aliases.
 echo "alias python=python3" >> /root/.bashrc
-echo "alias help=cat /root/help.txt | more" >> /root/.bashrc
+echo "alias help=/usr/local/bin/help" >> /root/.bashrc
 
 # gcloud installs with the CHECKSUM not present in all
 # necessry folders *shrug emoji*.
@@ -231,3 +231,9 @@ cat <<EOF > /usr/local/bin/answer
 /usr/local/bin/terminal-quiz --exit-message="Click the 'Check' button if you're happy with your answer"
 EOF
 chmod 755 /usr/local/bin/answer
+
+cat <<EOF > /usr/local/bin/help
+#!/bin/bash
+cat /root/help.txt | more
+EOF
+chmod 755 /usr/local/bin/help
