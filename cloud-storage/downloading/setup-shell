@@ -167,12 +167,12 @@ func main() {
 
 	// Give the bucket a unique name.
 	bucketName := os.Getenv("BUCKET_NAME")
-	if err := download(client, bucketName, "bar.txt"); err != nil {
+	if err := download(client, bucketName); err != nil {
 		log.Fatalf("Cannot write object: %v", err)
 	}
 }
 
-func download(client *storage.Client, bucketName, object string) error {
+func download(client *storage.Client, bucketName) error {
 	ctx := context.Background()
 	it := client.Bucket(bucketName).Objects(ctx, nil)
 	for {
@@ -197,7 +197,7 @@ EOF
 
 cat <<EOF > go/code-sample.go
 // [START download_file]
-rc, err := client.Bucket(bucketName).Object(object).NewReader(ctx)
+rc, err := client.Bucket(bucketName).Object(oattrs.Name).NewReader(ctx)
 if err != nil {
   return err
 }
