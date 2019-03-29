@@ -2,7 +2,7 @@
 
 # setup aliases.
 echo "alias python=python3" >> /root/.bashrc
-echo "alias help=cat /root/help.txt | more"
+echo "alias help=cat /root/help.txt | more" >> /root/.bashrc
 
 # gcloud installs with the CHECKSUM not present in all
 # necessry folders *shrug emoji*.
