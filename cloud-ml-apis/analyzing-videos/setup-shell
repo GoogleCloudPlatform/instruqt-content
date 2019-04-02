@@ -10,7 +10,7 @@ find her. Using "gcloud", send this good girl through Google's Video
 Intelligence API and report back the starting time in seconds (for example, "7")
 when she appears.
 
-*HINT* Use the command "gcloud ml video" to get started.
+*HINT* Use the command "gcloud ml" to get started.
 
 When you think you know the answer, type "answer" and press ENTER.
 EOF

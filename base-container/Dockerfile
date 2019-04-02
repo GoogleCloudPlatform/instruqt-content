@@ -4,6 +4,17 @@ FROM gcr.io/instruqt/gcp-project-client
 # Install required dependency to build the image viewer
 RUN apt-get update && apt-get install -y build-essential imagemagick
 
+# Install Node
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash
+RUN apt-get update && \
+    apt-get install -y nodejs
+
+# Install terminal-quiz
+RUN mkdir -p /usr/local/lib/node_modules && \
+    cd /usr/local/lib/node_modules && \
+    npm i terminal-quiz@1.2.0 && \
+    ln -s /usr/local/lib/node_modules/.bin/terminal-quiz /usr/local/bin/terminal-quiz
+
 # Install tiv image viewer
 RUN git clone https://github.com/stefanhaustein/TerminalImageViewer.git \
 	&& cd TerminalImageViewer/src/main/cpp && make && make install

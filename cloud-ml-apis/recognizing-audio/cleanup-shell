@@ -3,11 +3,15 @@
 # Delete the answer file
 rm /usr/local/bin/answer.txt
 
+# Delete the multiple choices file
+rm /root/choices.txt
+
 # Delete the help file
 rm /root/help.txt
 
-# Delete the hint file
+# Delete the hint files
 rm /root/hint.txt
+rm /root/hint.png
 
 # Delete the challenge assets
 rm /home/quote1.wav

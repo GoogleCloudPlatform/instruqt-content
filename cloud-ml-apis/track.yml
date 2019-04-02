@@ -35,7 +35,7 @@ challenges:
     his\n    breed? Using **gcloud**, send this precious pup through Google's Vision
     API and report\n    back what the most prominent breed is. \nWhen you think you
     know the answer, type **answer** and press ENTER.   \n    **Hint**: Use the command
-    **gcloud ml vision** to get started."
+    **gcloud ml** to get started."
   tabs:
   - title: Shell
     type: terminal
@@ -51,8 +51,8 @@ challenges:
     Test your pop culture knowledge by identifying the undeniably classic 90's movie
     these quotes are from. Convert the audio into text using the Speech to Text API
     and report back with the title of the film. \nWhen you think you know the answer,
-    type **answer** and press ENTER.  \n**Hint**: Use the command **gcloud ml speech**
-    to get started."
+    type **answer** and press ENTER.  \n**Hint**: Use the command **gcloud ml** to
+    get started."
   tabs:
   - title: Shell
     type: terminal
@@ -69,11 +69,11 @@ challenges:
     her. Using **gcloud**, send this good girl through Google's Video Intelligence
     API and report back the starting time in seconds (for example, \"7\") when she
     appears. \nWhen you think you know the answer, type **answer** and press ENTER.\n\n**Hint**:
-    Use the command **gcloud ml video** to get started."
+    Use the command **gcloud ml** to get started."
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
   timelimit: 180
-checksum: "17884487996464899165"
+checksum: "13407265162881545973"
