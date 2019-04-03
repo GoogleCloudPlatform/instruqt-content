@@ -2,7 +2,7 @@
 PROJECT=$(gcloud config list project --format=flattened | awk 'FNR == 1 {print $2}')
 echo "gcloud projects add-iam-policy-binding ${PROJECT} --member serviceAccount:${PROJECT}@appspot.gserviceaccount.com --role roles/bigquery.admin > /dev/null 2>&1 &" >> /root/.customrc
 echo "gcloud services enable compute.googleapis.com cloudfunctions.googleapis.com bigquery-json.googleapis.com > /dev/null 2>&1 &" >> /root/.customrc
-echo "gcloud app deploy /app/GCPQuest-Companion/app.yaml -q > /dev/null 2>&1 &" >> /root/.customrc
+echo "gcloud app deploy /app/GCPQuest-Companion/app.yaml -q > /root/.appenginedeployoutput 2>&1 &" >> /root/.customrc
 cat <<EOF > /root/help.txt
 
 Welcome! We have created a new GCP account for you to use.
