@@ -35,4 +35,19 @@ gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http
 
 EOF
 
+cat <<EOF > /root/package.json
+{
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cowsay": "^1.4.0"
+  }
+}
+EOF
+
+echo "exports.cowsay = (req, res) => {res.end(require('cowsay').say({text:\`\${req.query.text || 'Google Cloud Functions are awesome'}\`}))}" > /root/index.js
+echo "gcloud functions deploy cowsay --source=/root/ --trigger-http > /dev/null 2>&1 &" >> /root/.customrc
+
 set-workdir /home

@@ -1,16 +1,25 @@
 #!/bin/bash
+URL=$(gcloud functions describe cowsay --format json | jq -r '.httpsTrigger.url')
+OUTPUT=$(curl $URL?text=I%20hope%20you%20are%20having%20fun%20with%20this%20Cloud%20Functions%20challenge!)
 cat <<EOF > /root/help.txt
-Test the previously deployed function by calling it with the gcloud cli.
+
+Let's have some fun!
+
+We have deployed a function called 'cowsay' in your project.
+
+Here is a sample output:
+
+$OUTPUT
+
+Call this function using the gcloud cli
 
 EOF
 
-ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .entryPoint')
-
 cat <<EOF > /root/hint.txt
-The function you want to test is called $ENDPOINT
+The function you want to test is called 'cowsay'
 
 This means you can test the function with:
-gcloud functions call $ENDPOINT
+gcloud functions call cowsay
 
 EOF
 

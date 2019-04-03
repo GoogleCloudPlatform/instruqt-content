@@ -4,13 +4,27 @@ Use gcloud to read the logs from your function.
 
 EOF
 
-ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .entryPoint')
+if [ -f /home/function.go ]; then
+	FUNCTION=HelloHTTP
+  RUNTIME=go111
+fi
+
+if [ -f /home/index.js ]; then
+	FUNCTION=helloHttp
+  RUNTIME=nodejs8
+fi
+
+if [ -f /home/main.py ]; then
+	FUNCTION=hello_http
+  RUNTIME=python37
+fi
+
 cat <<EOF > /root/hint.txt
 To read all your functions logs, use:
  gcloud functions logs read
 
 To read logs from your specific function, use:
- gcloud functions logs read $ENDPOINT
+ gcloud functions logs read $FUNCTION
 
 EOF
 

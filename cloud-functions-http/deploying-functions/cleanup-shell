@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "" > /root/.customrc
+
+set-workdir /home

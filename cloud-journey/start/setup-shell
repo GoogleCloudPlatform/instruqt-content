@@ -1,7 +1,16 @@
 #!/bin/sh
 PROJECT=$(gcloud config list project --format=flattened | awk 'FNR == 1 {print $2}')
-echo "gcloud projects add-iam-policy-binding ${PROJECT} --member serviceAccount:${PROJECT}@appspot.gserviceaccount.com --role roles/bigquery.admin &" >> /root/.customrc
-echo "gcloud services enable compute.googleapis.com cloudfunctions.googleapis.com bigquery-json.googleapis.com &" >> /root/.customrc
-echo "gcloud app deploy /app/GCPQuest-Companion/app.yaml -q" >> /root/.customrc
+echo "gcloud projects add-iam-policy-binding ${PROJECT} --member serviceAccount:${PROJECT}@appspot.gserviceaccount.com --role roles/bigquery.admin > /dev/null 2>&1 &" >> /root/.customrc
+echo "gcloud services enable compute.googleapis.com cloudfunctions.googleapis.com bigquery-json.googleapis.com > /dev/null 2>&1 &" >> /root/.customrc
+echo "gcloud app deploy /app/GCPQuest-Companion/app.yaml -q > /dev/null 2>&1 &" >> /root/.customrc
+cat <<EOF > /root/help.txt
+
+Welcome! We have created a new GCP account for you to use.
+
+Click the "F3" tab, and log in using the provided username and password.
+
+When you are done, click the "F2" tab to start playing the game!
+
+EOF
 gcloud app create --region=us-central -q
 gcloud config set compute/zone us-central1-c

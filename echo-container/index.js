@@ -1,1 +1,1 @@
-const s=require('http').createServer((req, res) => res.end(require('cowsay').say({text:`Username: ${process.env.USERNAME || 'Not Set'}\nPassword: ${process.env.PASSWORD || 'Not Set'}`,cow:'stegosaurus'})));s.listen(3000)
+const s=require('http').createServer((req, res) => res.end(require('cowsay').say({text:`Username: ${process.env.USERNAME || 'Not Set'}\nPassword: ${process.env.PASSWORD || 'Not Set'}`})));s.listen(3000)

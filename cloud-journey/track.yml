@@ -23,6 +23,9 @@ challenges:
   - type: video
     url: https://www.youtube.com/embed/4D3X6Xl5c_Y?autoplay=1
   tabs:
+  - title: GCP Console
+    type: terminal
+    hostname: shell
   - title: Game
     type: service
     hostname: redirect
@@ -33,9 +36,6 @@ challenges:
     hostname: shell
     path: /
     port: 80
-  - title: GCP Console
-    type: terminal
-    hostname: shell
   difficulty: basic
   timelimit: 1500
-checksum: "1143861943502809890"
+checksum: "15625134551474511008"

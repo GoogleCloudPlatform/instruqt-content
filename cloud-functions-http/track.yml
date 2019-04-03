@@ -10,7 +10,7 @@ description: |-
   Cloud Functions can be written using JavaScript (Node.js 6.14.0, Node.js 8.14.0), Python (Python 3.7.1), or Go (Go 1.11) runtimes on Google Cloud Platform. You can take your function and run it in any standard Node.js 6, Node.js 8, Python, or Go runtime, which makes both portability and local testing a breeze.
 
   ![Google Cloud Functions](https://cloud.google.com/images/functions/functions-video-thumbnail.png)
-icon: https://storage.googleapis.com/instruqt-frontend/img/tracks/gcp-cloud-functions.png
+icon: https://storage.googleapis.com/instruqt-shadow-resources/gcf_spinning.gif
 tags:
 - google
 - ' cloud'
@@ -124,4 +124,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "16484925024667603981"
+checksum: "18407393811204165837"

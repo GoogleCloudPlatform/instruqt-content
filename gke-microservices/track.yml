@@ -9,7 +9,7 @@ description: |-
   Kubernetes gives you the power to create, deploy and manage microservices, and Kubernetes Engine gives you this power in a fully managed environment.
 
   Are you a GKE expert? Think you have what it takes to manage some microservices? Let's find out!
-icon: https://storage.googleapis.com/instruqt-shadow-resources/gke.png
+icon: https://storage.googleapis.com/instruqt-shadow-resources/gke_spinning.gif
 tags:
 - kubernetes
 - ' google'
@@ -155,4 +155,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "5297939180648620835"
+checksum: "15213818806291593124"

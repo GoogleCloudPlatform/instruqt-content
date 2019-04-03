@@ -1,6 +1,5 @@
 #!/bin/bash
-ENDPOINT=$(gcloud functions list --format json | jq -r '.[0] | .entryPoint')
-grep "gcloud functions call $ENDPOINT" ~/.bash_history
+grep "gcloud functions call cowsay" ~/.bash_history
 if [ $? -ne 0 ]; then
     fail-message "The function was not triggered manually. Type 'hint' if you are stuck."
     exit 1
