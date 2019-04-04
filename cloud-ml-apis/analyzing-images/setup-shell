@@ -23,5 +23,14 @@ And look for the first value of "description" which describes a dog breed. Be
 sure to select the breed with the highest "score" value!
 EOF
 
+cat <<EOF > /root/choices.txt
+What is the dog's most prominent breed?
+Shelty
+English Bulldog
+Boston Terrier
+Scottish Terrier
+Irish Bulldog
+EOF
+
 cp /root/images/doggo1.png /home/doggo1.png
 cp /root/images/doggo1.png /root/help.png
