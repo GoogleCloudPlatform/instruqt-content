@@ -139,7 +139,7 @@ func main() {
 	}
 }
 
-func download(client *storage.Client, bucketName) error {
+func download(client *storage.Client, bucketName string) error {
 	ctx := context.Background()
 	it := client.Bucket(bucketName).Objects(ctx, nil)
 	for {
