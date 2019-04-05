@@ -1,21 +1,25 @@
 #!/bin/bash
 
-bq show $DATASET_ID.cloud_next
+bq show $DATASET_ID.road_trip
 if [ $? -ne 0 ]; then
-  fail-message "Could not find a table called 'challenge.cloud_next'"
+  fail-message "Could not find a table called $DATASET_ID.road_trip"
   exit 1
 fi
 
-OUTPUT=$(bq show --schema $DATASET_ID.cloud_next)
-echo $OUTPUT | jq -e 'sort_by(.name) | .[0].name == "sales" and .[1].name == "timestamp" and .[2].name == "zipcode"'
+OUTPUT=$(bq show --schema $DATASET_ID.road_trip)
+if [ $? -ne 0 ]; then
+  fail-message "Table was created but looks like you haven't specified a schema or loaded any data yet. Try doing that with 'bq load'"
+  exit 1
+fi
+
+echo $OUTPUT | jq -e 'sort_by(.name) | .[0].name == "date" and .[1].name == "id" and .[2].name == "lat" and .[3].name == "long" and .[4].name == "place"'
 if [ $? -ne 0 ]; then
   fail-message "Please make sure the table has the following 3 fields: sales, timestamp and zipcode"
   exit 1
 fi
 
-echo $OUTPUT | jq -e 'sort_by(.name) | .[0].type == "FLOAT" and .[1].type == "TIMESTAMP" and .[2].type == "INTEGER"'
+echo $OUTPUT | jq -e 'sort_by(.name) | .[0].type == "DATE" and .[1].type == "INTEGER" and .[2].type == "FLOAT" and .[3].type == "FLOAT" and .[4].type == "STRING"'
 if [ $? -ne 0 ]; then
   fail-message "Please make sure the table has the correct fields types"
   exit 1
 fi
-

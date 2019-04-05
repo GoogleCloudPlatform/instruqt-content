@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ ! -f ./query.sql ]; then
+  echo "No query.sql file was found in this directory."
+  exit 0
+fi
+
+if [ ! -s ./query.sql ]; then
+  echo "The query.sql file in this directory is empty"
+  exit 0
+fi
+
+bq query "$(cat query.sql)"

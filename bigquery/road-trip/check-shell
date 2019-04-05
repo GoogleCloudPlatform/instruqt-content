@@ -7,7 +7,7 @@ fi
 
 ANSWER=$(cat /usr/local/bin/answer.txt)
 
-CORRECT=$(bq query --quiet --format=prettyjson 'SELECT name, SUM(number) AS count FROM usa_1910_current GROUP BY 1 ORDER BY 2 DESC LIMIT 1' | jq -r ".[] .name | ascii_downcase")
+CORRECT="3.63"
 
 if [[ "$CORRECT" != "$ANSWER" ]]; then
     fail-message "Your answer is incorrect! If you are really stuck, type 'hint'."

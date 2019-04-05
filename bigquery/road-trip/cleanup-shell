@@ -8,9 +8,3 @@ rm /root/help.txt
 
 # Delete the hint file
 rm /root/hint.txt
-
-# Delete the choices file
-rm /root/choices.txt
-
-# Delete dataset_id flag from .bigqueryrc file
-sed -i '/dataset_id/d' $HOME/.bigqueryrc

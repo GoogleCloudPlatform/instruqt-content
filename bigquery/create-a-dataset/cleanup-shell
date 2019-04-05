@@ -2,3 +2,6 @@
 
 # Delete the help file
 rm /root/help.txt
+
+# Delete the hint file
+rm /root/hint.txt

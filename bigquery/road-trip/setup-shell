@@ -1,0 +1,82 @@
+#!/bin/bash
+
+cat <<EOF > /root/hint.txt
+Try running "bq load" it will guide you through the usage.
+Remember that the destination table is formed by [dataset].[table]
+EOF
+
+# Put the help text in help.txt
+cat <<EOF > /root/help.txt
+In this last challenge we are going to combine the data we just uploaded with
+a GHCN Weather public dataset and figure out the average temperature in a West
+Coast road trip!
+
+Modify the query.sql located in the home directory using your favorite text
+ediot as a head start to find the overall average temperature during this trip!
+
+Then use the 'run-query' command to execute the query.sql
+
+When you think you know the answer, type "answer" and press ENTER.
+
+And remember, if you need help run "bq help".
+EOF
+
+cat <<EOF > /root/choices.txt
+What is the most common name?
+2.45
+8.31
+3.63
+10.91
+3.14
+EOF
+
+cat <<EOF > ./query.sql
+WITH params AS (
+  SELECT id as roadtrip_id,
+         ST_GeogPoint(lat, long) AS center,
+         date,
+         50 AS maxdist_km
+  FROM \`instruqt-shadow.$DATASET_ID.road_trip\`
+),
+distance_from_center AS (
+  SELECT
+    id,
+    name,
+    state,
+    roadtrip_id,
+    date,
+    ST_GeogPoint(longitude, latitude) AS loc,
+    ST_Distance(ST_GeogPoint(longitude, latitude), params.center) AS dist_meters
+  FROM
+    \`bigquery-public-data.ghcn_d.ghcnd_stations\`,
+    params
+  WHERE ST_DWithin(ST_GeogPoint(longitude, latitude), params.center, params.maxdist_km*1000) AND
+    id IN (SELECT id FROM \`bigquery-public-data.ghcn_d.ghcnd_2019\` WHERE element IN ('TAVG'))
+),
+nearest_stations AS (
+  SELECT
+    *,
+    RANK() OVER (PARTITION BY roadtrip_id ORDER BY dist_meters ASC) AS rank
+  FROM
+    distance_from_center
+),
+avg_temp_per_day AS (
+  SELECT
+    nearest_stations.date,
+    AVG(ghcnd_2019.value) / 10 AS avg_temp_celsius
+  FROM
+    nearest_stations
+  LEFT JOIN
+    \`bigquery-public-data.ghcn_d.ghcnd_2019\` AS ghcnd_2019
+  ON
+    nearest_stations.date = ghcnd_2019.date AND
+    nearest_stations.id = ghcnd_2019.id
+  WHERE
+    rank = 1 AND
+    ghcnd_2019.element IN ('TAVG')
+  GROUP BY date
+  ORDER BY date DESC
+)
+SELECT * FROM avg_temp_per_day
+
+EOF

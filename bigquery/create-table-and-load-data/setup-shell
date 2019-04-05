@@ -1,46 +1,69 @@
 #!/bin/bash
 
+cat <<EOF > /root/hint.txt
+Try running "bq load" it will guide you through the usage.
+Remember that the destination table is formed by [dataset].[table]
+EOF
+
 # Put the help text in help.txt
 cat <<EOF > /root/help.txt
-Now that we have our $DATASET_ID dataset created, let's create a table called
-"cloud_next" in that dataset and load some data using the data.csv file
-available in the home directory.
+Now that we have our $DATASET_ID dataset created,
+let's create a table called "road_trip" in that dataset and load some data
+using the data.csv file available in the home directory.
 
-The first row of the data.csv file has the name of the fields (timestamp, sales
-and zipcode). The rest of the rows and some sample data for the next challenge.
-BigQuery can auto detect the schema for your table based on the data being
-loaded.
+Remember you can access the dataset name in \$DATASET_ID.
 
-Alternatively, you can use ther schema.json file in the same directory.
+You can also use the schema.json file to define the table schema.
+
+And remember, if you need help run "bq help | grep dataset".
 
 EOF
 
 cat <<EOF > data.csv
-timestamp,sales,zipcode
-2019-02-14 17:01:39Z,104.2,94112
-2019-03-11 15:09:26Z,82.7,90028
-2019-01-01 05:59:47Z,4.5,10012
+1,2019-02-02,Moscone Center,-122.40069,37.7843234
+2,2019-02-03,Heavenly Mountain Resort,-119.9403548,38.9346948
+3,2019-02-04,Yosemite National Park,-119.5383294,37.8651011
+4,2019-02-05,Sequoia National Park,-118.5657516,36.4863668
+5,2019-02-06,Mojave National Preserve,-115.4483414,35.155183
+6,2019-02-07,Las Vegas,-115.1398296,36.1699412
+7,2019-02-08,Zion National Park,-113.0263005,37.2982022
+8,2019-02-09,Grand Canyon National Park,-112.1129972,36.1069652
+9,2019-02-10,Joshua Tree National Park,-115.9009923,33.873415
+10,2019-02-11,Santa Monica,-118.4911912,34.0194543
+11,2019-02-12,Universal Studios Hollywood,-118.3533783,34.1381168
+12,2019-02-13,Santa Barbara,-119.6981901,34.4208305
+13,2019-02-14,Mountain View,-122.08385,37.38605
+14,2019-02-15,Carmel-by-the-Sea,-121.9232879,36.5552386
+15,2019-02-16,Palo Alto,-122.1430195,37.4418834
+16,2019-02-17,San Francisco,-122.4194155,37.7749295
 EOF
 
 cat <<EOF > schema.json
 [
- {
-   "description": "When was the product sold",
-   "name": "timestamp",
-   "type": "TIMESTAMP",
-   "mode": "REQUIRED"
- },
- {
-   "description": "What was the sales price",
-   "name": "sales",
-   "type": "FLOAT",
-   "mode": "REQUIRED"
- },
- {
-   "description": "In what zip code did the sales happen",
-   "name": "zipcode",
-   "type": "INTEGER",
-   "mode": "NULLABLE"
- }
+  {
+    "mode": "REQUIRED",
+    "name": "id",
+    "type": "INTEGER"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "date",
+    "type": "DATE"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "place",
+    "type": "STRING"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "lat",
+    "type": "FLOAT"
+  },
+  {
+    "mode": "REQUIRED",
+    "name": "long",
+    "type": "FLOAT"
+  }
 ]
 EOF

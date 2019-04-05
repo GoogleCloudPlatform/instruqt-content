@@ -13,6 +13,12 @@ cat <<EOF >> /root/help.txt
 In this challenge we are going to create a new dataset. Use the bq cli again to
 create a dataset called $random_dataset_id.
 
-The name of the table is accesible in the environment variable \$DATASET_ID for
-you convenience. Once the dataset is created, press the A button to verify it.
+The name of the dataset is accessible in the environment variable \$DATASET_ID for
+your convenience. Once the dataset is created, press the A button to verify it.
+
+If in doubt, run "bq help | grep dataset" to get some guidance.
+EOF
+
+cat <<EOF > /root/hint.txt
+Try running "bq help | grep dataset" that might help you find the right command.
 EOF

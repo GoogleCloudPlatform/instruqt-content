@@ -1,4 +1,5 @@
 #!/bin/bash
+
 bq show $DATASET_ID
 if [ $? -ne 0 ]; then
     fail-message "Could not find a dataset called $DATASET_ID"
