@@ -33,7 +33,7 @@ Hint:
 
 try running: 
 
-gsutil cp /root/foot.txt gs://.../bar.txt.
+gsutil cp /root/foo.txt gs://.../bar.txt.
 
 replacing "..." with the local filename.
 EOF
