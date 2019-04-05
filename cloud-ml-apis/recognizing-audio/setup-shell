@@ -40,6 +40,12 @@ Pulp Fiction
 Foreset Gump
 EOF
 
+# Remove hint and multiple choice in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    rm /root/choices.txt
+    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+fi
+
 cp /root/audio/quote1.wav /home/quote1.wav
 cp /root/audio/quote2.wav /home/quote2.wav
 cp /root/audio/quote3.wav /home/quote3.wav

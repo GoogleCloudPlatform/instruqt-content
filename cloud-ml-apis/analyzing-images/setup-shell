@@ -32,5 +32,11 @@ Scottish Terrier
 Irish Bulldog
 EOF
 
+# Remove hint and multiple choice in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    rm /root/choices.txt
+    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+fi
+
 cp /root/images/doggo1.png /home/doggo1.png
 cp /root/images/doggo1.png /root/help.png

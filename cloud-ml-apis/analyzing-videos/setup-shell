@@ -24,5 +24,10 @@ Look for the value of "startTimeOffset" where the entity "description" is
 "dog" or "puppy"
 EOF
 
+# Remove hint in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+fi
+
 cp /root/videos/video1.mp4 /home/video1.mp4
 cp /root/videos/video1.png /root/help.png
