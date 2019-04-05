@@ -31,13 +31,7 @@ cat <<EOF > help.txt
 # Your Quest
 -------------------------------
 
-By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, create a bucket named \$BUCKET_NAME.
-
-If you use python, node, or go, ensure that you run your application (with python, node, or go run respectively).
-
-Feeling stuck? run gsutil --help, or cat help.txt.
-
-Hit the "Check" button when you are done.
+By modifying python/challenge.py, node/challenge.js, go/challenge.go, or using gsutil directly, create a bucket named \$BUCKET_NAME.
 
 Coding Your Solution
 -------------------------------
@@ -45,23 +39,25 @@ Coding Your Solution
 If you run 'ls', you will see folders for each supported language; currently
 python, node (JavaScript), and go.
 
-Use 'cd' to enter one of these folders. There will be a file with the name
-'code-sample' and a file with the name 'challenge' (with an extension
-corresponding to the language you're using).
-
-If you need help getting started, use 'cat' to display the code sample.
-
 Once you're ready to write some code, use vim, nano, or emacs to edit the
-challenge file.
-
-Before clicking the "Check" button, run your application with node, go, or
-Python.
+challenge file in one of these directories.
 
 # Using gsutil
 -------------------------------
 
 You will also find the gsutil utility installed, and the environment variable
 \$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+EOF
+
+cat <<EOF > hint.txt
+Hint:
+----
+
+try running: 
+
+gsutil mb gs://...
+
+replacing "..." with the appropriate bucket name.
 EOF
 
 # Node.js examples.
@@ -79,41 +75,12 @@ const bucketName = process.env.BUCKET_NAME
 const storage = new Storage()
 
 async function createBucket () {
-  // Implement the logic for creating a bucket
-  // named bucketName.
+  // there is a method called createBucket on the Storage
+  // class which takes the argument bucketName.
+  // create a bucket bucketName.
 }
 
 createBucket()
-EOF
-
-cat <<EOF > node/code-sample.js
-// [START storage_create_bucket]
-// Imports the Google Cloud client library
-const {Storage} = require('@google-cloud/storage');
-
-// Creates a client
-const storage = new Storage();
-
-/**
-* TODO(developer): Uncomment the following line before running the sample.
-*/
-// const bucketName = 'Name of a bucket, e.g. my-bucket';
-
-// Creates a new bucket in the Asia region with the coldline default storage
-// class. Leave the second argument blank for default settings.
-//
-// For default values see: https://cloud.google.com/storage/docs/locations and
-// https://cloud.google.com/storage/docs/storage-classes
-await storage.createBucket(bucketName, {
-  location: 'ASIA',
-  storageClass: 'COLDLINE',
-});
-
-console.log(`Bucket ${bucketName} created.`);
-// [END storage_create_bucket]
-
-// don't forget to run your code when it's ready:
-// node challenge.js
 EOF
 
 # go examples.
@@ -153,20 +120,10 @@ func main() {
 
 func create(client *storage.Client, projectID, bucketName string) error {
 	ctx := context.Background()
-
+	// using the methods: client.Bucket and
+	// bucket.Create(ctx, projectID, &storage.BucketAttrs{}) create
+	// a bucket named bucketName.
 	return nil
-}
-EOF
-
-cat <<EOF > go/code-sample.go
-bucket := client.Bucket(bucketName)
-if err := bucket.Create(ctx, projectID, &storage.BucketAttrs{
-  // optional configuration variables, such as storage type
-  // and data-center location.
-  // StorageClass: "COLDLINE",
-  // Location:     "asia",
-}); err != nil {
-  return err
 }
 EOF
 
@@ -195,21 +152,15 @@ import os
 from google.cloud import storage
 
 def create_bucket():
-    storage_client = storage.Client()
-    bucket_name = os.environ['BUCKET_NAME']
-    
-    # create a bucket
-    
+  storage_client = storage.Client()
+  bucket_name = os.environ['BUCKET_NAME']
+  # using the method create_bucket on storage_client,
+  # which takes the argument bucket_name, create a
+  # cloud storage bucket.
+
 if __name__ == "__main__":
     create_bucket()
 
-EOF
-
-cat <<EOF > python/code-sample.py
-def create_bucket():
-    storage_client = storage.Client()
-    bucket = storage_client.create_bucket(bucket_name)
-    print('Bucket {} created'.format(bucket.name))
 EOF
 
 # configure a few additional bins for the user.
@@ -225,7 +176,17 @@ orange
 pizza
 EOF
 
+cat <<EOF > /usr/local/bin/run-all
+#!/bin/bash
+export GOOGLE_CLOUD_PROJECT=\$(cat /root/.config/gcloud/default_credentials.json | /usr/local/lib/node_modules/.bin/json project_id)
+export GOPATH=/usr/local/lib
+cd /root/node && node challenge.js &>/dev/null
+cd /root/python && python3 challenge.py &>/dev/null
+cd /root/go && /usr/local/bin/go run challenge.go &>/dev/null
+exit 0
 EOF
+chmod 755 /usr/local/bin/run-all
+
 
 cat <<EOF > /usr/local/bin/answer
 /usr/local/bin/terminal-quiz --exit-message="Click the 'Check' button if you're happy with your answer"
@@ -237,3 +198,9 @@ cat <<EOF > /usr/local/bin/help
 cat /root/help.txt | more
 EOF
 chmod 755 /usr/local/bin/help
+
+cat <<EOF > /usr/local/bin/hint
+#!/bin/bash
+cat /root/hint.txt | more
+EOF
+chmod 755 /usr/local/bin/hint

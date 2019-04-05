@@ -4,14 +4,9 @@ cat <<EOF > help.txt
 # Your Quest
 -------------------------------
 
-By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, upload
+By modifying python/challenge.py, node/challenge.js, go/challenge.go, or using gsutil directly, upload
 the local file foo.txt to a file named bar.txt in the bucket you created in the
 last challenge.
-
-If you use python, node, or go, ensure that you run your application
-(with python, node, or go run respectively).
-
-Feeling stuck? run gsutil --help, or cat help.txt.
 
 Hit the "Check" button when you are done.
 
@@ -21,23 +16,26 @@ Coding Your Solution
 If you run 'ls', you will see folders for each supported language; currently
 python, node (JavaScript), and go.
 
-Use 'cd' to enter one of these folders. There will be a file with the name
-'code-sample' and a file with the name 'challenge' (with an extension
-corresponding to the language you're using).
-
-If you need help getting started, use 'cat' to display the code sample.
-
 Once you're ready to write some code, use vim, nano, or emacs to edit the
-challenge file.
-
-Before clicking the "Check" button, run your application with node, go, or
-Python.
+challenge file in one of these directories, then use the given interpreter
+to execute it.
 
 # Using gsutil
 -------------------------------
 
 You will also find the gsutil utility installed, and the environment variable
 \$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+EOF
+
+cat <<EOF > hint.txt
+Hint:
+----
+
+try running: 
+
+gsutil cp /root/foot.txt gs://.../bar.txt.
+
+replacing "..." with the local filename.
 EOF
 
 cat <<EOF > node/challenge.js
@@ -51,8 +49,13 @@ const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
 const storage = new Storage()
 
 async function uploadFile () {
-  // Implement the logic for uploading the file /root/foo.txt to the remote bucket
-  // with the name bar.txt.
+  // implement logic for uploading /root/foo.txt to bar.txt
+  // using the method "bucket" on the Storage class,
+  // and the method "upload" on the bucket class returned.
+  //
+  // upload accepts the first argument localFilePath, and a
+  // second argument options; set the key "destination" on
+  // options, to set the remote filename.
 }
 
 uploadFile()
@@ -68,49 +71,22 @@ const storage = new Storage()
 const name = process.argv[2]
 const bucketName = process.env.BUCKET_NAME
 async function checkForFile () {
-    const [files] = await storage.bucket(bucketName).getFiles()
-    let foundFile = false
-    files.forEach(file => {
-        if (file.name === name) foundFile = true
-    });
-    if (!foundFile) {
-        console.error('could not find file ' + name)
-        process.exit(1)
+    try {
+      const [files] = await storage.bucket(bucketName).getFiles()
+      let foundFile = false
+      files.forEach(file => {
+          if (file.name === name) foundFile = true
+      });
+      if (!foundFile) {
+          console.error('could not find file ' + name)
+          process.exit(1)
+      }
+    } catch (err) {
+      console.error(err)
+      process.exit(1)
     }
 }
 checkForFile()
-EOF
-
-cat <<EOF > node/code-sample.js
-// Imports the Google Cloud client library
-const {Storage} = require('@google-cloud/storage');
-
-// Creates a client
-const storage = new Storage();
-
-/**
- * TODO(developer): Uncomment the following lines before running the sample.
- */
-// const bucketName = 'Name of a bucket, e.g. my-bucket';
-// const filename = 'Local file to upload, e.g. ./local/path/to/file.txt';
-
-// Uploads a local file to the bucket.
-await storage.bucket(bucketName).upload(filename, {
-  // Support for HTTP requests made with `Accept-Encoding: gzip`
-  gzip: true,
-  // destination: 'destination-filename' // defaults to filename.
-  metadata: {
-    // Enable long-lived HTTP caching headers
-    // Use only if the contents of the file will never change
-    // (If the contents will change, use cacheControl: 'no-cache')
-    cacheControl: 'public, max-age=31536000',
-  },
-});
-
-console.log(`${filename} uploaded to ${bucketName}.`);
-
-// don't forget to run your code when it's ready:
-// node challenge.js
 EOF
 
 mkdir root/python
@@ -126,23 +102,13 @@ def upload_blob():
     storage_client = storage.Client()
     bucket_name = os.environ['BUCKET_NAME']
     bucket = storage_client.get_bucket(bucket_name)
-    
-    # add your code to upload the file
+    # using the method "blob" on bucket, which accepts the
+    # option remote_file_name.
+    # and using the method upload_from_file on "blob",
+    # which accepts the source_file_name, upload /root/foo.txt to bar.txt.
 
 if __name__ == '__main__':
     upload_blob()
-EOF
-
-cat <<EOF > python/code-sample.py
-def upload_blob(bucket_name, source_file_name, destination_blob_name):
-    storage_client = storage.Client()
-    bucket = storage_client.get_bucket(bucket_name)
-
-    blob = bucket.blob(desitnation_blob_name)
-
-    blob.upload_from_filename(source_file_name)
-
-    print('File {} uploaded to {}.'.format(source_file_name, desitnation_blob_name))
 EOF
 
 # go code samples and stubbed out challenge.
@@ -175,26 +141,21 @@ func main() {
 }
 
 func write(client *storage.Client, bucketName, object string) error {
-	ctx := context.Background()
+  // Using the code below, upload /root/foo.txt to the remote bar.txt.
+  ctx := context.Background()
+  // f, err := os.Open("/root/foo.txt")
+  // if err != nil {
+  // return err
+  // }
+  // defer f.Close()
 
-	return nil
+  // wc := client.Bucket(bucketName).Object(object).NewWriter(ctx)
+  // if _, err = io.Copy(wc, f); err != nil {
+  // return err
+  // }
+  // if err := wc.Close(); err != nil {
+  //  return err
+  // }
+  return nil
 }
-EOF
-
-cat <<EOF > go/code-sample.go
-// [START upload_file]
-f, err := os.Open("/root/foo.txt")
-if err != nil {
-  return err
-}
-defer f.Close()
-
-wc := client.Bucket(bucketName).Object(object).NewWriter(ctx)
-if _, err = io.Copy(wc, f); err != nil {
-  return err
-}
-if err := wc.Close(); err != nil {
-  return err
-}
-// [END upload_file]
 EOF

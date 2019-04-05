@@ -10,8 +10,6 @@ By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gs
 directly, download the image we've hidden in \$BUCKET_NAME. Using print-png,
 view the image, and type "answer" when you're ready to tell us what it is.
 
-Feeling stuck? run gsutil --help, or cat help.txt.
-
 Hit the "Check" button when you are done.
 
 Coding Your Solution
@@ -20,17 +18,9 @@ Coding Your Solution
 If you run 'ls', you will see folders for each supported language; currently
 python, node (JavaScript), and go.
 
-Use 'cd' to enter one of these folders. There will be a file with the name
-'code-sample' and a file with the name 'challenge' (with an extension
-corresponding to the language you're using).
-
-If you need help getting started, use 'cat' to display the code sample.
-
 Once you're ready to write some code, use vim, nano, or emacs to edit the
-challenge file.
-
-Before clicking the "Check" button, run your application with node, go, or
-Python.
+challenge file in one of these directories, then use the given interpreter
+to execute it.
 
 # Using gsutil
 -------------------------------
@@ -39,6 +29,16 @@ You will also find the gsutil utility installed, and the environment variable
 \$BUCKET_NAME set. Run "gsutil --help" for information about this command.
 EOF
 
+cat <<EOF > hint.txt
+Hint:
+----
+
+try running: 
+
+gsutil cp gs://... .
+
+replacing "..." with the remote filename.
+EOF
 
 cat <<EOF > node/challenge.js
 // Imports the Google Cloud client library
@@ -56,41 +56,16 @@ async function downloadImage () {
   const [files] = await storage.bucket(bucketName).getFiles();
 
   files.forEach(file => {
-    console.info(file.name)
+    // detecting the approprite filename, use the method:
+    // await storage
+    //   .bucket(bucketName)
+    //   .file(srcFilename)
+    //   .download({destination: './local.example'});
+    // to download the file.
   });
 }
 
 downloadImage()
-EOF
-
-cat <<EOF > node/code-sample.js
-// Imports the Google Cloud client library
-const {Storage} = require('@google-cloud/storage');
-
-// Creates a client
-const storage = new Storage();
-
-/**
- * TODO(developer): Uncomment the following lines before running the sample.
- */
-// const bucketName = 'Name of a bucket, e.g. my-bucket';
-// const srcFilename = 'Remote file to download, e.g. file.txt';
-// const destFilename = 'Local destination for file, e.g. ./local/path/to/file.txt';
-
-const options = {
-  // The path to which the file should be downloaded, e.g. "./file.txt"
-  destination: destFilename,
-};
-
-// Downloads the file
-await storage
-  .bucket(bucketName)
-  .file(srcFilename)
-  .download(options);
-
-console.log(
-  \`gs://${bucketName}/${srcFilename} downloaded to ${destFilename}.\`
-);
 EOF
 
 cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-answer.js
@@ -122,23 +97,15 @@ def download_blob():
         print(blob.name)
         # Add code to download the .png file
         if blob.name[-3:] == 'png':
-           print('Blob {} downloaded'.format(blob.name))
+					# use the methods:
+					# blob = bucket.blob(source_blob_name)
+    			# and:
+					# blob.download_to_filename(destination_file_name)
+					# to download the appropriate file.
 
 if __name__ == '__main__':
     download_blob()
 
-EOF
-
-cat <<EOF > python/code-sample.py
-def download_blob(bucket_name, source_blog_name, destination_file_name):
-    """Downloads an object from the bucket"""
-    storage_client = storage.Client()
-    bucket = storage_client.get_bucket(bucket_name)
-    blob = bucket.blob(source_blob_name)
-
-    blob.download_to_filename(destination_file_name)
-
-    print('Blob {} downloaded to {}'.format(source_blob_name, destination_file_name)
 EOF
 
 # go code samples and stubbed out challenge.
@@ -188,6 +155,20 @@ func download(client *storage.Client, bucketName) error {
 			//
 			// logic for writing file to disk.
 			//
+			// use the code below as a starting point.	
+			// rc, err := client.Bucket(bucketName).Object(oattrs.Name).NewReader(ctx)
+			// if err != nil {
+			//	return err
+			// }
+			// defer rc.Close()
+			// data, err := ioutil.ReadAll(rc)
+			// if err != nil {
+			//	return err
+			// }
+			// err := ioutil.WriteFile("challenge.png", data, 0644)
+			// if err != nil {
+			//return err
+			// }
 		}
 	}
 
@@ -195,22 +176,3 @@ func download(client *storage.Client, bucketName) error {
 }
 EOF
 
-cat <<EOF > go/code-sample.go
-// [START download_file]
-rc, err := client.Bucket(bucketName).Object(oattrs.Name).NewReader(ctx)
-if err != nil {
-  return err
-}
-defer rc.Close()
-
-data, err := ioutil.ReadAll(rc)
-if err != nil {
-  return err
-}
-
-err := ioutil.WriteFile("challenge.png", data, 0644)
-if err != nil {
-  return err
-}
-// [END download_file]
-EOF

@@ -10,7 +10,7 @@ description: |-
   at any time. You can use Cloud Storage for a range of scenarios including
   serving website content, storing data for archival and disaster recovery,
   or distributing large data objects to users via direct download.
-icon: https://storage.googleapis.com/instruqt-shadow-resources/cloud-storage.png
+icon: https://storage.googleapis.com/instruqt-shadow-resources/Cloud-Storage-spin.gif
 tags:
 - cloud
 - storage
@@ -27,34 +27,17 @@ challenges:
   teaser: Demonstrate that you can create a Cloud Storage bucket... before time runs
     out.
   assignment: |-
-    By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil directly, create
+    By modifying python/challenge.py, node/challenge.js, go/challenge.go, or using gsutil directly, create
     a bucket named $BUCKET_NAME.
 
-    If you use python, node, or go, ensure that you run your application
-    (with python, node, or go run respectively).
-
-    Feeling stuck? run gsutil --help, or cat help.txt.
+    Feeling stuck? type "help", or "hint".
 
     Hit the "Check" button when you are done.
   notes:
-  # images are currently not working on the arcade machine.
-  #- type: image
-  #  url: https://storage.googleapis.com/instruqt-shadow-resources/storage-title.png
   - type: text
     contents: "In this quest you will use Google Cloud storage. Unlike many of the
       options,\nGCS is unstructured. Everything is an object and can be stored in
       buckets (images, text, music, you name it). "
-  - type: text
-    contents: Demonstrate that you can create a Cloud Storage bucket... before time
-      runs out.
-  - type: text
-    contents: |-
-      We have provided you a development environment with python, node, go, and gsutil
-      installed.
-  - type: text
-    contents: |-
-      To code your solution, use nano, vim, or emacs to edit the
-      incomplete solution we've provided.
   tabs:
   - title: Shell
     type: terminal
@@ -64,24 +47,19 @@ challenges:
 - slug: uploading
   id: fuf3z0i5im2d
   type: challenge
-  title: Level 2 - a foo by any other name?
+  title: Level 2 - a foo by any other name
   teaser: It's time to upload some content to your newly created bucket.
   assignment: |-
-    Modify the python/challeng.py, node/challenge.js, go/challenge.go, or use gsutil directly. Upload
+    Modify the python/challenge.py, node/challenge.js, go/challenge.go, or use gsutil directly. Upload
     the local file foo.txt to a file named bar.txt in the bucket you created in the
     last challenge.
 
-    If you use python, node, or go, ensure that you run your application
-    (with python, node, or go run respectively).
-
-    Feeling stuck? run gsutil --help, or cat help.txt.
+    Feeling stuck? type "help", or "hint".
 
     Hit the "Check" button when you are done.
   notes:
   - type: text
     contents: It's time to upload some content to your newly created bucket.
-  - type: text
-    contents: 'There is a local file named foo.txt for you to upload as bar.txt. '
   tabs:
   - title: Shell
     type: terminal
@@ -94,31 +72,20 @@ challenges:
   title: Level 3 - putting everything together
   teaser: we've hidden an important piece of information in your bucket.
   assignment: |-
-    By modifying python/challeng.py, node/challenge.js, go/challenge.go, or using gsutil
-    directly, download the image we've hidden in $BUCKET_NAME. Using print-png,
+    By modifying python/challenge.py, node/challenge.js, go/challenge.go, or using gsutil
+    directly, download the image we've hidden in $BUCKET_NAME. Using "print-png",
     view the image, and type "answer" when you're ready to tell us what it is.
 
-    Feeling stuck? run gsutil --help, or cat help.txt.
+    Feeling stuck? type "help", or "hint".
 
     Hit the "Check" button when you are done.
   notes:
   - type: text
     contents: we've hidden an important piece of information in your bucket.
-  - type: text
-    contents: |-
-      We have provided you a development environment with python, node, go, and gsutil
-      installed.
-  - type: text
-    contents: |-
-      We've installed the additional tool "print-png", which you will need to
-      use to solve this challenge.
-  - type: text
-    contents: "Before you can download the file we've placed in your bucket, you'll
-      need to figure \nout it's name. "
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: intermediate
   timelimit: 300
-checksum: "1384784106312896944"
+checksum: "17408234821605489765"
