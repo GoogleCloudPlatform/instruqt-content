@@ -3,11 +3,13 @@ kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as
 
 cat <<EOF > /root/help.txt
 
-In the "challenge" namespace you previously created, create a Service called "app" of type "LoadBalancer" that routes traffic from port 80 to port 3000 of the pods in the 'app' Deployment.
+In the "challenge" namespace you previously created, create a Service called "frontend-service" of type "LoadBalancer" that routes traffic from port 80 to port 3000 of the pods in the 'frontend-deployment' Deployment.
+
+(remember, the pods are labeled "role = frontend")
 
 cURL the exposed service, and save the output of the service to a file called output.txt
 
-If you need it, there is a template called 'service.yaml' that has been created for you. You don't need to use it though :)
+There is another partial file called 'service.yaml' that has been created for you to use.
 
 EOF
 
@@ -16,8 +18,8 @@ cat <<EOF > /root/hint.txt
 Open the 'service.yaml' file that was created for you.
 
 For the namepsace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
-For the metadata name, use 'app'. This determins the name of the Service.
-For the selector, use 'name: app'. This tells Kubernetes to forward traffic to Pods with the label "name" set to "app".
+For the metadata name, use 'frontend-service'. This determins the name of the Service.
+For the selector, use 'role: frontend'. This tells Kubernetes to forward traffic to Pods with the label "role" set to "frontend".
 For the port name, use '80'. This is the port we want to expose.
 For the targetPort, use '3000'. This is the port the Pod is listening on.
 For the type, use 'LoadBalancer'. This tells Kubernetes to provision a cloud load balancer.
@@ -28,7 +30,7 @@ kubectl apply -f service.yaml
 
 Now, get the External IP address of your service:
 
-kubectl get service app --namespace challenge
+kubectl get service frontend-service --namespace challenge
 
 Wait until the External IP goes from <pending> to an actual IP address. This means the load balancer is provisioned.
 

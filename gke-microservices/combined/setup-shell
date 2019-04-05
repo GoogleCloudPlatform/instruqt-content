@@ -11,11 +11,11 @@ $OUTPUT
 
 While it looks slick, you can see that the username and password we created aren't being used!
 
-Update the "app" Deployment to have an environment variable called "USERNAME" that gets its value from the ConfigMap you created, and another environment variable called "PASSWORD" that gets is value from the Secret you created.
+Update the "frontend-deployment" Deployment to have an environment variable called "USERNAME" that gets its value from the ConfigMap you created, and another environment variable called "PASSWORD" that gets is value from the Secret you created.
 
 cURL the exposed service, and save the output of the service to a file called finished.txt
 
-If you need it, there is a template called 'deployment.yaml' that has been created for you. You don't need to use it though :)
+The `deployment.yaml` file has been updated for you to use again.
 
 EOF
 
@@ -24,11 +24,11 @@ cat <<EOF > /root/hint.txt
 Open the 'deployment.yaml' file that was created for you.
 
 For the first name, use 'USERNAME'. This tells Kubernetes what the environment variable will be called.
-For the ConfigMap name, use 'app'. This tells Kubernetes which ConfigMap to look in.
+For the ConfigMap name, use 'prod-configmap'. This tells Kubernetes which ConfigMap to look in.
 For the ConfigMap key, use 'username'. This tells Kubernetes which key in the ConfigMap to use.
 
 For the second name, use 'PASSWORD'. This tells Kubernetes what the environment variable will be called.
-For the Secret name, use 'app'. This tells Kubernetes which Secret to look in.
+For the Secret name, use 'prod-secret'. This tells Kubernetes which Secret to look in.
 For the Secret key, use 'username'. This tells Kubernetes which key in the Secret to use.
 
 Save the file, and deploy it with:
@@ -37,7 +37,7 @@ kubectl apply -f deployment.yaml
 
 Now, get the External IP address of your service:
 
-kubectl get service app --namespace challenge
+kubectl get service frontend-service --namespace challenge
 
 Then, curl the output and save it to finished.txt
 
@@ -52,19 +52,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: challenge
-  name: app
+  name: frontend-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: app
+      role: frontend
   template:
     metadata:
       labels:
-        name: app
+        role: frontend
     spec:
       containers:
-      - image: gcr.io/instruqt-shadow/challenge
+      - image: gcr.io/gke-arcade/challenge
         name: app
         ports:
           - name: http

@@ -1,13 +1,13 @@
 #!/bin/bash
-kubectl get deployment app -n challenge
+kubectl get deployment frontend-deployment -n challenge
 if [ $? -ne 0 ]; then
-    fail-message "Could not find Deployment called 'app' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "Could not find Deployment called 'frontend-deployment' in the namespace 'challenge'. Type 'hint' if you are stuck."
     exit 1
 fi
 
 
-kubectl get deployment app -n challenge -o json | jq -e '.spec.template.metadata.labels != null and .spec.template.metadata.labels.name != null and .spec.template.metadata.labels.name == "app" and .spec.template.spec.containers[0].image == "gcr.io/instruqt-shadow/challenge"'
+kubectl get deployment frontend-deployment -n challenge -o json | jq -e '.spec.template.metadata.labels != null and .spec.template.metadata.labels.role != null and .spec.template.metadata.labels.role == "frontend" and .spec.template.spec.containers[0].image == "gcr.io/gke-arcade/challenge"'
 if [ $? -ne 0 ]; then
-    fail-message "Pods in the Deployment are not labeled with 'name=app'. Type 'hint' if you are stuck."
+    fail-message "Pods in the Deployment are not labeled with 'role=frontend'. Type 'hint' if you are stuck."
     exit 1
 fi

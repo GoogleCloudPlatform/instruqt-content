@@ -1,12 +1,12 @@
 #!/bin/bash
-kubectl get service app -n challenge
+kubectl get service frontend-service -n challenge
 if [ $? -ne 0 ]; then
-    fail-message "Could not find Service called 'app' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "Could not find Service called 'frontend-service' in the namespace 'challenge'. Type 'hint' if you are stuck."
     exit 1
 fi
 
 
-kubectl get service app -n challenge -o json | jq -e '.spec.selector != null and .spec.selector.name != null and .spec.selector.name == "app" and .spec.type == "LoadBalancer"'
+kubectl get service frontend-service -n challenge -o json | jq -e '.spec.selector != null and .spec.selector.role != null and .spec.selector.role == "frontend" and .spec.type == "LoadBalancer"'
 if [ $? -ne 0 ]; then
     fail-message "Service is not configured correctly. Type 'hint' if you are stuck."
     exit 1

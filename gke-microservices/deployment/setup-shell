@@ -3,11 +3,11 @@ kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as
 
 cat <<EOF > /root/help.txt
 
-In the 'challenge' namespace you previously created, create a Deployment called 'app' that runs a single Pod with the 'gcr.io/instruqt-shadow/challenge' image.
+In the 'challenge' namespace you previously created, create a Deployment called 'frontend-deployment' that runs a single Pod with the 'gcr.io/gke-arcade/challenge' image.
 
-The Pod should be labeled with 'name = app'.
+The Pod should be labeled with 'role = frontend'.
 
-If you need it, there is a template called 'deployment.yaml' that has been created for you. You don't need to use it though :)
+There is a partial file called deployment.yaml that has been created for you to use.
 
 EOF
 
@@ -16,11 +16,11 @@ cat <<EOF > /root/hint.txt
 Open the 'deployment.yaml' file that was created for you.
 
 For the namepsace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
-For the metadata name, use 'app'. This determins the name of the Deployment.
+For the metadata name, use 'frontend-deployment'. This determins the name of the Deployment.
 For replicas, use '1'. This tells Kubernetes how many copies of your app to run.
-For the matchLabels name, use 'app'. This tells Kubernetes what pods this Deployment controls.
-For the template metadata labels name, use 'app'. This gives the Pods created by this Deployment the label 'app'.
-For the image, use 'gcr.io/instruqt-shadow/challenge'. This tells the Pods which Docker container to run.
+For the matchLabels, use 'role: frontend'. This tells Kubernetes what pods this Deployment controls.
+For the template metadata labels, use 'role: frontend'. This gives the Pods created by this Deployment the label 'role = frontend'.
+For the image, use 'gcr.io/gke-arcade/challenge'. This tells the Pods which Docker container to run.
 
 EOF
 
@@ -36,11 +36,11 @@ spec:
   replicas: <?>
   selector:
     matchLabels:
-      name: <?>
+      <?>: <?>
   template:
     metadata:
       labels:
-        name: <?>
+        <?>: <?>
     spec:
       containers:
       - image: <?>

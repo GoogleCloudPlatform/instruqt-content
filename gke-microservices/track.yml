@@ -57,11 +57,9 @@ challenges:
   title: Deployments
   teaser: Running your microservice
   assignment: |-
-    In the **challenge** namespace you previously created, create a **Deployment** called **app** that runs a single Pod with the **gcr.io/instruqt-shadow/challenge** image.
-
-    The Pod should be labeled with **name = app**.
-
-    If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
+    In the **challenge** namespace you previously created, create a **Deployment** called **frontend-deployment** that runs a single Pod with the **gcr.io/gke-arcade/challenge** image.
+    The Pod should be labeled with **role = frontend**.
+    There is a partial file called `deployment.yaml` that has been created for you to use.
   notes:
   - type: text
     contents: One of the fundamental building blocks of Kubernetes is the **Pod**.
@@ -83,11 +81,13 @@ challenges:
   title: Services
   teaser: Exposing your microservice to the world
   assignment: |-
-    In the **challenge** namespace you previously created, create a **Service** called **app** of type **LoadBalancer** that routes traffic from port 80 to port 3000 of the pods in the `app` Deployment.
+    In the **challenge** namespace you previously created, create a **Service** called **frontend-service** of type **LoadBalancer** that routes traffic from port 80 to port 3000 of the pods in the `frontend-deployment` Deployment.
+
+    (remember, the pods are labeled "role = frontend")
 
     cURL the exposed service, and save the output of the service to a file called **output.txt**
 
-    If you need it, there is a template called `service.yaml` that has been created for you. You don't need to use it though :)
+    There is another partial file called `service.yaml` that has been created for you to use.
   notes:
   - type: text
     contents: "While Deployments run your containers, **Services** tie them all together.
@@ -110,9 +110,9 @@ challenges:
   title: ConfigMaps and Secrets
   teaser: Harness the power of distributed environment variables
   assignment: |-
-    In the **challenge** namespace you previously created, create a **ConfigMap** called **app** with a key named **username** with _any value_.
+    In the **challenge** namespace you previously created, create a **ConfigMap** called **prod-configmap** with a key named **username** with _any value_.
 
-     Then create a **generic Secret** called **app** with a key named **password** with _any value_ in the challenge namespace.
+    Then create a **generic Secret** called **prod-secret** with a key named **password** with _any value_ in the **challenge namespace**.
   notes:
   - type: text
     contents: 'Running your containers is just the tip of the iceberg when it comes
@@ -139,20 +139,15 @@ challenges:
   title: Putting it all together
   teaser: A short description of the challenge.
   assignment: |-
-    Update the **app** Deployment to have an **environment variable** called **USERNAME** that gets its value from the ConfigMap you created, and another environment variable called **PASSWORD** that gets is value from the Secret you created.
+    Update the **frontend-deployment** Deployment to have an **environment variable** called **USERNAME** that gets its value from the ConfigMap you created, and another environment variable called **PASSWORD** that gets is value from the Secret you created.
 
     cURL the exposed service, and save the output of the service to a file called **finished.txt**
 
-    If you need it, there is a template called `deployment.yaml` that has been created for you. You don't need to use it though :)
-  notes:
-  - type: text
-    contents: Kubernetes makes it easy to update your microservices in a declarative
-      fashion. When a change to a configuration is detected, Kubernetes takes care
-      of redeploying and rolling out the updates.
+    The `deployment.yaml` file has been updated for you to use.
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
   timelimit: 500
-checksum: "15213818806291593124"
+checksum: "17483426234787904478"
