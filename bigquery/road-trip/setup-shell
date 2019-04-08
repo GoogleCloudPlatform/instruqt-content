@@ -8,11 +8,11 @@ EOF
 # Put the help text in help.txt
 cat <<EOF > /root/help.txt
 In this last challenge we are going to combine the data we just uploaded with
-a GHCN Weather public dataset and figure out the average temperature in a West
+a GHCN Weather public dataset and figure out the average temperature in our West
 Coast road trip!
 
 Modify the query.sql located in the home directory using your favorite text
-ediot as a head start to find the overall average temperature during this trip!
+editor to find the overall average temperature during this trip!
 
 Then use the 'run-query' command to execute the query.sql
 

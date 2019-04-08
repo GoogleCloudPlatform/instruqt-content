@@ -10,11 +10,12 @@ echo "export DATASET_ID="$random_dataset_id >> /root/.customenv
 
 # Put the help text in help.txt
 cat <<EOF >> /root/help.txt
-In this challenge we are going to create a new dataset. Use the bq cli again to
-create a dataset called $random_dataset_id.
+In this challenge we are going to create a new dataset.
 
-The name of the dataset is accessible in the environment variable \$DATASET_ID for
-your convenience. Once the dataset is created, press the A button to verify it.
+Use the bq cli to create a dataset called $random_dataset_id.
+
+The name of the dataset is accessible as the environment variable \$DATASET_ID.
+Once the dataset is created, press the A button to verify it.
 
 If in doubt, run "bq help | grep dataset" to get some guidance.
 EOF

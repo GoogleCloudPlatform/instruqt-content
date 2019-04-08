@@ -34,19 +34,16 @@ challenges:
   title: 'Level 1: Public Dataset'
   teaser: Query a dataset and figure out what's the most common name in the US.
   assignment: 'Use the **bigquery-public-data.usa_names.usa_1910_current** table to
-    figure out what is the most common name in the US. <br> Each row represents the
-    number of applicants for a Social Security card by year of birth. <br> When you
-    think you know the answer, type **answer** and press ENTER. <br> **Hint**: If
+    figure out what is the most common name in the US. <br><br> Each row represents
+    the number of people born in the same year with the same name. <br><br> When you
+    think you know the answer, type **answer** and press ENTER. <br><br> **Hint**: If
     in doubt, start with **bq help**.'
   notes:
-  - type: video
-    url: https://www.youtube.com/embed/eyBK9nj-7AA?autoplay=1
   - type: text
-    contents: "There are several public datasets hosted in BigQuery for you to access
-      and integrate into your applications. \n In this first challenge you will have
-      to use a public dataset created by the Social Security Administration with a
-      list of applicants for a SS card by year of birth to figure out what's the most
-      common name in the US."
+    contents: "There are several <b>public datasets</b> hosted in BigQuery for you to access
+      and integrate into your applications. <br> In this first challenge you will
+      use a public dataset created by the Social Security Administration to
+      figure out what's the most common name in the US."
   tabs:
   - title: Shell
     type: terminal
@@ -59,7 +56,7 @@ challenges:
   title: 'Level 2: Create a dataset'
   teaser: First things first. Let’s create a dataset.
   assignment: |-
-    Now it’s your turn to create a dataset. Let's get started with this second
+    Now it’s your turn to **create a dataset**. Let's get started with this second
     challenge!
   notes:
   - type: text
@@ -68,8 +65,8 @@ challenges:
       **project**. Datasets are top-level containers that are used to organize
       and control access to your **tables and views**.
 
-      A table or view must belong to a dataset, so you need to create at least
-      one dataset before **loading data into BigQuery**.
+      A table or view must belong to a dataset, so you need to **create at least
+      one dataset** before loading data into BigQuery.
   tabs:
   - title: Shell
     type: terminal
@@ -82,7 +79,8 @@ challenges:
   title: 'Level 3: Create a table with some data'
   teaser: Create a table and load some sample data
   assignment: ' Let''s create a table called **road_trip** in our new dataset and
-    load some data using the **data.csv** file available in the home directory.'
+    load some data using the **data.csv** file and the **schema.json** file available
+    in the home directory.'
   notes:
   - type: text
     contents: |-
@@ -103,15 +101,15 @@ challenges:
   title: 'Level 4: Road trip temperature'
   teaser: Find out the average temperature during a west coast road trip
   assignment: ' <img src="https://storage.googleapis.com/instruqt-shadow-resources/bigquery/road_trip.png"
-    style="float: left; padding-right: 36px" /> Figure out the average temperature
-    during this west coast trip. <br> The data we just imported has the date and location
-    of the 16 places visited. <br> By combining this with the GHCN Daily Weather Data
-    we will figure out what was the average temperature in each stop and get the overall
-    temperature average of the trip!'
+    style="float: left; padding-right: 36px" /> In our previous challenge we uploaded
+    the geolocation for our west coast trip. The data we just imported has the <b>date and location</b>
+    of the 16 places visited. <br><br> Let's combine this with the <b>GHCN Daily Weather Data</b>
+    we will figure out what was the average temperature in each stop and get the <b>overall
+    average temperature</b> of the trip!'
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
   timelimit: 600
-checksum: "16527223158545263074"
+checksum: "14145234693162402253"

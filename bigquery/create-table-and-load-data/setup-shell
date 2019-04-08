@@ -13,7 +13,7 @@ using the data.csv file available in the home directory.
 
 Remember you can access the dataset name in \$DATASET_ID.
 
-You can also use the schema.json file to define the table schema.
+Use the schema.json file to define the table schema.
 
 And remember, if you need help run "bq help | grep dataset".
 
