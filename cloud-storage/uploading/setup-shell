@@ -104,7 +104,7 @@ def upload_blob():
     bucket = storage_client.get_bucket(bucket_name)
     # using the method "blob" on bucket, which accepts the
     # option remote_file_name.
-    # and using the method upload_from_file on "blob",
+    # and using the method upload_from_filename on "blob",
     # which accepts the source_file_name, upload /root/foo.txt to bar.txt.
 
 if __name__ == '__main__':
