@@ -3,9 +3,9 @@
 echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc
 
 cat <<EOF > /root/help.txt
-We have provided you with a function written in the different languages (Node.js, Python and Golang) that are supported by Google Cloud Functions.
+We have provided you with a function written in the different languages (Node.js, Python and Go) that are supported by Google Cloud Functions.
 
-Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it, so it returns "Hello, Google!" instead of "Hello, World!".
+Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it so it returns "Hello, Google!" instead of "Hello, World!".
 
 EOF
 

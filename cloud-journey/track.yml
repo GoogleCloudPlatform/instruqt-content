@@ -4,7 +4,7 @@ type: track
 title: Cloud Journey
 teaser: Start your Google Cloud adventure!
 description: A Google Cloud RPG
-icon: https://cdn.instruqt.com/arcade/images/developer-animated.gif
+icon: https://storage.googleapis.com/instruqt-shadow-resources/cloudjourney.gif
 tags:
 - quest
 owner: google
@@ -21,7 +21,7 @@ challenges:
   assignment: Play the game!
   notes:
   - type: video
-    url: https://www.youtube.com/embed/4D3X6Xl5c_Y?autoplay=1
+    url: https://www.youtube.com/embed/4D3X6Xl5c_Y?autoplay=1&showinfo=0&controls=0&rel=0&loop=1&fs=0&disablekb=1
   tabs:
   - title: GCP Console
     type: terminal
@@ -37,5 +37,5 @@ challenges:
     path: /
     port: 80
   difficulty: basic
-  timelimit: 1500
-checksum: "16407639605290241384"
+  timelimit: 2500
+checksum: "5794840105483911895"

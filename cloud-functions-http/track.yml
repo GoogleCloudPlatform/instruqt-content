@@ -27,25 +27,23 @@ challenges:
   title: Creating Cloud Functions
   teaser: Write Cloud Functions in either Node.js, Python, and Go.
   assignment: |-
-    We have **provided you with a function** written in the different languages (Node.js, Python and Golang) that are supported by Google Cloud Functions.
+    We have **provided you with a function** written in the different languages (Node.js, Python and Go) that are supported by Google Cloud Functions.
 
-    Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it, so it returns **Hello, Google!** instead of Hello, World!.
+    Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it so it returns **Hello, Google!** instead of Hello, World!.
   notes:
-  - type: video
-    url: https://www.youtube.com/embed/1r3vMYywNLk?autoplay=1
   - type: text
     contents: "Google Cloud Functions is a **serverless execution environment** for
-      building and connecting cloud services. \n\nWith Cloud Functions you write **simple,
-      single-purpose functions** that are **attached to events** emitted from your
-      cloud infrastructure and services. "
+      building and connecting cloud services. \n\nWith Cloud Functions you write **simple
+      single-purpose functions**. These functions are **attached to events** emitted
+      from your cloud infrastructure and services. "
   - type: text
     contents: "Your function is **triggered when an event being watched is fired**.
       \n\nYour code executes in a **fully managed environment**. There is **no need
       to provision any infrastructure** or worry about managing any servers."
   - type: text
-    contents: "Cloud Functions can be written using JavaScript, Python or Golang.
-      \n\nYou can take your function and run it in a **Node.js 8**, **Python 3.7.1**,
-      or **Go 1.11** runtime, which makes both **portability and local testing a breeze**."
+    contents: "Cloud Functions can be written using JavaScript, Python or Go. \n\nYou
+      can take your function and run it in a **Node.js 8**, **Python 3.7.1**, or **Go
+      1.11** runtime, which makes both **portability and local testing a breeze**."
   tabs:
   - title: Shell
     type: terminal
@@ -59,8 +57,7 @@ challenges:
   teaser: 'Upload your function''s code to a Google Cloud Storage bucket. '
   assignment: "Using the **gcloud command-line tool**, deploy your function. \n\nTo
     deploy a Cloud Function, your code must contain a method with the same `name`
-    as the Cloud Function.\n\nChoose one of the available functions and combine it
-    with the corresponding `runtime`.\nThe function should **trigger on http** requests.\n\nNote:
+    as the Cloud Function.\n\nThe function should **trigger on http** requests.\n\nNote:
     Deploying a function can take a few minutes."
   tabs:
   - title: Shell
@@ -73,15 +70,15 @@ challenges:
   type: challenge
   title: Testing Cloud Functions
   teaser: Trigger your function with the command-line interface to test it's functionality.
-  assignment: To test the **previously deployed function**, call it manually by using
-    the `gcloud functions call` command.
+  assignment: Let's have some fun! We have deployed a function called 'cowsay' in
+    your project. Call this function using the gcloud cli
   notes:
   - type: text
-    contents: "To support **quick iteration and debugging**, Cloud Functions provides
-      a `gcloud functions call` command in the command-line interface.\n\nThis allows
-      you to **directly invoke** a function to ensure it is behaving as expected.
-      \n\nThis causes the function to execute immediately, even though it may have
-      been deployed to respond to a specific event."
+    contents: "To support **quick iteration and debugging**, Cloud Functions provide
+      a `gcloud functions call` command.\n\nThis allows you to **directly invoke**
+      a function to ensure it is behaving as expected. \n\nThis causes the function
+      to execute immediately, even though it may have been deployed to respond to
+      a specific event."
   tabs:
   - title: Shell
     type: terminal
@@ -102,26 +99,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 500
-- slug: reading-logs
-  id: n8ulhbf0b5jw
-  type: challenge
-  title: Reading logs
-  teaser: Read log lines via the gcloud command-line tool.
-  assignment: Use **gcloud** to read the logs from your function.
-  notes:
-  - type: text
-    contents: |-
-      One of the simplest ways to debug your application is to use logging. Cloud Functions makes this simple to do.
-      By default, everything sent to `stdout` and `stderr` is automatically sent to **Stackdriver Logging**.
-      You can read these logs in the Stackdriver UI or using the `gcloud` CLI.
-  - type: text
-    contents: |-
-      For more advanced debugging, Cloud Functions supports the **Stackdriver Debugger**.
-      This let's you set watchpoints and debug your function, even in production!
-  tabs:
-  - title: Shell
-    type: terminal
-    hostname: shell
-  difficulty: basic
-  timelimit: 500
-checksum: "18407393811204165837"
+checksum: "2932407679343222487"

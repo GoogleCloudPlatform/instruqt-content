@@ -6,7 +6,7 @@ if [ $? -ne 0 ]; then
 fi
 
 
-kubectl get deployment frontend-deployment -n challenge -o json | jq -e '.spec.template.metadata.labels != null and .spec.template.metadata.labels.role != null and .spec.template.metadata.labels.role == "frontend" and .spec.template.spec.containers[0].image == "gcr.io/gke-arcade/challenge"'
+kubectl get deployment frontend-deployment -n challenge -o json | jq -e '.spec.template.metadata.labels != null and .spec.template.metadata.labels.role != null and .spec.template.metadata.labels.role == "frontend" and .spec.template.spec.containers[0].image.startswith("gcr.io/gke-arcade/challenge")'
 if [ $? -ne 0 ]; then
     fail-message "Pods in the Deployment are not labeled with 'role=frontend'. Type 'hint' if you are stuck."
     exit 1

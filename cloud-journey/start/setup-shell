@@ -1,11 +1,8 @@
 #!/bin/sh
-echo "PROJECT=$(gcloud config list project --format=flattened | awk 'FNR == 1 {print $2}')" >> /root/.customrc
 echo "echo 'Loading...'" >> /root/.customrc
 echo "gcloud app create --region=us-central -q > /root/.appenginedeployoutput 2>&1" >> /root/.customrc
 echo "echo 'Loading Complete!'" >> /root/.customrc
-echo "gcloud projects add-iam-policy-binding ${PROJECT} --member serviceAccount:${PROJECT}@appspot.gserviceaccount.com --role roles/bigquery.admin > /dev/null 2>&1 &" >> /root/.customrc
-echo "gcloud services enable compute.googleapis.com cloudfunctions.googleapis.com bigquery-json.googleapis.com > /dev/null 2>&1 &" >> /root/.customrc
-echo "gcloud app deploy /app/GCPQuest-Companion/app.yaml -q >> /root/.appenginedeployoutput 2>&1 &" >> /root/.customrc
+
 cat <<EOF > /root/help.txt
 
 Welcome! We have created a new GCP account for you to use.
@@ -15,3 +12,39 @@ Click the "F3" tab, and log in using the provided username and password.
 When you are done, click the "F2" tab to start playing the game!
 
 EOF
+
+cat <<EOF > /root/bootstrap.sh
+
+#/bin/bash
+
+PROJECT=\${INSTRUQT_GCP_PROJECT_GCP_PROJECT_PROJECT_ID}
+
+#Deploy App Engine
+gcloud app deploy /app/GCPQuest-Companion/app.yaml -q >> /root/.appenginedeployoutput 2>&1 &
+
+#Enable APIs
+gcloud services enable compute.googleapis.com cloudfunctions.googleapis.com bigquery-json.googleapis.com iam.googleapis.com
+
+echo "APIs Enabled"
+
+#BigQuery
+gcloud projects add-iam-policy-binding \${PROJECT} --member serviceAccount:\${PROJECT}@appspot.gserviceaccount.com --role roles/bigquery.admin
+
+echo "BQ Enabled"
+
+#IAM PERMISSIONS
+gcloud projects add-iam-policy-binding \${PROJECT} --member=user:\${INSTRUQT_GCP_PROJECT_GCP_PROJECT_USER_EMAIL} --role roles/iam.serviceAccountUser
+
+echo "IAM Enabled"
+
+#Cloud Functions
+gcloud iam service-accounts add-iam-policy-binding \${PROJECT}@appspot.gserviceaccount.com --member=user:\${INSTRUQT_GCP_PROJECT_GCP_PROJECT_USER_EMAIL}	--role roles/iam.serviceAccountUser
+
+#echo "GCF Enabled"
+
+EOF
+
+chmod +x /root/bootstrap.sh
+
+#Deploy Everything
+echo "/root/bootstrap.sh >> /root/.boostrapoutput 2>&1 &" >> /root/.customrc

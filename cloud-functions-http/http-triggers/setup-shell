@@ -4,7 +4,7 @@ Let's go back to the function that you deployed
 
 Use "curl -o result.txt <URL>" or another method to call your HTTP function and store the result in a file called "result.txt"
 
-Note: You can get your function's URL with the "gcloud functions describe" command, and use jq to parse the JSON
+Note: You can get your function's URL with the "gcloud functions describe" command
 
 EOF
 

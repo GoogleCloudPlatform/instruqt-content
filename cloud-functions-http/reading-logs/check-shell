@@ -13,7 +13,7 @@ if [ -f /home/main.py ]; then
 	FUNCTION=hello_http
   RUNTIME=python37
 fi
-grep "gcloud functions logs read $FUNCTION" ~/.bash_history
+grep "gcloud functions logs read" ~/.bash_history
 if [ $? -ne 0 ]; then
     fail-message "Functions logs have not been read with gcloud. Type 'hint' if you are stuck."
     exit 1
