@@ -36,14 +36,14 @@ challenges:
   assignment: 'Use the **bigquery-public-data.usa_names.usa_1910_current** table to
     figure out what is the most common name in the US. <br><br> Each row represents
     the number of people born in the same year with the same name. <br><br> When you
-    think you know the answer, type **answer** and press ENTER. <br><br> **Hint**: If
-    in doubt, start with **bq help**.'
+    think you know the answer, type **answer** and press ENTER. <br><br> **Hint**:
+    If in doubt, start with **bq help**.'
   notes:
   - type: text
-    contents: "There are several <b>public datasets</b> hosted in BigQuery for you to access
-      and integrate into your applications. <br> In this first challenge you will
-      use a public dataset created by the Social Security Administration to
-      figure out what's the most common name in the US."
+    contents: There are several **public datasets** hosted in BigQuery for you to
+      access and integrate into your applications. <br><br> In this first challenge
+      you will use a public dataset created by the Social Security Administration
+      to figure out what's the most common name in the US.
   tabs:
   - title: Shell
     type: terminal
@@ -84,7 +84,7 @@ challenges:
   notes:
   - type: text
     contents: |-
-      Now we are going to create a table and upload some data.
+      Now we are going to **create a table** and **upload some data**.
 
       You can specify the schema of a table when it is created, or you can create
       a table without a schema and declare the schema in the load job that first
@@ -100,16 +100,16 @@ challenges:
   type: challenge
   title: 'Level 4: Road trip temperature'
   teaser: Find out the average temperature during a west coast road trip
-  assignment: ' <img src="https://storage.googleapis.com/instruqt-shadow-resources/bigquery/road_trip.png"
+  assignment: '<img src="https://storage.googleapis.com/instruqt-shadow-resources/bigquery/road_trip.png"
     style="float: left; padding-right: 36px" /> In our previous challenge we uploaded
-    the geolocation for our west coast trip. The data we just imported has the <b>date and location</b>
-    of the 16 places visited. <br><br> Let's combine this with the <b>GHCN Daily Weather Data</b>
-    we will figure out what was the average temperature in each stop and get the <b>overall
-    average temperature</b> of the trip!'
+    the geolocation for our west coast trip. The data we just imported has the **date
+    and location** of the 16 places visited. <br><br> Let''s combine this with the
+    **GHCN Daily Weather Data** we will figure out what was the average temperature
+    in each stop and get the **overall average temperature** of the trip!'
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
   timelimit: 600
-checksum: "14145234693162402253"
+checksum: "15254532382899972455"
