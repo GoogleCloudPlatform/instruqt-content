@@ -16,3 +16,4 @@ ENV PYTHONIOENCODING utf-8
 COPY ./images /root/images
 COPY ./audio /root/audio
 COPY ./videos /root/videos
+COPY ./text /root/text
