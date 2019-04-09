@@ -31,7 +31,9 @@ cat <<EOF > help.txt
 # Your Quest
 -------------------------------
 
-By modifying python/challenge.py, node/challenge.js, go/challenge.go, or using gsutil directly, create a bucket named \$BUCKET_NAME.
+By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil directly, create a bucket named \$BUCKET_NAME.
+
+Hit the "Check" button when you are done.
 
 Coding Your Solution
 -------------------------------
@@ -41,6 +43,8 @@ python, node (JavaScript), and go.
 
 Once you're ready to write some code, use vim, nano, or emacs to edit the
 challenge file in one of these directories.
+
+To debug your answer, use the command "node", "python", or "go run", to execute your program.
 
 # Using gsutil
 -------------------------------
@@ -204,3 +208,8 @@ cat <<EOF > /usr/local/bin/hint
 cat /root/hint.txt | more
 EOF
 chmod 755 /usr/local/bin/hint
+
+# Remove hint in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+fi

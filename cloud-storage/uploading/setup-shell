@@ -4,7 +4,7 @@ cat <<EOF > help.txt
 # Your Quest
 -------------------------------
 
-By modifying python/challenge.py, node/challenge.js, go/challenge.go, or using gsutil directly, upload
+By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil directly, upload
 the local file foo.txt to a file named bar.txt in the bucket you created in the
 last challenge.
 
@@ -19,6 +19,8 @@ python, node (JavaScript), and go.
 Once you're ready to write some code, use vim, nano, or emacs to edit the
 challenge file in one of these directories, then use the given interpreter
 to execute it.
+
+To debug your answer, use the command "node", "python", or "go run", to execute your program.
 
 # Using gsutil
 -------------------------------
@@ -50,10 +52,12 @@ const storage = new Storage()
 
 async function uploadFile () {
   // implement logic for uploading /root/foo.txt to bar.txt
+  // using the metent logic for uploading /root/foo.txt to bar.txt
   // using the method "bucket" on the Storage class,
+  // and the method "bucket" on the Storage class,
   // and the method "upload" on the bucket class returned.
   //
-  // upload accepts the first argument localFilePath, and a
+  // upload accepts the first argument localFilePath ("/root/foo.txt"), and a
   // second argument options; set the key "destination" on
   // options, to set the remote filename.
 }
@@ -159,3 +163,8 @@ func write(client *storage.Client, bucketName, object string) error {
   return nil
 }
 EOF
+
+# Remove hint in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+fi

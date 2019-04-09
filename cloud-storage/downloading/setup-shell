@@ -6,8 +6,8 @@ cat <<EOF > help.txt
 # Your Quest
 -------------------------------
 
-By modifying python/challenge.py, node/challenge.js, go/challenge.go, or using gsutil
-directly, download the image we've hidden in \$BUCKET_NAME. Using print-png,
+By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil
+directly, download the image we've hidden in \$BUCKET_NAME. Using "print-png",
 view the image, and type "answer" when you're ready to tell us what it is.
 
 Hit the "Check" button when you are done.
@@ -55,7 +55,7 @@ async function downloadImage () {
   // bucketName.
   const [files] = await storage.bucket(bucketName).getFiles();
 
-  files.forEach(file => {
+  files.forEach(async (file) => {
     // detecting the approprite filename, use the method:
     // await storage
     //   .bucket(bucketName)
@@ -88,23 +88,20 @@ from google.cloud import storage
    been uploaded.  Download and view the .png file"""
 
 def download_blob():
-    storage_client = storage.Client()
-    bucket = storage_client.get_bucket(os.environ['BUCKET_NAME'])
+	storage_client = storage.Client()
+	bucket = storage_client.get_bucket(os.environ['BUCKET_NAME'])
 
-    blobs = bucket.list_blobs()
+	blobs = bucket.list_blobs()
 
-    for blob in blobs:
-        print(blob.name)
-        # Add code to download the .png file
-        if blob.name[-3:] == 'png':
-					# use the methods:
-					# blob = bucket.blob(source_blob_name)
-    			# and:
-					# blob.download_to_filename(destination_file_name)
-					# to download the appropriate file.
+	for blob in blobs:
+		print(blob.name)
+		# Add code to download the .png file
+		if blob.name[-3:] == 'png':
+			# using the method blob.download_to_filename(destination_file_name)
+			# to download the appropriate file.
 
 if __name__ == '__main__':
-    download_blob()
+	download_blob()
 
 EOF
 
@@ -176,3 +173,7 @@ func download(client *storage.Client, bucketName string) error {
 }
 EOF
 
+# Remove hint in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+fi
