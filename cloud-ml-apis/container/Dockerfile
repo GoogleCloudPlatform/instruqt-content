@@ -4,6 +4,7 @@ FROM gcr.io/instruqt-shadow/base
 # Authorize gcloud for the Instruqt Shadow project
 ADD  svc.json svc.json
 RUN  gcloud auth activate-service-account --key-file=svc.json && rm svc.json
+RUN  gcloud config set project instruqt-shadow
 
 # add "googler" script
 RUN cd /tmp && \

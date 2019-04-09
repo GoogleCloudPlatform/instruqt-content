@@ -25,11 +25,11 @@ EOF
 
 cat <<EOF > /root/choices.txt
 What is the dog's most prominent breed?
-Shelty
+Toy Bulldog
 English Bulldog
 Boston Terrier
 Scottish Terrier
-Irish Bulldog
+King Charles Cavalier
 EOF
 
 # Remove hint and multiple choice in hard mode
