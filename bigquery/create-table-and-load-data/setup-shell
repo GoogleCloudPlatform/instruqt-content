@@ -15,7 +15,7 @@ Remember you can access the dataset name in \$DATASET_ID.
 
 Use the schema.json file to define the table schema.
 
-And remember, if you need help run "bq help | grep dataset".
+And remember, if you need help run "bq help | grep table".
 
 EOF
 
