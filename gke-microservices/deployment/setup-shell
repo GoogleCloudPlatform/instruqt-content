@@ -22,6 +22,10 @@ For the matchLabels, use 'role: frontend'. This tells Kubernetes what pods this 
 For the template metadata labels, use 'role: frontend'. This gives the Pods created by this Deployment the label 'role = frontend'.
 For the image, use 'gcr.io/gke-arcade/challenge'. This tells the Pods which Docker container to run.
 
+Create the deployment by running:
+
+kubectl apply -f deployment.yaml
+
 EOF
 
 set-workdir /home
