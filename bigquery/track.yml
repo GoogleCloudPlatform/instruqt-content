@@ -101,15 +101,16 @@ challenges:
   title: 'Level 4: Road trip temperature'
   teaser: Find out the average temperature during a west coast road trip
   assignment: '<img src="https://storage.googleapis.com/instruqt-shadow-resources/bigquery/road_trip.png"
-    style="float: left; padding-right: 36px" /> In our previous challenge we uploaded
-    the geolocation for our west coast trip. The data we just imported has the **date
-    and location** of the 16 places visited. <br><br> Let''s combine this with the
-    **GHCN Daily Weather Data** we will figure out what was the average temperature
-    in each stop and get the **overall average temperature** of the trip!'
+    style="float: left; padding-right: 36px; width:800px; height:485px" /> In our
+    previous challenge we uploaded the geolocation for our west coast trip. The data
+    we just imported has the **date and location** of the 16 places visited. <br><br>
+    Let''s combine this with the **GHCN Daily Weather Data** we will figure out what
+    was the average temperature in each stop and get the **overall average temperature**
+    of the trip!'
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
   timelimit: 600
-checksum: "15254532382899972455"
+checksum: "5412386683960514431"

@@ -23,3 +23,10 @@ if [ $? -ne 0 ]; then
   fail-message "Please make sure the table has the correct fields types"
   exit 1
 fi
+
+COUNT=$(bq query --format=prettyjson 'SELECT count(1) as num FROM `'$DATASET_ID'.road_trip`' | jq -r '.[].num')
+if [ "$COUNT" -ne "16" ]; then
+  echo ""
+  fail-message "Table was created but doesn't look like data was loaded from data.csv"
+  exit 1
+fi
