@@ -1,6 +1,9 @@
 # Create the alias for "help"
 alias help="/usr/local/bin/help"
 
+# Override default exit alias to "help"
+alias exit="/usr/local/bin/help"
+
 # Load environment variables from .customenv
 if [ -f /root/.customenv ]; then
     source /root/.customenv
