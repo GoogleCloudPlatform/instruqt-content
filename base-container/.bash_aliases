@@ -1,8 +1,8 @@
 # Create the alias for "help"
 alias help="/usr/local/bin/help"
 
-# Override default exit alias to "help"
-alias exit="/usr/local/bin/help"
+# Override alias with a display message on how to exit
+alias exit="echo To exit the game press Ctrl+Alt+Del"
 
 # Load environment variables from .customenv
 if [ -f /root/.customenv ]; then
