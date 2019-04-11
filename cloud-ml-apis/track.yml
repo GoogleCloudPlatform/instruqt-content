@@ -1,8 +1,7 @@
 slug: cloud-ml-apis
 id: fzqlvljabsgm
-version: 0.0.1
 type: track
-title: Cloud ML-driven APIs
+title: Cloud ML APIs
 teaser: Access Google's ready to use machine learning models.
 description: |-
   # What are the Cloud Machine Learning APIs?
@@ -35,14 +34,14 @@ challenges:
     contains an adorable dog, yes, but what is his breed? Using <strong>gcloud</strong>,
     send this precious pup through Google''s Vision API and report back what the most
     prominent breed is.<br />When you think you know the answer, type <strong>answer</strong>
-    and press ENTER.<br /><br /><strong>Hint</strong>: Use the command <strong>gcloud
-    ml</strong> to get started.'
+    and press ENTER.<br /><br /><strong>Hint</strong>: Type <strong>gcloud ml vision</strong>
+    to get started.'
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 240
+  timelimit: 300
 - slug: recognizing-audio
   id: fuedgkkozj8r
   type: challenge
@@ -52,14 +51,14 @@ challenges:
     Test your pop culture knowledge by identifying the undeniably classic 90's movie
     these quotes are from. Convert the audio into text using the Speech to Text API
     and report back with the title of the film. \nWhen you think you know the answer,
-    type **answer** and press ENTER.  \n**Hint**: Use the command **gcloud ml** to
-    get started."
+    type **answer** and press ENTER.  \n**Hint**: Type **gcloud ml speech** to get
+    started."
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 240
+  timelimit: 300
 - slug: analyzing-videos
   id: kp7q3w10ebmn
   type: challenge
@@ -71,13 +70,13 @@ challenges:
     send this good girl through Google''s Video Intelligence API and report back the
     starting time in seconds (for example, "7") when she appears.<br /><br />When
     you think you know the answer, type <strong>answer</strong> and press ENTER.<br
-    /><strong>Hint</strong>: Use the command <strong>gcloud ml</strong> to get started.'
+    /><strong>Hint</strong>: Type <strong>gcloud ml video</strong> to get started.'
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 240
+  timelimit: 300
 - slug: redact-text
   id: q0b28rswgtld
   type: challenge
@@ -87,12 +86,12 @@ challenges:
     to scan the text in **memo.txt** and find out what it is. Lucky for you, the DLP
     API can identify sensitive information.\nThere is only one name in \"memo.txt\"
     with the likelyhood of \"Likely\". What is that name? \nWhen you think you know
-    the answer, type **answer** and press ENTER.\n\n**Hint**: Use the command **gcloud
-    alpha dlp** to get started."
+    the answer, type **answer** and press ENTER.\n\n**Hint**: Type **gcloud alpha
+    dlp** to get started."
   tabs:
   - title: Shell
     type: terminal
     hostname: shell
   difficulty: basic
   timelimit: 360
-checksum: "9275048462729092383"
+checksum: "3839262797117711284"

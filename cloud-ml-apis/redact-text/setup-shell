@@ -11,9 +11,7 @@ identify sensitive information.
 There is only one name of a person in "memo.txt" with the likelyhood of 
 "Likely". What is that name?
 
-*HINT* Use the command "gcloud alpha dlp" to get started.
-
-When you think you know the answer, type "answer" and press ENTER.
+*HINT* Type "gcloud alpha dlp" to get started.
 EOF
 
 cat <<EOF > /root/hint.txt
