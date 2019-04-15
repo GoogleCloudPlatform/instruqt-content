@@ -55,6 +55,11 @@ James
 Mary
 EOF
 
+# Set bash prompt for help
+cat <<EOF >> /root/.customenv
+export PS1="When you think you know the answer, type \"answer\" and press ENTER.\n\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+EOF
+
 bq query "SELECT 1"
 echo $'\n'"--dataset_id=bigquery-public-data:usa_names" >> $HOME/.bigqueryrc
 echo "--max_rows_per_request=100" >> $HOME/.bigqueryrc

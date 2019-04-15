@@ -35,8 +35,7 @@ challenges:
   teaser: Query a dataset and figure out what's the most common name in the US.
   assignment: 'Use the **bigquery-public-data.usa_names.usa_1910_current** table to
     figure out what is the most common name in the US. <br><br> Each row represents
-    the number of people born in the same year with the same name. <br><br> When you
-    think you know the answer, type **answer** and press ENTER. <br><br> **Hint**:
+    the number of people born in the same year with the same name. <br><br> **Hint**:
     If in doubt, start with **bq help**.'
   notes:
   - type: text
@@ -113,4 +112,4 @@ challenges:
     hostname: shell
   difficulty: basic
   timelimit: 600
-checksum: "5412386683960514431"
+checksum: "3292342593588384200"
