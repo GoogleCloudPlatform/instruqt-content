@@ -1,4 +1,17 @@
 #!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 
 rm /root/foo.txt
 
@@ -33,7 +46,7 @@ cat <<EOF > hint.txt
 Hint:
 ----
 
-try running: 
+try running:
 
 gsutil cp gs://... .
 
@@ -84,7 +97,7 @@ cat <<EOF > python/challenge.py
 import os
 from google.cloud import storage
 
-"""The bucket has already been created and an additional file has 
+"""The bucket has already been created and an additional file has
    been uploaded.  Download and view the .png file"""
 
 def download_blob():
@@ -152,7 +165,7 @@ func download(client *storage.Client, bucketName string) error {
 			//
 			// logic for writing file to disk.
 			//
-			// use the code below as a starting point.	
+			// use the code below as a starting point.
 			// rc, err := client.Bucket(bucketName).Object(oattrs.Name).NewReader(ctx)
 			// if err != nil {
 			//	return err
