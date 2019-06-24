@@ -1,0 +1,45 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+gcloud config set project instruqt-shadow
+gcloud config set compute/zone us-central1-a
+
+cat <<EOF > /root/help.txt
+A GKE Cluster has been provisioned for you, and the kubectl CLI has been pre-authenticated.
+Create a namespace called 'challenge' in this cluster.
+EOF
+
+cat <<EOF > /root/hint.txt
+The kubectl cli can be used to create namespaces.
+You can do this with: kubectl create namespace <NAME OF NAMESPACE>
+To create a namespace called 'challenge', run:
+kubectl create namespace challenge
+EOF
+
+set-workdir /home
+
+for i in `seq 1 10`; do # loop through clusters and look for one that is free
+  gcloud container clusters get-credentials challenge-$i
+  kubectl get namespace default -o json | jq -e --arg DATE "$(date '+%s')" '.metadata.labels.time and (.metadata.labels.time|tonumber) + 600 >= ($DATE|tonumber)' # 600 seconds is the maximum time someone can spend on an individual challenge
+  if [ $? -ne 0 ]; then
+    kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as used
+    kubectl delete ns --all &
+    kubectl delete deployment --all &
+    kubectl delete svc --all &
+    kubectl delete pod --all &
+    while kubectl get namespace challenge; do : ; done # wait for ns to be deleted
+    exit 0
+  fi
+done
+
