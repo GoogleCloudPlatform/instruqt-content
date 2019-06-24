@@ -1,0 +1,15 @@
+{
+  "name": "track-localizer",
+  "version": "1.0.0",
+  "description": "Creates localized Instruqt track.yml given a CSV of localization strings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sandeep Dinesh (Google)",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "csvtojson": "^2.0.8",
+    "mustache": "^3.0.1"
+  }
+}

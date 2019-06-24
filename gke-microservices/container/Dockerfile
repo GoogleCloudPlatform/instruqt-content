@@ -6,3 +6,5 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.11.0/b
   mv ./kubectl /usr/bin/kubectl
 RUN apt-get install bash-completion
 RUN echo 'source <(kubectl completion bash)' >>~/.bashrc
+RUN gcloud config set project instruqt-shadow
+RUN gcloud config set compute/zone us-central1-a
