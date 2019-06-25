@@ -33,3 +33,6 @@ COPY ./bin/hint /usr/local/bin/hint
 
 # Copy over ".bash_aliases"
 COPY ./.bash_aliases /root/.bash_aliases
+
+# Copy over "csvtoenv" script
+COPY ./bin/csvtoenv /usr/local/bin/csvtoenv
