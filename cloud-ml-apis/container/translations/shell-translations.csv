@@ -1,0 +1,80 @@
+key,en,ja,es
+PROMPT_HELP,"When you think you know the answer, type ""answer"" and press ENTER",,
+DIFFICULTY_HARD_HINT,"If you need a hint, maybe you should try an EASIER difficulty :)",,
+FAIL_MESSAGE_NO_ANSWER,"You haven't answered yet! You must run the ""answer"" command and press ENTER",,
+FAIL_MESSAGE_INCORRECT,"Your answer is incorrect! Type ""hint"" if you are stuck.",,
+ANALYZING_IMAGES_HELP,"The image in file ""doggo1.png"" contains an adorable dog, yes, but what is his
+breed? Using ""gcloud"", send this precious pup through Google's Vision API and report
+back what the most prominent breed is.
+
+*HINT* Type ""gcloud ml vision"" to get started.",,
+ANALYZIING_IMAGES_HINT,"Try running the following command:
+
+    gcloud ml vision detect-labels doggo1.png --max-results=6
+
+And look for the first value of ""description"" which describes a dog breed. Be
+sure to select the breed with the highest ""score"" value!",,
+ANALYZING_IMAGES_CHOICES,"What is the dog's most prominent breed?
+Toy Bulldog
+English Bulldog
+Boston Terrier
+Scottish Terrier
+King Charles Cavalier",,
+RECOGNIZING_AUDIO_HELP,"There are three audio files: ""quote1.wav"", ""quote2.wav"",
+and ""quote3.wav"". Test your pop culture knowledge by identifying
+the undeniably classic 90's movie these quotes are from. Convert the audio into
+text using the Speech to Text API and report back with the title of the film.
+
+*HINT* Type ""gcloud ml speech"" to get started.",,
+RECOGNIZING_AUDIO_HINT,"Try running the following command:
+
+    gcloud ml speech recognize quote1.wav --language-code=en
+
+Run the same command using ""quote2.wav"" and ""quote3.wav"".
+
+If you don't recognize the movie, run the quotes using the googler script and that
+should help narrow it down:
+
+    googler ""this is a movie quote!""
+",,
+RECOGNIZING_AUDIO_CHOICES,"What movie are these quotes from?
+Silence of the Lambs
+Jurassic Park
+The Room
+Pulp Fiction
+Foreset Gump",,
+ANALYZING_VIDEO_HELP,"The puppy in ""video1.mp4"" wants to be your friend! But only if you can
+find her. Using ""gcloud"", send this good girl through Google's Video
+Intelligence API and report back the starting time in seconds (for example, ""7"")
+when she appears.
+
+*HINT* Type ""gcloud ml video"" to get started.",,
+ANALYZING_VIDEO_HINT,"Try running the following command:
+
+    gcloud ml video detect-labels video1.mp4 | more
+
+Look for the value of ""startTimeOffset"" where the entity ""description"" is
+""dog"" or ""puppy""",,
+REDACT_TEXT_HELP,"Oh no! Someone wrote a memo containing sensitive information! You need to scan
+the text in ""memo.txt"" and find out what it is. Lucky for you, the DLP API can
+identify sensitive information.
+There is only one name of a person in ""memo.txt"" with the likelyhood of
+""Likely"". What is that name?
+
+*HINT* Type ""gcloud alpha dlp"" to get started.",,
+REDACT_TEXT_HINT,"Try running the following command:
+
+    gcloud alpha dlp text inspect \\
+        --content-file=memo.txt \\
+        --include-quote \\
+        --min-likelihood=LIKELY
+
+Look for the finding with ""infoType"" equal to ""PERSON_NAME"", specifically the value
+of the ""quote"" field.",,
+REDACT_TEXT_CHOICES,"What is the sensitive name in memo.txt?
+Donald Fleasley
+Paul Fleishman
+Paul
+Fatty
+Revolio Clockberg
+Revolio Clockberg Jr.",,

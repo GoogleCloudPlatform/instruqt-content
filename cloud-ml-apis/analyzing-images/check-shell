@@ -13,8 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+source /root/.translationsenv
+
 if [ ! -f /usr/local/bin/answer.txt ]; then
-    fail-message "You haven't answered yet! You must run the \"answer\" command and press ENTER"
+    fail-message "$FAIL_MESSAGE_NO_ANSWER"
     exit 1
 fi
 
@@ -28,6 +30,6 @@ fi
 
 CORRECT="boston terrier"
 if [[ "$CORRECT" != "$ANSWER" ]]; then
-    fail-message "Your answer is incorrect! Type \"hint\" if you are stuck."
+    fail-message "$FAIL_MESSAGE_INCORRECT"
     exit 1
 fi

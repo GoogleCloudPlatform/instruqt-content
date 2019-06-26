@@ -1,0 +1,22 @@
+key,en,ja,es
+track-slug,cloud-ml-apis,cloud-ml-apis-japanese,cloud-ml-apis-spanish
+track-title,Cloud ML APIs,,
+track-teaser,Access Google's ready to use machine learning models.,,
+track-description,"# What are the Cloud Machine Learning APIs?
+Cloud ML APIs provide access to use machine learning models. These APIs include Cloud Vision, Cloud Video Intelligence, Cloud Natural Language, Cloud Speech, Cloud Translate, and many more.
+![](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/cloud-ml-apis.png)",,
+challenge-1-title,Level 1: Analyze an Image,,
+challenge-1-teaser,Show you can detect information about an image.,,
+challenge-1-assignment,"<img src=""https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/doggo1.png"" style=""float: left; padding-right: 36px"" />
+The image in file **doggo1.png** contains an adorable dog, yes, but what is his breed? Using **gcloud**, send this precious pup through Google''s Vision API and report back what the most prominent breed is.<br />When you think you know the answer, type **answer** and press ENTER.<br /><br />**Hint**: Type **gcloud ml vision** to get started.",,
+challenge-2-title,Level 2: Transcribe Audio to Text,,
+challenge-2-teaser,Show you can detect information about some audio files.,,
+challenge-2-assignment,"There are three audio files: **quote1.wav**, **quote2.wav**, and **quote3.wav**. Test your pop culture knowledge by identifying the undeniably classic 90's movie these quotes are from. Convert the audio into text using the Speech to Text API and report back with the title of the film. \nWhen you think you know the answer, type **answer** and press ENTER.  \n**Hint**: Type **gcloud ml speech** to get started.",,
+challenge-3-title,Level 3: Analyze a video,,
+challenge-3-teaser,Show you can detect information about a video.,,
+challenge-3-assignment,"<img src=""https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/video1.gif"" style=""float: left; padding-right: 36px"" />
+The puppy in **video1.mp4** wants to be your friend! But only if you can find her. Using **gcloud**, send this good girl through Google''s Video Intelligence API and report back the starting time in seconds (for example, ""7"") when she appears.<br /><br />When you think you know the answer, type **answer** and press ENTER.<br
+    />**Hint**: Type **gcloud ml video** to get started.",,
+challenge-4-title,Level 4: Identify sensitive data in text,,
+challenge-4-teaser,Prove you can identify sensitive data from a body of text using DLP.,,
+challenge-4-assignment,"Oh no! Someone wrote a memo containing sensitive information! You need to scan the text in **memo.txt** and find out what it is. Lucky for you, the DLP API can identify sensitive information.\nThere is only one name in ""memo.txt"" with the likelyhood of ""Likely"". What is that name? \nWhen you think you know the answer, type **answer** and press ENTER.\n\n**Hint**: Type **gcloud alpha dlp** to get started.",,

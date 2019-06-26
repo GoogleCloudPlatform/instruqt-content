@@ -18,3 +18,4 @@ COPY ./images /root/images
 COPY ./audio /root/audio
 COPY ./videos /root/videos
 COPY ./text /root/text
+COPY ./translations/*.csv /root/

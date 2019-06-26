@@ -15,52 +15,19 @@
 
 # Starts the user in the /home directory
 set-workdir /home
-
-cat <<EOF >> /root/.customrc
-# Alias "gcloud" to "gcloud --format=yaml"
-alias gcloud="gcloud --format=yaml"
-# Hack to print PROMPT_HELP every time except after running "answer"
-trap 'if [ "\$BASH_COMMAND" == "answer" ]; then export PS1="\$PROMPT_DEFAULT"; else export PS1="\$PROMPT_HELP\n\$PROMPT_DEFAULT"; fi' DEBUG
-EOF
-
-# Set bash prompt help env vars
-cat <<EOF >> /root/.customenv
-export PROMPT_COMMAND=
-export PROMPT_HELP="When you think you know the answer, type \"answer\" and press ENTER."
-export PROMPT_DEFAULT="\$PS1"
-EOF
+source /root/.translationsenv
 
 # Put the help text in help.txt
-cat <<EOF > /root/help.txt
-The image in file "doggo1.png" contains an adorable dog, yes, but what is his
-breed? Using "gcloud", send this precious pup through Google's Vision API and report
-back what the most prominent breed is.
+echo "$ANALYZING_IMAGES_HELP" > /root/help.txt
 
-*HINT* Type "gcloud ml vision" to get started.
-EOF
+echo "$ANALYZING_IMAGES_HINT" > /root/hint.txt
 
-cat <<EOF > /root/hint.txt
-Try running the following command:
-
-    gcloud ml vision detect-labels doggo1.png --max-results=6
-
-And look for the first value of "description" which describes a dog breed. Be
-sure to select the breed with the highest "score" value!
-EOF
-
-cat <<EOF > /root/choices.txt
-What is the dog's most prominent breed?
-Toy Bulldog
-English Bulldog
-Boston Terrier
-Scottish Terrier
-King Charles Cavalier
-EOF
+echo "$ANALYSZING_IMAGES_CHOICES" > /root/choices.txt
 
 # Remove hint and multiple choice in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
     rm /root/choices.txt
-    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+    echo $DIFFICULTY_HARD_HINT > /root/hint.txt
 fi
 
 cp /root/images/doggo1.png /home/doggo1.png
