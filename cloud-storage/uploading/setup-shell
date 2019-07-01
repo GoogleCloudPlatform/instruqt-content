@@ -65,9 +65,7 @@ const storage = new Storage()
 
 async function uploadFile () {
   // implement logic for uploading /root/foo.txt to bar.txt
-  // using the metent logic for uploading /root/foo.txt to bar.txt
   // using the method "bucket" on the Storage class,
-  // and the method "bucket" on the Storage class,
   // and the method "upload" on the bucket class returned.
   //
   // upload accepts the first argument localFilePath ("/root/foo.txt"), and a
