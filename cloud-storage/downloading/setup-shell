@@ -16,9 +16,6 @@
 rm /root/foo.txt
 
 cat <<EOF > help.txt
-# Your Quest
--------------------------------
-
 By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil
 directly, download the image we've hidden in \$BUCKET_NAME. Using "print-png",
 view the image, and type "answer" when you're ready to tell us what it is.

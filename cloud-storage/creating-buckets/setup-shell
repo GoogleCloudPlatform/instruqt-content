@@ -14,16 +14,16 @@
 # limitations under the License.
 
 # setup aliases.
+
 echo "alias python=python3" >> /root/.bashrc
+
+# create a folder for placing our check scripts in:
+mkdir /usr/local/lib/goog
 
 # output and load GCP credentials.
 printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY\" ]\nthen\n  node -e \"console.info(Buffer.from(process.env.INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'))\" > /root/.config/gcloud/default_credentials.json\nfi\n" >> ~/.bashrc
-echo "/usr/local/lib/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=/root/.config/gcloud/default_credentials.json &>/dev/null" >> /root/.bashrc
 echo "gsutil cp /usr/local/lib/buddy.png gs://bucket-\$(cat /usr/local/lib/UUID)/challenge.png &>/dev/null" >> /root/.bashrc
-printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID\" ]\nthen\n  /usr/local/lib/google-cloud-sdk/bin/gcloud config set project \$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_PROJECT_ID &>/dev/null\nfi\n" >> ~/.bashrc
 echo "export GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/default_credentials.json" >> /root/.bashrc
-echo "ln -sf /usr/local/lib/google-cloud-sdk/bin/gcloud /usr/local/bin/gcloud" >> /root/.bashrc
-echo "ln -sf /usr/local/lib/google-cloud-sdk/bin/gsutil /usr/local/bin/gsutil" >> /root/.bashrc
 echo "export GOOGLE_CLOUD_PROJECT=\$(cat /root/.config/gcloud/default_credentials.json | json project_id)" >> /root/.bashrc
 
 echo $(/usr/local/bin/uuid) > /usr/local/lib/UUID
@@ -35,9 +35,6 @@ EOF
 chmod 755 /usr/local/bin/print-png
 
 cat <<EOF > help.txt
-# Your Quest
--------------------------------
-
 By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil directly, create a bucket named \$BUCKET_NAME.
 
 Hit the "Check" button when you are done.
@@ -140,7 +137,7 @@ EOF
 
 # challenge validation scripts.
 
-cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/require-n-buckets.js
+cat <<EOF > /usr/local/lib/goog/bin/require-n-buckets.js
 const {Storage} = require('@google-cloud/storage');
 const storage = new Storage();
 const n = Number(process.argv[2])
