@@ -15,14 +15,8 @@
 
 # setup aliases.
 echo "alias python=python3" >> /root/.bashrc
-echo "alias help=/usr/local/bin/help" >> /root/.bashrc
-
-# gcloud installs with the CHECKSUM not present in all
-# necessry folders *shrug emoji*.
-cp /usr/local/lib/google-cloud-sdk/platform/gsutil/CHECKSUM /usr/local/lib/google-cloud-sdk/platform/gsutil/gslib/CHECKSUM
 
 # output and load GCP credentials.
-echo "cat /root/help.txt" >> /root/.bashrc
 printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY\" ]\nthen\n  node -e \"console.info(Buffer.from(process.env.INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'))\" > /root/.config/gcloud/default_credentials.json\nfi\n" >> ~/.bashrc
 echo "/usr/local/lib/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=/root/.config/gcloud/default_credentials.json &>/dev/null" >> /root/.bashrc
 echo "gsutil cp /usr/local/lib/buddy.png gs://bucket-\$(cat /usr/local/lib/UUID)/challenge.png &>/dev/null" >> /root/.bashrc
@@ -203,24 +197,6 @@ cd /root/go && /usr/local/bin/go run challenge.go &>/dev/null
 exit 0
 EOF
 chmod 755 /usr/local/bin/run-all
-
-
-cat <<EOF > /usr/local/bin/answer
-/usr/local/bin/terminal-quiz --exit-message="Click the 'Check' button if you're happy with your answer"
-EOF
-chmod 755 /usr/local/bin/answer
-
-cat <<EOF > /usr/local/bin/help
-#!/bin/bash
-cat /root/help.txt | more
-EOF
-chmod 755 /usr/local/bin/help
-
-cat <<EOF > /usr/local/bin/hint
-#!/bin/bash
-cat /root/hint.txt | more
-EOF
-chmod 755 /usr/local/bin/hint
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
