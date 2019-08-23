@@ -17,8 +17,8 @@ export TRACK=$(pwd)/$1
 node ./track-localizer/index.js
 cd ${TRACK}
 read -r languages < track-translations.csv
-languages=${languages[@]:4}
-languages=${languages//[$'\t\r\n']}
+languages=${languages[@]:4} # Remove word "key," from the list of langauges
+languages=${languages//[$'\t\r\n']} # Trim the newline
 for i in ${languages//,/ }
 do
     echo "Pushing $i"
