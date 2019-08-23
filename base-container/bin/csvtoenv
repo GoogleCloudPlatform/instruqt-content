@@ -27,7 +27,7 @@ if csv_file is None:
 if not os.path.exists(csv_file):
     sys.exit('Translations CSV not found at {}'.format(csv_file))
 
-with open(csv_file) as csv_file:
+with open(csv_file, encoding="utf8") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     first_line = True
     for row in csv_reader:
@@ -39,4 +39,4 @@ with open(csv_file) as csv_file:
         else:
             env_var_name = row[0].replace('-','_').upper()
             env_var_value = row[col_num].replace('"','\\"').replace('`','\`')
-            print('{}="{}"'.format(env_var_name, env_var_value))
+            print(u'{}="{}"'.format(env_var_name, env_var_value))

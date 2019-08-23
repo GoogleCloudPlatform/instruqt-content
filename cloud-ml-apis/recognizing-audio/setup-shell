@@ -15,10 +15,12 @@
 
 # Put the user in the /home directory
 set-workdir /home
+
+# Source the localization environment variables (every challenge)
 source /root/.translationsenv
 
 # Put the help text in help.txt
-echo "$RECONGIZING_AUDIO_HELP" > /root/help.txt
+echo "$RECOGNIZING_AUDIO_HELP" > /root/help.txt
 
 echo "$RECOGNIZING_AUDIO_HINT" > /root/hint.txt
 

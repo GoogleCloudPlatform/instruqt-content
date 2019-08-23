@@ -1,31 +1,44 @@
-key,en,ja,es
-PROMPT_HELP,"When you think you know the answer, type ""answer"" and press ENTER",,
-DIFFICULTY_HARD_HINT,"If you need a hint, maybe you should try an EASIER difficulty :)",,
-FAIL_MESSAGE_NO_ANSWER,"You haven't answered yet! You must run the ""answer"" command and press ENTER",,
-FAIL_MESSAGE_INCORRECT,"Your answer is incorrect! Type ""hint"" if you are stuck.",,
+key,en,zh_cn
+PROMPT_HELP,"When you think you know the answer, type ""answer"" and press ENTER",如果您认为自己知道答案，请输入“answer”并按 ENTER 键
+DIFFICULTY_HARD_HINT,"If you need a hint, maybe you should try an EASIER difficulty :)",如果您需要提示，也许您应该尝试一个较低的难度 :)
+FAIL_MESSAGE_NO_ANSWER,"You haven't answered yet! You must run the ""answer"" command and press ENTER",您尚未作答！ 您必须运行“answer”命令并按 Enter 键
+FAIL_MESSAGE_INCORRECT,"Your answer is incorrect! Type ""hint"" if you are stuck.",您答错了！如果您实在卡住了，可以输入“hint”。
 ANALYZING_IMAGES_HELP,"The image in file ""doggo1.png"" contains an adorable dog, yes, but what is his
 breed? Using ""gcloud"", send this precious pup through Google's Vision API and report
 back what the most prominent breed is.
 
-*HINT* Type ""gcloud ml vision"" to get started.",,
-ANALYZIING_IMAGES_HINT,"Try running the following command:
+*HINT* Type ""gcloud ml vision"" to get started.","“doggo1.png”文件包含一张可爱的狗狗图片，没错，但这是什么品种的狗狗呢？借助 **gcloud**，您可以通过 Google 的 Vision API 发送这张可爱的狗狗图片，然后该 API 便会报告这只狗狗最明显的品种特征。
+
+*提示*：输入“gcloud ml vision”即可开始使用。"
+ANALYZING_IMAGES_HINT,"Try running the following command:
 
     gcloud ml vision detect-labels doggo1.png --max-results=6
 
 And look for the first value of ""description"" which describes a dog breed. Be
-sure to select the breed with the highest ""score"" value!",,
+sure to select the breed with the highest ""score"" value!","请尝试运行以下命令：
+
+    gcloud ml vision detect-labels doggo1.png --max-results=6
+
+查找“description”的第一个值，该值描述狗狗的品种。请务必选择“score”（得分）值最高的品种！"
 ANALYZING_IMAGES_CHOICES,"What is the dog's most prominent breed?
 Toy Bulldog
 English Bulldog
 Boston Terrier
 Scottish Terrier
-King Charles Cavalier",,
+King Charles Cavalier","这只狗狗最突出的品种特征是什么？
+Toy Bulldog（玩具斗牛犬）
+English Bulldog（英国斗牛犬）
+Boston Terrier（波士顿梗犬）
+Scottish Terrier（苏格兰梗犬）
+King Charles Cavalier（骑士查理王猎犬）"
 RECOGNIZING_AUDIO_HELP,"There are three audio files: ""quote1.wav"", ""quote2.wav"",
 and ""quote3.wav"". Test your pop culture knowledge by identifying
 the undeniably classic 90's movie these quotes are from. Convert the audio into
 text using the Speech to Text API and report back with the title of the film.
 
-*HINT* Type ""gcloud ml speech"" to get started.",,
+*HINT* Type ""gcloud ml speech"" to get started.","有三个音频文件，它们分别是“quote1.wav”、“quote2.wav”和“quote3.wav”。请辨别这些台词引自哪些毋庸置疑的 90 年代经典影片，以测试您对流行文化的了解程度。您可以使用 Speech to Text API 将音频转换为文本，随后该 API 会返回相应影片的标题。
+
+*提示*：输入“gcloud ml speech”即可开始使用。"
 RECOGNIZING_AUDIO_HINT,"Try running the following command:
 
     gcloud ml speech recognize quote1.wav --language-code=en
@@ -36,32 +49,54 @@ If you don't recognize the movie, run the quotes using the googler script and th
 should help narrow it down:
 
     googler ""this is a movie quote!""
-",,
+","请尝试运行以下命令：
+
+    gcloud ml speech recognize quote1.wav --language-code=en
+
+使用“quote2.wav”和“quote3.wav”运行同一命令。
+
+如果您未能识别该影片，请使用 googler 脚本来运行这些台词文件，这会帮助您缩小范围：
+
+    googler ""this is a movie quote!"""
 RECOGNIZING_AUDIO_CHOICES,"What movie are these quotes from?
 Silence of the Lambs
 Jurassic Park
 The Room
 Pulp Fiction
-Foreset Gump",,
+Foreset Gump","这些台词引自哪部影片？
+Silence of the Lambs（沉默的羔羊）
+Jurassic Park（侏罗纪公园）
+The Room（房间）
+Pulp Fiction（低俗小说）
+Foreset Gump（阿甘正传）"
 ANALYZING_VIDEO_HELP,"The puppy in ""video1.mp4"" wants to be your friend! But only if you can
 find her. Using ""gcloud"", send this good girl through Google's Video
 Intelligence API and report back the starting time in seconds (for example, ""7"")
 when she appears.
 
-*HINT* Type ""gcloud ml video"" to get started.",,
+*HINT* Type ""gcloud ml video"" to get started.","“video1.mp4” 里的小狗想成为您的朋友！前提是您能够找到它。借助 **gcloud**，您可以将这只可爱小狗的视频发送到 Google 的 Video Intelligence API，该 API 会以秒为单位返回小狗在视频中开始出现的时间（例如“7”）。
+
+*提示*：输入“gcloud ml video” 即可开始使用。"
 ANALYZING_VIDEO_HINT,"Try running the following command:
 
     gcloud ml video detect-labels video1.mp4 | more
 
 Look for the value of ""startTimeOffset"" where the entity ""description"" is
-""dog"" or ""puppy""",,
+""dog"" or ""puppy""","请尝试运行以下命令：
+
+    gcloud ml video detect-labels video1.mp4 | more
+
+查找“startTimeOffset”的值，其中实体“description”为“dog”或“puppy”"
 REDACT_TEXT_HELP,"Oh no! Someone wrote a memo containing sensitive information! You need to scan
 the text in ""memo.txt"" and find out what it is. Lucky for you, the DLP API can
 identify sensitive information.
 There is only one name of a person in ""memo.txt"" with the likelyhood of
 ""Likely"". What is that name?
 
-*HINT* Type ""gcloud alpha dlp"" to get started.",,
+*HINT* Type ""gcloud alpha dlp"" to get started.","糟糕！有人写了一份包含敏感信息的备忘录！您需要扫描“memo.txt”中的文本并弄清具体的敏感信息。幸运的是，您可以借助 DLP API 来识别敏感信息。
+“memo.txt”中只有一个可能像“Likely”的名字。这个名字是什么？
+
+*提示*：输入“gcloud alpha dlp”即可开始使用。"
 REDACT_TEXT_HINT,"Try running the following command:
 
     gcloud alpha dlp text inspect \\
@@ -70,11 +105,24 @@ REDACT_TEXT_HINT,"Try running the following command:
         --min-likelihood=LIKELY
 
 Look for the finding with ""infoType"" equal to ""PERSON_NAME"", specifically the value
-of the ""quote"" field.",,
+of the ""quote"" field.","请尝试运行以下命令：
+
+    gcloud alpha dlp text inspect \\
+        --content-file=memo.txt \\
+        --include-quote \\
+        --min-likelihood=LIKELY
+
+查找“infoType”为“PERSON_NAME”的发现结果（具体来说，就是“quote”字段的值）。"
 REDACT_TEXT_CHOICES,"What is the sensitive name in memo.txt?
 Donald Fleasley
 Paul Fleishman
 Paul
 Fatty
 Revolio Clockberg
-Revolio Clockberg Jr.",,
+Revolio Clockberg Jr.","memo.txt 中的敏感名字是什么？
+Donald Fleasley
+Paul Fleishman
+Paul
+Fatty
+Revolio Clockberg
+Revolio Clockberg Jr."
