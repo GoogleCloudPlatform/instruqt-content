@@ -1,6 +1,6 @@
 slug: {{{slug}}}
 type: track
-title: Kubernetes Engine
+title: Kubernetes Engine ({{language-code}})
 teaser: {{{teaser}}}
 description: {{{description}}}
 icon: https://storage.googleapis.com/instruqt-shadow-resources/gke_spinning.gif
