@@ -6,3 +6,4 @@ containers:
   memory: 128
   environment:
     INSTRUQT_LANGUAGE_CODE: {{languagecode}}
+    PYTHONIOENCODING: "utf-8"

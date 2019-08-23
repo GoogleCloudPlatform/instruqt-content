@@ -22,8 +22,7 @@ fi
 
 ANSWER=$(cat /usr/local/bin/answer.txt)
 
-CORRECT="paul fleishman"
-if [[ "$CORRECT" != "$ANSWER" ]]; then
+if [[ "$REDACT_TEXT_ANSWER" != "$ANSWER" ]]; then
     fail-message "$FAIL_MESSAGE_INCORRECT"
     exit 1
 fi

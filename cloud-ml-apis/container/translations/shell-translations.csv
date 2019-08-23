@@ -31,6 +31,8 @@ English Bulldog（英国斗牛犬）
 Boston Terrier（波士顿梗犬）
 Scottish Terrier（苏格兰梗犬）
 King Charles Cavalier（骑士查理王猎犬）"
+ANALYZING_IMAGES_ANSWER,boston terrier,boston terrier（波士顿梗犬）
+ANALYZING_IMAGES_ALMOST_CORRECT,english bulldog,english bulldog（英国斗牛犬）
 RECOGNIZING_AUDIO_HELP,"There are three audio files: ""quote1.wav"", ""quote2.wav"",
 and ""quote3.wav"". Test your pop culture knowledge by identifying
 the undeniably classic 90's movie these quotes are from. Convert the audio into
@@ -69,6 +71,7 @@ Jurassic Park（侏罗纪公园）
 The Room（房间）
 Pulp Fiction（低俗小说）
 Foreset Gump（阿甘正传）"
+RECOGNIZING_AUDIO_ANSWER,jurassic park,jurassic park（侏罗纪公园）
 ANALYZING_VIDEO_HELP,"The puppy in ""video1.mp4"" wants to be your friend! But only if you can
 find her. Using ""gcloud"", send this good girl through Google's Video
 Intelligence API and report back the starting time in seconds (for example, ""7"")
@@ -126,3 +129,4 @@ Paul
 Fatty
 Revolio Clockberg
 Revolio Clockberg Jr."
+REDACT_TEXT_ANSWER,paul fleishman,paul fleishman

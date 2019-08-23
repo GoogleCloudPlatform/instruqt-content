@@ -22,14 +22,12 @@ fi
 
 ANSWER=$(cat /usr/local/bin/answer.txt)
 
-ALMOST_CORRECT="french bulldog"
-if [[ "$ALMOST_CORRECT" == "$ANSWER" ]]; then
+if [[ "$ANALYZING_IMAGES_ALMOST_CORRECT" == "$ANSWER" ]]; then
     fail-message "You're close! There is one other dog breed which is more prominent"
     exit 1
 fi
 
-CORRECT="boston terrier"
-if [[ "$CORRECT" != "$ANSWER" ]]; then
+if [[ "$ANALYZING_IMAGES_ANSWER" != "$ANSWER" ]]; then
     fail-message "$FAIL_MESSAGE_INCORRECT"
     exit 1
 fi

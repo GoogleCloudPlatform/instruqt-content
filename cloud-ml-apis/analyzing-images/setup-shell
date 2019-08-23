@@ -18,7 +18,7 @@ set-workdir /home
 
 # Load the $INSTRUQT_LANGUAGE_CODE environment variable and generate the
 # localization environment variables (first challenge only)
-export PYTHONIOENCODING=utf-8
+# export PYTHONIOENCODING=utf-8
 source /etc/profile.d/instruqt-env.sh && \
     /usr/local/bin/csvtoenv /root/shell-translations.csv >> /root/.translationsenv
 

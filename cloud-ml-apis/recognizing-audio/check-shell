@@ -22,8 +22,7 @@ fi
 
 ANSWER=$(cat /usr/local/bin/answer.txt)
 
-CORRECT="jurassic park"
-if [[ "$CORRECT" != "$ANSWER" ]]; then
+if [[ "$RECOGNIZING_AUDIO_ANSWER" != "$ANSWER" ]]; then
     fail-message "$FAIL_MESSAGE_INCORRECT"
     exit 1
 fi
