@@ -44,7 +44,7 @@ function getLanguages(i) {
 
 // Create a Mustache view for an individual language
 function createView(language, all) {
-  const view = {}
+  const view = {'language-code': language}
   for(let row of all) {
     view[row.key] = `"${row[language].replace(/"/g, '\\"')}"`
   }
