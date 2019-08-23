@@ -2,12 +2,20 @@
 FROM gcr.io/instruqt/gcp-project-client
 
 # Install required dependency to build the image viewer
-RUN apt-get update && apt-get install -y build-essential imagemagick
+RUN apt-get update && apt-get install -y build-essential \
+  imagemagick \
+  software-properties-common
 
 # Install Node
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash
 RUN apt-get update && \
     apt-get install -y nodejs
+
+# install go
+RUN curl -XGET https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz > /usr/local/lib/go.tar.gz && \
+  cd /usr/local/lib && tar -xvf go.tar.gz && rm go.tar.gz
+ENV GOPATH /usr/local/lib
+RUN ln -sf /usr/local/lib/go/bin/go /usr/local/bin/go
 
 # Install terminal-quiz
 RUN mkdir -p /usr/local/lib/node_modules && \

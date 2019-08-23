@@ -14,9 +14,6 @@
 # limitations under the License.
 
 cat <<EOF > help.txt
-# Your Quest
--------------------------------
-
 By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil directly, upload
 the local file foo.txt to a file named bar.txt in the bucket you created in the
 last challenge.
