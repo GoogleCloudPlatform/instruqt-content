@@ -17,15 +17,14 @@ import sys, os
 if len(sys.argv) == 1:
     if os.path.isfile('/root/choices.txt'):
         os.system('/usr/local/bin/terminal-quiz /root/choices.txt /root/answer.txt')
-        with open('/root/answer.txt', 'r') as file:
+        with open('/root/answer.txt', 'r', encoding="utf8") as file:
             answer = file.read()
     else:
         answer = input("What is the answer to this challenge? ")
 else:
     answer = ' '.join(sys.argv[1:])
 
-f = open(os.path.dirname(__file__) + "/answer.txt", "w+")
+f = open(os.path.dirname(__file__) + "/answer.txt", "w+", encoding="utf8")
 f.write(answer.lower().strip())
 
 print("Now press the A button to verify your answer")
-

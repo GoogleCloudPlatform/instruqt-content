@@ -16,28 +16,17 @@
 # Put the user in the /home directory
 set-workdir /home
 
+# Source the localization environment variables (every challenge)
+source /root/.translationsenv
+
 # Put the help text in help.txt
-cat <<EOF > /root/help.txt
-The puppy in "video1.mp4" wants to be your friend! But only if you can
-find her. Using "gcloud", send this good girl through Google's Video
-Intelligence API and report back the starting time in seconds (for example, "7")
-when she appears.
+echo "$ANALYZING_VIDEO_HELP" > /root/help.txt
 
-*HINT* Type "gcloud ml video" to get started.
-EOF
-
-cat <<EOF > /root/hint.txt
-Try running the following command:
-
-    gcloud ml video detect-labels video1.mp4 | more
-
-Look for the value of "startTimeOffset" where the entity "description" is
-"dog" or "puppy"
-EOF
+echo "$ANALYZING_VIDEO_HINT" > /root/hint.txt
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+    echo $DIFFICULTY_HARD_HINT > /root/hint.txt
 fi
 
 cp /root/videos/video1.mp4 /home/video1.mp4

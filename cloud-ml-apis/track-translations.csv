@@ -1,0 +1,27 @@
+key,en,zh_cn
+track-slug,cloud-ml-apis,cloud-ml-apis-hk-ch
+track-title,Cloud ML APIs,Cloud ML API
+track-teaser,Access Google's ready to use machine learning models.,使用 Google 现成可用的机器学习模型。
+track-description,"# What are the Cloud Machine Learning APIs?
+Cloud ML APIs provide access to use machine learning models. These APIs include Cloud Vision, Cloud Video Intelligence, Cloud Natural Language, Cloud Speech, Cloud Translate, and many more.
+![](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/cloud-ml-apis.png)","# Cloud Machine Learning API 是什么？
+Cloud ML API 可让您使用机器学习模型。这些 API 包括 Cloud Vision、Cloud Video Intelligence、Cloud Natural Language、Cloud Speech、Cloud Translate 等。
+![](https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/cloud-ml-apis.png)"
+challenge-1-title,Level 1: Analyze an Image,第 1 关：分析图片
+challenge-1-teaser,Show you can detect information about an image.,展示您检测图片相关信息的能力。
+challenge-1-assignment,"<img src=""https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/doggo1.png"" style=""float: left; padding-right: 36px"" />
+The image in file **doggo1.png** contains an adorable dog, yes, but what is his breed? Using **gcloud**, send this precious pup through Google''s Vision API and report back what the most prominent breed is.<br />When you think you know the answer, type **answer** and press ENTER.<br /><br />**Hint**: Type **gcloud ml vision** to get started.","<img src=""https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/doggo1.png"" style=""float: left; padding-right: 36px"" />
+文件 **doggo1.png** 包含一张可爱的狗狗图片，没错，但这是什么品种的狗狗呢？借助 **gcloud**，您可以通过 Google 的 Vision API 发送这张可爱的狗狗图片，然后该 API 便会报告这只狗狗最明显的品种特征。<br />当您认为自己找到了答案时，请输入 **answer** 并按 ENTER 键。<br /><br />**提示**：输入 **gcloud ml vision** 即可开始使用。"
+challenge-2-title,Level 2: Transcribe Audio to Text,第 2 关：将音频转录为文本
+challenge-2-teaser,Show you can detect information about some audio files.,展示您检测某些音频文件的相关信息的能力。
+challenge-2-assignment,"There are three audio files: **quote1.wav**, **quote2.wav**, and **quote3.wav**. Test your pop culture knowledge by identifying the undeniably classic 90's movie these quotes are from. Convert the audio into text using the Speech to Text API and report back with the title of the film. \nWhen you think you know the answer, type **answer** and press ENTER.  \n**Hint**: Type **gcloud ml speech** to get started.",有三个音频文件，它们分别是 **quote1.wav**、**quote2.wav** 和 **quote3.wav**。请辨别这些台词引自哪些毋庸置疑的 90 年代经典影片，以测试您对流行文化的了解程度。您可以使用 Speech to Text API 将音频转换为文本，随后该 API 会返回相应影片的标题。\n如果您认为自己知道答案，请输入 **answer** 并按 ENTER 键。\n**提示**：输入 **gcloud ml speech** 即可开始使用。
+challenge-3-title,Level 3: Analyze a video,第 3 关：分析视频
+challenge-3-teaser,Show you can detect information about a video.,展示您检测视频相关信息的能力。
+challenge-3-assignment,"<img src=""https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/video1.gif"" style=""float: left; padding-right: 36px"" />
+The puppy in **video1.mp4** wants to be your friend! But only if you can find her. Using **gcloud**, send this good girl through Google''s Video Intelligence API and report back the starting time in seconds (for example, ""7"") when she appears.<br /><br />When you think you know the answer, type **answer** and press ENTER.<br
+    />**Hint**: Type **gcloud ml video** to get started.","<img src=""https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/video1.gif"" style=""float: left; padding-right: 36px"" />
+**video1.mp4** 里的小狗想成为您的朋友！前提是您能够找到它。借助 **gcloud**，您可以将这只可爱小狗的视频发送到 Google 的 Video Intelligence API，该 API 会以秒为单位返回小狗在视频中开始出现的时间（例如“7”）。<br /><br />当您认为自己知道答案时，请输入 **answer** 并按 ENTER 键。<br
+    />**提示**：输入 **gcloud ml video** 即可开始使用。"
+challenge-4-title,Level 4: Identify sensitive data in text,第 4 级：识别文本中的敏感数据
+challenge-4-teaser,Prove you can identify sensitive data from a body of text using DLP.,展示您使用 DLP 从文本正文中识别敏感数据的能力。
+challenge-4-assignment,"Oh no! Someone wrote a memo containing sensitive information! You need to scan the text in **memo.txt** and find out what it is. Lucky for you, the DLP API can identify sensitive information.\nThere is only one name in ""memo.txt"" with the likelyhood of ""Likely"". What is that name? \nWhen you think you know the answer, type **answer** and press ENTER.\n\n**Hint**: Type **gcloud alpha dlp** to get started.",糟糕！有人写了一份包含敏感信息的备忘录！您需要扫描 **memo.txt** 中的文本并弄清具体的敏感信息。幸运的是，您可以借助 DLP API 来识别敏感信息。\n“memo.txt”中只有一个可能像“Likely”的名字。这个名字是什么？ \n当您认为自己找到了答案时，请输入 **answer** 并按 ENTER 键。\n\n**提示**：输入 **gcloud alpha dlp** 即可开始使用。

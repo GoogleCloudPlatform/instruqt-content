@@ -1,0 +1,63 @@
+slug: {{{track-slug}}}
+type: track
+title: {{{track-title}}}
+teaser: {{{track-teaser}}}
+description: {{{track-description}}}
+icon: https://storage.googleapis.com/instruqt-shadow-resources/cloud-ml-apis/cloud-ml-apis.gif
+tags:
+- cloud
+- ml
+- speech
+- language
+- video
+- vision
+owner: google
+developers:
+- betterbrent@google.com
+private: false
+published: true
+challenges:
+- slug: analyzing-images
+  type: challenge
+  title: {{{challenge-1-title}}}
+  teaser: {{{challenge-1-teaser}}}
+  assignment: {{{challenge-1-assignment}}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 300
+- slug: recognizing-audio
+  type: challenge
+  title: {{{challenge-2-title}}}
+  teaser: {{{challenge-2-teaser}}}
+  assignment: {{{challenge-2-assignment}}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 300
+- slug: analyzing-videos
+  type: challenge
+  title: {{{challenge-3-title}}}
+  teaser: {{{challenge-3-teaser}}}
+  assignment: {{{challenge-3-assignment}}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 300
+- slug: redact-text
+  type: challenge
+  title: {{{challenge-4-title}}}
+  teaser: {{{challenge-4-teaser}}}
+  assignment: {{{challenge-4-assignment}}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 360

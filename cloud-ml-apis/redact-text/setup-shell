@@ -16,43 +16,20 @@
 # Put the user in the /home directory
 set-workdir /home
 
+# Source the localization environment variables (every challenge)
+source /root/.translationsenv
+
 # Put the help text in help.txt
-cat <<EOF > /root/help.txt
-Oh no! Someone wrote a memo containing sensitive information! You need to scan
-the text in "memo.txt" and find out what it is. Lucky for you, the DLP API can
-identify sensitive information.
-There is only one name of a person in "memo.txt" with the likelyhood of
-"Likely". What is that name?
+echo "$REDACT_TEXT_HELP" > /root/help.txt
 
-*HINT* Type "gcloud alpha dlp" to get started.
-EOF
+echo "$REDACT_TEXT_HINT" > /root/hint.txt
 
-cat <<EOF > /root/hint.txt
-Try running the following command:
-
-    gcloud alpha dlp text inspect \\
-        --content-file=memo.txt \\
-        --include-quote \\
-        --min-likelihood=LIKELY
-
-Look for the finding with "infoType" equal to "PERSON_NAME", specifically the value
-of the "quote" field.
-EOF
-
-cat <<EOF > /root/choices.txt
-What is the sensitive name in memo.txt?
-Donald Fleasley
-Paul Fleishman
-Paul
-Fatty
-Revolio Clockberg
-Revolio Clockberg Jr.
-EOF
+echo "$REDACT_TEXT_CHOICES" > /root/choices.txt
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
     rm /root/choices.txt
-    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+    echo $DIFFICULTY_HARD_HINT > /root/hint.txt
 fi
 
 cp /root/text/memo.txt /home/memo.txt

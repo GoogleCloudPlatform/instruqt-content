@@ -11,10 +11,9 @@ RUN cd /tmp && \
    git clone https://github.com/jarun/googler.git /usr/local/lib/googler && \
    make install -C /usr/local/lib/googler
 
-ENV PYTHONIOENCODING utf-8
-
 # Copy over challenge assets
 COPY ./images /root/images
 COPY ./audio /root/audio
 COPY ./videos /root/videos
 COPY ./text /root/text
+COPY ./translations/*.csv /root/

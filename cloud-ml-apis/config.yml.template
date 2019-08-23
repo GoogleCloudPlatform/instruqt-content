@@ -4,3 +4,6 @@ containers:
   image: gcr.io/instruqt-shadow/cloud-ml-apis
   shell: /bin/bash
   memory: 128
+  environment:
+    INSTRUQT_LANGUAGE_CODE: {{languagecode}}
+    PYTHONIOENCODING: "utf-8"
