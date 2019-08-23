@@ -39,4 +39,4 @@ with open(csv_file, encoding="utf8") as csv_file:
         else:
             env_var_name = row[0].replace('-','_').upper()
             env_var_value = row[col_num].replace('"','\\"').replace('`','\`')
-            print(u'{}="{}"'.format(env_var_name, env_var_value))
+            print(u'export {}="{}"'.format(env_var_name, env_var_value))

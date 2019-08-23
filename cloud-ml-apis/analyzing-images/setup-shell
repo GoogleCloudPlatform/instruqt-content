@@ -16,15 +16,6 @@
 # Starts the user in the /home directory
 set-workdir /home
 
-# Load the $INSTRUQT_LANGUAGE_CODE environment variable and generate the
-# localization environment variables (first challenge only)
-# export PYTHONIOENCODING=utf-8
-source /etc/profile.d/instruqt-env.sh && \
-    /usr/local/bin/csvtoenv /root/shell-translations.csv >> /root/.translationsenv
-
-# Source the localization environment variables (every challenge)
-source /root/.translationsenv
-
 # Put the help text in help.txt
 echo "$ANALYZING_IMAGES_HELP" > /root/help.txt
 

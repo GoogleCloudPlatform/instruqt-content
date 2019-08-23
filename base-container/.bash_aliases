@@ -12,8 +12,14 @@ if [ -f /root/.customenv ]; then
     source /root/.customenv
 fi
 
-# Create environment variables to translate
-if [ ! -f /root/.translationsenv ] && [ -f /root/shell-translations.csv ]; then
+# Set python to utf-8, which is required for translations
+export PYTHONIOENCODING=utf-8
+
+# Load environment variables specified in config.yml
+source /etc/profile.d/instruqt-env.sh
+
+# Generate translated environment variables and save them in .translationsenv
+if [ ! -s /root/.translationsenv ] && [ -f /root/shell-translations.csv ]; then
     /usr/local/bin/csvtoenv /root/shell-translations.csv >> /root/.translationsenv
 fi
 

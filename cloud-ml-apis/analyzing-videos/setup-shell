@@ -16,9 +16,6 @@
 # Put the user in the /home directory
 set-workdir /home
 
-# Source the localization environment variables (every challenge)
-source /root/.translationsenv
-
 # Put the help text in help.txt
 echo "$ANALYZING_VIDEO_HELP" > /root/help.txt
 

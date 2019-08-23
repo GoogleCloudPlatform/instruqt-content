@@ -13,8 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-source /root/.translationsenv
-
 if [ ! -f /usr/local/bin/answer.txt ]; then
     fail-message "$FAIL_MESSAGE_NO_ANSWER"
     exit 1
