@@ -77,7 +77,7 @@ cat <<EOF > /root/foo.txt
 hello world!
 EOF
 
-cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-for-file.js
+cat <<EOF > /usr/local/lib/goog/bin/check-for-file.js
 const {Storage} = require('@google-cloud/storage')
 const storage = new Storage()
 const name = process.argv[2]

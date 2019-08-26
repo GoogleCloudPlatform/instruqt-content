@@ -78,7 +78,7 @@ async function downloadImage () {
 downloadImage()
 EOF
 
-cat <<EOF > /usr/local/lib/google-cloud-sdk/bin/check-answer.js
+cat <<EOF > /usr/local/lib/goog/bin/check-answer.js
 const {readFileSync} = require('fs')
 const lines = readFileSync('/root/.quiz/answer.txt', 'utf8').trim().split('\n')
 const lastLine = lines[lines.length - 1].toLowerCase()

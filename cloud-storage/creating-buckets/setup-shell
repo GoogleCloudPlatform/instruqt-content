@@ -18,7 +18,7 @@
 echo "alias python=python3" >> /root/.bashrc
 
 # create a folder for placing our check scripts in:
-mkdir /usr/local/lib/goog
+mkdir -p /usr/local/lib/goog/bin
 
 # output and load GCP credentials.
 printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY\" ]\nthen\n  node -e \"console.info(Buffer.from(process.env.INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'))\" > /root/.config/gcloud/default_credentials.json\nfi\n" >> ~/.bashrc
