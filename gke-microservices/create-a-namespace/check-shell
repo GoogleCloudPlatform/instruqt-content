@@ -14,6 +14,6 @@
 # limitations under the License.
 kubectl get ns challenge
 if [ $? -ne 0 ]; then
-    fail-message "Could not find a namespace called 'challenge'. Type 'hint' if you are stuck."
+    fail-message "$NAMESPACE_FAIL"
     exit 1
 fi

@@ -14,13 +14,13 @@
 # limitations under the License.
 kubectl get service frontend-service -n challenge
 if [ $? -ne 0 ]; then
-    fail-message "Could not find Service called 'frontend-service' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "$SERVICE_FAIL_NO_SERVICE"
     exit 1
 fi
 
 
 kubectl get service frontend-service -n challenge -o json | jq -e '.spec.selector != null and .spec.selector.role != null and .spec.selector.role == "frontend" and .spec.type == "LoadBalancer"'
 if [ $? -ne 0 ]; then
-    fail-message "Service is not configured correctly. Type 'hint' if you are stuck."
+    fail-message "$SERVICE_FAIL_CONFIGURATION"
     exit 1
 fi

@@ -1,0 +1,221 @@
+key,en,zh-cn
+NAMESPACE_HELP,"A GKE Cluster has been provisioned for you, and the kubectl CLI has been pre-authenticated.
+Create a namespace called 'challenge' in this cluster.",已为您预配了一个 GKE 集群，并且已预先对 kubectl CLI 进行了身份验证。在此集群中创建一个名为“challenge”的命名空间。
+NAMESPACE_HINT,"The kubectl cli can be used to create namespaces.
+You can do this with: kubectl create namespace <NAME OF NAMESPACE>
+To create a namespace called 'challenge', run:
+kubectl create namespace challenge","可使用 kubectl cli 创建命名空间。
+您可以使用以下命令执行此操作：kubectl create namespace <命名空间的名称>
+要创建名为“challenge”的命名空间，请运行如下命令：
+kubectl create namespace challenge"
+NAMESPACE_FAIL,Could not find a namespace called 'challenge'. Type 'hint' if you are stuck.,找不到名为“challenge”的命名空间。如果您不知道如何操作，请输入“hint”获取提示。
+DEPLOYMENT_HELP,"
+In the 'challenge' namespace you previously created, create a Deployment called 'frontend-deployment' that runs a single Pod with the 'gcr.io/gke-arcade/challenge' image.
+
+The Pod should be labeled with 'role = frontend'.
+
+There is a partial file called deployment.yaml that has been created for you to use.
+","
+在您之前创建的“challenge”命名空间中，创建一个名为“frontend-deployment”、运行使用“gcr.io/gke-arcade/challenge”映像的单个 Pod 的部署。
+
+此 Pod 应具有“role = frontend”标签。
+
+系统创建了一个名为“deployment.yaml”的部分文件供您使用。
+"
+DEPLOYMENT_HINT,"
+Open the 'deployment.yaml' file that was created for you.
+
+For the namepsace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
+For the metadata name, use 'frontend-deployment'. This determins the name of the Deployment.
+For replicas, use '1'. This tells Kubernetes how many copies of your app to run.
+For the matchLabels, use 'role: frontend'. This tells Kubernetes what pods this Deployment controls.
+For the template metadata labels, use 'role: frontend'. This gives the Pods created by this Deployment the label 'role = frontend'.
+For the image, use 'gcr.io/gke-arcade/challenge'. This tells the Pods which Docker container to run.
+
+Create the deployment by running:
+
+'kubectl apply -f deployment.yaml'
+","
+打开为您创建的“deployment.yaml”文件。
+
+对于 namespace，使用“challenge”。这会告诉 Kubernetes 部署到哪个命名空间。
+对于 metadata，使用“frontend-deployment”。这可确定该部署的名称。
+对于 replicas，使用“1”。这会告诉 Kubernetes 要运行您的应用的几个副本。
+对于 matchLabels，使用“role: frontend”。这会告诉 Kubernetes 此部署控制哪些 Pod。
+对于 template metadata，使用“role: frontend”。这可为由此部署创建的 Pod 设置“role = frontend”标签。
+对于 image，使用“gcr.io/gke-arcade/challenge”。这会告诉 Pod 运行哪个 Docker 容器。
+
+运行以下命令来创建部署：
+
+kubectl apply -f deployment.yaml
+"
+DEPLOYMENT_FAIL_NO_DEPLOYMENT,Could not find Deployment called 'frontend-deployment' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“frontend-deployment”的部署。如果您不知道如何操作，请输入“hint”获取提示。
+DEPLOYMENT_FAIL_NO_TAG,Pods in the Deployment are not labeled with 'role=frontend'. Type 'hint' if you are stuck.,该部署中的 Pod 不具备“role=frontend”标签。如果您不知道如何操作，请输入“hint”获取提示。
+SERVICE_HELP,"
+In the ""challenge"" namespace you previously created, create a Service called ""frontend-service"" of type ""LoadBalancer"" that routes traffic from port 80 to port 3000 of the pods in the 'frontend-deployment' Deployment.
+
+(remember, the pods are labeled ""role = frontend"")
+
+cURL the exposed service, and save the output of the service to a file called output.txt
+
+There is another partial file called 'service.yaml' that has been created for you to use.
+","在您之前创建的“challenge”命名空间中，创建一项名为“frontend-service”、类型为“LoadBalancer”的服务，用于将端口 80 上的流量路由到“frontend-deployment”部署中的 Pod 的端口 3000。
+
+（请记住，这些 Pod 具有“role = frontend”标签）
+
+对公开的服务运行 cURL 命令，并将服务的输出保存至一个名为 output.txt 的文件
+
+系统还创建了一个名为“service.yaml”的部分文件供您使用。
+"
+SERVICE_HINT,"
+Open the 'service.yaml' file that was created for you.
+
+For the namepsace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
+For the metadata name, use 'frontend-service'. This determins the name of the Service.
+For the selector, use 'role: frontend'. This tells Kubernetes to forward traffic to Pods with the label ""role"" set to ""frontend"".
+For the port name, use '80'. This is the port we want to expose.
+For the targetPort, use '3000'. This is the port the Pod is listening on.
+For the type, use 'LoadBalancer'. This tells Kubernetes to provision a cloud load balancer.
+
+Save the file, and deploy it with:
+
+kubectl apply -f service.yaml
+
+Now, get the External IP address of your service:
+
+'kubectl get service frontend-service --namespace challenge'
+
+Wait until the External IP goes from <pending> to an actual IP address. This means the load balancer is provisioned.
+
+Then, curl the output and save it to finished.txt
+
+curl -o output.txt <EXTERNAL_IP>
+","
+打开为您创建的“service.yaml”文件。
+
+对于 namespace，使用“challenge”。这会告诉 Kubernetes 部署到哪个命名空间。
+对于 metadata name，使用“frontend-service”。这可确定该服务的名称。
+对于 selector，使用“role: frontend”。这会告诉 Kubernetes 将流量转发至标签“role”设置为“frontend”的 Pod。
+对于 port 名称，使用“80”。这是我们希望公开的端口。
+对于 targetPort，使用“3000”。这是 Pod 在上面执行侦听的端口。
+对于 type，使用“LoadBalancer”。这会告诉 Kubernetes 配置一个云负载平衡器。
+
+保存该文件，并使用以下命令部署服务：
+
+kubectl apply -f service.yaml
+
+现在，获取您的服务的外部 IP 地址：
+
+kubectl get service frontend-service --namespace challenge
+
+等待外部  IP 从 <pending> 变为实际的 IP 地址。这表示已配置该负载平衡器。
+
+然后，对输入运行 cURL 命令并将其保存到 finished.txt
+
+curl -o output.txt <EXTERNAL_IP>
+"
+SERVICE_FAIL_NO_SERVICE,Could not find Service called 'frontend-service' in the namespace 'challenge'. Type 'hint' if you are stuck.,命名空间“challenge”中找不到名为“frontend-service”的服务。如果您不知道如何操作，请输入“hint”获取提示。
+SERVICE_FAIL_CONFIGURATION,Service is not configured correctly. Type 'hint' if you are stuck.,服务配置不正确。如果您不知道如何操作，请输入“hint”获取提示。
+CONFIGMAP_HELP,"
+In the ""challenge"" namespace you previously created, create a ConfigMap called ""prod-configmap"" with a key named ""username"" with any value.
+
+Then create a generic Secret called ""prod-secret"" with a key named ""password"" with any value in the challenge namespace.
+","
+在您之前创建的“challenge”命名空间中，创建一个名为“prod-configmap”的 ConfigMap，它具有值为任意值的“username”的键。
+
+然后在 challenge 命名空间中创建一个名为“prod-secret”的常规 Secret，它具有值为任意值的“password”的键。
+"
+CONFIGMAP_HINT,"
+The kubectl cli can be used to create ConfigMaps.
+
+You can do this with: kubectl create configmap <NAME OF CONFIGMAP> <OPTIONS>
+
+To create a ConfigMap called 'prod-configmap' and to create a key inside that ConfigMap called 'username', run:
+
+'kubectl create configmap prod-configmap --from-literal=username=Your_Value_Here --namespace=challenge'
+
+The kubectl cli can also be used to create Secrets.
+
+You can do this with: kubectl create secret <TYPE OF SECRET> <NAME OF SECRET> <OPTIONS>
+
+To create a Secret called 'prod-secret' and to create a key inside that Secret called 'password', run:
+
+'kubectl create secret generic prod-secret --from-literal=password=Your_Value_Here --namespace=challenge'
+","
+kubectl cli 可用于创建 ConfigMap。
+
+您可使用以下命令执行此操作：kubectl create configmap <CONFIGMAP 的名称> <选项>
+
+要创建名为“prod-configmap”的 ConfigMap，并在该 ConfigMap 中创建名为“username”的键，请运行以下命令：
+
+kubectl create configmap prod-configmap --from-literal=username=Your_Value_Here --namespace=challenge
+
+kubectl cli 还可用于创建 Secret。
+
+您可使用以下命令执行此操作：kubectl create secret <SECRET 的类型> <SECRET 的名称> <选项>
+
+要创建名为“prod-secret”的 Secret，并在该 Secret 中创建名为“password”的键，请运行以下命令：
+
+kubectl create secret generic prod-secret --from-literal=password=Your_Value_Here --namespace=challenge
+"
+CONFIGMAP_FAIL_NO_CONFIGMAP,Could not find ConfigMap called 'prod-configmap' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-configmap”的 ConfigMap。如果您不知道如何操作，请输入“hint”获取提示。
+CONFIGMAP_FAIL_NO_USERNAME,Could not find ConfigMap called 'prod-configmap' with a key called 'username' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-configmap”、键为“username”的 ConfigMap。如果您不知道如何操作，请输入“hint”获取提示。
+CONFIGMAP_FAIL_NO_SECRET,Could not find Secret called 'prod-secret' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-secret”的 Secret。如果您不知道如何操作，请输入“hint”获取提示。
+CONFIGMAP_FAIL_NO_PASSWORD,Could not find Secret called 'prod-secret' with a key called 'password' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-secret”、键为“password”的 Secret。如果您不知道如何操作，请输入“hint”获取提示。
+COMBINED_HELP_1,You can see that your app is now serving traffic on a public IP address!,您可以发现，您的应用现在已在公共 IP 地址上处理流量了！
+COMBINED_HELP_2,"While it looks slick, you can see that the username and password we created aren't being used!
+
+Update the ""frontend-deployment"" Deployment to have an environment variable called ""USERNAME"" that gets its value from the ConfigMap you created, and another environment variable called ""PASSWORD"" that gets is value from the Secret you created.
+
+cURL the exposed service, and save the output of the service to a file called finished.txt
+
+The `deployment.yaml` file has been updated for you to use again.","虽然看起来一切正常，但您会发现，我们创建的用户名和密码根本没用到。
+
+更新“frontend-deployment”部署以设置一个名为“USERNAME”的环境变量（该变量从您创建的 ConfigMap 中获取值），以及另一个名为“PASSWORD”的环境变量（该变量从您创建的 Secret 中获取值）。
+
+对公开的服务运行 cURL 命令，并将服务的输出保存到名为 finished.txt 的文件中
+
+“deployment.yaml”已经更新以供您再次使用。"
+COMBINED_HINT,"
+Open the 'deployment.yaml' file that was created for you.
+
+For the first name, use 'USERNAME'. This tells Kubernetes what the environment variable will be called.
+For the ConfigMap name, use 'prod-configmap'. This tells Kubernetes which ConfigMap to look in.
+For the ConfigMap key, use 'username'. This tells Kubernetes which key in the ConfigMap to use.
+
+For the second name, use 'PASSWORD'. This tells Kubernetes what the environment variable will be called.
+For the Secret name, use 'prod-secret'. This tells Kubernetes which Secret to look in.
+For the Secret key, use 'username'. This tells Kubernetes which key in the Secret to use.
+
+Save the file, and deploy it with:
+
+'kubectl apply -f deployment.yaml'
+
+Now, get the External IP address of your service:
+
+'kubectl get service frontend-service --namespace challenge'
+
+Then, curl the output and save it to finished.txt
+","
+打开为您创建的“deployment.yaml”文件。
+
+对于第一个 name，使用“USERNAME”。这会告诉 Kubernetes 该环境变量的名称是什么。
+对于 ConfigMap name，使用“prod-configmap”。这会告诉 Kubernetes 查看哪个 ConfigMap。
+对于 ConfigMap key，使用“username”。这会告诉 Kubernetes 使用 ConfigMap 中的哪个键。
+
+对于第二个 name，使用“PASSWORD”。这会告诉 Kubernetes 该环境变量的名称是什么。
+对于 Secret name，使用“prod-secret”。这会告诉 Kubernetes 查看哪个 Secret。
+对于 Secret key，使用“username”。这会告诉 Kubernetes 使用 Secret 中的哪个键。
+
+保存该文件，并使用以下名称对其进行部署：
+
+kubectl apply -f deployment.yaml
+
+现在，获取您的服务的外部 External IP 地址：
+
+kubectl get service frontend-service --namespace challenge
+
+然后，运行 curl 命令并将输出保存到 finished.txt
+"
+COMBINED_FAIL_ENV,Deployment does not have the environment variables properly defined. Type 'hint' if you are stuck.,部署的环境变量未正确定义。如果您不知道如何操作，请输入“hint”获取提示。
+COMBINED_FAIL_FILE, 'finished.txt' not found. Type 'hint' if you are stuck,未找到“finished.txt”。如果您不知道如何操作，请输入“hint”获取提示

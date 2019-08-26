@@ -14,44 +14,9 @@
 # limitations under the License.
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
-cat <<EOF > /root/help.txt
+echo "$SERVICE_HELP" > /root/help.txt
 
-In the "challenge" namespace you previously created, create a Service called "frontend-service" of type "LoadBalancer" that routes traffic from port 80 to port 3000 of the pods in the 'frontend-deployment' Deployment.
-
-(remember, the pods are labeled "role = frontend")
-
-cURL the exposed service, and save the output of the service to a file called output.txt
-
-There is another partial file called 'service.yaml' that has been created for you to use.
-
-EOF
-
-cat <<EOF > /root/hint.txt
-
-Open the 'service.yaml' file that was created for you.
-
-For the namepsace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
-For the metadata name, use 'frontend-service'. This determins the name of the Service.
-For the selector, use 'role: frontend'. This tells Kubernetes to forward traffic to Pods with the label "role" set to "frontend".
-For the port name, use '80'. This is the port we want to expose.
-For the targetPort, use '3000'. This is the port the Pod is listening on.
-For the type, use 'LoadBalancer'. This tells Kubernetes to provision a cloud load balancer.
-
-Save the file, and deploy it with:
-
-kubectl apply -f service.yaml
-
-Now, get the External IP address of your service:
-
-kubectl get service frontend-service --namespace challenge
-
-Wait until the External IP goes from <pending> to an actual IP address. This means the load balancer is provisioned.
-
-Then, curl the output and save it to finished.txt
-
-curl -o output.txt <EXTERNAL_IP>
-
-EOF
+echo "$SERVICE_HINT" > /root/hint.txt
 
 set-workdir /home
 
