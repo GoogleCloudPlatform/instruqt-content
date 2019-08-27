@@ -14,13 +14,13 @@
 # limitations under the License.
 kubectl get deployment frontend-deployment -n challenge
 if [ $? -ne 0 ]; then
-    fail-message "Could not find Deployment called 'frontend-deployment' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "$DEPLOYMENT_FAIL_NO_DEPLOYMENT"
     exit 1
 fi
 
 
 kubectl get deployment frontend-deployment -n challenge -o json | jq -e '.spec.template.metadata.labels != null and .spec.template.metadata.labels.role != null and .spec.template.metadata.labels.role == "frontend" and .spec.template.spec.containers[0].image == "gcr.io/gke-arcade/challenge"'
 if [ $? -ne 0 ]; then
-    fail-message "Pods in the Deployment are not labeled with 'role=frontend'. Type 'hint' if you are stuck."
+    fail-message "$DEPLOYMENT_FAIL_NO_TAG"
     exit 1
 fi

@@ -15,24 +15,24 @@
 
 kubectl get configmap prod-configmap -o json --namespace challenge
 if [ $? -ne 0 ]; then
-    fail-message "Could not find ConfigMap called 'prod-configmap' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "$CONFIGMAP_FAIL_NO_CONFIGMAP"
     exit 1
 fi
 
 kubectl get configmap prod-configmap -o json --namespace challenge | jq -e '.data.username != null'
 if [ $? -ne 0 ]; then
-    fail-message "Could not find ConfigMap called 'prod-configmap' with a key called 'username' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "$CONFIGMAP_FAIL_NO_USERNAME"
     exit 1
 fi
 
 kubectl get secret prod-secret -o json --namespace challenge
 if [ $? -ne 0 ]; then
-    fail-message "Could not find Secret called 'prod-secret' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "$CONFIGMAP_FAIL_NO_SECRET"
     exit 1
 fi
 
 kubectl get secret prod-secret -o json --namespace challenge | jq -e '.data.password != null'
 if [ $? -ne 0 ]; then
-    fail-message "Could not find Secret called 'prod-secret' with a key called 'password' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "$CONFIGMAP_FAIL_NO_PASSWORD"
     exit 1
 fi

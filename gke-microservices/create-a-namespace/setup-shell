@@ -15,17 +15,9 @@
 gcloud config set project instruqt-shadow
 gcloud config set compute/zone us-central1-a
 
-cat <<EOF > /root/help.txt
-A GKE Cluster has been provisioned for you, and the kubectl CLI has been pre-authenticated.
-Create a namespace called 'challenge' in this cluster.
-EOF
+echo "$NAMESPACE_HELP" > /root/help.txt
 
-cat <<EOF > /root/hint.txt
-The kubectl cli can be used to create namespaces.
-You can do this with: kubectl create namespace <NAME OF NAMESPACE>
-To create a namespace called 'challenge', run:
-kubectl create namespace challenge
-EOF
+echo "$NAMESPACE_HINT" > /root/hint.txt
 
 set-workdir /home
 

@@ -14,32 +14,9 @@
 # limitations under the License.
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
-cat <<EOF > /root/help.txt
+echo "$DEPLOYMENT_HELP" > /root/help.txt
 
-In the 'challenge' namespace you previously created, create a Deployment called 'frontend-deployment' that runs a single Pod with the 'gcr.io/gke-arcade/challenge' image.
-
-The Pod should be labeled with 'role = frontend'.
-
-There is a partial file called deployment.yaml that has been created for you to use.
-
-EOF
-
-cat <<EOF > /root/hint.txt
-
-Open the 'deployment.yaml' file that was created for you.
-
-For the namepsace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
-For the metadata name, use 'frontend-deployment'. This determins the name of the Deployment.
-For replicas, use '1'. This tells Kubernetes how many copies of your app to run.
-For the matchLabels, use 'role: frontend'. This tells Kubernetes what pods this Deployment controls.
-For the template metadata labels, use 'role: frontend'. This gives the Pods created by this Deployment the label 'role = frontend'.
-For the image, use 'gcr.io/gke-arcade/challenge'. This tells the Pods which Docker container to run.
-
-Create the deployment by running:
-
-kubectl apply -f deployment.yaml
-
-EOF
+echo "$DEPLOYMENT_HINT" > /root/hint.txt
 
 set-workdir /home
 
