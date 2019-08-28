@@ -13,8 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# setup aliases.
+# setup translations
+source /etc/profile.d/instruqt-env.sh
+PYTHONIOENCODING=utf8 /usr/bin/python3 /usr/local/bin/csvtoenv /root/shell-translations.csv >> /root/.translationsenv
+source /root/.translationsenv
 
+# setup aliases.
 echo "alias python=python3" >> /root/.bashrc
 
 # create a folder for placing our check scripts in:
@@ -35,37 +39,11 @@ EOF
 chmod 755 /usr/local/bin/print-png
 
 cat <<EOF > help.txt
-By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil directly, create a bucket named \$BUCKET_NAME.
-
-Hit the "Check" button when you are done.
-
-Coding Your Solution
--------------------------------
-
-If you run 'ls', you will see folders for each supported language; currently
-python, node (JavaScript), and go.
-
-Once you're ready to write some code, use vim, nano, or emacs to edit the
-challenge file in one of these directories.
-
-To debug your answer, use the command "node", "python", or "go run", to execute your program.
-
-# Using gsutil
--------------------------------
-
-You will also find the gsutil utility installed, and the environment variable
-\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+$CREATING_HELP_TEXT
 EOF
 
 cat <<EOF > hint.txt
-Hint:
-----
-
-try running:
-
-gsutil mb gs://...
-
-replacing "..." with the appropriate bucket name.
+$CREATING_HINT_TEXT
 EOF
 
 # Node.js examples.
@@ -73,7 +51,7 @@ EOF
 mkdir node
 
 cat <<EOF > node/challenge.js
-// Imports the Google Cloud client library
+$CREATING_NODE_COMMENTS
 const {Storage} = require('@google-cloud/storage')
 
 // Globally unique bucket name (don't change this).
@@ -174,14 +152,7 @@ EOF
 # configure a few additional bins for the user.
 mkdir /root/.quiz
 cat <<EOF > /root/.quiz/choices.txt
-What was the .png an image of?
-horse
-television
-house
-person
-dog
-orange
-pizza
+$CREATING_QUIZ_ANSWER
 EOF
 
 cat <<EOF > /usr/local/bin/run-all

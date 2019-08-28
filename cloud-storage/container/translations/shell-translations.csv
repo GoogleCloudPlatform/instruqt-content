@@ -69,38 +69,34 @@ pizza",".png 图片上有什么？
 人
 犬
 橙子
-披萨
-"
+披萨"
 CREATING_QUIZ_CHECK,Click the 'Check' button if you're happy with your answer.,如果您对自己的答案感到满意，请点击“Check”（检查）按钮。
-CREATING_PYTHON_COMMENTS,"# using the method ""create_bucket"" on ""storage_client"",
-# which takes the argument ""bucket_name"", create a
-# cloud storage bucket.","# 使用“storage_client”上的“create_bucket”方法，
-#（接受“bucket_name”参数），创建一个 Cloud Storage
-# 存储分区。
+CREATING_PYTHON_COMMENTS_1,"# using the method ""create_bucket"" on ""storage_client"",
+","# 使用“storage_client”上的“create_bucket”方法，
 "
-CREATING_NODE_COMMENTS,"// Imports the Google Cloud client library
-
-// Globally unique bucket name (don't change this).
-
-// An authenticated storage API client.
-
-// there is a method called ""createBucket"" on the ""Storage""
-// class which takes the argument ""bucketName"".
-// create a bucket ""bucketName"".","// 导入 Google Cloud 客户端库
-
-// 全局唯一的存储分区名称（请勿更改此名称）。
-
-// 经过身份验证的 Storage API 客户端。
-
-//“Storage”类上有一种名为“createBucket”的方法
-//（接受“bucketName”参数）。
-// 创建存储分区“bucketName”。
+CREATING_PYTHON_COMMENTS_2,"# which takes the argument ""bucket_name"", create a","#（接受“bucket_name”参数），创建一个 Cloud Storage
 "
-CREATING_GO_COMMENTS,"// using the methods: ""client.Bucket"" and
-// ""bucket.Create(ctx, projectID, &storage.BucketAttrs{})"" create
-// a bucket named ""bucketName"".","// 使用“client.Bucket”和
-//“bucket.Create(ctx, projectID, &storage.BucketAttrs{})”方法创建
-// 名为“bucketName”的存储分区。
+CREATING_PYTHON_COMMENTS_3,# cloud storage bucket.,"# 存储分区。
+"
+CREATING_NODE_COMMENTS_1,// Imports the Google Cloud client library,"// 导入 Google Cloud 客户端库
+"
+CREATING_NODE_COMMENTS_2,// Globally unique bucket name (don't change this).,// 全局唯一的存储分区名称（请勿更改此名称）。
+CREATING_NODE_COMMENTS_3,// An authenticated storage API client.,"// 经过身份验证的 Storage API 客户端。
+"
+CREATING_NODE_COMMENTS_4,"// there is a method called ""createBucket"" on the ""Storage""
+",//“Storage”类上有一种名为“createBucket”的方法
+CREATING_NODE_COMMENTS_5,"// class which takes the argument ""bucketName"".
+","//（接受“bucketName”参数）。
+"
+CREATING_NODE_COMMENTS_6,"// create a bucket ""bucketName"".","// 创建存储分区“bucketName”。
+"
+CREATING_GO_COMMENTS_1,"// using the methods: ""client.Bucket"" and
+","// 使用“client.Bucket”和
+"
+CREATING_GO_COMMENTS_2,"// ""bucket.Create(ctx, projectID, &storage.BucketAttrs{})"" create
+","//“bucket.Create(ctx, projectID, &storage.BucketAttrs{})”方法创建
+"
+CREATING_GO_COMMENTS_3,"// a bucket named ""bucketName"".","// 名为“bucketName”的存储分区。
 "
 CREATING_NODE_HINT_TOOLTIP,"If you need a hint, maybe you should try an EASIER difficulty :)",如果您需要提示，可能应该尝试难度较低的级别 :)
 DOWNLOADING_FAILURE,"Your answer was incorrect, did you actually see the image?",您的答案不正确，您真的看到图片了吗？
@@ -161,38 +157,28 @@ replacing ""..."" with the remote filename.","提示：
 gsutil cp gs://... 。
 
 将“...”替换为远程文件名。"
-DOWNLOADING_PYTHON_COMMENTS,"""""""The bucket has already been created and an additional file has
-   been uploaded.  Download and view the .png file""""""
-
-# Add code to download the .png file
-
-# using the method blob.download_to_filename(destination_file_name)
-# to download the appropriate file.","“您已创建存储分区，并额外上传了一个文件。请下载并查看 .png 文件”
-
-# 添加代码以下载 .png 文件
-
-# 使用 blob.download_to_filename(destination_file_name) 方法
-# 来下载相应的文件。
+DOWNLOADING_PYTHON_COMMENTS_1,"""""""The bucket has already been created and an additional file has
+   been uploaded.  Download and view the .png file""""""",# 您已创建存储分区，并额外上传了一个文件。请下载并查看 .png 文件
+DOWNLOADING_PYTHON_COMMENTS_2,# Add code to download the .png file,"# 添加代码以下载 .png 文件
 "
-DOWNLOADING_NODE_COMMENTS,"// put your code here for downloading the .png image stored in
-// bucketName.
-
-// detecting the approprite filename, use the method:
-// ""await storage"" to download the file.","// 在此处输入代码，以下载存储在 bucketName 中
-// 的 .png 图片。
-
-// 检测相应的文件名，然后使用“await storage”方法
-// 下载该文件。
+DOWNLOADING_PYTHON_COMMENTS_3,# using the method blob.download_to_filename(destination_file_name),"# 使用 blob.download_to_filename(destination_file_name) 方法
 "
-DOWNLOADING_GO_COMMENT,"// Give the bucket a unique name.
-
-// logic for writing file to disk.
-//
-// use the code below as a starting point.","// 为存储分区指定唯一名称。
-
-// 向磁盘写入文件时遵循的逻辑。
-//
-// 刚开始请使用以下代码。
+DOWNLOADING_PYTHON_COMMENTS_4,# to download the appropriate file.,"# 来下载相应的文件。
+"
+DOWNLOADING_NODE_COMMENTS_1,// put your code here for downloading the .png image stored in,"// 在此处输入代码，以下载存储在 bucketName 中
+"
+DOWNLOADING_NODE_COMMENTS_2,// bucketName.,"// 的 .png 图片。
+"
+DOWNLOADING_NODE_COMMENTS_3,"// detecting the approprite filename, use the method:
+","// 检测相应的文件名，然后使用“await storage”方法
+"
+DOWNLOADING_NODE_COMMENTS_4,"// ""await storage"" to download the file.","// 下载该文件。
+"
+DOWNLOADING_GO_COMMENT_1,"// Give the bucket a unique name.
+",// 为存储分区指定唯一名称。
+DOWNLOADING_GO_COMMENT_2,"// logic for writing file to disk.
+",// 向磁盘写入文件时遵循的逻辑。
+DOWNLOADING_GO_COMMENT_3,// use the code below as a starting point.,"// 刚开始请使用以下代码。
 "
 DOWNLOADING_QUIZ_INCORRECT,incorrect answer,答案不正确
 UPLOADING_FAILURE,We could not find the file bar.txt in the bucket.,我们没有在存储分区中找到 bar.txt 文件。
@@ -257,35 +243,32 @@ replacing ""..."" with the local filename.","提示
 gsutil cp /root/foo.txt gs://.../bar.txt。
 
 将“...”替换为本地文件名。"
-UPLOADING_PYTHON_COMMENTS,"# the bucket was already created
-# ""filename"" =  the source  file name
-# ""desitnation_name"" = the name to give the uploaded object
-
-# using the method ""blob"" on ""bucket"", which accepts the
-# option ""remote_file_name"".
-# and using the method ""upload_from_filename"" on ""blob"",
-# which accepts the ""source_file_name"", upload ""/root/foo.txt"" to ""bar.txt"".","# 存储分区已创建
-#“filename”= 源文件名称
-#“desitnation_name”= 为已上传的对象指定的名称
-
-# 通过“bucket”上的“blob”方法
-#（接受“remote_file_name”选项）
-# 以及“blob”上的“upload_from_filename”方法
-#（接受“source_file_name”），上传“/root/foo.txt”，并重命名为“bar.txt”。
+UPLOADING_PYTHON_COMMENTS_1,# the bucket was already created,"# 存储分区已创建
 "
-UPLOADING_NODE_COMMENTS,"// implement logic for uploading ""/root/foo.txt"" to ""bar.txt""
-// using the method ""bucket"" on the ""Storage"" class,
-// and the method ""upload"" on the ""bucket"" class returned.
-
-// ""upload"" accepts the first argument localFilePath (""/root/foo.txt""), and a
-// second argument options; set the key ""destination"" on
-// options, to set the remote filename.","// 通过“Storage”类上的“bucket”方法以及
-// 所返回的“bucket”类上的“upload”方法，
-// 实现上传“/root/foo.txt”并重命名为“bar.txt”的逻辑。
-
-//“upload”接受第一个参数 localFilePath（“/root/foo.txt”）
-// 以及其他参数选项；为这些选项设置关键“destination”，
-// 以设置远程文件名。
+UPLOADING_PYTHON_COMMENTS_2,"# ""filename"" =  the source  file name","#“filename”= 源文件名称
 "
-UPLOADING_GO_COMMENTS,"// Using the code below, upload ""/root/foo.txt"" to the remote ""bar.txt"".
-",// 使用以下代码上传“/root/foo.txt”并将上传后的远程文件重命名为“bar.txt”。
+UPLOADING_PYTHON_COMMENTS_3,"# ""desitnation_name"" = the name to give the uploaded object","#“desitnation_name”= 为已上传的对象指定的名称
+"
+UPLOADING_PYTHON_COMMENTS_4,"# using the method ""blob"" on ""bucket"", which accepts the","# 通过“bucket”上的“blob”方法
+"
+UPLOADING_PYTHON_COMMENTS_5,"# option ""remote_file_name"".
+","#（接受“remote_file_name”选项）
+"
+UPLOADING_PYTHON_COMMENTS_6,"# and using the method ""upload_from_filename"" on ""blob"",
+","# 以及“blob”上的“upload_from_filename”方法
+"
+UPLOADING_PYTHON_COMMENTS_7,"# which accepts the ""source_file_name"", upload ""/root/foo.txt"" to ""bar.txt"".","#（接受“source_file_name”），上传“/root/foo.txt”，并重命名为“bar.txt”。
+"
+UPLOADING_NODE_COMMENTS_1,"// implement logic for uploading ""/root/foo.txt"" to ""bar.txt""","// 通过“Storage”类上的“bucket”方法以及
+"
+UPLOADING_NODE_COMMENTS_2,"// using the method ""bucket"" on the ""Storage"" class,","// 所返回的“bucket”类上的“upload”方法，
+"
+UPLOADING_NODE_COMMENTS_3,"// and the method ""upload"" on the ""bucket"" class returned.","// 实现上传“/root/foo.txt”并重命名为“bar.txt”的逻辑。
+"
+UPLOADING_NODE_COMMENTS_4,"// ""upload"" accepts the first argument localFilePath (""/root/foo.txt""), and a","//“upload”接受第一个参数 localFilePath（“/root/foo.txt”）
+"
+UPLOADING_NODE_COMMENTS_5,"// second argument options; set the key ""destination"" on","// 以及其他参数选项；为这些选项设置关键“destination”，
+"
+UPLOADING_NODE_COMMENTS_6,"// options, to set the remote filename.","// 以设置远程文件名。
+"
+UPLOADING_GO_COMMENTS,"// Using the code below, upload ""/root/foo.txt"" to the remote ""bar.txt"".",// 使用以下代码上传“/root/foo.txt”并将上传后的远程文件重命名为“bar.txt”。
