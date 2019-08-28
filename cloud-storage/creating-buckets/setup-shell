@@ -15,7 +15,7 @@
 
 # setup translations
 source /etc/profile.d/instruqt-env.sh
-PYTHONIOENCODING=utf8 /usr/bin/python3 /usr/local/bin/csvtoenv /root/shell-translations.csv >> /root/.translationsenv
+PYTHONIOENCODING=utf8 /usr/bin/python2.7 /usr/local/bin/csvtoenv /usr/local/lib/shell-translations.csv >> /root/.translationsenv
 source /root/.translationsenv
 
 # setup aliases.
@@ -51,19 +51,19 @@ EOF
 mkdir node
 
 cat <<EOF > node/challenge.js
-$CREATING_NODE_COMMENTS
+$CREATING_NODE_COMMENTS_1
 const {Storage} = require('@google-cloud/storage')
 
-// Globally unique bucket name (don't change this).
+$CREATING_NODE_COMMENTS_2
 const bucketName = process.env.BUCKET_NAME
 
-// An authenticated storage API client.
+$CREATING_NODE_COMMENTS_3
 const storage = new Storage()
 
 async function createBucket () {
-  // there is a method called createBucket on the Storage
-  // class which takes the argument bucketName.
-  // create a bucket bucketName.
+  $CREATING_NODE_COMMENTS_4
+  $CREATING_NODE_COMMENTS_5
+  $CREATING_NODE_COMMENTS_6
 }
 
 createBucket()
