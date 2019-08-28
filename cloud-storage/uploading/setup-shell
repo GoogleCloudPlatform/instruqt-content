@@ -13,61 +13,37 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# setup translations
+source /etc/profile.d/instruqt-env.sh
+/usr/bin/python2.7 /usr/local/bin/csvtoenv /usr/local/lib/shell-translations.csv >> /root/.translationsenv
+source /root/.translationsenv
+
 cat <<EOF > help.txt
-By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil directly, upload
-the local file foo.txt to a file named bar.txt in the bucket you created in the
-last challenge.
-
-Hit the "Check" button when you are done.
-
-Coding Your Solution
--------------------------------
-
-If you run 'ls', you will see folders for each supported language; currently
-python, node (JavaScript), and go.
-
-Once you're ready to write some code, use vim, nano, or emacs to edit the
-challenge file in one of these directories, then use the given interpreter
-to execute it.
-
-To debug your answer, use the command "node", "python", or "go run", to execute your program.
-
-# Using gsutil
--------------------------------
-
-You will also find the gsutil utility installed, and the environment variable
-\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+$DOWNLOADING_HELP_TEXT
 EOF
 
 cat <<EOF > hint.txt
-Hint:
-----
-
-try running:
-
-gsutil cp /root/foo.txt gs://.../bar.txt.
-
-replacing "..." with the local filename.
+$DOWNLOADING_HINT_TEXT
 EOF
 
 cat <<EOF > node/challenge.js
-// Imports the Google Cloud client library
+$CREATING_NODE_COMMENTS_1
 const {Storage} = require('@google-cloud/storage')
 
-// Globally unique bucket name (don't change this).
+$CREATING_NODE_COMMENTS_2
 const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
 
-// An authenticated storage API client.
+$CREATING_NODE_COMMENTS_3
 const storage = new Storage()
 
 async function uploadFile () {
-  // implement logic for uploading /root/foo.txt to bar.txt
-  // using the method "bucket" on the Storage class,
-  // and the method "upload" on the bucket class returned.
+  $UPLOADING_NODE_COMMENTS_1
+  $UPLOADING_NODE_COMMENTS_2
+  $UPLOADING_NODE_COMMENTS_3
   //
-  // upload accepts the first argument localFilePath ("/root/foo.txt"), and a
-  // second argument options; set the key "destination" on
-  // options, to set the remote filename.
+  $UPLOADING_NODE_COMMENTS_4
+  $UPLOADING_NODE_COMMENTS_5
+  $UPLOADING_NODE_COMMENTS_6
 }
 
 uploadFile()
@@ -107,17 +83,17 @@ cat <<EOF > python/challenge.py
 import os
 from google.cloud import storage
 
-# the bucket was already created
-# filename =  the source  file name
-# desitnation_name = the name to give the uploaded object
+$UPLOADING_PYTHON_COMMENTS_1
+$UPLOADING_PYTHON_COMMENTS_2
+$UPLOADING_PYTHON_COMMENTS_3
 def upload_blob():
     storage_client = storage.Client()
     bucket_name = os.environ['BUCKET_NAME']
     bucket = storage_client.get_bucket(bucket_name)
-    # using the method "blob" on bucket, which accepts the
-    # option remote_file_name.
-    # and using the method upload_from_filename on "blob",
-    # which accepts the source_file_name, upload /root/foo.txt to bar.txt.
+    $UPLOADING_PYTHON_COMMENTS_4
+    $UPLOADING_PYTHON_COMMENTS_5
+    $UPLOADING_PYTHON_COMMENTS_6
+    $$UPLOADING_PYTHON_COMMENTS_7
 
 if __name__ == '__main__':
     upload_blob()
@@ -145,7 +121,7 @@ func main() {
 	}
 	// [END setup]
 
-	// Give the bucket a unique name.
+	$DOWNLOADING_GO_COMMENT_1
 	bucketName := os.Getenv("BUCKET_NAME")
 	if err := write(client, bucketName, "bar.txt"); err != nil {
 		log.Fatalf("Cannot write object: %v", err)
@@ -153,7 +129,7 @@ func main() {
 }
 
 func write(client *storage.Client, bucketName, object string) error {
-  // Using the code below, upload /root/foo.txt to the remote bar.txt.
+  $UPLOADING_GO_COMMENTS
   ctx := context.Background()
   // f, err := os.Open("/root/foo.txt")
   // if err != nil {
@@ -174,5 +150,5 @@ EOF
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+    echo "$CREATING_NODE_HINT_TOOLTIP" > /root/hint.txt
 fi

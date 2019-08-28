@@ -13,9 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# ensure utf-8 is configured:
+echo 'set encoding=utf-8' >> ~/.vimrc
+
 # setup translations
 source /etc/profile.d/instruqt-env.sh
-PYTHONIOENCODING=utf8 /usr/bin/python2.7 /usr/local/bin/csvtoenv /usr/local/lib/shell-translations.csv >> /root/.translationsenv
+/usr/bin/python2.7 /usr/local/bin/csvtoenv /usr/local/lib/shell-translations.csv >> /root/.translationsenv
 source /root/.translationsenv
 
 # setup aliases.
@@ -96,7 +99,7 @@ func main() {
 	}
 	// [END setup]
 
-	// Give the bucket a unique name.
+	$DOWNLOADING_GO_COMMENT_1
 	name := os.Getenv("BUCKET_NAME")
 	if err := create(client, projectID, name); err != nil {
 		log.Fatal(err)
@@ -106,9 +109,9 @@ func main() {
 
 func create(client *storage.Client, projectID, bucketName string) error {
 	ctx := context.Background()
-	// using the methods: client.Bucket and
-	// bucket.Create(ctx, projectID, &storage.BucketAttrs{}) create
-	// a bucket named bucketName.
+	$CREATING_GO_COMMENTS_1
+	$CREATING_GO_COMMENTS_2
+	$CREATING_GO_COMMENTS_3
 	return nil
 }
 EOF
@@ -140,9 +143,9 @@ from google.cloud import storage
 def create_bucket():
   storage_client = storage.Client()
   bucket_name = os.environ['BUCKET_NAME']
-  # using the method create_bucket on storage_client,
-  # which takes the argument bucket_name, create a
-  # cloud storage bucket.
+  $CREATING_PYTHON_COMMENTS_1
+  $CREATING_PYTHON_COMMENTS_2
+  $CREATING_PYTHON_COMMENTS_3
 
 if __name__ == "__main__":
     create_bucket()
@@ -168,5 +171,5 @@ chmod 755 /usr/local/bin/run-all
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+    echo "$CREATING_NODE_HINT_TOOLTIP" > /root/hint.txt
 fi

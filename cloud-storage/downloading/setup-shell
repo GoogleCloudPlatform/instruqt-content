@@ -15,63 +15,40 @@
 
 rm /root/foo.txt
 
+# setup translations
+source /etc/profile.d/instruqt-env.sh
+/usr/bin/python2.7 /usr/local/bin/csvtoenv /usr/local/lib/shell-translations.csv >> /root/.translationsenv
+source /root/.translationsenv
+
 cat <<EOF > help.txt
-By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil
-directly, download the image we've hidden in \$BUCKET_NAME. Using "print-png",
-view the image, and type "answer" when you're ready to tell us what it is.
-
-Hit the "Check" button when you are done.
-
-Coding Your Solution
--------------------------------
-
-If you run 'ls', you will see folders for each supported language; currently
-python, node (JavaScript), and go.
-
-Once you're ready to write some code, use vim, nano, or emacs to edit the
-challenge file in one of these directories, then use the given interpreter
-to execute it.
-
-# Using gsutil
--------------------------------
-
-You will also find the gsutil utility installed, and the environment variable
-\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+$DOWNLOADING_HELP_TEXT
 EOF
 
 cat <<EOF > hint.txt
-Hint:
-----
-
-try running:
-
-gsutil cp gs://... .
-
-replacing "..." with the remote filename.
+$DOWNLOADING_HINT_TEXT
 EOF
 
 cat <<EOF > node/challenge.js
-// Imports the Google Cloud client library
+$CREATING_NODE_COMMENTS_1
 const {Storage} = require('@google-cloud/storage')
 
-// Globally unique bucket name (don't change this).
+$CREATING_NODE_COMMENTS_2
 const bucketName = process.env.BUCKET_NAME
 
-// An authenticated storage API client.
+$CREATING_NODE_COMMENTS_3
 const storage = new Storage()
 
 async function downloadImage () {
-  // put your code here for downloading the .png image stored in
-  // bucketName.
+  $DOWNLOADING_NODE_COMMENTS_1
+  $DOWNLOADING_NODE_COMMENTS_2
   const [files] = await storage.bucket(bucketName).getFiles();
 
   files.forEach(async (file) => {
-    // detecting the approprite filename, use the method:
-    // await storage
+    $DOWNLOADING_NODE_COMMENTS_3
+    $DOWNLOADING_NODE_COMMENTS_4
     //   .bucket(bucketName)
     //   .file(srcFilename)
     //   .download({destination: './local.example'});
-    // to download the file.
   });
 }
 
@@ -94,8 +71,7 @@ cat <<EOF > python/challenge.py
 import os
 from google.cloud import storage
 
-"""The bucket has already been created and an additional file has
-   been uploaded.  Download and view the .png file"""
+$DOWNLOADING_PYTHON_COMMENTS_1
 
 def download_blob():
 	storage_client = storage.Client()
@@ -105,10 +81,10 @@ def download_blob():
 
 	for blob in blobs:
 		print(blob.name)
-		# Add code to download the .png file
+		$DOWNLOADING_PYTHON_COMMENTS_2
 		if blob.name[-3:] == 'png':
-			# using the method blob.download_to_filename(destination_file_name)
-			# to download the appropriate file.
+			$DOWNLOADING_PYTHON_COMMENTS_3
+			$DOWNLOADING_PYTHON_COMMENTS_4
 
 if __name__ == '__main__':
 	download_blob()
@@ -139,7 +115,7 @@ func main() {
 	}
 	// [END setup]
 
-	// Give the bucket a unique name.
+    $DOWNLOADING_GO_COMMENT_1
 	bucketName := os.Getenv("BUCKET_NAME")
 	if err := download(client, bucketName); err != nil {
 		log.Fatalf("Cannot write object: %v", err)
@@ -160,9 +136,9 @@ func download(client *storage.Client, bucketName string) error {
 
 		if strings.Index(oattrs.Name, "png") != -1 {
 			//
-			// logic for writing file to disk.
+			$DOWNLOADING_GO_COMMENT_2
 			//
-			// use the code below as a starting point.
+            $DOWNLOADING_GO_COMMENT_3
 			// rc, err := client.Bucket(bucketName).Object(oattrs.Name).NewReader(ctx)
 			// if err != nil {
 			//	return err
@@ -185,5 +161,5 @@ EOF
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+    echo "$CREATING_NODE_HINT_TOOLTIP" > /root/hint.txt
 fi

@@ -22,3 +22,4 @@ COPY ./translations/*.csv /usr/local/lib/
 # install cloud storage libraries for go.
 RUN go get -u cloud.google.com/go/storage
 RUN go get -u google.golang.org/api/iterator
+
