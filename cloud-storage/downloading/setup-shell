@@ -115,7 +115,7 @@ func main() {
 	}
 	// [END setup]
 
-    $DOWNLOADING_GO_COMMENT_1
+	$DOWNLOADING_GO_COMMENT_1
 	bucketName := os.Getenv("BUCKET_NAME")
 	if err := download(client, bucketName); err != nil {
 		log.Fatalf("Cannot write object: %v", err)
@@ -138,7 +138,7 @@ func download(client *storage.Client, bucketName string) error {
 			//
 			$DOWNLOADING_GO_COMMENT_2
 			//
-            $DOWNLOADING_GO_COMMENT_3
+			$DOWNLOADING_GO_COMMENT_3
 			// rc, err := client.Bucket(bucketName).Object(oattrs.Name).NewReader(ctx)
 			// if err != nil {
 			//	return err
