@@ -19,11 +19,11 @@ source /etc/profile.d/instruqt-env.sh
 source /root/.translationsenv
 
 cat <<EOF > help.txt
-$DOWNLOADING_HELP_TEXT
+$UPLOADING_HELP_TEXT
 EOF
 
 cat <<EOF > hint.txt
-$DOWNLOADING_HINT_TEXT
+$UPLOADING_HINT_TEXT
 EOF
 
 cat <<EOF > node/challenge.js
@@ -93,7 +93,7 @@ def upload_blob():
     $UPLOADING_PYTHON_COMMENTS_4
     $UPLOADING_PYTHON_COMMENTS_5
     $UPLOADING_PYTHON_COMMENTS_6
-    $$UPLOADING_PYTHON_COMMENTS_7
+    $UPLOADING_PYTHON_COMMENTS_7
 
 if __name__ == '__main__':
     upload_blob()

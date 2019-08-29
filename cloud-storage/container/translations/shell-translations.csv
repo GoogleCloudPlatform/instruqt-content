@@ -20,7 +20,7 @@ Using gsutil
 -------------------------------
 
 You will also find the gsutil utility installed, and the environment variable
-$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
+\$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
 
 通过修改“python/challenge.py”、“node/challenge.js”、“go/challenge.go”或者直接使用 gsutil，创建一个名为 \$BUCKET_NAME 的存储分区。
 
@@ -30,14 +30,14 @@ $BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","�
 
 如果您运行“ls”，则会看到每种受支持语言所对应的文件夹；目前支持 Python、Node (JavaScript) 和 Go。
 
-在您准备好编写代码后，请使用 vim 修改其中一个目录中的挑战任务文件。
+在您准备好编写代码后，请使用 Vim 修改其中一个目录中的挑战任务文件。
 
 要对您的答案进行调试，请使用命令“node”、“python”或“go run”来执行相关程序。
 
 使用 gsutil
 -------------------------------
 
-您还将发现已安装的 gsutil 实用程序以及环境变量 $BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
+您还将发现已安装的 gsutil 实用程序以及环境变量 \$BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
 "
 CREATING_HINT_TEXT,"Hint
 ----
@@ -89,7 +89,7 @@ DOWNLOADING_HELP_TEXT,"Your Quest
 -------------------------------
 
 By modifying ""python/challenge.py"", ""node/challenge.js"", ""go/challenge.go"", or using gsutil
-directly, download the image we've hidden in $BUCKET_NAME. Using ""print-png"",
+directly, download the image we've hidden in \$BUCKET_NAME. Using ""print-png"",
 view the image, and type ""answer"" when you're ready to tell us what it is.
 
 Hit the ""Check"" button when you are done.
@@ -108,10 +108,10 @@ Using gsutil
 -------------------------------
 
 You will also find the gsutil utility installed, and the environment variable
-$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
+\$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
 -------------------------------
 
-通过修改“python/challenge.py”、“node/challenge.js”、“go/challenge.go”或者直接使用 gsutil，下载我们在 $BUCKET_NAME 中隐藏的图片。使用“print-png”查看图片，并在您准备好告诉我们图片内容时输入“answer”（答案）。
+通过修改“python/challenge.py”、“node/challenge.js”、“go/challenge.go”或者直接使用 gsutil，下载我们在 \$BUCKET_NAME 中隐藏的图片。使用“print-png”查看图片，并在您准备好告诉我们图片内容时输入“answer”（答案）。
 
 完成后点击“Check”（检查）按钮。
 
@@ -125,7 +125,7 @@ $BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","�
 使用 gsutil
 -------------------------------
 
-您还将发现已安装的 gsutil 实用程序以及环境变量 $BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
+您还将发现已安装的 gsutil 实用程序以及环境变量 \$BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
 "
 DOWNLOADING_HINT_TEXT,"Hint:
 ----
@@ -181,7 +181,7 @@ Using gsutil
 -------------------------------
 
 You will also find the gsutil utility installed, and the environment variable
-$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
+\$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
 -------------------------------
 
 通过修改“python/challenge.py”、“node/challenge.js”、“go/challenge.go”或者直接使用 gsutil，将本地文件 foo.txt 上传到您在上一项挑战任务中创建的存储分区中，并重命名为 bar.txt。
@@ -200,7 +200,7 @@ $BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","�
 使用 gsutil
 -------------------------------
 
-您还将发现已安装的 gsutil 实用程序以及环境变量 $BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
+您还将发现已安装的 gsutil 实用程序以及环境变量 \$BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
 "
 UPLOADING_HINT_TEXT,"Hint
 ----
