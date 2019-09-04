@@ -15,31 +15,31 @@
 
 bq show $DATASET_ID.road_trip
 if [ $? -ne 0 ]; then
-  fail-message "Could not find a table called $DATASET_ID.road_trip"
+  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_TABLE"
   exit 1
 fi
 
 OUTPUT=$(bq show --schema $DATASET_ID.road_trip)
 if [ $? -ne 0 ]; then
-  fail-message "Table was created but looks like you haven't specified a schema or loaded any data yet. Try doing that with 'bq load'"
+  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_SCHEMA"
   exit 1
 fi
 
 echo $OUTPUT | jq -e 'sort_by(.name) | .[0].name == "date" and .[1].name == "id" and .[2].name == "lat" and .[3].name == "long" and .[4].name == "place"'
 if [ $? -ne 0 ]; then
-  fail-message "Please make sure the table has the following 3 fields: sales, timestamp and zipcode"
+  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_FIELDS"
   exit 1
 fi
 
 echo $OUTPUT | jq -e 'sort_by(.name) | .[0].type == "DATE" and .[1].type == "INTEGER" and .[2].type == "FLOAT" and .[3].type == "FLOAT" and .[4].type == "STRING"'
 if [ $? -ne 0 ]; then
-  fail-message "Please make sure the table has the correct fields types"
+  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_TYPES"
   exit 1
 fi
 
 COUNT=$(bq query --format=prettyjson 'SELECT count(1) as num FROM `'$DATASET_ID'.road_trip`' | jq -r '.[].num')
 if [ "$COUNT" -ne "16" ]; then
   echo ""
-  fail-message "Table was created but doesn't look like data was loaded from data.csv"
+  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_DATA"
   exit 1
 fi

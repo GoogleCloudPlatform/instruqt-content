@@ -15,6 +15,6 @@
 
 bq show $DATASET_ID
 if [ $? -ne 0 ]; then
-    fail-message "Could not find a dataset called $DATASET_ID"
+    fail-message "$CREATE_A_DATASET_FAIL"
     exit 1
 fi
