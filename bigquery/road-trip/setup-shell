@@ -13,26 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cat <<EOF > /root/hint.txt
-Try running "bq load" it will guide you through the usage.
-Remember that the destination table is formed by [dataset].[table]
-EOF
+echo "$ROAD_TRIP_HINT" > /root/hint.txt
 
 # Put the help text in help.txt
-cat <<EOF > /root/help.txt
-In this last challenge we are going to combine the data we just uploaded with
-a GHCN Weather public dataset and figure out the average temperature in our West
-Coast road trip!
-
-Modify the query.sql located in the home directory using your favorite text
-editor to find the overall average temperature during this trip!
-
-Then use the 'run-query' command to execute the query.sql
-
-When you think you know the answer, type "answer" and press ENTER.
-
-And remember, if you need help run "bq help".
-EOF
+echo "$ROAD_TRIP_HELP" > /root/help.txt
 
 cat <<EOF > /root/choices.txt
 What is the most common name?

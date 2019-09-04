@@ -16,3 +16,5 @@ COPY run-query /usr/local/bin/run-query
 
 # Copy the dataset-cleanup script
 COPY dataset-cleanup.sh /root/dataset-cleanup.sh
+
+COPY ./translations/*.csv /root/
