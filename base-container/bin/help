@@ -13,22 +13,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ -f /root/help.png ]; then
-	tiv -256 /root/help.png -h 40
+if [ -f /root/.instruqt/help.png ]; then
+	tiv -256 /root/.instruqt/help.png -h 40
 	echo ""
 fi
 
-if [ -f /root/help.txt ]; then
-	echo "# Your Quest"
+if [ -f /root/.instruqt/help.txt ]; then
+    [[ -z $YOUR_QUEST ]] && echo "# Your Quest" || echo "# $YOUR_QUEST"
 	echo "-------------------------------"
 	echo ""
 
-	cat /root/help.txt
+	cat /root/.instruqt/help.txt
 
 	echo ""
-	echo "Type \"help\" to display this message again."
+	[[ -z $TYPE_HELP_MESSAGE ]] && echo "Type \"help\" to display this message again." || echo $TYPE_HELP_MESSAGE
 fi
 
-if [ -f /root/hint.txt ]; then
-	echo "Type \"hint\" if you get REALLY stuck."
+if [ -f /root/.instruqt/hint.txt ]; then
+    [[ -z $TYPE_HINT_MESSAGE ]] && echo "Type \"hint\" if you get REALLY stuck." || echo $TYPE_HINT_MESSAGE
 fi

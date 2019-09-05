@@ -29,7 +29,6 @@ echo "$PUBLIC_DATASET_HELP" > /root/.instruqt/help.txt
 # Put the hint text in hint.txt
 echo "$PUBLIC_DATASET_HINT" > /root/.instruqt/hint.txt
 
-
 # Put the choices text in choices.txt
 echo "$PUBLIC_DATASET_CHOICES" > /root/.instruqt/choices.txt
 

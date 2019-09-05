@@ -16,7 +16,7 @@
 echo "$CREATE_TABLE_AND_LOAD_DATA_HINT" > /root/.instruqt/hint.txt
 
 # Put the help text in help.txt
-echo "$CREATE_TABLE_AND_LOAD_DATA_HELP" > /root/help.txt
+echo "$CREATE_TABLE_AND_LOAD_DATA_HELP" > /root/.instruqt/help.txt
 
 cat <<EOF > data.csv
 1,2019-02-02,Moscone Center,-122.40069,37.7843234

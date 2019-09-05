@@ -12,7 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 if [ -f /home/function.go ]; then
   export FUNCTION=HelloHTTP
   export RUNTIME=go111
@@ -30,13 +29,13 @@ fi
 
 export U=$(gcloud functions describe ${FUNCTION} --format json | jq -r '.httpsTrigger.url')
 
-cat <<EOF > /root/.customenv
+cat <<EOF > /root/.instruqt/.customenv
 export URL=$U
 EOF
 
-source /root/.translationsenv
+source /root/.instruqt/.translationsenv
 
-echo "$HTTP_HELP" > /root/help.txt
-echo "$HTTP_HINT" > /root/hint.txt
+echo "$HTTP_HELP" > /root/.instruqt/help.txt
+echo "$HTTP_HINT" > /root/.instruqt/hint.txt
 
 set-workdir /home

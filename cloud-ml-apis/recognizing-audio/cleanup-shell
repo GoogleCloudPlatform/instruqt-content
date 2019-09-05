@@ -17,14 +17,14 @@
 rm /usr/local/bin/answer.txt
 
 # Delete the multiple choices file
-rm /root/choices.txt
+rm /root/.instruqt/choices.txt
 
 # Delete the help file
-rm /root/help.txt
+rm /root/.instruqt/help.txt
 
 # Delete the hint files
-rm /root/hint.txt
-rm /root/hint.png
+rm /root/.instruqt/hint.txt
+rm /root/.instruqt/hint.png
 
 # Delete the challenge assets
 rm /home/quote1.wav

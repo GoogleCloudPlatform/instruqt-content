@@ -14,17 +14,21 @@
 # limitations under the License.
 import sys, os
 
+# Use translations if they exist
+answer_prompt = os.environ.get('ANSWER_PROMPT')
+answer_verify_prompt = os.environ.get('ANSWER_VERIFY_PROMPT')
+
 if len(sys.argv) == 1:
-    if os.path.isfile('/root/choices.txt'):
-        os.system('/usr/local/bin/terminal-quiz /root/choices.txt /root/answer.txt')
-        with open('/root/answer.txt', 'r', encoding="utf8") as file:
+    if os.path.isfile('/root/.instruqt/choices.txt'):
+        os.system('/usr/local/bin/terminal-quiz /root/.instruqt/choices.txt /root/.instruqt/answer.txt')
+        with open('/root/.instruqt/answer.txt', 'r', encoding="utf8") as file:
             answer = file.read()
     else:
-        answer = input("What is the answer to this challenge? ")
+        answer = input(answer_prompt or "What is the answer to this challenge? ")
 else:
     answer = ' '.join(sys.argv[1:])
 
 f = open(os.path.dirname(__file__) + "/answer.txt", "w+", encoding="utf8")
 f.write(answer.lower().strip())
 
-print("Now press the A button to verify your answer")
+print(answer_verify_prompt or "Now press the A button to verify your answer")

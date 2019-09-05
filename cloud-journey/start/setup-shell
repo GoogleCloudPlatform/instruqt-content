@@ -1,7 +1,7 @@
 #!/bin/sh
-echo "echo 'Loading...'" >> /root/.customrc
-echo "gcloud app create --region=us-central -q > /root/.appenginedeployoutput 2>&1" >> /root/.customrc
-echo "echo 'Loading Complete!'" >> /root/.customrc
+echo "echo 'Loading...'" >> /root/.instruqt/.customrc
+echo "gcloud app create --region=us-central -q > /root/.appenginedeployoutput 2>&1" >> /root/.instruqt/.customrc
+echo "echo 'Loading Complete!'" >> /root/.instruqt/.customrc
 
 cat <<EOF > /root/help.txt
 
@@ -47,4 +47,4 @@ EOF
 chmod +x /root/bootstrap.sh
 
 #Deploy Everything
-echo "/root/bootstrap.sh >> /root/.boostrapoutput 2>&1 &" >> /root/.customrc
+echo "/root/bootstrap.sh >> /root/.boostrapoutput 2>&1 &" >> /root/.instruqt/.customrc

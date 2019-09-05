@@ -15,9 +15,9 @@
 gcloud config set project instruqt-shadow
 gcloud config set compute/zone us-central1-a
 
-echo "$NAMESPACE_HELP" > /root/help.txt
+echo "$NAMESPACE_HELP" > /root/.instruqt/help.txt
 
-echo "$NAMESPACE_HINT" > /root/hint.txt
+echo "$NAMESPACE_HINT" > /root/.instruqt/hint.txt
 
 set-workdir /home
 
