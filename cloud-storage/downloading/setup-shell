@@ -60,7 +60,7 @@ EOF
 
 cat <<EOF > /usr/local/lib/goog/bin/check-answer.js
 const {readFileSync} = require('fs')
-const lines = readFileSync('/root/.quiz/answer.txt', 'utf8').trim().split('\n')
+const lines = readFileSync('/root/answer.txt', 'utf8').trim().split('\n')
 const lastLine = lines[lines.length - 1].toLowerCase()
 if (lastLine !== 'dog' && lastLine !== '犬') {
     console.error('incorrect answer')
