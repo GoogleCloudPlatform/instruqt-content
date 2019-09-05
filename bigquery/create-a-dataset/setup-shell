@@ -19,10 +19,12 @@ set-workdir /home
 random_id=$(uuidgen)
 random_dataset_id=${random_id//-}"_bigquery"
 
-echo "export DATASET_ID="$random_dataset_id >> /root/.customenv
+source /root/.translationsenv
+
+echo "export DATASET_ID="$random_dataset_id >> /root/.instruqt/.customenv
 
 # Put the help text in help.txt
-echo "$CREATE_A_DATASET_HELP" > /root/help.txt
+echo "$CREATE_A_DATASET_HELP" > /root/.instruqt/help.txt
 
 # Put the hint text in hint.txt
-echo "$CREATE_A_DATASET_HINT" > /root/hint.txt
+echo "$CREATE_A_DATASET_HINT" > /root/.instruqt/hint.txt

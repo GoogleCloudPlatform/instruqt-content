@@ -18,25 +18,20 @@ gcloud config set project instruqt-shadow
 # Starts the user in the /home directory
 set-workdir /home
 
-echo "export USA_NAMES=usa_1910_current" >> /root/.customenv
+echo "export USA_NAMES=usa_1910_current" >> /root/.instruqt/.customenv
 
-source /root/.customenv
+source /root/.instruqt/.customenv
+source /root/.instruqt/.translationsenv
 
 # Put the help text in help.txt
-echo "$PUBLIC_DATASET_HELP" > /root/help.txt
+echo "$PUBLIC_DATASET_HELP" > /root/.instruqt/help.txt
 
 # Put the hint text in hint.txt
-echo "$PUBLIC_DATASET_HINT" > /root/hint.txt
+echo "$PUBLIC_DATASET_HINT" > /root/.instruqt/hint.txt
 
-cat <<EOF > /root/choices.txt
-What is the most common name?
-Leslie
-John
-Peter
-Lee
-James
-Mary
-EOF
+
+# Put the choices text in choices.txt
+echo "$PUBLIC_DATASET_CHOICES" > /root/.instruqt/choices.txt
 
 bq query "SELECT 1"
 echo $'\n'"--dataset_id=bigquery-public-data:usa_names" >> $HOME/.bigqueryrc

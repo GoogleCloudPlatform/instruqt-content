@@ -14,4 +14,4 @@
 # limitations under the License.
 
 # Delete the help file
-rm /root/help.txt
+rm /root/.instruqt/help.txt
