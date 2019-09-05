@@ -162,6 +162,12 @@ func download(client *storage.Client, bucketName string) error {
 }
 EOF
 
+# configure a few additional bins for the user.
+mkdir /root/.quiz
+cat <<EOF > /root/choices.txt
+$CREATING_QUIZ_ANSWER
+EOF
+
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
     echo "$CREATING_NODE_HINT_TOOLTIP" > /root/hint.txt

@@ -152,12 +152,6 @@ if __name__ == "__main__":
 
 EOF
 
-# configure a few additional bins for the user.
-mkdir /root/.quiz
-cat <<EOF > /root/.quiz/choices.txt
-$CREATING_QUIZ_ANSWER
-EOF
-
 cat <<EOF > /usr/local/bin/run-all
 #!/bin/bash
 export GOOGLE_CLOUD_PROJECT=\$(cat /root/.config/gcloud/default_credentials.json | /usr/local/lib/node_modules/.bin/json project_id)
