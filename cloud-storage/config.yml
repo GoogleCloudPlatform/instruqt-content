@@ -1,7 +1,7 @@
 version: "2"
 containers:
 - name: shell
-  image: gcr.io/instruqt-shadow/cloud-storage:2.2.6
+  image: gcr.io/instruqt-shadow/cloud-storage:2.2.7
   shell: /bin/bash
   memory: 512
   environment:
