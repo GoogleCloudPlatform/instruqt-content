@@ -16,14 +16,6 @@
 # Delete the answer file
 rm /usr/local/bin/answer.txt
 
-# Delete the help file
-rm /root/help.txt
-
-# Delete the help image
-rm /root/help.png
-
-# Delete the hint file
-rm /root/hint.txt
-
-# Delete the challenge assets
-rm /home/video1.mp4
+# Delete the multiple choice, help, help image, hint, and challenge asset files
+rm /root/.instruqt/choices.txt /root/.instruqt/help.txt /root/.instruqt/help.png \
+    /root/.instruqt/hint.txt /home/.instruqt/video1.mp4

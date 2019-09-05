@@ -8,4 +8,4 @@ RUN apt-get install bash-completion
 RUN echo 'source <(kubectl completion bash)' >>~/.bashrc
 RUN gcloud config set project instruqt-shadow
 RUN gcloud config set compute/zone us-central1-a
-COPY ./translations/*.csv /root/
+COPY ./translations/*.csv /root/.instruqt/

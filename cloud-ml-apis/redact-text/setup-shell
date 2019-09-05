@@ -17,16 +17,15 @@
 set-workdir /home
 
 # Put the help text in help.txt
-echo "$REDACT_TEXT_HELP" > /root/help.txt
+echo "$REDACT_TEXT_HELP" > /root/.instruqt/help.txt
 
-echo "$REDACT_TEXT_HINT" > /root/hint.txt
+echo "$REDACT_TEXT_HINT" > /root/.instruqt/hint.txt
 
-echo "$REDACT_TEXT_CHOICES" > /root/choices.txt
+echo "$REDACT_TEXT_CHOICES" > /root/.instruqt/choices.txt
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    rm /root/choices.txt
-    echo $DIFFICULTY_HARD_HINT > /root/hint.txt
+    echo $DIFFICULTY_HARD_HINT > /root/.instruqt/hint.txt
 fi
 
 cp /root/text/memo.txt /home/memo.txt

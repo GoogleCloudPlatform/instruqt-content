@@ -19,7 +19,7 @@ set-workdir /home
 random_id=$(uuidgen)
 random_dataset_id=${random_id//-}"_bigquery"
 
-source /root/.translationsenv
+source /root/.instruqt/.translationsenv
 
 echo "export DATASET_ID="$random_dataset_id >> /root/.instruqt/.customenv
 

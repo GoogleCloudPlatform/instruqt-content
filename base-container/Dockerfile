@@ -46,7 +46,7 @@ COPY ./.bash_aliases /root/.bash_aliases
 COPY ./bin/csvtoenv /usr/local/bin/csvtoenv
 
 # Copy over shared translation csv
-COPY ./translations/shared-translations.csv /root/
+COPY ./translations/shared-translations.csv /root/.instruqt/
 
 # Env for python translations
 ENV PYTHONIOENCODING utf-8

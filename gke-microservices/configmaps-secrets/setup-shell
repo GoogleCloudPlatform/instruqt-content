@@ -14,8 +14,8 @@
 # limitations under the License.
 kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
-echo "$CONFIGMAP_HELP" > /root/help.txt
+echo "$CONFIGMAP_HELP" > /root/.instruqt/help.txt
 
-echo "$CONFIGMAP_HINT" > /root/hint.txt
+echo "$CONFIGMAP_HINT" > /root/.instruqt/hint.txt
 
 set-workdir /home

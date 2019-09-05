@@ -12,7 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-cat <<EOF > /root/help.txt
+cat <<EOF > /root/.instruqt/help.txt
 Use gcloud to read the logs from your function.
 
 EOF
@@ -32,7 +32,7 @@ if [ -f /home/main.py ]; then
   RUNTIME=python37
 fi
 
-cat <<EOF > /root/hint.txt
+cat <<EOF > /root/.instruqt/hint.txt
 To read all your functions logs, use:
  gcloud functions logs read
 

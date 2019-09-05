@@ -28,10 +28,10 @@ if [ -f /home/main.py ]; then
   export RUNTIME=python37
 fi
 
-source /root/.translationsenv
+source /root/.instruqt/.translationsenv
 
-echo "$DEPLOYMENT_HELP" > /root/help.txt
-echo "$DEPLOYMENT_HINT" > /root/hint.txt
+echo "$DEPLOYMENT_HELP" > /root/.instruqt/help.txt
+echo "$DEPLOYMENT_HINT" > /root/.instruqt/hint.txt
 
 cat <<EOF > /root/package.json
 {
@@ -46,6 +46,6 @@ cat <<EOF > /root/package.json
 EOF
 
 echo "exports.cowsay = (req, res) => {res.end(require('cowsay').say({text:\`\${req.query.text || 'Google Cloud Functions are awesome'}\`}))}" > /root/index.js
-echo "gcloud functions deploy cowsay --source=/root/ --trigger-http > /dev/null 2>&1 &" >> /root/.customrc
+echo "gcloud functions deploy cowsay --source=/root/ --trigger-http > /dev/null 2>&1 &" >> /root/.instruqt/.customrc
 
 set-workdir /home
