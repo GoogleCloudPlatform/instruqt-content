@@ -12,41 +12,26 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-cat <<EOF > /root/help.txt
-Using the gcloud cli, deploy your modified function.
-
-The name of the Cloud Function must be the same as the name of the method you want it to run.
-
-The function should "trigger on http" requests.
-
-Note: Deploying a function can take a few minutes.
-
-EOF
 
 if [ -f /home/function.go ]; then
-	FUNCTION=HelloHTTP
-  RUNTIME=go111
+  export FUNCTION=HelloHTTP
+  export RUNTIME=go111
 fi
 
 if [ -f /home/index.js ]; then
-	FUNCTION=helloHttp
-  RUNTIME=nodejs8
+  export FUNCTION=helloHttp
+  export RUNTIME=nodejs8
 fi
 
 if [ -f /home/main.py ]; then
-	FUNCTION=hello_http
-  RUNTIME=python37
+  export FUNCTION=hello_http
+  export RUNTIME=python37
 fi
 
-cat <<EOF > /root/hint.txt
-The function you want to deploy is called $FUNCTION
+source /root/.translationsenv
 
-You want to set the function to triger on http requests, which means you want to use the --trigger-http flag
-
-This means you can deploy the function with:
-gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http
-
-EOF
+echo "$DEPLOYMENT_HELP" > /root/help.txt
+echo "$DEPLOYMENT_HINT" > /root/hint.txt
 
 cat <<EOF > /root/package.json
 {

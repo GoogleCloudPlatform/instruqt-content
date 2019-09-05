@@ -30,12 +30,12 @@ fi
 
 gcloud functions describe $FUNCTION
 if [ $? -ne 0 ]; then
-    fail-message "Could not find a function that triggers on HTTP requests. Type 'hint' if you are stuck."
+    fail-message "$DEPLOYMENT_FAIL"
     exit 1
 fi
 
 gcloud functions describe $FUNCTION --format=json | jq -e '.entryPoint != null and .runtime != null and .httpsTrigger.url != null'
 if [ $? -ne 0 ]; then
-    fail-message "Could not find a function that triggers on HTTP requests. Type 'hint' if you are stuck."
+    fail-message "$DEPLOYMENT_FAIL"
     exit 1
 fi

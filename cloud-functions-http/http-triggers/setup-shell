@@ -12,52 +12,31 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-cat <<EOF > /root/help.txt
-Let's go back to the function that you deployed
-
-Use "curl -o result.txt <URL>" or another method to call your HTTP function and store the result in a file called "result.txt"
-
-Note: You can get your function's URL with the "gcloud functions describe" command
-
-EOF
 
 if [ -f /home/function.go ]; then
-	FUNCTION=HelloHTTP
-  RUNTIME=go111
+  export FUNCTION=HelloHTTP
+  export RUNTIME=go111
 fi
 
 if [ -f /home/index.js ]; then
-	FUNCTION=helloHttp
-  RUNTIME=nodejs8
+  export FUNCTION=helloHttp
+  export RUNTIME=nodejs8
 fi
 
 if [ -f /home/main.py ]; then
-	FUNCTION=hello_http
-  RUNTIME=python37
+  export FUNCTION=hello_http
+  export RUNTIME=python37
 fi
 
-U=$(gcloud functions describe ${FUNCTION} --format json | jq -r '.httpsTrigger.url')
-
-cat <<EOF > /root/hint.txt
-
-The function you want to call is called $FUNCTION
-
-You can get more details about this function, including the url, by running this command:
-gcloud functions describe $FUNCTION
-
-You can parse the URL from this response by using the JSON output format with jq
-
-gcloud functions describe $FUNCTION --format json | jq -r '.httpsTrigger.url'
-
-This will reuturn the URL which you can use:
-$U
-
-This has been saved as an environment variable called URL for you
-
-EOF
+export U=$(gcloud functions describe ${FUNCTION} --format json | jq -r '.httpsTrigger.url')
 
 cat <<EOF > /root/.customenv
-URL=$U
+export URL=$U
 EOF
+
+source /root/.translationsenv
+
+echo "$HTTP_HELP" > /root/help.txt
+echo "$HTTP_HINT" > /root/hint.txt
 
 set-workdir /home

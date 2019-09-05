@@ -12,28 +12,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-URL=$(gcloud functions describe cowsay --format json | jq -r '.httpsTrigger.url')
-OUTPUT=$(curl $URL?text=I%20hope%20you%20are%20having%20fun%20with%20this%20Cloud%20Functions%20challenge!)
-cat <<EOF > /root/help.txt
+export URL=$(gcloud functions describe cowsay --format json | jq -r '.httpsTrigger.url')
+export OUTPUT=$(curl $URL?text=I%20hope%20you%20are%20having%20fun%20with%20this%20Cloud%20Functions%20challenge!)
 
-Let's have some fun!
+source /root/.translationsenv
 
-We have deployed a function called 'cowsay' in your project.
-
-Here is a sample output:
-
-$OUTPUT
-
-Call this function using the gcloud cli
-
-EOF
-
-cat <<EOF > /root/hint.txt
-The function you want to test is called 'cowsay'
-
-This means you can test the function with:
-gcloud functions call cowsay
-
-EOF
+echo "$DIRECT_HELP" > /root/help.txt
+echo "$DIRECT_HINT" > /root/hint.txt
 
 set-workdir /home
