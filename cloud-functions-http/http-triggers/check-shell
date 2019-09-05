@@ -14,6 +14,6 @@
 # limitations under the License.
 value=$(cat /home/result.txt)
 if [ "$value" != 'Hello, Google!' ]; then
-    fail-message "The correct function call output was not saved to a file. Type 'hint' if you are stuck."
+    fail-message "$HTTP_FAIL"
     exit 1
 fi

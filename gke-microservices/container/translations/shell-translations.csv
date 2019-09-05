@@ -1,14 +1,18 @@
-key,en,zh-cn
+key,en,zh-cn,ko
 NAMESPACE_HELP,"A GKE Cluster has been provisioned for you, and the kubectl CLI has been pre-authenticated.
-Create a namespace called 'challenge' in this cluster.",已为您预配了一个 GKE 集群，并且已预先对 kubectl CLI 进行了身份验证。在此集群中创建一个名为“challenge”的命名空间。
+Create a namespace called 'challenge' in this cluster.",已为您预配了一个 GKE 集群，并且已预先对 kubectl CLI 进行了身份验证。在此集群中创建一个名为“challenge”的命名空间。,"GKE 클러스터가 프로비저닝되어 있고 kubectl CLI가 미리 인증되어 있습니다.
+이 클러스터에서 'challenge'라는 네임스페이스를 만드세요."
 NAMESPACE_HINT,"The kubectl cli can be used to create namespaces.
 You can do this with: kubectl create namespace <NAME OF NAMESPACE>
 To create a namespace called 'challenge', run:
 kubectl create namespace challenge","可使用 kubectl cli 创建命名空间。
 您可以使用以下命令执行此操作：kubectl create namespace <命名空间的名称>
 要创建名为“challenge”的命名空间，请运行如下命令：
+kubectl create namespace challenge","kubectl cli를 사용하여 네임스페이스를 만들 수 있습니다.
+이를 위한 명령어는 kubectl create namespace <NAME OF NAMESPACE>입니다.
+'challenge'라는 네임스페이스를 만들려면 다음 명령어를 실행하세요.
 kubectl create namespace challenge"
-NAMESPACE_FAIL,Could not find a namespace called 'challenge'. Type 'hint' if you are stuck.,找不到名为“challenge”的命名空间。如果您不知道如何操作，请输入“hint”获取提示。
+NAMESPACE_FAIL,Could not find a namespace called 'challenge'. Type 'hint' if you are stuck.,找不到名为“challenge”的命名空间。如果您不知道如何操作，请输入“hint”获取提示。,challenge'라는 네임스페이스를 찾을 수 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
 DEPLOYMENT_HELP,"
 In the 'challenge' namespace you previously created, create a Deployment called 'frontend-deployment' that runs a single Pod with the 'gcr.io/gke-arcade/challenge' image.
 
@@ -21,6 +25,12 @@ There is a partial file called deployment.yaml that has been created for you to 
 此 Pod 应具有“role = frontend”标签。
 
 系统创建了一个名为“deployment.yaml”的部分文件供您使用。
+","
+이전에 만든 'challenge' 네임스페이스에서 'gcr.io/gke-arcade/challenge' 이미지로 단일 Pod를 실행하는 'frontend-deployment'라는 Deployment를 만드세요.
+
+Pode는 'role = frontend'로 라벨이 지정되어야 합니다.
+
+deployment.yaml이라는 부분 파일도 사용할 수 있도록 만들어져 있습니다.
 "
 DEPLOYMENT_HINT,"
 Open the 'deployment.yaml' file that was created for you.
@@ -48,9 +58,22 @@ Create the deployment by running:
 运行以下命令来创建部署：
 
 kubectl apply -f deployment.yaml
+","
+생성된 'deployment.yaml' 파일을 여세요.
+
+네임스페이스에 'challenge'를 사용하세요. 그러면 Kubernetes에 배포할 네임스페이스가 지정됩니다.
+메타데이터 이름에는 'frontend-deployment'를 사용하세요. 그러면 Deployment 이름이 결정됩니다.
+복제본에는 '1'을 사용하세요. 그러면 Kubernetes에 실행할 앱 사본 수가 지정됩니다.
+matchLabels에는 'role: frontend'를 사용하세요. 그러면 Kubernetes에 이 Deployment로 제어할 pod가 지정됩니다.
+템플릿 메타데이터 라벨에는 'role: frontend'를 사용하세요. 그러면 이 Deployment로 생성된 Pod에 'role = frontend' 라벨이 지정됩니다.
+이미지에는 'gcr.io/gke-arcade/challenge'를 사용하세요. 그러면 Docker 컨테이너가 실행할 Pod가 지정됩니다.
+
+다음 명령어를 실행하여 배포를 만드세요.
+
+'kubectl apply -f deployment.yaml'
 "
-DEPLOYMENT_FAIL_NO_DEPLOYMENT,Could not find Deployment called 'frontend-deployment' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“frontend-deployment”的部署。如果您不知道如何操作，请输入“hint”获取提示。
-DEPLOYMENT_FAIL_NO_TAG,Pods in the Deployment are not labeled with 'role=frontend'. Type 'hint' if you are stuck.,该部署中的 Pod 不具备“role=frontend”标签。如果您不知道如何操作，请输入“hint”获取提示。
+DEPLOYMENT_FAIL_NO_DEPLOYMENT,Could not find Deployment called 'frontend-deployment' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“frontend-deployment”的部署。如果您不知道如何操作，请输入“hint”获取提示。,challenge' 네임스페이스에서 'frontend-deployment'라는 Deployment를 찾을 수 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
+DEPLOYMENT_FAIL_NO_TAG,Pods in the Deployment are not labeled with 'role=frontend'. Type 'hint' if you are stuck.,该部署中的 Pod 不具备“role=frontend”标签。如果您不知道如何操作，请输入“hint”获取提示。,Deployment에 있는 Pod에 'role=frontend' 라벨이 지정되지 않았습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
 SERVICE_HELP,"
 In the ""challenge"" namespace you previously created, create a Service called ""frontend-service"" of type ""LoadBalancer"" that routes traffic from port 80 to port 3000 of the pods in the 'frontend-deployment' Deployment.
 
@@ -66,6 +89,14 @@ There is another partial file called 'service.yaml' that has been created for yo
 对公开的服务运行 cURL 命令，并将服务的输出保存至一个名为 output.txt 的文件
 
 系统还创建了一个名为“service.yaml”的部分文件供您使用。
+","
+이전에 만든 'challenge' 네임스페이스에서 'frontend-deployment' Deployment에 있는 pod의 포트 80에서 포트 3000으로 트래픽을 라우팅하는 'LoadBalancer' 유형의 'frontend-service'라는 서비스를 만드세요.
+
+(주의: pod는 'role = frontend' 라벨로 지정되어야 합니다.)
+
+제공된 서비스를 cURL로 실행하고 서비스 출력을 output.txt라는 파일에 저장하세요.
+
+'service.yaml'이라는 다른 부분 파일도 사용할 수 있도록 생성되어 있습니다.
 "
 SERVICE_HINT,"
 Open the 'service.yaml' file that was created for you.
@@ -113,9 +144,32 @@ kubectl get service frontend-service --namespace challenge
 然后，对输入运行 cURL 命令并将其保存到 finished.txt
 
 curl -o output.txt <EXTERNAL_IP>
+","
+생성된 'service.yaml' 파일을 여세요.
+
+네임스페이스에 'challenge'를 사용하세요. 그러면 Kubernetes에 배포할 네임스페이스가 지정됩니다.
+메타데이터 이름에는 'frontend-service'를 사용하세요. 그러면 서비스 이름이 결정됩니다.
+선택기에는 'role: frontend'를 사용하세요. 그러면 Kubernetes가 'role'이 'frontend' 라벨로 설정된 Pod로 트래픽을 전달합니다.
+포트 이름에 '80'을 사용하세요. 이것이 우리가 여기에서 제공하려는 포트 번호입니다.
+targetPort에는 '3000'을 사용하세요. 이 포트에서 Pod가 리슨합니다.
+유형에 'LoadBalancer'를 사용하세요. 그러면 Kubernetes가 클라우드 부하 분산기를 프로비저닝합니다.
+
+파일을 저장하고 다음 명령어를 사용해 배포하세요.
+
+kubectl apply -f service.yaml
+
+이제 서비스의 외부 IP 주소를 가져오세요.
+
+'kubectl get service frontend-service --namespace challenge'
+
+외부 IP가 <pending>에서 실제 IP 주소로 이동할 때까지 기다리세요. 즉, 부하 분산기가 프로비저닝됩니다.
+
+그런 후 출력을 curl하고 이를 finished.txt로 저장하세요.
+
+curl -o output.txt <EXTERNAL_IP>
 "
-SERVICE_FAIL_NO_SERVICE,Could not find Service called 'frontend-service' in the namespace 'challenge'. Type 'hint' if you are stuck.,命名空间“challenge”中找不到名为“frontend-service”的服务。如果您不知道如何操作，请输入“hint”获取提示。
-SERVICE_FAIL_CONFIGURATION,Service is not configured correctly. Type 'hint' if you are stuck.,服务配置不正确。如果您不知道如何操作，请输入“hint”获取提示。
+SERVICE_FAIL_NO_SERVICE,Could not find Service called 'frontend-service' in the namespace 'challenge'. Type 'hint' if you are stuck.,命名空间“challenge”中找不到名为“frontend-service”的服务。如果您不知道如何操作，请输入“hint”获取提示。,challenge' 네임스페이스에서 'frontend-service'라는 서비스를 찾을 수 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
+SERVICE_FAIL_CONFIGURATION,Service is not configured correctly. Type 'hint' if you are stuck.,服务配置不正确。如果您不知道如何操作，请输入“hint”获取提示。,서비스가 올바르게 구성되지 않았습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
 CONFIGMAP_HELP,"
 In the ""challenge"" namespace you previously created, create a ConfigMap called ""prod-configmap"" with a key named ""username"" with any value.
 
@@ -124,6 +178,10 @@ Then create a generic Secret called ""prod-secret"" with a key named ""password"
 在您之前创建的“challenge”命名空间中，创建一个名为“prod-configmap”的 ConfigMap，它具有值为任意值的“username”的键。
 
 然后在 challenge 命名空间中创建一个名为“prod-secret”的常规 Secret，它具有值为任意值的“password”的键。
+","
+이전에 만든 'challenge' 네임스페이스에서 아무 값이나 포함된 'username'이라는 키를 사용해서 'prod-configmap'이라는 ConfigMap을 만드세요.
+
+그런 후 challenge 네임스페이스에 있는 아무 값이나 포함된 'password'라는 키를 사용해서 'prod-secret'라는 일반 Secret을 만드세요.
 "
 CONFIGMAP_HINT,"
 The kubectl cli can be used to create ConfigMaps.
@@ -157,12 +215,28 @@ kubectl cli 还可用于创建 Secret。
 要创建名为“prod-secret”的 Secret，并在该 Secret 中创建名为“password”的键，请运行以下命令：
 
 kubectl create secret generic prod-secret --from-literal=password=Your_Value_Here --namespace=challenge
+","
+kubectl cli를 사용하여 ConfigMaps를 만들 수 있습니다.
+
+이를 위한 명령어는 kubectl create configmap <NAME OF CONFIGMAP> <OPTIONS>입니다.
+
+'prod-configmap'이라는 ConfigMap을 만들고 이 ConfigMap 내에서 'username'이라는 키를 만들려면 다음 명령어를 실행하세요.
+
+'kubectl create configmap prod-configmap --from-literal=username=Your_Value_Here --namespace=challenge'
+
+또한 kubectl cli를 사용하여 Secrets를 만들 수 있습니다.
+
+이를 위한 명령어는 kubectl create secret <TYPE OF SECRET> <NAME OF SECRET> <OPTIONS>입니다.
+
+'prod-secret'이라는 Secret을 만들고 이 Secret 내에 'password'라는 키를 만들려면 다음 명령어를 실행하세요.
+
+'kubectl create secret generic prod-secret --from-literal=password=Your_Value_Here --namespace=challenge'
 "
-CONFIGMAP_FAIL_NO_CONFIGMAP,Could not find ConfigMap called 'prod-configmap' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-configmap”的 ConfigMap。如果您不知道如何操作，请输入“hint”获取提示。
-CONFIGMAP_FAIL_NO_USERNAME,Could not find ConfigMap called 'prod-configmap' with a key called 'username' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-configmap”、键为“username”的 ConfigMap。如果您不知道如何操作，请输入“hint”获取提示。
-CONFIGMAP_FAIL_NO_SECRET,Could not find Secret called 'prod-secret' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-secret”的 Secret。如果您不知道如何操作，请输入“hint”获取提示。
-CONFIGMAP_FAIL_NO_PASSWORD,Could not find Secret called 'prod-secret' with a key called 'password' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-secret”、键为“password”的 Secret。如果您不知道如何操作，请输入“hint”获取提示。
-COMBINED_HELP_1,You can see that your app is now serving traffic on a public IP address!,您可以发现，您的应用现在已在公共 IP 地址上处理流量了！
+CONFIGMAP_FAIL_NO_CONFIGMAP,Could not find ConfigMap called 'prod-configmap' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-configmap”的 ConfigMap。如果您不知道如何操作，请输入“hint”获取提示。,challenge' 네임스페이스에서 'prod-configmap'이라는 ConfigMap을 찾을 수 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
+CONFIGMAP_FAIL_NO_USERNAME,Could not find ConfigMap called 'prod-configmap' with a key called 'username' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-configmap”、键为“username”的 ConfigMap。如果您不知道如何操作，请输入“hint”获取提示。,challenge' 네임스페이스에서 'username'이라는 키가 사용된 'prod-configmap'이라는 ConfigMap을 찾을 수 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
+CONFIGMAP_FAIL_NO_SECRET,Could not find Secret called 'prod-secret' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-secret”的 Secret。如果您不知道如何操作，请输入“hint”获取提示。,challenge' 네임스페이스에서 'prod-secret'이라는 Secret을 찾을 수 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
+CONFIGMAP_FAIL_NO_PASSWORD,Could not find Secret called 'prod-secret' with a key called 'password' in the namespace 'challenge'. Type 'hint' if you are stuck.,在命名空间“challenge”中找不到名为“prod-secret”、键为“password”的 Secret。如果您不知道如何操作，请输入“hint”获取提示。,challenge' 네임스페이스에서 'password'라는 키가 사용된 'prod-secret'이라는 Secret을 찾을 수 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
+COMBINED_HELP_1,You can see that your app is now serving traffic on a public IP address!,您可以发现，您的应用现在已在公共 IP 地址上处理流量了！,이제 앱이 공개 IP 주소로 트래픽을 처리하는 것을 확인할 수 있습니다.
 COMBINED_HELP_2,"While it looks slick, you can see that the username and password we created aren't being used!
 
 Update the ""frontend-deployment"" Deployment to have an environment variable called ""USERNAME"" that gets its value from the ConfigMap you created, and another environment variable called ""PASSWORD"" that gets is value from the Secret you created.
@@ -175,7 +249,13 @@ The `deployment.yaml` file has been updated for you to use again.","虽然看起
 
 对公开的服务运行 cURL 命令，并将服务的输出保存到名为 finished.txt 的文件中
 
-“deployment.yaml”已经更新以供您再次使用。"
+“deployment.yaml”已经更新以供您再次使用。","문제가 없어 보이지만, 여기에서 만든 사용자 이름과 비밀번호가 사용되지 않는 것을 확인할 수 있습니다.
+
+사용자가 만든 ConfigMap에서 값을 가져오는 'USERNAME'이라는 환경 변수와 사용자가 만든 Secret에서 값을 가져오는 'PASSWORD'라는 또 다른 환경 변수가 포함되도록 'frontend-deployment' Deployment를 업데이트하세요.
+
+제공된 서비스를 cURL로 실행하고 서비스 출력을 finished.txt라는 파일에 저장합니다.
+
+다시 사용할 수 있도록 `deployment.yaml` 파일이 업데이트되었습니다."
 COMBINED_HINT,"
 Open the 'deployment.yaml' file that was created for you.
 
@@ -216,6 +296,26 @@ kubectl apply -f deployment.yaml
 kubectl get service frontend-service --namespace challenge
 
 然后，运行 curl 命令并将输出保存到 finished.txt
+","
+생성된 'deployment.yaml' 파일을 여세요.
+
+첫 번째 이름에 'USERNAME'을 사용하세요. 그러면 Kubernetes에 호출할 환경 변수가 지정됩니다.
+ConfigMap 이름에는 'prod-configmap'을 사용하세요. 그러면 Kubernetes에 조회할 ConfigMap이 지정됩니다.
+ConfigMap 키에는 'username'을 사용하세요. 그러면 Kubernetes에 ConfigMap에서 사용할 키가 지정됩니다.
+
+두 번째 이름에 'PASSWORD'를 사용하세요. 그러면 Kubernetes에 호출할 환경 변수가 지정됩니다.
+Secret 이름에는 'prod-secret'을 사용하세요. 그러면 Kubernetes에 조회할 Secret이 지정됩니다.
+Secret 키에는 'username'을 사용하세요. 그러면 Kubernetes에 Secret에서 사용할 키가 지정됩니다.
+
+파일을 저장하고 다음 명령어를 사용해서 배포하세요.
+
+'kubectl apply -f deployment.yaml'
+
+이제 서비스의 외부 IP 주소를 가져오세요.
+
+'kubectl get service frontend-service --namespace challenge'
+
+그런 후 출력을 curl하고 이를 finished.txt로 저장하세요.
 "
-COMBINED_FAIL_ENV,Deployment does not have the environment variables properly defined. Type 'hint' if you are stuck.,部署的环境变量未正确定义。如果您不知道如何操作，请输入“hint”获取提示。
-COMBINED_FAIL_FILE, 'finished.txt' not found. Type 'hint' if you are stuck,未找到“finished.txt”。如果您不知道如何操作，请输入“hint”获取提示
+COMBINED_FAIL_ENV,Deployment does not have the environment variables properly defined. Type 'hint' if you are stuck.,部署的环境变量未正确定义。如果您不知道如何操作，请输入“hint”获取提示。,Deployment에는 올바르게 정의된 환경 변수가 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.
+COMBINED_FAIL_FILE, 'finished.txt' not found. Type 'hint' if you are stuck,未找到“finished.txt”。如果您不知道如何操作，请输入“hint”获取提示, 'finished.txt'를 찾을 수 없습니다. 문제 해결이 어려우면 'hint'를 입력하세요.

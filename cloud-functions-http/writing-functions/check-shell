@@ -15,6 +15,6 @@
 set-workdir /home
 grep "Hello, Google!" /home/*.*
 if [ $? -ne 0 ]; then
-    fail-message "None of the functions return 'Hello, Google!'"
+    fail-message "$CREATE_FAIL"
     exit 1
 fi

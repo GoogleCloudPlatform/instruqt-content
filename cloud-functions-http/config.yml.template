@@ -3,9 +3,9 @@ containers:
 - name: shell
   image: gcr.io/instruqt-shadow/gcf
   shell: /bin/bash
-  environment:
-    INSTRUQT_LANGUAGE_CODE: ko
   memory: 128
+  environment:
+    INSTRUQT_LANGUAGE_CODE: {{languagecode}}
 gcp_projects:
 - name: cloud-functions
   services:
