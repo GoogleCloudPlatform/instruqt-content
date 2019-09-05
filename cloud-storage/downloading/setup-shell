@@ -15,11 +15,6 @@
 
 rm /root/foo.txt
 
-# setup translations
-source /etc/profile.d/instruqt-env.sh
-/usr/bin/python2.7 /usr/local/bin/csvtoenv /usr/local/lib/shell-translations.csv >> /root/.translationsenv
-source /root/.translationsenv
-
 # alias answer to multiple choice quiz
 alias answer=terminal-quiz
 
@@ -60,7 +55,7 @@ EOF
 
 cat <<EOF > /usr/local/lib/goog/bin/check-answer.js
 const {readFileSync} = require('fs')
-const lines = readFileSync('/root/answer.txt', 'utf8').trim().split('\n')
+const lines = readFileSync('/root/.instruqt/answer.txt', 'utf8').trim().split('\n')
 const lastLine = lines[lines.length - 1].toLowerCase()
 if (lastLine !== 'dog' && lastLine !== '犬') {
     console.error('incorrect answer')
@@ -163,8 +158,7 @@ func download(client *storage.Client, bucketName string) error {
 EOF
 
 # configure a few additional bins for the user.
-mkdir /root/.quiz
-cat <<EOF > /root/choices.txt
+cat <<EOF > /root/.instruqt/choices.txt
 $CREATING_QUIZ_ANSWER
 EOF
 

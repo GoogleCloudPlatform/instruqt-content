@@ -16,11 +16,6 @@
 # ensure utf-8 is configured:
 echo 'set encoding=utf-8' >> ~/.vimrc
 
-# setup translations
-source /etc/profile.d/instruqt-env.sh
-/usr/bin/python2.7 /usr/local/bin/csvtoenv /usr/local/lib/shell-translations.csv >> /root/.translationsenv
-source /root/.translationsenv
-
 # setup aliases.
 echo "alias python=python3" >> /root/.bashrc
 

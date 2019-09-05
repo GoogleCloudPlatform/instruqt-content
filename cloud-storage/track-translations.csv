@@ -1,7 +1,7 @@
 key,en,zh-cn
 language-code,en,zh-cn
 slug,cloud-storage,cloud-storage-zh-cn
-title,Cloud Storage,Cloud Storage
+title,Cloud Storage,Cloud Storage (zh-cn)
 teaser,Unified object storage for developers and enterprises.,为开发者和企业设计的统一对象存储系统。
 description,"What is Google Cloud Storage?\n\nGoogle Cloud Storage allows world-wide storage and retrieval of any amount of data at any time. You can use GCS for a range of scenarios including serving website content, storing data for archival and disaster recovery, or distributing large data objects to users via direct download.",什么是 Google Cloud Storage？\n\n借助 Google Cloud Storage，您可以随时在全球范围内存储和检索不限量的数据。您可以在各种各样的场景中使用 Google Cloud Storage，包括传送网站内容、存储数据以用于归档和灾难恢复，或者向用户分发大型数据对象（用户直接下载）。
 challenge-title-1,Level 1 - It all begins with a bucket.,第 1 关 - 一切从存储分区开始。

@@ -1,11 +1,11 @@
 version: "2"
 containers:
 - name: shell
-  image: gcr.io/instruqt-shadow/cloud-storage:2.2.5
+  image: gcr.io/instruqt-shadow/cloud-storage:2.2.6
   shell: /bin/bash
-  environment:
-    INSTRUQT_LANGUAGE_CODE: zh-cn
   memory: 512
+  environment:
+    INSTRUQT_LANGUAGE_CODE: en
 gcp_projects:
 - name: cloud-storage
   services:

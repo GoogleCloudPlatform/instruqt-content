@@ -1,10 +1,9 @@
 slug: {{{slug}}}
 id: jm5jv3harqya
 type: track
-title: Cloud Storage {{language-code}}
+title: {{{title}}}
 teaser: {{{teaser}}}
-description: |-
-  {{{description}}}
+description: {{{description}}}
 icon: https://storage.googleapis.com/instruqt-shadow-resources/Cloud-Storage-spin.gif
 tags:
 - cloud
@@ -19,8 +18,7 @@ challenges:
   type: challenge
   title: {{{challenge-title-1}}}
   teaser: {{{challenge-teaser-1}}}
-  assignment: |-
-    {{{challenge-assignment-1}}}
+  assignment: {{{challenge-assignment-1}}}
   notes:
   - type: text
     contents: {{{challenge-notes-1}}}
@@ -34,8 +32,7 @@ challenges:
   type: challenge
   title: {{{challenge-title-2}}}
   teaser: {{{challenge-teaser-2}}}
-  assignment: |-
-    {{{challenge-assignment-2}}}
+  assignment: {{{challenge-assignment-2}}}
   notes:
   - type: text
     contents: {{{challenge-notes-2}}}
@@ -49,8 +46,7 @@ challenges:
   type: challenge
   title: {{{challenge-title-3}}}
   teaser: {{{challenge-teaser-3}}}
-  assignment:  |-
-    {{{challenge-assignment-3}}}
+  assignment:  {{{challenge-assignment-3}}}
   notes:
   - type: text
     contents: {{{challenge-notes-3}}}

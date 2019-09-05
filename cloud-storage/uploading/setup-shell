@@ -13,11 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# setup translations
-source /etc/profile.d/instruqt-env.sh
-/usr/bin/python2.7 /usr/local/bin/csvtoenv /usr/local/lib/shell-translations.csv >> /root/.translationsenv
-source /root/.translationsenv
-
 cat <<EOF > help.txt
 $UPLOADING_HELP_TEXT
 EOF
