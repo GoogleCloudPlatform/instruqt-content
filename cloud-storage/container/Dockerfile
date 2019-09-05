@@ -17,7 +17,9 @@ RUN mkdir -p /root/node/node_modules
 RUN cd /root/node; npm i @google-cloud/storage
 
 COPY ./buddy.png /usr/local/lib/buddy.png
+COPY ./translations/*.csv /root/.instruqt
 
 # install cloud storage libraries for go.
 RUN go get -u cloud.google.com/go/storage
 RUN go get -u google.golang.org/api/iterator
+

@@ -1,6 +1,6 @@
 /usr/local/bin/run-all
-ln -sf /root/node/node_modules /usr/local/lib/google-cloud-sdk/bin/node_modules
-node /usr/local/lib/google-cloud-sdk/bin/check-answer.js
+ln -sf /root/node/node_modules /usr/local/lib/goog/bin/node_modules
+node /usr/local/lib/goog/bin/check-answer.js
 if [ $? -ne 0 ]; then
     fail-message "Your answer was incorrect, did you actually see the image?"
     exit 1
