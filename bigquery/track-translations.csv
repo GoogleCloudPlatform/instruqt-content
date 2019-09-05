@@ -1,19 +1,20 @@
-key,en,ja,es
-slug,bigquery,bigquery-ja,bigquery-es
-teaser,Let's see how much you know about BigQuery.,,
-description,"# What is BigQuery? \n\nBigQuery is Google's serverless, highly scalable enterprise data warehouse. Because there is no infrastructure to manage, you don't need to deploy any resources such as disks or virtual machines, so that you can focus on analyzing data to find meaningful insights using familiar SQL without the need\nfor a database administrator. Let's see how much you know about BigQuery! ![](https://storage.googleapis.com/instruqt-shadow-resources/bigquery/BigQuery.gif)",,
-challenge-1-title,Level 1: Public Dataset,,
-challenge-1-teaser,Query a dataset and figure out what's the most common name in the US.,,
-challenge-1-assignment,"Use the **bigquery-public-data.usa_names.usa_1910_current** table to figure out what is the most common name in the US. \n\n Each row represents\nthe number of people born in the same year with the same name. \n\n **Hint**: If in doubt, start with **bq help**.",,
-challenge-1-notes,There are several **public datasets** hosted in BigQuery for you to access and integrate into your applications. \n\n In this first challenge you will use a public dataset created by the Social Security Administration to figure out what's the most common name in the US.,,
-challenge-2-title,Level 2: Create a dataset,,
-challenge-2-teaser,First things first. Let’s create a dataset.,,
-challenge-2-assignment,Now it’s your turn to **create a dataset**. Let's get started with this second challenge!,,
-challenge-2-notes,"A **dataset** is a collection of tables that are contained within a specific **project**. Datasets are top-level containers that are used to organize and control access to your **tables and views**. \nA table or view must belong to a dataset, so you need to **create at least one dataset** before loading data into BigQuery.",,
-challenge-3-title,Level 3: Create a table with some data,,
-challenge-3-teaser,Create a table and load some sample data,,
-challenge-3-assignment,Let's create a table called **road_trip** in our new dataset and load some data using the **data.csv** file and the **schema.json** file available in the home directory.,,
-challenge-3-notes,"Now we are going to **create a table** and **upload some data**. \nYou can specify the schema of a table when it is created, or you can create a table without a schema and declare the schema in the load job that first populates it with data.",,
-challenge-4-title,Level 4: Road trip temperature,,
-challenge-4-teaser,Find out the average temperature during a west coast road trip,,
-challenge-4-assignment,"<img src=""https://storage.googleapis.com/instruqt-shadow-resources/bigquery/road_trip.png"" style=""float: left; padding-right: 36px; width:800px; height:485px"" /> In our previous challenge we uploaded the geolocation for our west coast trip. The data we just imported has the **date and location** of the 16 places visited. \n \n Let''s combine this with the **GHCN Daily Weather Data** we will figure out what was the average temperature in each stop and get the **overall average temperature** of the trip!",,
+key,en,zh-cn
+slug,bigquery,bigquery-zh-cn
+teaser,Let's see how much you know about BigQuery.,BigQuery 知识知多少。
+description,"# What is BigQuery? \n\nBigQuery is Google's serverless, highly scalable enterprise data warehouse. Because there is no infrastructure to manage, you don't need to deploy any resources such as disks or virtual machines, so that you can focus on analyzing data to find meaningful insights using familiar SQL without the need\nfor a database administrator. Let's see how much you know about BigQuery! ![](https://storage.googleapis.com/instruqt-shadow-resources/bigquery/BigQuery.gif)",# 什么是 BigQuery? \n\nBigQuery 是 Google 的无服务器、可扩缩性极强的企业数据仓库。因为没有需要管理的基础架构，您不需要部署任何资源，比如磁盘或虚拟机，这让您可以集中精力分析数据，使用熟悉的 SQL 语言找出有意义的洞见，而且不需要\n设置数据库管理员。下面让我们看看您对 BigQuery 的了解程度如何!![](https://storage.googleapis.com/instruqt-shadow-resources/bigquery/BigQuery.gif)
+challenge-1-title,Level 1: Public Dataset,第 1 关：公共数据集
+challenge-1-teaser,Query a dataset and figure out what's the most common name in the US.,查询数据集，找出美国人最常用的名字。
+challenge-1-assignment,"Use the **bigquery-public-data.usa_names.usa_1910_current** table to figure out what is the most common name in the US. \n\n Each row represents\nthe number of people born in the same year with the same name. \n\n **Hint**: If in doubt, start with **bq help**.",使用 **bigquery-public-data.usa_names.usa_1910_current** 表格，找出美国人最常用的名字。\n\n 每行代表\n同年出生的人中取同一名字的人数。\n\n **提示**：如有疑问，请从**bq help**开始。
+challenge-1-notes,There are several **public datasets** hosted in BigQuery for you to access and integrate into your applications. \n\n In this first challenge you will use a public dataset created by the Social Security Administration to figure out what's the most common name in the US., BigQuery 中托管有多个**公共数据集**，供您访问并集成到应用中。\n\n第一关要求您使用美国社保局创建的公共数据集，找出美国人最常用的名字。
+challenge-2-title,Level 2: Create a dataset,第 2 关：创建数据集
+challenge-2-teaser,First things first. Let’s create a dataset.,首先，让我们创建一个数据集。
+challenge-2-assignment,Now it’s your turn to **create a dataset**. Let's get started with this second challenge!,现在，轮到您动手*创建数据集**。让我们开始挑战第二关吧！
+challenge-2-notes,"A **dataset** is a collection of tables that are contained within a specific **project**. Datasets are top-level containers that are used to organize and control access to your **tables and views**. \nA table or view must belong to a dataset, so you need to **create at least one dataset** before loading data into BigQuery.",**数据集**指具体**项目**中所含表格的集合。数据集是用于组织和控制**表格和视图**访问权限的顶级容器。\n表格或视图必须属于一个数据集，因此，要将数据加载到 BigQuery，您必须**创建至少一个数据集**。
+challenge-3-title,Level 3: Create a table with some data,第 3 关：创建包含某些数据的表格
+challenge-3-teaser,Create a table and load some sample data,创建一个表格，并加载一些样本数据
+challenge-3-assignment,Let's create a table called **road_trip** in our new dataset and load some data using the **data.csv** file and the **schema.json** file available in the home directory.,在我们新建的数据集中创建名为**road_trip**的表格，然后使用主目录中的**data.csv**文件和**schema.json**文件加载一些数据。
+challenge-3-notes,"Now we are going to **create a table** and **upload some data**. \nYou can specify the schema of a table when it is created, or you can create a table without a schema and declare the schema in the load job that first populates it with data.",现在我们要**创建表格**并**上传一些数据**。\n您可以在创建时指定表格的架构，也可以创建没有架构的表格，并在首次进行数据填充加载作业时声明其架构。
+challenge-4-title,Level 4: Road trip temperature,第 4 关：自驾游旅程中的气温
+challenge-4-teaser,Find out the average temperature during a west coast road trip,找出西海岸自驾游期间的平均气温
+challenge-4-assignment,"<img src=""https://storage.googleapis.com/instruqt-shadow-resources/bigquery/road_trip.png"" style=""float: left; padding-right: 36px; width:800px; height:485px"" /> In our previous challenge we uploaded the geolocation for our west coast trip. The data we just imported has the **date and location** of the 16 places visited. \n \n Let''s combine this with the **GHCN Daily Weather Data** we will figure out what was the average temperature in each stop and get the **overall average temperature** of the trip!","<img src=""https://storage.googleapis.com/instruqt-shadow-resources/bigquery/road_trip.png"" style=""float: left; padding-right: 36px; width:800px; height:485px"" /> 在之前的挑战中，我们上传过西海岸之旅的经停地点。我们刚刚导入的数据中包含我们经过的
+ 16 个地点的**日期和位置**。\n \n将该数据与**GHCN 每日天气数据**相结合，我们将找出各个经停地点的平均气温并得出整个旅程的**总体平均气温**！"

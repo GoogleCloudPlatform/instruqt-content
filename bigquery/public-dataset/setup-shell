@@ -23,40 +23,10 @@ echo "export USA_NAMES=usa_1910_current" >> /root/.customenv
 source /root/.customenv
 
 # Put the help text in help.txt
-cat <<EOF > /root/help.txt
-Let's use the bigquery-public-data.usa_names.usa_1910_current table to
-figure out what's been the most common name in the US since 1910.
+echo "$PUBLIC_DATASET_HELP" > /root/help.txt
 
-The name of the table is available as an environment variable \$USA_NAMES.
-
-Each row represents the number of applicants for a Social Security card by year
-of birth, state and gender. So for an example row:
-
-+-------+--------+------+------+--------+
-| state | gender | year | name | number |
-+-------+--------+------+------+--------+
-| NJ    | F      | 1910 | Anna |    355 |
-+-------+--------+------+------+--------+
-
-For example there were 355 females born with the name Anna in NJ during 1910.
-
-Using this table figure out what's the most common name in the US since 1910.
-
-When you think you know the answer, type "answer" and press ENTER.
-
-**Hint**:
-Example query:
-bq query 'SELECT * FROM $USA_NAMES LIMIT 1'
-
-Or use this command to check the schema of the table:
-bq show bigquery-public-data:usa_names.usa_1910_current
-EOF
-
-cat <<EOF > /root/hint.txt
-Remember that each row is aggregated by name and year. This query will help you
-get very close to the answer:
-    bq query 'SELECT name, sum(number) FROM '\$USA_NAMES' GROUP BY 1 LIMIT 10'
-EOF
+# Put the hint text in hint.txt
+echo "$PUBLIC_DATASET_HINT" > /root/hint.txt
 
 cat <<EOF > /root/choices.txt
 What is the most common name?
@@ -66,11 +36,6 @@ Peter
 Lee
 James
 Mary
-EOF
-
-# Set bash prompt for help
-cat <<EOF >> /root/.customenv
-export PS1="When you think you know the answer, type \"answer\" and press ENTER.\n\[\e]0;\u@\h: \w\a\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 EOF
 
 bq query "SELECT 1"

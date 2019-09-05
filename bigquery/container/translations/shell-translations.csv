@@ -1,0 +1,85 @@
+key,en,zh-cn
+PUBLIC_DATASET_HELP,"Let's use the bigquery-public-data.usa_names.usa_1910_current table to
+figure out what's been the most common name in the US since 1910.
+The name of the table is available as an environment variable \$USA_NAMES.
+Each row represents the number of applicants for a Social Security card by year
+of birth, state and gender. So for an example row:
++-------+--------+------+------+--------+
+| state | gender | year | name | number |
++-------+--------+------+------+--------+
+| NJ    | F      | 1910 | Anna |    355 |
++-------+--------+------+------+--------+
+For example there were 355 females born with the name Anna in NJ during 1910.
+Using this table figure out what's the most common name in the US since 1910.
+When you think you know the answer, type ""answer"" and press ENTER.
+**Hint**:
+Example query:
+bq query 'SELECT * FROM $USA_NAMES LIMIT 1'
+Or use this command to check the schema of the table:
+bq show bigquery-public-data:usa_names.usa_1910_current","让我们用 bigquery-public-data.usa_names.usa_1910_current 表格，找出 1910 年以来美国人最常使用的名字。
+表格中的名字通过环境变量 \$USA_NAMES 提供。
+每行代表按出生年份、州和性别划分的社保卡申请人数。请看下面的示例行：
++-------+--------+------+------+--------+
+| state | gender | year | name | number |
++-------+--------+------+------+--------+
+| NJ    | F      | 1910 | Anna |    355 |
++-------+--------+------+------+--------+
+示例显示，1910 年有 355 名新泽西出生的女性取名为 Anna。
+请使用该表格，找出 1910 年以来美国最常用的名字是什么。
+知道答案后，请键入“answer”并按下 ENTER。
+**提示**：
+查询示例：
+bq query 'SELECT * FROM $USA_NAMES LIMIT 1'
+或使用此命令来检查表格的架构：
+bq show bigquery-public-data:usa_names.usa_1910_current"
+PUBLIC_DATASET_HINT,"Remember that each row is aggregated by name and year. This query will help you
+get very close to the answer:
+    bq query 'SELECT name, sum(number) FROM '\$USA_NAMES' GROUP BY 1 LIMIT 10'","请记住，每一行都是按照名字和年份聚合的。下面的查询将帮助您非常接近找到答案：
+    bq query 'SELECT name, sum(number) FROM '\$USA_NAMES' GROUP BY 1 LIMIT 10'"
+PUBLIC_DATASET_FAIL,"Your answer is incorrect! If you are really stuck, type 'hint'.",您答错了。如果实在回答不出来，请键入“hint”。
+CREATE_A_DATASET_HELP,"In this challenge we are going to create a new dataset.
+Use the bq cli to create a dataset called $random_dataset_id.
+The name of the dataset is accessible as the environment variable \$DATASET_ID.
+Once the dataset is created, press the A button to verify it.
+If in doubt, run ""bq help | grep dataset"" to get some guidance.","在这一关，我们将创建新的数据集。
+使用 bq cli 创建名为 $random_dataset_id 的数据集。
+该数据集的名称可以通过环境变量 \$DATASET_ID 来访问。
+创建数据集后，请按 A 按钮进行验证。
+如有疑问，请运行“bq help | grep dataset”来获得一些指导。"
+CREATE_A_DATASET_HINT,"Try running ""bq help | grep dataset"" that might help you find the right command.",试着运行“bq help | grep dataset”，这可能会帮助您找到正确的命令。
+CREATE_A_DATASET_FAIL,Could not find a dataset called $DATASET_ID,没有找到名为 $DATASET_ID 的数据集
+CREATE_TABLE_AND_LOAD_DATA_HELP,"Now that we have our $DATASET_ID dataset created,
+let's create a table called ""road_trip"" in that dataset and load some data
+using the data.csv file available in the home directory.
+Remember you can access the dataset name in \$DATASET_ID.
+Use the schema.json file to define the table schema.
+And remember, if you need help run ""bq help | grep table"".","既然我们已经创建了 $DATASET_ID 数据集，
+让我们在该数据集中创建名为“road_trip”的表格，并使用主目录下的 data.csv 文件加载一些数据。
+请记住，您可以通过  \$DATASET_ID 访问该数据集名称。使用 schema.json 文件定义表格架构。
+同时请记住，如果需要帮助，请运行“bq help | grep table”。"
+CREATE_TABLE_AND_LOAD_DATA_HINT,"Try running ""bq load"" it will guide you through the usage.
+Remember that the destination table is formed by [dataset].[table]","尝试运行“bq load”，它将指导您完成使用。
+请记住，目标表格的名称格式是 [dataset].[table]"
+CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_TABLE,Could not find a table called $DATASET_ID.road_trip,找不到名为 $DATASET_ID.road_trip 的表格
+CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_SCHEMA,Table was created but looks like you haven't specified a schema or loaded any data yet. Try doing that with 'bq load',表格已经创建，但是您似乎尚未指定架构或加载任何数据。请尝试使用“bq load”进行该操作
+CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_FIELDS,"Please make sure the table has the following 3 fields: sales, timestamp and zipcode",请确保该表格有下面 3 个字段：sales、timestamp 和 zipcode
+CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_TYPES,Please make sure the table has the correct fields types,请确保该表格具有正确的字段类型
+CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_DATA,Table was created but doesn't look like data was loaded from data.csv,表格已经创建，但似乎尚未从 data.csv 加载数据
+ROAD_TRIP_HELP,"In this last challenge we are going to combine the data we just uploaded with
+a GHCN Weather public dataset and figure out the average temperature in our West
+Coast road trip!
+Modify the query.sql located in the home directory using your favorite text
+editor to find the overall average temperature during this trip!
+Then use the 'run-query' command to execute the query.sql
+When you think you know the answer, type ""answer"" and press ENTER.
+And remember, if you need help run ""bq help"".","在这最后一关中，我们打算结合使用我们刚刚上传的数据和
+GHCN 天气公共数据集，找出我们西海岸自驾游旅程的平均气温！
+使用您偏好的文本编辑器，修改主目录中的 query.sql，以找出本次旅程的整体平均气温。
+然后使用“run-query”命令执行 query.sql
+知道答案后，请键入“answer”并按下 ENTER。
+同时请记住，如果需要帮助，请运行“bq help”。"
+ROAD_TRIP_HINT,"Try running ""bq load"" it will guide you through the usage.
+Remember that the destination table is formed by [dataset].[table]","尝试运行“bq load”，它将指导您完成使用。
+请记住，目标表格的名称格式是 [dataset].[table]"
+ROAD_TRIP_FAIL_NO_ANSWER,"You haven't answered yet! You must run the \""answer\"" command and press ENTER""","您尚未回答！您必须运行 \""answer\"" 命令并按下 ENTER"
+ROAD_TRAIP_FAIL_INCORRECT,"Your answer is incorrect! If you are really stuck, type 'hint'.",您答错了。如果实在回答不出来，请键入“hint”。
