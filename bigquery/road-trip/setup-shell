@@ -13,19 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-echo "$ROAD_TRIP_HINT" > /root/hint.txt
+echo "$ROAD_TRIP_HINT" > /root/.instruqt/hint.txt
 
 # Put the help text in help.txt
-echo "$ROAD_TRIP_HELP" > /root/help.txt
+echo "$ROAD_TRIP_HELP" > /root/.instruqt/help.txt
 
-cat <<EOF > /root/choices.txt
-What is the most common name?
-2.45
-8.31
-3.63
-10.91
-3.14
-EOF
+# Put the choices text in choices.txt
+echo "$ROAD_TRIP_CHOICES" > /root/.instruqt/choices.txt
 
 cat <<EOF > ./query.sql
 WITH params AS (

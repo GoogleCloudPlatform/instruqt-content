@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-echo "$CREATE_TABLE_AND_LOAD_DATA_HINT" > /root/hint.txt
+echo "$CREATE_TABLE_AND_LOAD_DATA_HINT" > /root/.instruqt/hint.txt
 
 # Put the help text in help.txt
 echo "$CREATE_TABLE_AND_LOAD_DATA_HELP" > /root/help.txt

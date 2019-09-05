@@ -23,6 +23,6 @@ ANSWER=$(cat /usr/local/bin/answer.txt)
 CORRECT="3.63"
 
 if [[ "$CORRECT" != "$ANSWER" ]]; then
-    fail-message "$ROAD_TRAIP_FAIL_INCORRECT"
+    fail-message "$ROAD_TRIP_FAIL_INCORRECT"
     exit 1
 fi

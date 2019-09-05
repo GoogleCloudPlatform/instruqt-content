@@ -1,6 +1,6 @@
 slug: {{{slug}}}
 type: track
-title: BigQuery
+title: BigQuery ({{language-code}})
 teaser: {{{teaser}}}
 description: {{{description}}}
 icon: https://storage.googleapis.com/instruqt-shadow-resources/bigquery/BigQuery.gif
