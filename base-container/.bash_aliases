@@ -20,6 +20,7 @@ source /etc/profile.d/instruqt-env.sh
 
 # Generate translated environment variables and save them in .translationsenv
 if [ ! -s /root/.translationsenv ] && [ -f /root/shell-translations.csv ]; then
+    /usr/local/bin/csvtoenv /root/shared-translations.csv >> /root/.translationsenv
     /usr/local/bin/csvtoenv /root/shell-translations.csv >> /root/.translationsenv
 fi
 
