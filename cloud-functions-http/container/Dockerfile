@@ -1,2 +1,2 @@
-FROM gcr.io/instruqt-shadow/base
-COPY ./translations/*.csv /root/
+FROM gcr.io/instruqt-shadow/base:1.1.1
+COPY ./translations/*.csv /root/.instruqt/
