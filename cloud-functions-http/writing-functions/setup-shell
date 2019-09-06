@@ -15,7 +15,7 @@
 
 echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc
 
-echo "$CREATE_HELP" > /root/help.txt
+echo "$CREATE_HELP" > /root/.instruqt/help.txt
 
 set-workdir /home
 

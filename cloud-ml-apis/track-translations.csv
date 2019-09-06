@@ -1,6 +1,6 @@
 key,en,zh_cn
 track-slug,cloud-ml-apis,cloud-ml-apis-hk-ch
-track-title,Cloud ML APIs,Cloud ML API (简化字)
+track-title,Cloud ML APIs (en),Cloud ML API (zh_cn)
 track-teaser,Access Google's ready to use machine learning models.,使用 Google 现成可用的机器学习模型。
 track-description,"# What are the Cloud Machine Learning APIs?
 Cloud ML APIs provide access to use machine learning models. These APIs include Cloud Vision, Cloud Video Intelligence, Cloud Natural Language, Cloud Speech, Cloud Translate, and many more.

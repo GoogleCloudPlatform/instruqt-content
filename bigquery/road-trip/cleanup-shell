@@ -17,7 +17,7 @@
 rm /usr/local/bin/answer.txt
 
 # Delete the help file
-rm /root/help.txt
+rm /root/.instruqt/help.txt
 
 # Delete the hint file
-rm /root/hint.txt
+rm /root/.instruqt/hint.txt

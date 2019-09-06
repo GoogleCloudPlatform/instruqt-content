@@ -17,17 +17,16 @@
 set-workdir /home
 
 # Put the help text in help.txt
-echo "$ANALYZING_IMAGES_HELP" > /root/help.txt
+echo "$ANALYZING_IMAGES_HELP" > /root/.instruqt/help.txt
 
-echo "$ANALYZING_IMAGES_HINT" > /root/hint.txt
+echo "$ANALYZING_IMAGES_HINT" > /root/.instruqt/hint.txt
 
-echo "$ANALYZING_IMAGES_CHOICES" > /root/choices.txt
+echo "$ANALYZING_IMAGES_CHOICES" > /root/.instruqt/choices.txt
 
-# Remove hint and multiple choice in hard mode
+# Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    rm /root/choices.txt
-    echo $DIFFICULTY_HARD_HINT > /root/hint.txt
+    echo $DIFFICULTY_HARD_HINT > /root/.instruqt/hint.txt
 fi
 
 cp /root/images/doggo1.png /home/doggo1.png
-cp /root/images/doggo1.png /root/help.png
+cp /root/images/doggo1.png /root/.instruqt/help.png

@@ -13,10 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ -f /root/hint.png ]; then
-	tiv -256 /root/hint.png -h 40
+if [ -f /root/.instruqt/hint.png ]; then
+	tiv -256 /root/.instruqt/hint.png -h 40
 fi
 
-if [ -f /root/hint.txt ]; then
-	cat /root/hint.txt
+if [ -f /root/.instruqt/hint.txt ]; then
+	cat /root/.instruqt/hint.txt
 fi

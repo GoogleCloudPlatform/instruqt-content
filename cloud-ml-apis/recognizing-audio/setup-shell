@@ -17,18 +17,17 @@
 set-workdir /home
 
 # Put the help text in help.txt
-echo "$RECOGNIZING_AUDIO_HELP" > /root/help.txt
+echo "$RECOGNIZING_AUDIO_HELP" > /root/.instruqt/help.txt
 
-echo "$RECOGNIZING_AUDIO_HINT" > /root/hint.txt
+echo "$RECOGNIZING_AUDIO_HINT" > /root/.instruqt/hint.txt
 
 cp /root/images/raptor.png /root/hint.png
 
-echo "$RECOGNIZING_AUDIO_CHOICES" > /root/choices.txt
+echo "$RECOGNIZING_AUDIO_CHOICES" > /root/.instruqt/choices.txt
 
 # Remove hint and multiple choice in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    rm /root/choices.txt
-    echo $DIFFICULTY_HARD_HINT > /root/hint.txt
+    echo $DIFFICULTY_HARD_HINT > /root/.instruqt/hint.txt
 fi
 
 cp /root/audio/quote1.wav /home/quote1.wav

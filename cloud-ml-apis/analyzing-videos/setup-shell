@@ -17,13 +17,13 @@
 set-workdir /home
 
 # Put the help text in help.txt
-echo "$ANALYZING_VIDEO_HELP" > /root/help.txt
+echo "$ANALYZING_VIDEO_HELP" > /root/.instruqt/help.txt
 
-echo "$ANALYZING_VIDEO_HINT" > /root/hint.txt
+echo "$ANALYZING_VIDEO_HINT" > /root/.instruqt/hint.txt
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo $DIFFICULTY_HARD_HINT > /root/hint.txt
+    echo $DIFFICULTY_HARD_HINT > /root/.instruqt/hint.txt
 fi
 
 cp /root/videos/video1.mp4 /home/video1.mp4

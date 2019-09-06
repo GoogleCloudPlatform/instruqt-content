@@ -13,12 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# setup aliases.
+# ensure utf-8 is configured:
+echo 'set encoding=utf-8' >> ~/.vimrc
 
+# setup aliases.
 echo "alias python=python3" >> /root/.bashrc
 
 # create a folder for placing our check scripts in:
-mkdir /usr/local/lib/goog
+mkdir -p /usr/local/lib/goog/bin
 
 # output and load GCP credentials.
 printf "if [ ! -z \"\$INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY\" ]\nthen\n  node -e \"console.info(Buffer.from(process.env.INSTRUQT_GCP_PROJECT_CLOUD_STORAGE_SERVICE_ACCOUNT_KEY, 'base64').toString('utf8'))\" > /root/.config/gcloud/default_credentials.json\nfi\n" >> ~/.bashrc
@@ -35,37 +37,11 @@ EOF
 chmod 755 /usr/local/bin/print-png
 
 cat <<EOF > help.txt
-By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil directly, create a bucket named \$BUCKET_NAME.
-
-Hit the "Check" button when you are done.
-
-Coding Your Solution
--------------------------------
-
-If you run 'ls', you will see folders for each supported language; currently
-python, node (JavaScript), and go.
-
-Once you're ready to write some code, use vim, nano, or emacs to edit the
-challenge file in one of these directories.
-
-To debug your answer, use the command "node", "python", or "go run", to execute your program.
-
-# Using gsutil
--------------------------------
-
-You will also find the gsutil utility installed, and the environment variable
-\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
+$CREATING_HELP_TEXT
 EOF
 
 cat <<EOF > hint.txt
-Hint:
-----
-
-try running:
-
-gsutil mb gs://...
-
-replacing "..." with the appropriate bucket name.
+$CREATING_HINT_TEXT
 EOF
 
 # Node.js examples.
@@ -73,19 +49,19 @@ EOF
 mkdir node
 
 cat <<EOF > node/challenge.js
-// Imports the Google Cloud client library
+$CREATING_NODE_COMMENTS_1
 const {Storage} = require('@google-cloud/storage')
 
-// Globally unique bucket name (don't change this).
+$CREATING_NODE_COMMENTS_2
 const bucketName = process.env.BUCKET_NAME
 
-// An authenticated storage API client.
+$CREATING_NODE_COMMENTS_3
 const storage = new Storage()
 
 async function createBucket () {
-  // there is a method called createBucket on the Storage
-  // class which takes the argument bucketName.
-  // create a bucket bucketName.
+  $CREATING_NODE_COMMENTS_4
+  $CREATING_NODE_COMMENTS_5
+  $CREATING_NODE_COMMENTS_6
 }
 
 createBucket()
@@ -118,7 +94,7 @@ func main() {
 	}
 	// [END setup]
 
-	// Give the bucket a unique name.
+	$DOWNLOADING_GO_COMMENT_1
 	name := os.Getenv("BUCKET_NAME")
 	if err := create(client, projectID, name); err != nil {
 		log.Fatal(err)
@@ -128,9 +104,9 @@ func main() {
 
 func create(client *storage.Client, projectID, bucketName string) error {
 	ctx := context.Background()
-	// using the methods: client.Bucket and
-	// bucket.Create(ctx, projectID, &storage.BucketAttrs{}) create
-	// a bucket named bucketName.
+	$CREATING_GO_COMMENTS_1
+	$CREATING_GO_COMMENTS_2
+	$CREATING_GO_COMMENTS_3
 	return nil
 }
 EOF
@@ -162,26 +138,13 @@ from google.cloud import storage
 def create_bucket():
   storage_client = storage.Client()
   bucket_name = os.environ['BUCKET_NAME']
-  # using the method create_bucket on storage_client,
-  # which takes the argument bucket_name, create a
-  # cloud storage bucket.
+  $CREATING_PYTHON_COMMENTS_1
+  $CREATING_PYTHON_COMMENTS_2
+  $CREATING_PYTHON_COMMENTS_3
 
 if __name__ == "__main__":
     create_bucket()
 
-EOF
-
-# configure a few additional bins for the user.
-mkdir /root/.quiz
-cat <<EOF > /root/.quiz/choices.txt
-What was the .png an image of?
-horse
-television
-house
-person
-dog
-orange
-pizza
 EOF
 
 cat <<EOF > /usr/local/bin/run-all
@@ -197,5 +160,5 @@ chmod 755 /usr/local/bin/run-all
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo "If you need a hint, maybe you should try an EASIER difficulty :)" > /root/hint.txt
+    echo "$CREATING_NODE_HINT_TOOLTIP" > /root/hint.txt
 fi
