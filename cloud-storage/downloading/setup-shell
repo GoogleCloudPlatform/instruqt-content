@@ -72,21 +72,20 @@ from google.cloud import storage
 $DOWNLOADING_PYTHON_COMMENTS_1
 
 def download_blob():
-	storage_client = storage.Client()
-	bucket = storage_client.get_bucket(os.environ['BUCKET_NAME'])
+    storage_client = storage.Client()
+    bucket = storage_client.get_bucket(os.environ['BUCKET_NAME'])
 
-	blobs = bucket.list_blobs()
+    blobs = bucket.list_blobs()
 
-	for blob in blobs:
-		print(blob.name)
-		$DOWNLOADING_PYTHON_COMMENTS_2
-		if blob.name[-3:] == 'png':
-			$DOWNLOADING_PYTHON_COMMENTS_3
-			$DOWNLOADING_PYTHON_COMMENTS_4
+    for blob in blobs:
+        print(blob.name)
+        $DOWNLOADING_PYTHON_COMMENTS_2
+        if blob.name[-3:] == 'png':
+            $DOWNLOADING_PYTHON_COMMENTS_3
+            $DOWNLOADING_PYTHON_COMMENTS_4
 
 if __name__ == '__main__':
 	download_blob()
-
 EOF
 
 # go code samples and stubbed out challenge.
