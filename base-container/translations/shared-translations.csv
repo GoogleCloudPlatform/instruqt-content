@@ -1,4 +1,4 @@
-key,en,zh_cn,zh_hk,zh_tw,ko
+key,en,zh-cn,zh-hk,zh-tw,ko
 YOUR_QUEST,Your Quest,你的任务,,,
 TYPE_HELP_MESSAGE,"Type ""help"" to display this message again.",输入“help”以再次显示此消息。,,,
 TYPE_HINT_MESSAGE,"Type ""hint"" if you get REALLY stuck.",如果你真的被卡住了，请输入“hint”。,,,
@@ -8,3 +8,4 @@ PROMPT_HELP,"When you think you know the answer, type ""answer"" and press ENTER
 DIFFICULTY_HARD_HINT,"If you need a hint, maybe you should try an EASIER difficulty :)",如果您需要提示，也许您应该尝试一个较低的难度 :),,,
 FAIL_MESSAGE_NO_ANSWER,"You haven't answered yet! You must run the ""answer"" command and press ENTER",您尚未作答！ 您必须运行“answer”命令并按 Enter 键,,,
 FAIL_MESSAGE_INCORRECT,"Your answer is incorrect! Type ""hint"" if you are stuck.",您答错了！如果您实在卡住了，可以输入“hint”。,,,
+EXIT_HELP,To exit the game press Ctrl+Alt+Del,要退出游戏，请按Ctrl + Alt + Del,,,

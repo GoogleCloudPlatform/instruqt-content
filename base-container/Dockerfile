@@ -50,3 +50,4 @@ COPY ./translations/shared-translations.csv /root/.instruqt/
 
 # Env for python translations
 ENV PYTHONIOENCODING utf-8
+ENV LANG C.UTF-8
