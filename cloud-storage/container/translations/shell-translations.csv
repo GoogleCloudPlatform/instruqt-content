@@ -1,6 +1,6 @@
 key,en,zh-cn
 CREATING_FAIL_MESSAGE,You do not appear to have created any buckets.,您似乎未创建任何存储分区。
-CREATING_HELP_TEXT,"Your Quest
+CREATING_HELP_TEXT,"
 
 By modifying ""python/challenge.py"", ""node/challenge.js"", ""go/challenge.go"", or using gsutil directly, create a bucket named \$BUCKET_NAME.
 
@@ -30,7 +30,7 @@ You will also find the gsutil utility installed, and the environment variable
 
 如果您运行“ls”，则会看到每种受支持语言所对应的文件夹；目前支持 Python、Node (JavaScript) 和 Go。
 
-在您准备好编写代码后，请使用 Vim 修改其中一个目录中的挑战任务文件。
+在您准备好编写代码后，请使用 vim 修改其中一个目录中的挑战任务文件。
 
 要对您的答案进行调试，请使用命令“node”、“python”或“go run”来执行相关程序。
 
@@ -85,8 +85,7 @@ CREATING_GO_COMMENTS_2,"// ""bucket.Create(ctx, projectID, &storage.BucketAttrs{
 CREATING_GO_COMMENTS_3,"// a bucket named ""bucketName"".",// 名为“bucketName”的存储分区。
 CREATING_NODE_HINT_TOOLTIP,"If you need a hint, maybe you should try an EASIER difficulty :)",如果您需要提示，可能应该尝试难度较低的级别 :)
 DOWNLOADING_FAILURE,"Your answer was incorrect, did you actually see the image?",您的答案不正确，您真的看到图片了吗？
-DOWNLOADING_HELP_TEXT,"Your Quest
--------------------------------
+DOWNLOADING_HELP_TEXT,"
 
 By modifying ""python/challenge.py"", ""node/challenge.js"", ""go/challenge.go"", or using gsutil
 directly, download the image we've hidden in \$BUCKET_NAME. Using ""print-png"",
@@ -156,8 +155,7 @@ DOWNLOADING_GO_COMMENT_2,// logic for writing file to disk.,// 向磁盘写入�
 DOWNLOADING_GO_COMMENT_3,// use the code below as a starting point.,// 刚开始请使用以下代码。
 DOWNLOADING_QUIZ_INCORRECT,incorrect answer,答案不正确
 UPLOADING_FAILURE,We could not find the file bar.txt in the bucket.,我们没有在存储分区中找到 bar.txt 文件。
-UPLOADING_HELP_TEXT,"Your Quest
--------------------------------
+UPLOADING_HELP_TEXT,"
 
 By modifying ""python/challenge.py"", ""node/challenge.js"", ""go/challenge.go"", or using gsutil directly, upload
 the local file foo.txt to a file named bar.txt in the bucket you created in the
