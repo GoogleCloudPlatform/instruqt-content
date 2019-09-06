@@ -59,13 +59,13 @@ John
 Peter
 Lee
 James
-Mary","What is the most common name?
+Mary","가장 일반적인 이름은 무엇입니까?
 Leslie
 John
 Peter
 Lee
 James
-Mary","What is the most common name?
+Mary","什么是最常见的名字？
 Leslie
 John
 Peter
@@ -136,17 +136,17 @@ Remember that the destination table is formed by [dataset].[table]","사용 방�
 请记住，目标表格的名称格式是 [dataset].[table]"
 ROAD_TRIP_FAIL_NO_ANSWER,"You haven't answered yet! You must run the \""answer\"" command and press ENTER""","아직 정답을 제시하지 않았습니다. \""answer\"" 명령어를 실행하고 Enter 키를 눌러야 합니다.""","您尚未回答！您必须运行 \""answer\"" 命令并按下 ENTER"
 ROAD_TRIP_FAIL_INCORRECT,"Your answer is incorrect! If you are really stuck, type 'hint'.",정답이 아닙니다. 문제 해결이 어려우면 'hint'를 입력하세요.,您答错了。如果实在回答不出来，请键入“hint”。
-ROAD_TRIP_CHOICES,"What is the overall average temperature during this trip?
+ROAD_TRIP_CHOICES,"What was the overall average temperature during this trip?
 2.45
 8.31
 3.63
 10.91
-3.14","What is the overall average temperature during this trip?
+3.14","이 여행 동안 전체 평균 온도는 얼마입니까?
 2.45
 8.31
 3.63
 10.91
-3.14","What is the overall average temperature during this trip?
+3.14","这次旅行的总体平均温度是多少？
 2.45
 8.31
 3.63
