@@ -13,11 +13,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-cat <<EOF > help.txt
+cat <<EOF > /root/.instruqt/help.txt
 $UPLOADING_HELP_TEXT
 EOF
 
-cat <<EOF > hint.txt
+cat <<EOF > /root/.instruqt/hint.txt
 $UPLOADING_HINT_TEXT
 EOF
 

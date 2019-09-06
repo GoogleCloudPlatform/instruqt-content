@@ -36,11 +36,11 @@ tiv -256 "\$@"
 EOF
 chmod 755 /usr/local/bin/print-png
 
-cat <<EOF > help.txt
+cat <<EOF > /root/.instruqt/help.txt
 $CREATING_HELP_TEXT
 EOF
 
-cat <<EOF > hint.txt
+cat <<EOF > /root/.instruqt/hint.txt
 $CREATING_HINT_TEXT
 EOF
 

@@ -18,11 +18,11 @@ rm /root/foo.txt
 # alias answer to multiple choice quiz
 alias answer=terminal-quiz
 
-cat <<EOF > help.txt
+cat <<EOF > /root/.instruqt/help.txt
 $DOWNLOADING_HELP_TEXT
 EOF
 
-cat <<EOF > hint.txt
+cat <<EOF > /root/.instruqt/hint.txt
 $DOWNLOADING_HINT_TEXT
 EOF
 
