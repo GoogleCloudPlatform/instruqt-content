@@ -1,4 +1,4 @@
-key,en,ko,zh-cn
+key,en,ko,zh-cn,zh-tw
 PUBLIC_DATASET_HELP,"Let's use the bigquery-public-data.usa_names.usa_1910_current table to
 figure out what's been the most common name in the US since 1910.
 The name of the table is available as an environment variable \$USA_NAMES.
@@ -46,13 +46,29 @@ bq show bigquery-public-data:usa_names.usa_1910_current","让我们用 bigquery-
 查询示例：
 bq query 'SELECT * FROM $USA_NAMES LIMIT 1'
 或使用此命令来检查表格的架构：
+bq show bigquery-public-data:usa_names.usa_1910_current","讓我們使用 bigquery-public-data.usa_names.usa_1910_current 資料表來找出自 1910 年以來美國最常見的名字。
+您可以透過 \$USA_NAMES 這個環境變數取得資料表的名稱。
+每個資料列分別代表按出生年份、州別和性別劃分的社會安全卡申請人數。所以資料列的範例如下：
++-------+--------+------+------+--------+
+| state | gender | year | name | number |
++-------+--------+------+------+--------+
+| NJ    | F      | 1910 | Anna |    355 |
++-------+--------+------+------+--------+
+例如，1910 年在紐澤西州出生的女性中有 355 人叫做 Anna。
+使用此資料表可以找出自 1910 年以來美國最常見的名字。
+當您認為自己知道答案時，請輸入「answer」，然後按下 ENTER 鍵。
+**提示**：
+查詢範例：
+bq query 'SELECT * FROM $USA_NAMES LIMIT 1'
+或者使用以下指令來檢查資料表的結構定義：
 bq show bigquery-public-data:usa_names.usa_1910_current"
 PUBLIC_DATASET_HINT,"Remember that each row is aggregated by name and year. This query will help you
 get very close to the answer:
     bq query 'SELECT name, sum(number) FROM '\$USA_NAMES' GROUP BY 1 LIMIT 10'","각 행은 이름과 연도별로 집계되어 있습니다. 다음 쿼리는 정답을 확인하는 데 큰 도움이 될 것입니다.
     bq query 'SELECT name, sum(number) FROM '\$USA_NAMES' GROUP BY 1 LIMIT 10'","请记住，每一行都是按照名字和年份聚合的。下面的查询将帮助您非常接近找到答案：
+    bq query 'SELECT name, sum(number) FROM '\$USA_NAMES' GROUP BY 1 LIMIT 10'","提醒您，每個資料列都會按名字和年份匯總。以下查詢將可以協助您找到非常接近答案的結果：
     bq query 'SELECT name, sum(number) FROM '\$USA_NAMES' GROUP BY 1 LIMIT 10'"
-PUBLIC_DATASET_FAIL,"Your answer is incorrect! If you are really stuck, type 'hint'.",정답이 아닙니다. 문제 해결이 어려우면 'hint'를 입력하세요.,您答错了。如果实在回答不出来，请键入“hint”。
+PUBLIC_DATASET_FAIL,"Your answer is incorrect! If you are really stuck, type 'hint'.",정답이 아닙니다. 문제 해결이 어려우면 'hint'를 입력하세요.,您答错了。如果实在回答不出来，请键入“hint”。,答錯了！如果真的想不出來，請輸入「hint」。
 PUBLIC_DATASET_CHOICES,"What is the most common name?
 Leslie
 John
@@ -71,6 +87,12 @@ John
 Peter
 Lee
 James
+Mary","什麼是最常見的名字？
+Leslie
+John
+Peter
+Lee
+James
 Mary"
 CREATE_A_DATASET_HELP,"In this challenge we are going to create a new dataset.
 Use the bq cli to create a dataset called $random_dataset_id.
@@ -84,9 +106,13 @@ bq cli를 사용하여 $random_dataset_id라는 데이터세트를 만드세요.
 使用 bq cli 创建名为 $random_dataset_id 的数据集。
 该数据集的名称可以通过环境变量 \$DATASET_ID 来访问。
 创建数据集后，请按 A 按钮进行验证。
-如有疑问，请运行“bq help | grep dataset”来获得一些指导。"
-CREATE_A_DATASET_HINT,"Try running ""bq help | grep dataset"" that might help you find the right command.",올바른 명령어를 찾는 데 도움이 될 수 있는 'bq help | grep dataset'를 실행해보세요.,试着运行“bq help | grep dataset”，这可能会帮助您找到正确的命令。
-CREATE_A_DATASET_FAIL,Could not find a dataset called $DATASET_ID,$DATASET_ID라는 데이터세트를 찾을 수 없음,没有找到名为 $DATASET_ID 的数据集
+如有疑问，请运行“bq help | grep dataset”来获得一些指导。","在這項挑戰中，我們將建立一個新的資料集。
+請使用 bq cli 來建立一個名為 $random_dataset_id 的資料集。
+您可以透過 \$DATASET_ID 這個環境變數取得資料集的名稱。
+建立資料集後，請按下 [A] 按鈕進行驗證。
+如果有疑問，請執行「bq help | grep dataset」來取得相關指示。"
+CREATE_A_DATASET_HINT,"Try running ""bq help | grep dataset"" that might help you find the right command.",올바른 명령어를 찾는 데 도움이 될 수 있는 'bq help | grep dataset'를 실행해보세요.,试着运行“bq help | grep dataset”，这可能会帮助您找到正确的命令。,請嘗試執行「bq help | grep dataset」，協助您找到正確的指令。
+CREATE_A_DATASET_FAIL,Could not find a dataset called $DATASET_ID,$DATASET_ID라는 데이터세트를 찾을 수 없음,没有找到名为 $DATASET_ID 的数据集,找不到名為 $DATASET_ID 的資料集
 CREATE_TABLE_AND_LOAD_DATA_HELP,"Now that we have our $DATASET_ID dataset created,
 let's create a table called ""road_trip"" in that dataset and load some data
 using the data.csv file available in the home directory.
@@ -101,16 +127,20 @@ schema.json 파일을 사용하여 테이블 스키마를 정의하세요.
 그리고 도움이 필요하면 'bq help | grep table'을 실행하세요.","既然我们已经创建了 $DATASET_ID 数据集，
 让我们在该数据集中创建名为“road_trip”的表格，并使用主目录下的 data.csv 文件加载一些数据。
 请记住，您可以通过  \$DATASET_ID 访问该数据集名称。使用 schema.json 文件定义表格架构。
-同时请记住，如果需要帮助，请运行“bq help | grep table”。"
+同时请记住，如果需要帮助，请运行“bq help | grep table”。","現在我們已經建立了 $DATASET_ID 資料集，接著請在該資料集裡建立名為「road_trip」的資料表，然後使用主目錄中的 data.csv 檔案載入一些資料。
+提醒您，您可以在 \$DATASET_ID 中存取資料集名稱。
+使用 schema.json 檔案來定義資料表結構定義。
+此外，也請記得，如果您需要協助，請執行「bq help | grep table」。"
 CREATE_TABLE_AND_LOAD_DATA_HINT,"Try running ""bq load"" it will guide you through the usage.
 Remember that the destination table is formed by [dataset].[table]","사용 방법에 대한 안내가 필요하면 'bq load'를 실행해보세요.
 대상 테이블은 [dataset].[table] 형식으로 지정됩니다.","尝试运行“bq load”，它将指导您完成使用。
-请记住，目标表格的名称格式是 [dataset].[table]"
-CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_TABLE,Could not find a table called $DATASET_ID.road_trip,$DATASET_ID.road_trip이라는 테이블을 찾을 수 없음,找不到名为 $DATASET_ID.road_trip 的表格
-CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_SCHEMA,Table was created but looks like you haven't specified a schema or loaded any data yet. Try doing that with 'bq load',테이블이 생성되었지만 스키마를 지정하지 않았거나 데이터가 아직 로드되지 않았습니다. 'bq load'로 작업을 시도해보세요.,表格已经创建，但是您似乎尚未指定架构或加载任何数据。请尝试使用“bq load”进行该操作
-CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_FIELDS,"Please make sure the table has the following 3 fields: sales, timestamp and zipcode","테이블에 sales, timestamp, zipcode 등의 필드 3개가 포함되어 있는지 확인하세요.",请确保该表格有下面 3 个字段：sales、timestamp 和 zipcode
-CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_TYPES,Please make sure the table has the correct fields types,테이블에 올바른 필드 유형이 포함되었는지 확인하세요.,请确保该表格具有正确的字段类型
-CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_DATA,Table was created but doesn't look like data was loaded from data.csv,테이블이 생성되었지만 data.csv에서 데이터가 로드되지 않았습니다.,表格已经创建，但似乎尚未从 data.csv 加载数据
+请记住，目标表格的名称格式是 [dataset].[table]","請嘗試執行「bq load」，引導您完成整個使用過程。
+提醒您，目標資料表由 [dataset].[table] 組成"
+CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_TABLE,Could not find a table called $DATASET_ID.road_trip,$DATASET_ID.road_trip이라는 테이블을 찾을 수 없음,找不到名为 $DATASET_ID.road_trip 的表格,找不到名為 $DATASET_ID.road_trip 的資料表
+CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_SCHEMA,Table was created but looks like you haven't specified a schema or loaded any data yet. Try doing that with 'bq load',테이블이 생성되었지만 스키마를 지정하지 않았거나 데이터가 아직 로드되지 않았습니다. 'bq load'로 작업을 시도해보세요.,表格已经创建，但是您似乎尚未指定架构或加载任何数据。请尝试使用“bq load”进行该操作,資料表已建立，但您似乎尚未指定結構定義或載入任何資料。請嘗試透過「bq load」來執行這項操作
+CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_FIELDS,"Please make sure the table has the following 3 fields: sales, timestamp and zipcode","테이블에 sales, timestamp, zipcode 등의 필드 3개가 포함되어 있는지 확인하세요.",请确保该表格有下面 3 个字段：sales、timestamp 和 zipcode,請確保該資料表包含以下 3 個欄位：sales、timestamp 和 zipcode
+CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_TYPES,Please make sure the table has the correct fields types,테이블에 올바른 필드 유형이 포함되었는지 확인하세요.,请确保该表格具有正确的字段类型,請確保該資料表具有正確的欄位類型
+CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_DATA,Table was created but doesn't look like data was loaded from data.csv,테이블이 생성되었지만 data.csv에서 데이터가 로드되지 않았습니다.,表格已经创建，但似乎尚未从 data.csv 加载数据,資料表已建立，但似乎未從 data.csv 載入資料
 ROAD_TRIP_HELP,"In this last challenge we are going to combine the data we just uploaded with
 a GHCN Weather public dataset and figure out the average temperature in our West
 Coast road trip!
@@ -129,13 +159,18 @@ GHCN 天气公共数据集，找出我们西海岸自驾游旅程的平均气温
 使用您偏好的文本编辑器，修改主目录中的 query.sql，以找出本次旅程的整体平均气温。
 然后使用“run-query”命令执行 query.sql
 知道答案后，请键入“answer”并按下 ENTER。
-同时请记住，如果需要帮助，请运行“bq help”。"
+同时请记住，如果需要帮助，请运行“bq help”。","在最後一項挑戰中，我們要將剛剛上傳的資料與 GHCN 天氣公開資料集結合在一起，並找出我們西岸之旅的平均溫度！
+使用您慣用的文字編輯器修改位於主目錄中的 query.sql，以找出這趟旅程中的整體平均溫度！
+然後使用「run-query」指令執行 query.sql
+當您認為自己知道答案時，請輸入「answer」，然後按下 ENTER 鍵。
+此外，也請記得，如果您需要協助，請執行「bq help」。"
 ROAD_TRIP_HINT,"Try running ""bq load"" it will guide you through the usage.
 Remember that the destination table is formed by [dataset].[table]","사용 방법에 대한 안내가 필요하면 'bq load'를 실행해보세요.
 대상 테이블은 [dataset].[table] 형식으로 지정됩니다.","尝试运行“bq load”，它将指导您完成使用。
-请记住，目标表格的名称格式是 [dataset].[table]"
-ROAD_TRIP_FAIL_NO_ANSWER,"You haven't answered yet! You must run the \""answer\"" command and press ENTER""","아직 정답을 제시하지 않았습니다. \""answer\"" 명령어를 실행하고 Enter 키를 눌러야 합니다.""","您尚未回答！您必须运行 \""answer\"" 命令并按下 ENTER"
-ROAD_TRIP_FAIL_INCORRECT,"Your answer is incorrect! If you are really stuck, type 'hint'.",정답이 아닙니다. 문제 해결이 어려우면 'hint'를 입력하세요.,您答错了。如果实在回答不出来，请键入“hint”。
+请记住，目标表格的名称格式是 [dataset].[table]","請嘗試執行「bq load」，引導您完成整個使用過程。
+提醒您，目標資料表由 [dataset].[table] 組成"
+ROAD_TRIP_FAIL_NO_ANSWER,"You haven't answered yet! You must run the \""answer\"" command and press ENTER""","아직 정답을 제시하지 않았습니다. \""answer\"" 명령어를 실행하고 Enter 키를 눌러야 합니다.""","您尚未回答！您必须运行 \""answer\"" 命令并按下 ENTER","您尚未回答！您必須執行 \""answer\"" 指令，然後按下 ENTER 鍵"
+ROAD_TRIP_FAIL_INCORRECT,"Your answer is incorrect! If you are really stuck, type 'hint'.",정답이 아닙니다. 문제 해결이 어려우면 'hint'를 입력하세요.,您答错了。如果实在回答不出来，请键入“hint”。,答錯了！如果真的想不出來，請輸入「hint」。
 ROAD_TRIP_CHOICES,"What was the overall average temperature during this trip?
 2.45
 8.31
@@ -147,6 +182,11 @@ ROAD_TRIP_CHOICES,"What was the overall average temperature during this trip?
 3.63
 10.91
 3.14","这次旅行的总体平均温度是多少？
+2.45
+8.31
+3.63
+10.91
+3.14","這次旅行的總體平均溫度是多少？
 2.45
 8.31
 3.63
