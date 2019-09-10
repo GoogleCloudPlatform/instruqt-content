@@ -35,4 +35,4 @@ if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
 fi
 
 cp /root/videos/video1.mp4 /home/video1.mp4
-cp /root/videos/video1.png /root/help.png
+cp /root/videos/video1.png /root/.instruqt/help.png
