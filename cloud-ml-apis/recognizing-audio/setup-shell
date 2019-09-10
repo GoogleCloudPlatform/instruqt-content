@@ -21,7 +21,7 @@ echo "$RECOGNIZING_AUDIO_HELP" > /root/.instruqt/help.txt
 
 echo "$RECOGNIZING_AUDIO_HINT" > /root/.instruqt/hint.txt
 
-cp /root/images/raptor.png /root/hint.png
+cp /root/images/raptor.png /root/.instruqt/hint.png
 
 echo "$RECOGNIZING_AUDIO_CHOICES" > /root/.instruqt/choices.txt
 

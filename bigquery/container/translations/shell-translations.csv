@@ -144,9 +144,9 @@ let's create a table called ""road_trip"" in that dataset and load some data
 using the data.csv file available in the home directory.
 Remember you can access the dataset name in \$DATASET_ID.
 Use the schema.json file to define the table schema.
-And remember, if you need help run ""bq help | grep table"".","이제 $DATASET_ID 데이터세트가 생성되었으므로, 
-이 데이터세트에서 'road_trip'이라는 테이블을 만들고 
-홈 디렉터리에 있는 data.csv 파일을 
+And remember, if you need help run ""bq help | grep table"".","이제 $DATASET_ID 데이터세트가 생성되었으므로,
+이 데이터세트에서 'road_trip'이라는 테이블을 만들고
+홈 디렉터리에 있는 data.csv 파일을
 사용하여 데이터를 로드해보세요.
 \$DATASET_ID의 데이터세트 이름에 액세스할 수 있습니다.
 schema.json 파일을 사용하여 테이블 스키마를 정의하세요.
@@ -179,9 +179,9 @@ Modify the query.sql located in the home directory using your favorite text
 editor to find the overall average temperature during this trip!
 Then use the 'run-query' command to execute the query.sql
 When you think you know the answer, type ""answer"" and press ENTER.
-And remember, if you need help run ""bq help"".","이 마지막 도전과제에서는 바로 전에 업로드한 데이터를 GHCN 날씨 공개 
-데이터세트와 결합하고 미 서부 해안 도로 여행지의 평균 기온을 알아냅니다. 
-원하는 텍스트 편집기를 사용해서 홈 디렉터리에 있는 query.sql을 수정하여, 
+And remember, if you need help run ""bq help"".","이 마지막 도전과제에서는 바로 전에 업로드한 데이터를 GHCN 날씨 공개
+데이터세트와 결합하고 미 서부 해안 도로 여행지의 평균 기온을 알아냅니다.
+원하는 텍스트 편집기를 사용해서 홈 디렉터리에 있는 query.sql을 수정하여,
 이번 여행 중의 전체 평균 기온을 알아내세요.
 그런 다음 'run-query' 명령어를 사용해 query.sql을 실행하세요.
 정답을 안다고 생각되면 'answer'를 입력하고 Enter 키를 누르세요.
