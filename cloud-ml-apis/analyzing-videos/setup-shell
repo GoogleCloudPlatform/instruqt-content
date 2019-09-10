@@ -21,6 +21,14 @@ echo "$ANALYZING_VIDEO_HELP" > /root/.instruqt/help.txt
 
 echo "$ANALYZING_VIDEO_HINT" > /root/.instruqt/hint.txt
 
+cat <<EOF > /root/.instruqt/choices.txt
+$ANSWER_PROMPT
+1
+2
+6
+100
+EOF
+
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
     echo $DIFFICULTY_HARD_HINT > /root/.instruqt/hint.txt

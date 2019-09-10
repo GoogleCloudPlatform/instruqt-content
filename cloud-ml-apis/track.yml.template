@@ -49,7 +49,7 @@ challenges:
     type: terminal
     hostname: shell
   difficulty: basic
-  timelimit: 300
+  timelimit: 360
 - slug: redact-text
   type: challenge
   title: {{{challenge-4-title}}}
