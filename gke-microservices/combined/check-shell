@@ -15,7 +15,7 @@
 
 kubectl get deployment frontend-deployment -n challenge
 if [ $? -ne 0 ]; then
-    fail-message "Could not find Deployment called 'frontend-deployment' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    fail-message "$DEPLOYMENT_FAIL_NO_DEPLOYMENT"
     exit 1
 fi
 
