@@ -17,6 +17,7 @@ rm /root/foo.txt
 
 # alias answer to multiple choice quiz
 alias answer=terminal-quiz
+alias print-png=asciify
 
 cat <<EOF > /root/.instruqt/help.txt
 $DOWNLOADING_HELP_TEXT
