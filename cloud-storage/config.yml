@@ -4,7 +4,7 @@ containers:
   image: gcr.io/instruqt-shadow/cloud-storage:2.2.9
   shell: /bin/bash
   environment:
-    INSTRUQT_LANGUAGE_CODE: zh-cn
+    INSTRUQT_LANGUAGE_CODE: zh-en
   memory: 512
 gcp_projects:
 - name: cloud-storage
