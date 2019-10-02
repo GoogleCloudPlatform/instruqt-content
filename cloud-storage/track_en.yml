@@ -1,7 +1,6 @@
 slug: "cloud-storage"
-id: jm5jv3harqya
 type: track
-title: "Cloud Storage"
+title: "Cloud Storage (en)"
 teaser: "Unified object storage for developers and enterprises."
 description: "What is Google Cloud Storage?\n\nGoogle Cloud Storage allows world-wide storage and retrieval of any amount of data at any time. You can use GCS for a range of scenarios including serving website content, storing data for archival and disaster recovery, or distributing large data objects to users via direct download."
 icon: https://storage.googleapis.com/instruqt-shadow-resources/Cloud-Storage-spin.gif
