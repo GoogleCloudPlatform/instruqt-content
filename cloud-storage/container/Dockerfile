@@ -1,6 +1,6 @@
 # container with a few programming environments,
 # so that folks can play with the cloud storage API.
-FROM gcr.io/instruqt-shadow/base:caeda5024f84cd9d938c7a667e4d1d5b426bd93c77ef8628b61e12a908ac7f7f
+FROM gcr.io/instruqt-shadow/base:1.1.1
 
 #install pip
 RUN apt-get install -y python3-pip
