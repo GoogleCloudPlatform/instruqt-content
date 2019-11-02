@@ -1,6 +1,6 @@
-key,en,zh-cn
-CREATING_FAIL_MESSAGE,You do not appear to have created any buckets.,您似乎未创建任何存储分区。
-CREATING_HELP_TEXT,"
+key,en,pt,es,zh-tw,ko,zh-cn,zh-hk
+CREATING_FAIL_MESSAGE,You do not appear to have created any buckets.,Parece que você não criou um intervalo.,Parece que no has creado ningún segmento.,您的任務,버킷이 생성되지 않은 것 같습니다.,您似乎未创建任何存储分区。,您似乎未建立儲存區。
+CREATING_HELP_TEXT,"Your Quest
 
 By modifying ""python/challenge.py"", ""node/challenge.js"", ""go/challenge.go"", or using gsutil directly, create a bucket named \$BUCKET_NAME.
 
@@ -11,7 +11,7 @@ Coding Your Solution
 If you run 'ls', you will see folders for each supported language; currently
 python, node (JavaScript), and go.
 
-Once you're ready to write some code, use vim to edit the
+Once you're ready to write some code, use vim, nano, or emacs to edit the
 challenge file in one of these directories.
 
 To debug your answer, use the command ""node"", ""python"", or ""go run"", to execute your program.
@@ -20,7 +20,59 @@ Using gsutil
 -------------------------------
 
 You will also find the gsutil utility installed, and the environment variable
-\$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
+$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","Sua Quest
+
+Crie um intervalo chamado $BUCKET_NAME modificando ""python/challenge.py"", ""node/challenge.js"" ou ""go/challenge.go"" ou usando o gsutil diretamente.
+
+Pressione o botão ""Check"" quando terminar.
+
+Codificar sua solução
+
+Se você executar o comando 'ls', verá pastas para cada linguagem compatível, que no momento são as seguintes:
+Python, Node (JavaScript) e Go.
+
+Quando estiver pronto para escrever algum código, use o Vim, o Nano ou o Emacs para editar o arquivo de desafio em um desses diretórios.
+
+Para depurar a resposta, use o comando ""node"", ""python"" ou ""go run"" a fim de executar seu programa.
+
+Usar o gsutil
+-------------------------------
+
+Você também encontrará o utilitário do gsutil instalado e o conjunto $BUCKET_NAME da variável de ambiente. Execute o comando ""gsutil --help"" para ver mais informações sobre ele.","Tu Quest
+
+Modifica ""python/challenge.py"", ""node/challenge.js"" o ""go/challenge.go"", o bien utiliza gsutil directamente, para crear un segmento llamado $BUCKET_NAME.
+
+Pulsa el botón ""Check"" (Comprobar) cuando termines.
+
+Programar la solución
+
+Si ejecutas ""ls"", verás las carpetas de cada lenguaje admitido: Python, Node (JavaScript) y Go.
+
+Cuando tengas todo listo para empezar a escribir código, utiliza Vim, Nano o Emacs para editar el archivo del ejercicio en uno de estos directorios.
+
+Para depurar tu respuesta y ejecutar el programa, usa los comandos ""node"", ""python"" o ""go run"".
+
+Utilizar gsutil
+-------------------------------
+
+También encontrarás la herramienta gsutil instalada y la variable de entorno $BUCKET_NAME configurada. Ejecuta ""gsutil --help"" para obtener más información sobre este comando.",輸入「help」即可再次顯示這則訊息。,"퀘스트
+
+'python/challenge.py', 'node/challenge.js', 'go/challenge.go'를 수정하거나 gsutil을 직접 사용하여 \$BUCKET_NAME이라는 버킷을 만드세요.
+
+완료되었으면 'Check' 버튼을 누르세요.
+
+솔루션 코드 작성
+
+'ls'를 실행하면 지원되는 각 언어(현재까지 Python, Node(자바스크립트), Go)의 폴더가 표시됩니다.
+
+코드를 작성할 준비가 되었다면 vim, nano, emacs를 사용하여 해당 디렉터리 중 하나에서 도전과제 파일을 수정하세요.
+
+답변으로 입력한 코드를 디버그하려면 'node', 'python', 'go run' 명령어를 사용하여 프로그램을 실행하세요.
+
+gsutil 사용
+-------------------------------
+
+또한 gsutil 유틸리티가 설치되고 환경 변수 $BUCKET_NAME이 설정된 것을 확인할 수 있습니다. 이 명령어에 대한 자세한 내용을 보려면 'gsutil --help'를 실행하세요.","您的挑战任务
 
 通过修改“python/challenge.py”、“node/challenge.js”、“go/challenge.go”或者直接使用 gsutil，创建一个名为 \$BUCKET_NAME 的存储分区。
 
@@ -37,8 +89,27 @@ You will also find the gsutil utility installed, and the environment variable
 使用 gsutil
 -------------------------------
 
-您还将发现已安装的 gsutil 实用程序以及环境变量 \$BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
-"
+您还将发现已安装的 gsutil 实用程序以及环境变量 $BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
+","任務
+
+修改「python/challenge.py」、「node/challenge.js」、「go/challenge.go」，或直接使用 gsutil 建立名為「$BUCKET_NAME」的儲存區。
+
+完成後按一下「勾選」按鈕。
+
+編寫解決方案
+
+如您執行「ls」，您將看到各支援語言的資料夾；目前為
+python、node (JavaScript) 和 go。
+
+準備好編寫程式碼後，使用 vim、nano 或 emacs 編輯其中一個目錄中的挑戰檔案。
+
+要偵錯答案，請使用指令「node」、「python」，或「go run」以執行程式。
+
+使用 gsutil
+-------------------------------
+
+您亦將看到系統已安裝 gsutil 實用程式，並已設定環境變數
+$BUCKET_NAME。執行「gsutil --help」以查閲指令說明。"
 CREATING_HINT_TEXT,"Hint
 ----
 
@@ -46,7 +117,28 @@ try running:
 
 gsutil mb gs://...
 
-replacing ""..."" with the appropriate bucket name.","提示
+replacing ""..."" with the appropriate bucket name.","Dica
+----
+
+tente executar:
+
+gsutil mb gs://...
+
+substituindo ""..."" pelo nome apropriado do intervalo.","Pista
+----
+
+prueba a ejecutar:
+
+gsutil mb gs://...
+
+sustituye ""..."" por el nombre del segmento correspondiente.",「真的」想不出來時，請輸入「hint」。,"힌트
+----
+
+다음 명령어를 실행해 보세요.
+
+gsutil mb gs://...
+
+'...'는 적절한 버킷 이름으로 바꾸세요.","提示
 ----
 
 尝试运行：
@@ -54,7 +146,14 @@ replacing ""..."" with the appropriate bucket name.","提示
 gsutil mb gs://...
 
 将“...”替换为相应的存储分区名称。
-"
+","提示
+----
+
+試試執行：
+
+gsutil mb gs://...
+
+以適當的儲存區名稱取代「...」。"
 CREATING_QUIZ_ANSWER,"What was the .png an image of?
 horse
 television
@@ -62,33 +161,115 @@ house
 person
 dog
 orange
-pizza",".png 图片上有什么？
+pizza","O que a imagem .png mostrava?
+cavalo
+televisão
+casa
+pessoa
+cachorro
+laranja
+pizza","¿Qué aparecía en la imagen .png?
+un caballo
+una televisión
+una casa
+una persona
+un perro
+una naranja
+una pizza",這項挑戰的答案是什麼？,".png는 다음 중 어떤 이미지였나요?
+말
+TV
+집
+사람
+개
+오렌지
+피자",".png 图片上有什么？
 马
 电视机
 房屋
 人
 犬
 橙子
-披萨"
-CREATING_QUIZ_CHECK,Click the 'Check' button if you're happy with your answer.,如果您对自己的答案感到满意，请点击“Check”（检查）按钮。
-CREATING_PYTHON_COMMENTS_1,"# using the method ""create_bucket"" on ""storage_client"",",# 使用“storage_client”上的“create_bucket”方法，
-CREATING_PYTHON_COMMENTS_2,"# which takes the argument ""bucket_name"", create a",#（接受“bucket_name”参数），创建一个 Cloud Storage
-CREATING_PYTHON_COMMENTS_3,# cloud storage bucket.,# 存储分区。
-CREATING_NODE_COMMENTS_1,// Imports the Google Cloud client library,// 导入 Google Cloud 客户端库
-CREATING_NODE_COMMENTS_2,// Globally unique bucket name (don't change this).,// 全局唯一的存储分区名称（请勿更改此名称）。
-CREATING_NODE_COMMENTS_3,// An authenticated storage API client.,// 经过身份验证的 Storage API 客户端。
-CREATING_NODE_COMMENTS_4,"// there is a method called ""createBucket"" on the ""Storage""",//“Storage”类上有一种名为“createBucket”的方法
-CREATING_NODE_COMMENTS_5,"// class which takes the argument ""bucketName"".",//（接受“bucketName”参数）。
-CREATING_NODE_COMMENTS_6,"// create a bucket ""bucketName"".",// 创建存储分区“bucketName”。
-CREATING_GO_COMMENTS_1,"// using the methods: ""client.Bucket"" and",// 使用“client.Bucket”和
-CREATING_GO_COMMENTS_2,"// ""bucket.Create(ctx, projectID, &storage.BucketAttrs{})"" create","//“bucket.Create(ctx, projectID, &storage.BucketAttrs{})”方法创建"
-CREATING_GO_COMMENTS_3,"// a bucket named ""bucketName"".",// 名为“bucketName”的存储分区。
-CREATING_NODE_HINT_TOOLTIP,"If you need a hint, maybe you should try an EASIER difficulty :)",如果您需要提示，可能应该尝试难度较低的级别 :)
-DOWNLOADING_FAILURE,"Your answer was incorrect, did you actually see the image?",您的答案不正确，您真的看到图片了吗？
-DOWNLOADING_HELP_TEXT,"
+披萨","請問 .png 圖片中的是什麽？
+馬
+電視
+屋
+人
+狗
+橙
+薄餅"
+CREATING_QUIZ_CHECK,Click the 'Check' button if you're happy with your answer.,"Pressione o botão ""Check"" quando terminar.","Haz clic en el botón ""Check"" (Comprobar) cuando creas que sabes la respuesta.",現在，請按下 [A] 按鈕以驗證您的答案,올바른 답을 입력했다고 생각되면 'Check' 버튼을 클릭하세요.,如果您对自己的答案感到满意，请点击“Check”（检查）按钮。,找到滿意的答案後，按一下「勾選」按鈕。
+CREATING_PYTHON_COMMENTS,"# using the method ""create_bucket"" on ""storage_client"",
+# which takes the argument ""bucket_name"", create a
+# cloud storage bucket.","# usando o método ""create_bucket"" em ""storage_client""
+# que contém o argumento ""bucket_name"", crie um
+# intervalo do Cloud Storage.","# con el método ""create_bucket"" en ""storage_client"",
+# que admite el argumento ""bucket_name"", crea un
+# segmento de Cloud Storage.",當您認為自己知道答案時，請輸入「答案」，然後按下 ENTER 鍵,"# 'storage_client'에 대해 'bucket_name'을 인수로 받는
+# 'create_bucket' 메서드를 사용하여
+# Cloud Storage 버킷을 만드세요.",# 使用“storage_client”上的“create_bucket”方法，,"#使用「storage_client」的上方法「create_bucket」，
+#其引數為「BUCKET_NAME」，建立
+#雲端儲存空間儲存區。"
+CREATING_NODE_COMMENTS,"// Imports the Google Cloud client library
+
+// Globally unique bucket name (don't change this).
+
+// An authenticated storage API client.
+
+// there is a method called ""createBucket"" on the ""Storage""
+// class which takes the argument ""bucketName"".
+// create a bucket ""bucketName"".","// Importa a biblioteca de cliente do Google Cloud
+
+// Nome de intervalo exclusivo globalmente (não o altere).
+
+// Um cliente de API de armazenamento autenticado.
+
+// há um método chamado ""createBucket"" na classe ""Storage""
+// que contém o armazenamento ""bucketName"".
+// crie um intervalo ""bucketName"".","// Sirve para importar la biblioteca de cliente de Google Cloud
+
+// Es un nombre de segmento global único (no lo cambies).
+
+// Un cliente de API de Storage autenticado.
+
+// hay un método llamado ""createBucket"" en la clase ""Storage""
+// que admite el argumento ""bucketName"".
+// crea un segmento llamado ""bucketName"".",如果您需要提示，也許您應該試試「較簡單」的任務 :),"// Google Cloud 클라이언트 라이브러리를 가져옵니다.
+
+// 전역적으로 고유한 버킷 이름입니다(변경 금지).
+
+// 인증된 스토리지 API 클라이언트입니다.
+
+// 'Storage' 클래스에 대해 'bucketName'을 인수로 받는
+// 'createBucket'이라는 메서드가 있습니다.
+// 'bucketName' 버킷을 만드세요.",#（接受“bucket_name”参数），创建一个 Cloud Storage,"//匯入「Google 雲端」用戶端資料庫
+
+//全球獨特儲存區名稱 (請勿更改)。
+
+//已驗證儲存空間 API 用戶端。
+
+//在「Storage」類別之上，有一個名為「createBucket」的方法，
+//其引數為「bucketName」。
+// 建立儲存區「bucketName」。"
+CREATING_GO_COMMENTS,"// using the methods: ""client.Bucket"" and
+// ""bucket.Create(ctx, projectID, &storage.BucketAttrs{})"" create
+// a bucket named ""bucketName"".","// usando os métodos: ""client.Bucket"" e
+// ""bucket.Create(ctx, projectID, &storage.BucketAttrs{})"" crie
+// um intervalo chamado ""bucketName"".","// utiliza los métodos: ""client.Bucket"" y
+// ""bucket.Create(ctx, projectID, &storage.BucketAttrs{})"" y crea
+// un segmento llamado ""bucketName"".",您尚未回答！您必須執行「answer」指令，然後按下 ENTER 鍵,"// 'client.Bucket' 및 'bucket.Create(ctx, projectID, &storage.BucketAttrs{})'
+// 메서드를 사용하여
+// 'bucketName'이라는 버킷을 만드세요.",# 存储分区。,"//使用方法：「client.Bucket」及
+//「bucket.Create(ctx, projectID, &storage.BucketAttrs{})」建立
+//名為「bucketName」的儲存區。"
+CREATING_NODE_HINT_TOOLTIP,"If you need a hint, maybe you should try an EASIER difficulty :)","Se você precisar de uma dica, tente um nível de dificuldade MENOR :)","Si necesitas una pista, quizás deberías probar con un grado de dificultad menor :)",答錯了！想不出答案時，請輸入「hint」。,혹시 힌트가 필요하다면 조금 더 쉬운 난이도를 선택하는 것이 어떨까요? :),// 导入 Google Cloud 客户端库,如您需要提示，您便可能應該試試較容易的難度設定 :)
+DOWNLOADING_FAILURE,"Your answer was incorrect, did you actually see the image?",A resposta está incorreta. Você conseguiu visualizar a imagem?,Tu respuesta no es correcta. ¿Has llegado a ver la imagen?,"「doggo1.png」圖檔中出現了一隻可愛的小狗，請問它是什麼品種？請使用「gcloud」，透過 Google 的 Vision API 傳送這隻小寶貝的圖片，然後回報最可能的品種是什麼。
+
+*提示*輸入「gcloud ml vision」即可開始。",정답이 아닙니다. 실제로 이미지를 보셨나요?,// 全局唯一的存储分区名称（请勿更改此名称）。,答案錯誤，您真的看到那幅圖片嗎？
+DOWNLOADING_HELP_TEXT,"Your Quest
+-------------------------------
 
 By modifying ""python/challenge.py"", ""node/challenge.js"", ""go/challenge.go"", or using gsutil
-directly, download the image we've hidden in \$BUCKET_NAME. Using ""print-png"",
+directly, download the image we've hidden in $BUCKET_NAME. Using ""print-png"",
 view the image, and type ""answer"" when you're ready to tell us what it is.
 
 Hit the ""Check"" button when you are done.
@@ -99,7 +280,7 @@ Coding Your Solution
 If you run 'ls', you will see folders for each supported language; currently
 python, node (JavaScript), and go.
 
-Once you're ready to write some code, use vim to edit the
+Once you're ready to write some code, use vim, nano, or emacs to edit the
 challenge file in one of these directories, then use the given interpreter
 to execute it.
 
@@ -107,25 +288,87 @@ Using gsutil
 -------------------------------
 
 You will also find the gsutil utility installed, and the environment variable
-\$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
+$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","Sua Quest
 -------------------------------
 
-通过修改“python/challenge.py”、“node/challenge.js”、“go/challenge.go”或者直接使用 gsutil，下载我们在 \$BUCKET_NAME 中隐藏的图片。使用“print-png”查看图片，并在您准备好告诉我们图片内容时输入“answer”（答案）。
+Faça o download da imagem que salvamos em $BUCKET_NAME modificando ""python/challenge.py"", ""node/challenge.js"" ou ""go/challenge.go"" ou usando o gsutil diretamente. Visualize a imagem
+por meio do ""print-png"" e digite ""answer"" quando souber o que ela mostra.
 
-完成后点击“Check”（检查）按钮。
+Pressione o botão ""Check"" quando terminar.
 
-为您的解决方案编写代码
+Codificar sua solução
 -------------------------------
 
-如果您运行“ls”，则会看到每种受支持语言所对应的文件夹；目前支持 Python、Node (JavaScript) 和 Go。
+Se você executar o comando 'ls', verá pastas para cada linguagem compatível, que no momento são as seguintes:
+Python, Node (JavaScript) e Go.
 
-在您准备好编写代码后，请使用 vim 或 Emacs 修改其中一个目录中的挑战任务文件，然后使用给定的解析器执行该文件。
+Quando estiver pronto para escrever algum código, use o Vim, o Nano ou o Emacs a fim de editar o arquivo de desafio em um desses diretórios e depois use o interpretador específico para executá-lo.
+
+Usar o gsutil
+-------------------------------
+
+Você também encontrará o utilitário do gsutil instalado e o conjunto $BUCKET_NAME da variável de ambiente. Execute o comando ""gsutil --help"" para ver mais informações sobre ele.","Tu Quest
+-------------------------------
+
+Modifica ""python/challenge.py"", ""node/challenge.js"" o ""go/challenge.go"", o bien utiliza gsutil directamente, para descargar la imagen que hemos escondido en $BUCKET_NAME. Utiliza ""print-png"", visualiza la imagen y escribe ""answer"" cuando creas que sabes la respuesta.
+
+Pulsa el botón ""Check"" (Comprobar) cuando termines.
+
+Programar la solución
+-------------------------------
+
+Si ejecutas ""ls"", verás las carpetas de cada lenguaje admitido: Python, Node (JavaScript) y Go.
+
+Cuando tengas todo listo para empezar a escribir código, utiliza Vim, Nano o Emacs para editar el archivo del ejercicio en uno de estos directorios. Después, utiliza el intérprete correspondiente para ejecutarlo.
+
+Utilizar gsutil
+-------------------------------
+
+También encontrarás la herramienta gsutil instalada y la variable de entorno $BUCKET_NAME configurada. Ejecuta ""gsutil --help"" para obtener más información sobre este comando.","請嘗試執行以下指令：
+
+    gcloud ml vision detect-labels doggo1.png --max-results=6
+
+然後尋找描述狗品種的「說明」中的第一個值。請務必選擇具有最高「分數」值的品種！","퀘스트
+-------------------------------
+
+'python/challenge.py', 'node/challenge.js', 'go/challenge.go'를 수정하거나 gsutil을 직접
+사용하여 $BUCKET_NAME에 숨겨진 이미지를 다운로드하세요. 'print-png'를 사용해서
+이미지를 확인하고 정답을 입력할 준비가 되면 'answer'를 입력하세요.
+
+완료되었으면 'Check' 버튼을 누르세요.
+
+솔루션 코드 작성
+-------------------------------
+
+'ls'를 실행하면 지원되는 각 언어(현재까지 Python, Node(자바스크립트), Go)에 대한 폴더가 표시됩니다.
+
+코드를 작성할 준비가 되었으면 vim, nano, emacs를 사용하여
+해당 디렉터리 중 하나에서 도전과제 파일을 수정하고, 제공된 인터프리터를
+사용하여 실행하세요.
+
+gsutil 사용
+-------------------------------
+
+또한 gsutil 유틸리티가 설치되고 환경 변수 $BUCKET_NAME이 설정된 것을 확인할 수 있습니다. 이 명령어에 대한 자세한 내용을 보려면 'gsutil --help'를 실행하세요.",// 经过身份验证的 Storage API 客户端。,"任務
+-------------------------------
+
+修改「python/challenge.py」、「node/challenge.js」、「go/challenge.go」，或直接使用 gsutil，下載我們隱藏於 $BUCKET_NAME 的圖片。使用「print-png」查看圖片，並在準備好後輸入「答案」，告訴我們圖片中的是什麽。
+
+完成後按一下「勾選」按鈕。
+
+編寫解決方案
+-------------------------------
+
+如您執行「ls」，您將看到各支援語言的資料夾；目前為
+python、node (JavaScript) 和 go。
+
+準備好編寫程式碼後，使用 vim、nano 或 emacs 編輯其中一個目錄中的挑戰檔案，再使用系統提供的解讀器執行。
 
 使用 gsutil
 -------------------------------
 
-您还将发现已安装的 gsutil 实用程序以及环境变量 \$BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
-"
+您亦將看到系統已安裝 gsutil 實用程式，並已設定環境變數
+$BUCKET_NAME。執行「gsutil --help」以查閲指令說明。"
 DOWNLOADING_HINT_TEXT,"Hint:
 ----
 
@@ -133,29 +376,125 @@ try running:
 
 gsutil cp gs://... .
 
-replacing ""..."" with the remote filename.","提示：
+replacing ""..."" with the remote filename.","Dica:
 ----
 
-尝试运行：
+tente executar:
 
-gsutil cp gs://... 。
+gsutil cp gs://... .
 
-将“...”替换为远程文件名。"
-DOWNLOADING_PYTHON_COMMENTS_1,"""""""The bucket has already been created and an additional file has
-   been uploaded.  Download and view the .png file""""""",# 您已创建存储分区，并额外上传了一个文件。请下载并查看 .png 文件
-DOWNLOADING_PYTHON_COMMENTS_2,# Add code to download the .png file,# 添加代码以下载 .png 文件
-DOWNLOADING_PYTHON_COMMENTS_3,# using the method blob.download_to_filename(destination_file_name),# 使用 blob.download_to_filename(destination_file_name) 方法
-DOWNLOADING_PYTHON_COMMENTS_4,# to download the appropriate file.,# 来下载相应的文件。
-DOWNLOADING_NODE_COMMENTS_1,// put your code here for downloading the .png image stored in,// 在此处输入代码，以下载存储在 bucketName 中
-DOWNLOADING_NODE_COMMENTS_2,// bucketName.,// 的 .png 图片。
-DOWNLOADING_NODE_COMMENTS_3,"// detecting the approprite filename, use the method:",// 检测相应的文件名，然后使用“await storage”方法
-DOWNLOADING_NODE_COMMENTS_4,"// ""await storage"" to download the file.",// 下载该文件。
-DOWNLOADING_GO_COMMENT_1,// Give the bucket a unique name.,// 为存储分区指定唯一名称。
-DOWNLOADING_GO_COMMENT_2,// logic for writing file to disk.,// 向磁盘写入文件时遵循的逻辑。
-DOWNLOADING_GO_COMMENT_3,// use the code below as a starting point.,// 刚开始请使用以下代码。
-DOWNLOADING_QUIZ_INCORRECT,incorrect answer,答案不正确
-UPLOADING_FAILURE,We could not find the file bar.txt in the bucket.,我们没有在存储分区中找到 bar.txt 文件。
-UPLOADING_HELP_TEXT,"
+substituindo ""..."" pelo nome de arquivo remoto.","Pista:
+----
+
+prueba a ejecutar:
+
+gsutil cp gs://... .
+
+sustituye ""..."" por el nombre de archivo remoto.","這隻狗最有可能是什麼品種？
+玩具鬥牛犬
+英國鬥牛犬
+波士頓㹴犬
+蘇格蘭㹴犬
+騎士查理王小獵犬","힌트:
+----
+
+다음 명령어를 실행해 보세요.
+
+gsutil cp gs://... .
+
+'...'는 원격 파일 이름으로 바꾸세요.",//“Storage”类上有一种名为“createBucket”的方法,"提示：
+----
+
+試試執行：
+
+gsutil cp gs://... .
+
+以遠端檔案名稱取代「...」。"
+DOWNLOADING_PYTHON_COMMENTS,"""""""The bucket has already been created and an additional file has
+   been uploaded.  Download and view the .png file""""""
+
+# Add code to download the .png file
+
+# using the method blob.download_to_filename(destination_file_name)
+# to download the appropriate file.","""""""O intervalo já foi criado, e um arquivo adicional foi enviado.  Faça o download e visualize o arquivo .png """"""
+
+# Adicione o código para fazer o download do arquivo.png
+
+# usando o método blob.download_to_filename(destination_file_name)
+# para salvar o arquivo apropriado.","""""""El segmento ya se ha creado y se ha subido otro archivo.  Descarga y visualiza el archivo .png""""""
+
+# Añade código para descargar el archivo .png
+
+# utiliza el método blob.download_to_filename(destination_file_name)
+# para descargar el archivo correspondiente.",波士頓㹴犬,"""""""버킷이 이미 생성되었고, 추가 파일이 업로드되었습니다.
+   .png 파일을 다운로드하고 확인하세요.""""""
+
+# 적절한 파일을 다운로드할 수 있는
+
+# blob.download_to_filename(destination_file_name) 메서드를 사용해
+# .png 파일을 다운로드하기 위한 코드를 추가하세요.",//（接受“bucketName”参数）。,"「已建立儲存區，並已上載一個額外檔案。  下載並查看 .png 檔案」
+
+#新增程式碼以下載 .png 檔案
+
+#使用方法 blob.download_to_filename(destination_file_name)
+# 下載適當檔案。"
+DOWNLOADING_NODE_COMMENTS,"// put your code here for downloading the .png image stored in
+// bucketName.
+
+// detecting the approprite filename, use the method:
+// ""await storage"" to download the file.","// insira seu código aqui para fazer o download da imagem .png armazenada em
+// bucketName.
+
+// detectando o nome de arquivo apropriado, use o método:
+// ""await storage"" para fazer o download do arquivo.","// inserta aquí tu código para descargar la imagen .png almacenada en
+// bucketName.
+
+// identifica el nombre de archivo correspondiente y utiliza el método
+// ""await storage"" para descargar el archivo.",英國鬥牛犬,"// bucketName에 저장된 .png 이미지를 다운로드하려면 코드를
+// 여기에 입력하세요.
+
+// 적절한 파일 이름을 감지하고, 'await storage' 메서드를
+// 사용해서 파일을 다운로드하세요.",// 创建存储分区“bucketName”。,"//將程式碼加進這裡，以下載儲存於
+// bucketName 的 .png 圖片。
+
+//偵測適當的檔案名稱，使用方法：
+//「await storage」以下載檔案。"
+DOWNLOADING_GO_COMMENT,"// Give the bucket a unique name.
+
+// logic for writing file to disk.
+//
+// use the code below as a starting point.","// Forneça um nome exclusivo para o intervalo.
+
+// lógica para salvar o arquivo no disco.
+//
+// uso o código abaixo como ponto de partida.","// Introduce un nombre único para el segmento.
+
+// lógica para escribir el archivo en el disco.
+//
+// usa el código que aparece a continuación como punto de partida.",答案很接近了！還有一個更可能的狗品種,"// 버킷에 고유한 이름을 지정하세요.
+
+// 디스크에 파일을 쓰기 위한 논리입니다.
+//
+// 아래의 코드를 시작 지점으로 사용하세요.",// 使用“client.Bucket”和,"//給予此儲存區一個獨特的名稱。
+
+//將檔案寫入磁碟的邏輯。
+//
+//使用下列程式碼開始。"
+DOWNLOADING_QUIZ_INCORRECT,incorrect answer,resposta incorreta,la respuesta no es correcta,"共有三個音訊檔案：「quote1.wav」、「quote2.wav」和「quote3.wav」。告訴我們這些台詞是出自於哪些 90 年代的經典電影，測試一下您對流行文化的瞭解程度如何。請使用 Speech to Text API 將音訊轉換為文字，然後回報電影片名。
+
+*提示*輸入「gcloud ml speech」即可開始。",오답,"//“bucket.Create(ctx, projectID, &storage.BucketAttrs{})”方法创建",答案錯誤
+UPLOADING_FAILURE,We could not find the file bar.txt in the bucket.,Não foi possível encontrar o arquivo bar.txt no intervalo.,No hemos podido encontrar el archivo bar.txt en el segmento.,"請嘗試執行以下指令：
+
+    gcloud ml speech recognize quote1.wav --language-code=en
+
+使用「quote2.wav」和「quote3.wav」執行相同的指令。
+
+如果您不知道那是什麼電影的台詞，請使用 googler 指令碼執行那些台詞，這樣應該有助於縮小範圍：
+
+    googler「這是一句電影台詞！」
+",버킷에서 bar.txt 파일을 찾을 수 없습니다.,// 名为“bucketName”的存储分区。,無法在儲存區中找到檔案 bar.txt。
+UPLOADING_HELP_TEXT,"Your Quest
+-------------------------------
 
 By modifying ""python/challenge.py"", ""node/challenge.js"", ""go/challenge.go"", or using gsutil directly, upload
 the local file foo.txt to a file named bar.txt in the bucket you created in the
@@ -169,7 +508,7 @@ Coding Your Solution
 If you run 'ls', you will see folders for each supported language; currently
 python, node (JavaScript), and go.
 
-Once you're ready to write some code, use vim to edit the
+Once you're ready to write some code, use vim, nano, or emacs to edit the
 challenge file in one of these directories, then use the given interpreter
 to execute it.
 
@@ -179,10 +518,166 @@ Using gsutil
 -------------------------------
 
 You will also find the gsutil utility installed, and the environment variable
-\$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","您的挑战任务
+$BUCKET_NAME set. Run ""gsutil --help"" for information about this command.","Sua Quest
 -------------------------------
 
-通过修改“python/challenge.py”、“node/challenge.js”、“go/challenge.go”或者直接使用 gsutil，将本地文件 foo.txt 上传到您在上一项挑战任务中创建的存储分区中，并重命名为 bar.txt。
+Faça upload do arquivo local ""foo.txt"" para um arquivo chamado ""bar.txt"" no intervalo que você criou no último desafio modificando ""python/challenge.py"", ""node/challenge.js"" ou ""go/challenge.go"" ou usando o gsutil diretamente.
+
+Pressione o botão ""Check"" quando terminar.
+
+Codificar sua solução
+-------------------------------
+
+Se você executar o comando 'ls', verá pastas para cada linguagem compatível, que no momento são as seguintes:
+Python, Node (JavaScript) e Go.
+
+Quando estiver pronto para escrever algum código, use o Vim, o Nano ou o Emacs a fim de editar o arquivo de desafio em um desses diretórios e depois use o interpretador específico para executá-lo.
+
+Para depurar a resposta, use o comando ""node"", ""python"" ou ""go run"" a fim de executar seu programa.
+
+Usar o gsutil
+-------------------------------
+
+Você também encontrará o utilitário do gsutil instalado e o conjunto $BUCKET_NAME da variável de ambiente. Execute o comando ""gsutil --help"" para ver mais informações sobre ele.","Tu Quest
+-------------------------------
+
+Modifica ""python/challenge.py"", ""node/challenge.js"" o ""go/challenge.go"", o bien utiliza gsutil directamente, para cargar el archivo local foo.txt en un archivo llamado bar.txt, ubicado en el segmento que creaste en el ejercicio anterior.
+
+Pulsa el botón ""Check"" (Comprobar) cuando termines.
+
+Programar la solución
+-------------------------------
+
+Si ejecutas ""ls"", verás las carpetas para cada lenguaje admitido: Python, Node (JavaScript) y Go.
+
+Cuando tengas todo listo para empezar a escribir código, utiliza Vim, Nano o Emacs para editar el archivo del ejercicio en uno de estos directorios. Después, utiliza el intérprete correspondiente para ejecutarlo.
+
+Para depurar tu respuesta y ejecutar el programa, usa los comandos ""node"", ""python"" o ""go run"".
+
+Utilizar gsutil
+-------------------------------
+
+También encontrarás la herramienta gsutil instalada y la variable de entorno $BUCKET_NAME configurada. Ejecuta ""gsutil --help"" para obtener más información sobre este comando.","這些台詞出自哪部電影？
+沉默的羔羊 (Silence of the Lambs)
+侏羅紀公園 (Jurassic Park)
+房間 (The Room)
+黑色追緝令 (Pulp Fiction)
+阿甘正傳 (Foreset Gump)","퀘스트
+-------------------------------
+
+'python/challenge.py', 'node/challenge.js', 'go/challenge.go'를 수정하거나 
+gsutil을 직접 사용하여 이전 도전과제에서 만든 버킷에 있는 bar.txt라는 파일에 
+로컬 파일 foo.txt를 업로드하세요.
+
+완료되었으면 'Check' 버튼을 누르세요.
+
+솔루션 코드 작성
+-------------------------------
+
+'ls'를 실행하면 지원되는 각 언어(현재까지 Python, Node(자바스크립트), Go)에
+대한 폴더가 표시됩니다.
+
+코드를 작성할 준비가 되었다면 vim, nano, emacs를 사용하여 
+해당 디렉터리 중 하나에서 도전과제 파일을 수정하고, 제공된 인터프리터를
+사용하여 실행하세요.
+
+답변으로 입력한 코드를 디버그하려면 'node', 'python', 'go run' 명령어를 사용하여 프로그램을 실행하세요.
+
+gsutil 사용
+-------------------------------
+
+또한 gsutil 유틸리티가 설치되고 환경 변수 $BUCKET_NAME이 설정된 것을 확인할 수 있습니다. 이 명령어에 대한 자세한 내용을 보려면 'gsutil --help'를 실행하세요.",如果您需要提示，可能应该尝试难度较低的级别 :),"任務
+-------------------------------
+
+修改「python/challenge.py」、「node/challenge.js」、「go/challenge.go」，或直接使用 gsutil，將本地檔案 foo.txt 上載至您在上一個挑戰建立的儲存區内一個名為 bar.txt 的檔案。
+
+完成後按一下「勾選」按鈕。
+
+編寫解決方案
+-------------------------------
+
+如您執行「ls」，您將看到各支援語言的資料夾；目前為
+python、node (JavaScript) 和 go。
+
+準備好編寫程式碼後，使用 vim、nano 或 emacs 編輯其中一個目錄中的挑戰檔案，再使用系統提供的解讀器執行。
+
+要偵錯答案，請使用指令「node」、「python」，或「go run」以執行程式。
+
+使用 gsutil
+-------------------------------
+
+您亦將看到系統已安裝 gsutil 實用程式，並已設定環境變數
+$BUCKET_NAME。執行「gsutil --help」以查閲指令說明。"
+UPLOADING_HINT_TEXT,"Hint
+----
+
+try running:
+
+gsutil cp /root/foo.txt gs://.../bar.txt.
+
+replacing ""..."" with the local filename.","Dica
+----
+
+tente executar:
+
+gsutil cp /root/foo.txt gs://.../bar.txt.
+
+substituindo ""..."" pelo nome de arquivo local.","Pista
+----
+
+prueba a ejecutar:
+
+gsutil cp /root/foo.txt gs://.../bar.txt.
+
+sustituye ""..."" por el nombre de archivo local.",侏羅紀公園 (Jurassic Park),"힌트
+----
+
+다음 명령어를 실행해 보세요.
+
+gsutil cp /root/foo.txt gs://.../bar.txt.
+
+'...'는 로컬 파일 이름으로 바꾸세요.",您的答案不正确，您真的看到图片了吗？,"提示
+----
+
+試試執行：
+
+gsutil cp /root/foo.txt gs://.../bar.txt。
+
+以本地檔案名稱取代「...」。"
+UPLOADING_PYTHON_COMMENTS,"# the bucket was already created
+# ""filename"" =  the source  file name
+# ""desitnation_name"" = the name to give the uploaded object
+
+# using the method ""blob"" on ""bucket"", which accepts the
+# option ""remote_file_name"".
+# and using the method ""upload_from_filename"" on ""blob"",
+# which accepts the ""source_file_name"", upload ""/root/foo.txt"" to ""bar.txt"".","# o intervalo já foi criado
+# ""filename"" = nome de arquivo de origem
+# ""destination_name"" = nome do objeto carregado
+
+# usando o método ""blob"" no ""bucket"", que aceita a
+# opção ""remote_file_name"".
+# e usando o método ""upload_from_filename"" no ""blob"",
+# que aceita ""source_file_name"", faça upload de ""/root/foo.txt"" para o ""bar.txt"".","# el segmento ya estaba creado
+# ""filename"" =  el nombre de archivo de origen
+# ""destination_name"" = el nombre que le darás al objeto cargado
+
+# con el método ""blob"" en ""bucket"", que acepta la
+# opción ""remote_file_name"".
+# y con el método ""upload_from_filename"" en ""blob"",
+# que acepta el ""source_file_name"", carga ""/root/foo.txt"" en ""bar.txt"".","「video1.mp4」中的小狗想要跟您做朋友！但您必須能找到她。請使用「gcloud」，透過 Google 的 Video Intelligence API 傳送這隻乖寶寶的影片，然後回報她是在影片中的第幾秒出現的 (例如「7」)。
+
+*提示* 輸入「gcloud ml video」即可開始。","# 버킷이 이미 생성됨
+# 'filename' =  소스 파일 이름
+# 'desitnation_name' = 업로드된 객체에 지정할 이름
+
+# 'bucket'에서 'remote_file_name' 옵션을 
+# 받는 'blob' 메서드를 사용하고
+# 'blob'에서 'source_file_name'을 받는 'upload_from_filename'
+# 메서드를 사용하여 '/root/foo.txt'를 'bar.txt'에 업로드하세요.","您的挑战任务
+-------------------------------
+
+通过修改“python/challenge.py”、“node/challenge.js”、“go/challenge.go”或者直接使用 gsutil，下载我们在 $BUCKET_NAME 中隐藏的图片。使用“print-png”查看图片，并在您准备好告诉我们图片内容时输入“answer”（答案）。
 
 完成后点击“Check”（检查）按钮。
 
@@ -193,39 +688,66 @@ You will also find the gsutil utility installed, and the environment variable
 
 在您准备好编写代码后，请使用 vim 修改其中一个目录中的挑战任务文件，然后使用给定的解析器执行该文件。
 
-要对您的答案进行调试，请使用命令“node”、“python”或“go run”来执行相关程序。
-
 使用 gsutil
 -------------------------------
 
-您还将发现已安装的 gsutil 实用程序以及环境变量 \$BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
-"
-UPLOADING_HINT_TEXT,"Hint
-----
+您还将发现已安装的 gsutil 实用程序以及环境变量 $BUCKET_NAME 集。运行“gsutil --help”可查看有关此命令行工具的详细信息。
+","#已建立儲存區
+# 「filename」= 來源檔案名稱
+# 「desitnation_name」= 要為已上載物件命名的名稱
 
-try running:
+#使用「儲存區」的方法「blob」，此方法接受
+# 選項「remote_file_name」。
+#並使用「blob」上的方法「upload_from_filename」，
+#此方法接受「source_file_name」，將 「/root/foo.txt」上載至「bar.txt」。"
+UPLOADING_NODE_COMMENTS,"// implement logic for uploading ""/root/foo.txt"" to ""bar.txt""
+// using the method ""bucket"" on the ""Storage"" class,
+// and the method ""upload"" on the ""bucket"" class returned.
 
-gsutil cp /root/foo.txt gs://.../bar.txt.
+// ""upload"" accepts the first argument localFilePath (""/root/foo.txt""), and a
+// second argument options; set the key ""destination"" on
+// options, to set the remote filename.","// implemente a lógica para o upload de ""/root/foo.txt"" no ""bar.txt""
+// usando o método ""bucket"" na classe ""Storage"",
+// e o método ""upload"" na classe ""bucket"" retornada.
 
-replacing ""..."" with the local filename.","提示
+// ""upload"" aceita as opções do primeiro argumento localFilePath (""/root/foo.txt"")
+// e do segundo argumento; defina a chave ""destination"" nas
+// opções para especificar o nome de arquivo remoto.","// despliega la lógica para cargar ""/root/foo.txt"" en ""bar.txt""
+// con el método ""bucket"" en la clase ""Storage""
+// y el método ""upload"" en la clase ""bucket"" que se devuelva.
+
+// ""upload"" acepta el primer argumento localFilePath (""/root/foo.txt"") y otras opciones
+// de segundo argumento; configura el ""destino"" de la clave en
+// opciones para crear el nombre de archivo remoto.","請嘗試執行以下指令：
+
+    gcloud ml video detect-labels video1.mp4 | more
+
+先尋找「description」為「dog」或「puppy」的資料欄，再找出其中的「startTimeOffset」值","// 'Storage' 클래스에 'bucket' 메서드를 사용하고
+// 반환되는 'bucket' 클래스에 'upload' 메서드 사용하여
+// '/root/foo.txt'를 'bar.txt'에 업로드하기 위한 로직을 구현하세요.
+
+// 'upload'는 첫 번째 인수로 localFilePath('/root/foo.txt')를 받고,
+// 두 번째 인수로 options를 받습니다. options에 'destination' 키를 설정하여
+// 원격 파일 이름을 설정하세요.","提示：
 ----
 
 尝试运行：
 
-gsutil cp /root/foo.txt gs://.../bar.txt。
+gsutil cp gs://... .
 
-将“...”替换为本地文件名。"
-UPLOADING_PYTHON_COMMENTS_1,# the bucket was already created,# 存储分区已创建
-UPLOADING_PYTHON_COMMENTS_2,"# ""filename"" =  the source  file name",#“filename”= 源文件名称
-UPLOADING_PYTHON_COMMENTS_3,"# ""desitnation_name"" = the name to give the uploaded object",#“desitnation_name”= 为已上传的对象指定的名称
-UPLOADING_PYTHON_COMMENTS_4,"# using the method ""blob"" on ""bucket"", which accepts the",# 通过“bucket”上的“blob”方法
-UPLOADING_PYTHON_COMMENTS_5,"# option ""remote_file_name"".",#（接受“remote_file_name”选项）
-UPLOADING_PYTHON_COMMENTS_6,"# and using the method ""upload_from_filename"" on ""blob"",",# 以及“blob”上的“upload_from_filename”方法
-UPLOADING_PYTHON_COMMENTS_7,"# which accepts the ""source_file_name"", upload ""/root/foo.txt"" to ""bar.txt"".",#（接受“source_file_name”），上传“/root/foo.txt”，并重命名为“bar.txt”。
-UPLOADING_NODE_COMMENTS_1,"// implement logic for uploading ""/root/foo.txt"" to ""bar.txt""",// 通过“Storage”类上的“bucket”方法以及
-UPLOADING_NODE_COMMENTS_2,"// using the method ""bucket"" on the ""Storage"" class,",// 所返回的“bucket”类上的“upload”方法，
-UPLOADING_NODE_COMMENTS_3,"// and the method ""upload"" on the ""bucket"" class returned.",// 实现上传“/root/foo.txt”并重命名为“bar.txt”的逻辑。
-UPLOADING_NODE_COMMENTS_4,"// ""upload"" accepts the first argument localFilePath (""/root/foo.txt""), and a",//“upload”接受第一个参数 localFilePath（“/root/foo.txt”）
-UPLOADING_NODE_COMMENTS_5,"// second argument options; set the key ""destination"" on",// 以及其他参数选项；为这些选项设置关键“destination”，
-UPLOADING_NODE_COMMENTS_6,"// options, to set the remote filename.",// 以设置远程文件名。
-UPLOADING_GO_COMMENTS,"// Using the code below, upload ""/root/foo.txt"" to the remote ""bar.txt"".",// 使用以下代码上传“/root/foo.txt”并将上传后的远程文件重命名为“bar.txt”。
+将“...”替换为远程文件名。","//執行將「/root/foo.txt」上載至「bar.txt」的邏輯
+//使用「Storage」類別的方法「bucket」，
+//以及返回的「bucket」類別的方法「upload」。
+
+//「upload」接受首個引數 localFilePath (「/root/foo.txt」)，以及
+//第二個引數選項；在選項上設定鍵「destination」，
+//以設定遠端檔案名稱。"
+UPLOADING_GO_COMMENTS,"// Using the code below, upload ""/root/foo.txt"" to the remote ""bar.txt"".
+","// Usando o código abaixo, faça upload de ""/root/foo.txt"" para o ""bar.txt"" remoto.
+","// Con el siguiente código, sube ""/root/foo.txt"" al archivo remoto ""bar.txt"".
+","糟糕！有人寫了一份備忘錄，其中包含機密資訊！您必須掃描「memo.txt」中的文字，並找出那項機密資訊是什麼。幸運的是，DLP API 可以識別機密資訊。
+「memo.txt」中很可能只有一個人名。這個名字是什麼？
+
+*提示* 輸入「gcloud alpha dlp」即可開始。","// 아래의 코드를 사용해서 '/root/foo.txt'를 원격 'bar.txt'에 업로드하세요.
+",# 您已创建存储分区，并额外上传了一个文件。请下载并查看 .png 文件,"//使用以下程式碼，將「/root/foo.txt」上載至遠端「bar.txt」。
+"

@@ -3,7 +3,7 @@
 FROM gcr.io/instruqt-shadow/base:1.1.1
 
 #install pip
-RUN apt-get install -y python3-pip
+RUN apt-get update && apt-get install -y python3-pip
 RUN pip3 install --upgrade google-cloud-storage
 
 # install node bins used on machine.
