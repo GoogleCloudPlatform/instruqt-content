@@ -14,11 +14,16 @@
 # limitations under the License.
 
 export TRACK=$(pwd)/$1
+export LANGUAGE=$2
 node ./track-localizer/index.js
 cd ${TRACK}
 read -r languages < track-translations.csv
-languages=${languages[@]:4} # Remove word "key," from the list of langauges
-languages=${languages//[$'\t\r\n']} # Trim the newline
+if [ -e $LANGUAGE ]; then
+    languages=${languages[@]:4} # Remove word "key," from the list of langauges
+    languages=${languages//[$'\t\r\n']} # Trim the newline
+else
+    languages=$LANGUAGE
+fi
 for i in ${languages//,/ }
 do
     echo "Pushing $i"
