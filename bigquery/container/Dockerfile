@@ -1,5 +1,5 @@
 # base instruqt client image
-FROM gcr.io/instruqt-shadow/base:1.1.1
+FROM gcr.io/instruqt-shadow/base:1.1.2
 
 # Authorize gcloud for the Instruqt Shadow project
 ADD svc.json svc.json
