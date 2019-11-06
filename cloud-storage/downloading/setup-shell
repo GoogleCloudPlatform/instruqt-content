@@ -53,16 +53,6 @@ async function downloadImage () {
 downloadImage()
 EOF
 
-cat <<EOF > /usr/local/lib/goog/bin/check-answer.js
-const {readFileSync} = require('fs')
-const lines = readFileSync('/root/.instruqt/answer.txt', 'utf8').trim().split('\n')
-const lastLine = lines[lines.length - 1].toLowerCase()
-if (lastLine !== 'dog' && lastLine !== '犬') {
-    console.error('incorrect answer')
-    process.exit(1)
-}
-EOF
-
 mkdir /root/python
 
 cat <<EOF > python/challenge.py
@@ -158,7 +148,7 @@ EOF
 
 # configure a few additional bins for the user.
 cat <<EOF > /root/.instruqt/choices.txt
-$CREATING_QUIZ_ANSWER
+$DOWNLOADING_QUIZ_CHOICES
 EOF
 
 # Remove hint in hard mode

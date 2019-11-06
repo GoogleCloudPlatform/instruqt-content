@@ -17,10 +17,11 @@ RUN cd /usr/local/lib/node_modules && \
 RUN mkdir -p /root/node/node_modules
 RUN cd /root/node; npm i @google-cloud/storage
 
-RUN mkdir -p /root/.instruqt
-COPY ./buddy.png /usr/local/lib/buddy.png
-COPY ./translations/*.csv /root/.instruqt
-
 # install cloud storage libraries for go.
 RUN go get -u cloud.google.com/go/storage
 RUN go get -u google.golang.org/api/iterator
+
+# Copy over container files
+RUN mkdir -p /root/.instruqt
+COPY ./buddy.png /usr/local/lib/buddy.png
+COPY ./translations/*.csv /root/.instruqt

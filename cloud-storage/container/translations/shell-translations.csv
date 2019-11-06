@@ -154,49 +154,6 @@ gsutil mb gs://...
 gsutil mb gs://...
 
 以適當的儲存區名稱取代「...」。"
-CREATING_QUIZ_ANSWER,"What was the .png an image of?
-horse
-television
-house
-person
-dog
-orange
-pizza","O que a imagem .png mostrava?
-cavalo
-televisão
-casa
-pessoa
-cachorro
-laranja
-pizza","¿Qué aparecía en la imagen .png?
-un caballo
-una televisión
-una casa
-una persona
-un perro
-una naranja
-una pizza",這項挑戰的答案是什麼？,".png는 다음 중 어떤 이미지였나요?
-말
-TV
-집
-사람
-개
-오렌지
-피자",".png 图片上有什么？
-马
-电视机
-房屋
-人
-犬
-橙子
-披萨","請問 .png 圖片中的是什麽？
-馬
-電視
-屋
-人
-狗
-橙
-薄餅"
 CREATING_QUIZ_CHECK,Click the 'Check' button if you're happy with your answer.,"Pressione o botão ""Check"" quando terminar.","Haz clic en el botón ""Check"" (Comprobar) cuando creas que sabes la respuesta.",現在，請按下 [A] 按鈕以驗證您的答案,올바른 답을 입력했다고 생각되면 'Check' 버튼을 클릭하세요.,如果您对自己的答案感到满意，请点击“Check”（检查）按钮。,找到滿意的答案後，按一下「勾選」按鈕。
 CREATING_PYTHON_COMMENTS,"# using the method ""create_bucket"" on ""storage_client"",
 # which takes the argument ""bucket_name"", create a
@@ -262,6 +219,50 @@ CREATING_GO_COMMENTS,"// using the methods: ""client.Bucket"" and
 //「bucket.Create(ctx, projectID, &storage.BucketAttrs{})」建立
 //名為「bucketName」的儲存區。"
 CREATING_NODE_HINT_TOOLTIP,"If you need a hint, maybe you should try an EASIER difficulty :)","Se você precisar de uma dica, tente um nível de dificuldade MENOR :)","Si necesitas una pista, quizás deberías probar con un grado de dificultad menor :)",答錯了！想不出答案時，請輸入「hint」。,혹시 힌트가 필요하다면 조금 더 쉬운 난이도를 선택하는 것이 어떨까요? :),// 导入 Google Cloud 客户端库,如您需要提示，您便可能應該試試較容易的難度設定 :)
+DOWNLOADING_QUIZ_CHOICES,"What was the .png an image of?
+horse
+television
+house
+person
+dog
+orange
+pizza","O que a imagem .png mostrava?
+cavalo
+televisão
+casa
+pessoa
+cachorro
+laranja
+pizza","¿Qué aparecía en la imagen .png?
+un caballo
+una televisión
+una casa
+una persona
+un perro
+una naranja
+una pizza",這項挑戰的答案是什麼？,".png는 다음 중 어떤 이미지였나요?
+말
+TV
+집
+사람
+개
+오렌지
+피자",".png 图片上有什么？
+马
+电视机
+房屋
+人
+犬
+橙子
+披萨","請問 .png 圖片中的是什麽？
+馬
+電視
+屋
+人
+狗
+橙
+薄餅"
+DOWNLOADING_QUIZ_ANSWER,dog,cachorro,un perro,,개,犬,狗
 DOWNLOADING_FAILURE,"Your answer was incorrect, did you actually see the image?",A resposta está incorreta. Você conseguiu visualizar a imagem?,Tu respuesta no es correcta. ¿Has llegado a ver la imagen?,"「doggo1.png」圖檔中出現了一隻可愛的小狗，請問它是什麼品種？請使用「gcloud」，透過 Google 的 Vision API 傳送這隻小寶貝的圖片，然後回報最可能的品種是什麼。
 
 *提示*輸入「gcloud ml vision」即可開始。",정답이 아닙니다. 실제로 이미지를 보셨나요?,// 全局唯一的存储分区名称（请勿更改此名称）。,答案錯誤，您真的看到那幅圖片嗎？
