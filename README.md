@@ -1,4 +1,4 @@
-# Instruqt Content for Google Cloud NEXT
+# Instruqt Arcade Machines for Google Cloud
 
 ## Base Container
 
