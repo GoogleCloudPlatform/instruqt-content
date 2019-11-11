@@ -1,5 +1,5 @@
 key,en,pt,es,zh-cn,zh-tw,ko,zh-hk
-track-slug,cloud-ml-apis,cloud-ml-apis-pt,cloud-ml-apis-es,cloud-ml-apis-zh-cn,cloud-ml-apis-zh-tw,cloud-ml-apis-ko,cloud-functions-http-zh-HK
+track-slug,cloud-ml-apis,cloud-ml-apis-pt,cloud-ml-apis-es,cloud-ml-apis-zh-cn,cloud-ml-apis-zh-tw,cloud-ml-apis-ko,cloud-ml-apis-hk
 track-title,Cloud ML APIs (en),APIs do Cloud ML (pt),APIs de aprendizaje automático de Cloud (es),Cloud ML API (zh-cn),Cloud ML API (zh-tw),Cloud ML API (ko),雲端機器學習 API
 track-teaser,Access Google's ready to use machine learning models.,Conheça os modelos de machine learning prontos para uso do Google.,Accede a los modelos de aprendizaje automático listos para usarse de Google.,使用 Google 现成可用的机器学习模型。,使用 Google 現成的機器學習模型。,즉시 사용 가능한 Google의 머신러닝 모델에 액세스합니다.,存取 Google 可立即使用的機器學習模型。
 track-description,"# What are the Cloud Machine Learning APIs?
