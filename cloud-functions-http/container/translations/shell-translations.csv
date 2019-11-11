@@ -1,18 +1,32 @@
-key,en,zh-tw,ko,zh-cn,zh-hk
+key,en,pt,es,zh-tw,ko,zh-cn,zh-hk
 CREATE_HELP,"We have provided you with a function written in the different languages (Node.js, Python and Go) that are supported by Google Cloud Functions.
-Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it so it returns ""Hello, Google!"" instead of ""Hello, World!"".","我們已為您提供一個函式，該函式是以 Google Cloud Functions 支援的不同語言 (Node.js、Python 和 Go) 所編寫。
+Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it so it returns ""Hello, Google!"" instead of ""Hello, World!"".","Disponibilizamos a você uma função escrita em diferentes linguagens (Node.js, Python e Go) que são compatíveis com o Google Cloud Functions.
+Abra uma das funções usando o editor de sua preferência: vi, vim ou nano. Como alternativa, instale seu próprio editor. Em seguida, altere-o para que retorne “Hello, Google!” em vez de “Hello, World!”.","Te hemos proporcionado una función escrita en diferentes lenguajes (Node.js, Python y Go) compatibles con Google Cloud Functions.
+Abre una de tus funciones con tu editor favorito (Vi, Vim, Nano o instala tu propio editor) y modifícala para que devuelva el mensaje ""Hello, Google!"" en lugar de ""Hello, World!"".","我們已為您提供一個函式，該函式是以 Google Cloud Functions 支援的不同語言 (Node.js、Python 和 Go) 所編寫。
 請使用您慣用的編輯工具 (vi、vim、nano 或安裝您自已的工具) 開啟其中一個函式，然後變更其內容，使其傳回「Hello, Google!」而非「Hello, World!」。","Google Cloud Functions에서 지원하는 다양한 언어(Node.js, Python, Go)로 작성된 함수를 제공합니다.
 즐겨 사용하는 편집기(vi, vim, nano 또는 자체 설치)를 사용하여 함수 중 하나를 열고 'Hello, World!' 대신 'Hello, Google!'을 반환하도록 코드를 변경해 보세요.","我们为您提供了一个使用 Google Cloud Functions 支持的多种语言（Node.js、Python 和 Go）编写的函数。
 您可以使用喜欢的编辑器（vi、vim、nano 或安装自己的编辑器）打开其中一个函数并进行更改，让它返回“Hello, Google!”，而非“Hello, World!”。","我們已為您提供一個功能，此功能以「Google 雲端功能」支援的不同語言 (Node.js、Python 和 Go) 編寫。
  您可使用喜歡的編輯器 (vi、vim、nano 或自行安裝編輯器) 開啟其中一個功能，並作出變更，使其以「Hello, Google!」而非「Hello, World!」回應。"
-CREATE_FAIL,"None of the functions return 'Hello, Google!'","沒有任何函式傳回「Hello, Google!」","함수가 'Hello, Google!'을 반환하지 않습니다.","没有函数会返回“Hello, Google!”","沒有功能以「Hello, Google!」回應"
+CREATE_FAIL,"None of the functions return 'Hello, Google!'","Nenhuma das funções retorna “Hello, Google!”.","Ninguna de las funciones devuelve el mensaje ""Hello, Google!""","沒有任何函式傳回「Hello, Google!」","함수가 'Hello, Google!'을 반환하지 않습니다.","没有函数会返回“Hello, Google!”","沒有功能以「Hello, Google!」回應"
 DEPLOYMENT_HELP,"Using the gcloud cli, deploy your modified function.
 
 The name of the Cloud Function must be the same as the name of the method you want it to run.
 
 The function should ""trigger on http"" requests.
 
-Note: Deploying a function can take a few minutes.","使用 gcloud cli 部署您修改後的函式。
+Note: Deploying a function can take a few minutes.","Implante sua função modificada usando a CLI do gcloud.
+
+A Função do Cloud precisa ter o mesmo nome do método que você quer usar na execução.
+
+Ela precisará “ser acionada para solicitações HTTP”.
+
+Observação: implantar uma função pode levar alguns minutos.","Despliega la función modificada con la interfaz de línea de comandos gcloud.
+
+La función de Cloud Functions debe tener el mismo nombre que el método que quieras que ejecute.
+
+La función debería activarse con solicitudes HTTP.
+
+Nota: Los despliegues de funciones pueden durar unos minutos.","使用 gcloud cli 部署您修改後的函式。
 
 Cloud 函式的名稱必須與您想使用的函式執行方法名稱相同。
 
@@ -43,6 +57,18 @@ You want to set the function to triger on http requests, which means you want to
 
 This means you can deploy the function with:
 
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","A função que você quer implantar é chamada $FUNCTION
+
+Você precisa definir que ela seja acionada em solicitações HTTP. Para isso, use a sinalização “--trigger-http”
+
+Dessa forma, será possível implantar a função com o seguinte comando:
+
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","La función que quieres desplegar es $FUNCTION
+
+Si quieres configurarla para que se active con solicitudes HTTP, debes usar la marca --trigger-http
+
+Puedes desplegar la función con el siguiente comando:
+
 gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","您要部署的函式稱為 $FUNCTION
 
 您希望將該函式設定為在收到 http 要求時觸發，這表示您要使用 --trigger-http 標記
@@ -68,7 +94,7 @@ gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","您要部�
  這代表您可如此部署功能：
  
  gcloud 功能部署 $FUNCTION --執行階段 $RUNTIME --觸發-http"
-DEPLOYMENT_FAIL,Could not find a function that triggers on HTTP requests. Type 'hint' if you are stuck.,找不到會在收到 HTTP 要求時觸發的函式。遇到問題時，請輸入「hint」。,HTTP 요청 시 트리거되는 함수를 찾을 수 없습니다. 잘 모르겠다면 'hint'를 입력하세요.,找不到由 HTTP 请求触发的函数。如果您遇到困难，请键入“hint”。,找不到受 HTTP 要求所觸發的功能。如需提示，請輸入「hint」。
+DEPLOYMENT_FAIL,Could not find a function that triggers on HTTP requests. Type 'hint' if you are stuck.,Não foi possível encontrar uma função que seja acionada em solicitações HTTP. Digite “dica” se estiver com dificuldades.,"No se ha encontrado ninguna función que se active con solicitudes HTTP. Si te bloqueas, escribe ""hint"".",找不到會在收到 HTTP 要求時觸發的函式。遇到問題時，請輸入「hint」。,HTTP 요청 시 트리거되는 함수를 찾을 수 없습니다. 잘 모르겠다면 'hint'를 입력하세요.,找不到由 HTTP 请求触发的函数。如果您遇到困难，请键入“hint”。,找不到受 HTTP 要求所觸發的功能。如需提示，請輸入「hint」。
 DIRECT_HELP,"Let's have some fun!
 
 We have deployed a function called 'cowsay' in your project.
@@ -78,7 +104,25 @@ Here is a sample output:
 $OUTPUT
 
 
-Call this function using the gcloud cli","現在我們來測試看看吧！
+Call this function using the gcloud cli","Vamos nos divertir!
+
+Implantamos uma função chamada “cowsay” no seu projeto.
+
+Veja abaixo um exemplo de resultado:
+
+$OUTPUT
+
+
+Chame essa função usando a CLI do gcloud","¡Hora de divertirse!
+
+Hemos desplegado una función con el nombre ""cowsay"" en tu proyecto.
+
+Aquí tienes un ejemplo de resultado:
+
+$OUTPUT
+
+
+Llama a esta función mediante la interfaz de línea de comandos gcloud.","現在我們來測試看看吧！
 
 我們已在您的專案中部署了一個名為「cowsay」的函式。
 
@@ -119,6 +163,14 @@ DIRECT_HINT,"The function you want to test is called 'cowsay'
 
 This means you can test the function with:
 
+gcloud functions call cowsay","A função que você quer testar é chamada “cowsay”
+
+Para testá-la, use o comando:
+
+gcloud functions call cowsay","La función que quieres probar es ""cowsay"".
+
+Puedes hacerlo con el siguiente comando:
+
 gcloud functions call cowsay","您要測試的函式稱為「cowsay」
 
 這表示您可以使用以下指令測試該函式：
@@ -136,12 +188,20 @@ gcloud functions call cowsay","您要測試的功能名為「cowsay」
  這代表您可如此測試功能：
  
  gcloud 功能執行 cowsay"
-DIRECT_FAIL,The function was not triggered manually. Type 'hint' if you are stuck.,無法以手動方式觸發該函式。遇到問題時，請輸入「hint」。,함수가 수동으로 트리거되지 않았습니다. 잘 모르겠다면 'hint'를 입력하세요.,该函数并未手动触发。如果您遇到困难，请键入“hint”。,此功能並非人手觸發。如需提示，請輸入「hint」。
+DIRECT_FAIL,The function was not triggered manually. Type 'hint' if you are stuck.,A função não foi acionada manualmente. Digite “dica” se estiver com dificuldades.,"La función no se ha activado manualmente. Si te bloqueas, escribe ""hint"".",無法以手動方式觸發該函式。遇到問題時，請輸入「hint」。,함수가 수동으로 트리거되지 않았습니다. 잘 모르겠다면 'hint'를 입력하세요.,该函数并未手动触发。如果您遇到困难，请键入“hint”。,此功能並非人手觸發。如需提示，請輸入「hint」。
 HTTP_HELP,"Let's go back to the function that you deployed
 
 Use ""curl -o result.txt <URL>"" or another method to call your HTTP function and store the result in a file called ""result.txt""
 
-Note: You can get your function's URL with the ""gcloud functions describe"" command","讓我們返回您已部署的函式
+Note: You can get your function's URL with the ""gcloud functions describe"" command","Vamos voltar para a função que você implantou
+
+Use “curl -o result.txt <URL>” ou outro método para chamar sua função HTTP e armazene o resultado em um arquivo denominado “result.txt”
+
+Observação: é possível saber o URL da sua função por meio do comando “gcloud functions describe”","Volvamos a la función que has desplegado:
+
+Utiliza el comando ""curl -o result.txt <URL>"" u otro método para llamar a la función HTTP y almacenar el resultado en un archivo llamado ""result.txt""
+
+Nota: Puedes obtener las URL de tus funciones mediante el comando ""gcloud functions describe"".","讓我們返回您已部署的函式
 
 使用「curl -o result.txt <URL>」或其他方法呼叫您的 HTTP 函式，並將結果儲存在名為「result.txt」的檔案中
 
@@ -179,6 +239,46 @@ $U
 
 
 This has been saved as an environment variable called URL for you","
+A função que você quer chamar é denominada $FUNCTION
+
+Para saber mais detalhes sobre ela, incluindo o URL, execute este comando:
+
+
+gcloud functions describe $FUNCTION
+
+
+Para analisar o URL dessa resposta, use o formato de saída JSON com jq
+
+
+gcloud functions describe $FUNCTION --format json | jq -r '.httpsTrigger.url'
+
+
+Isso retornará o URL que poderá ser usado:
+
+$U
+
+
+Essa informação foi salva como uma variável de ambiente denominada URL","
+La función a la que quieres llamar es $FUNCTION
+
+Para obtener más detalles sobre ella, como su URL, ejecuta este comando:
+
+
+gcloud functions describe $FUNCTION
+
+
+Puedes analizar la URL de su respuesta mediante el formato de resultado de JSON con jq:
+
+
+gcloud functions describe $FUNCTION --format json | jq -r '.httpsTrigger.url'
+
+
+Si lo haces, la operación devolverá una URL que puedes usar:
+
+$U
+
+
+Este resultado se ha guardado como una variable de entorno con el nombre URL.","
 您要呼叫的函式稱為 $FUNCTION
 
 您可以執行以下指令來取得有關此函式的詳細資料 (包括網址)：
@@ -258,4 +358,4 @@ $U
  
  
  這已儲存為您的環境變數執行網址"
-HTTP_FAIL,The correct function call output was not saved to a file. Type 'hint' if you are stuck.,未將正確的函式呼叫輸出儲存至檔案中。遇到問題時，請輸入「hint」。,올바른 함수 호출 결과가 파일에 저장되지 않았습니다. 잘 모르겠다면 'hint'를 입력하세요.,而正确的函数调用输出并未保存到文件中。如果您遇到困难，请键入“hint”。,正確的功能執行輸出未儲存至檔案。如需提示，請輸入「hint」。
+HTTP_FAIL,The correct function call output was not saved to a file. Type 'hint' if you are stuck.,A saída correta da chamada da função não foi salva em um arquivo. Digite “dica” se estiver com dificuldades.,"No se ha guardado en ningún archivo el resultado de la llamada correcta a la función. Si te bloqueas, escribe ""hint"".",未將正確的函式呼叫輸出儲存至檔案中。遇到問題時，請輸入「hint」。,올바른 함수 호출 결과가 파일에 저장되지 않았습니다. 잘 모르겠다면 'hint'를 입력하세요.,而正确的函数调用输出并未保存到文件中。如果您遇到困难，请键入“hint”。,正確的功能執行輸出未儲存至檔案。如需提示，請輸入「hint」。

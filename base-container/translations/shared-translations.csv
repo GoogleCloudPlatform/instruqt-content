@@ -1,11 +1,11 @@
-key,en,zh-cn,zh-hk,zh-tw,ko
-YOUR_QUEST,Your Quest,#任务,#任務,#任務,#내퀘스트
-TYPE_HELP_MESSAGE,"Type ""help"" to display this message again.",输入“help”可再次显示此消息。,"輸入 \""help\"" 即可再顯示此訊息。","輸入 \""help\"" 再次顯示此訊息。","이 메시지를 다시 표시하려면 \""help\""를 입력하세요."
-TYPE_HINT_MESSAGE,"Type ""hint"" if you get REALLY stuck.",如果你真的被卡住了，请输入“hint”。,,「真的」想不出來時，請輸入「hint」。,"정말 모르겠으면 ""hint""를 입력하십시오."
-ANSWER_PROMPT,What is the answer to this challenge?,这个挑战的答案是什么？,,這項挑戰的答案是什麼？,이 도전에 대한 답은 무엇입니까?
-ANSWER_VERIFY_PROMPT,Now press the A button to verify your answer,现在按“A”按钮验证您的答案,,現在，請按下 [A] 按鈕以驗證您的答案,"이제 ""A""버튼을 눌러 답을 확인하십시오"
-PROMPT_HELP,"When you think you know the answer, type ""answer"" and press ENTER",如果您认为自己知道答案，请输入“answer”并按 ENTER 键,,當您認為自己知道答案時，請輸入「答案」，然後按下 ENTER 鍵,답을 알고 있다면 'answer'를 입력한 후 Enter 키를 누르세요.
-DIFFICULTY_HARD_HINT,"If you need a hint, maybe you should try an EASIER difficulty :)",如果您需要提示，也许您应该尝试一个较低的难度 :),,如果您需要提示，也許您應該試試「較簡單」的任務 :),혹시 힌트가 필요하다면 난이도를 낮추세요 :)
-FAIL_MESSAGE_NO_ANSWER,"You haven't answered yet! You must run the ""answer"" command and press ENTER",您尚未作答！ 您必须运行“answer”命令并按 Enter 键,,您尚未回答！您必須執行「answer」指令，然後按下 ENTER 鍵,아직 답을 입력하지 않았습니다. 'answer' 명령어를 실행하고 Enter 키를 눌러야 합니다.
-FAIL_MESSAGE_INCORRECT,"Your answer is incorrect! Type ""hint"" if you are stuck.",您答错了！如果您实在卡住了，可以输入“hint”。,,答錯了！想不出答案時，請輸入「hint」。,정답이 아닙니다. 정답을 모르겠다면 'hint'를 입력하세요.
-EXIT_HELP,To exit the game press Ctrl+Alt+Del,要退出游戏，请按Ctrl + Alt + Del,,,이 게임을 나가고 싶으시면 Ctrl+Alt+Del를 누르세요.
+key,en,zh-cn,zh-hk,zh-tw,ko,es
+YOUR_QUEST,Your Quest,#任务,#任務,#任務,#내퀘스트,Tu Desafío
+TYPE_HELP_MESSAGE,"Type ""help"" to display this message again.",输入“help”可再次显示此消息。,"輸入 \""help\"" 即可再顯示此訊息。","輸入 \""help\"" 再次顯示此訊息。","이 메시지를 다시 표시하려면 \""help\""를 입력하세요.","Escribe ""help"" para mostrar este mensaje de nuevo."
+TYPE_HINT_MESSAGE,"Type ""hint"" if you get REALLY stuck.",如果你真的被卡住了，请输入“hint”。,,「真的」想不出來時，請輸入「hint」。,"정말 모르겠으면 ""hint""를 입력하십시오.","Escribe ""hint"" si REALMENTE te atascas."
+ANSWER_PROMPT,What is the answer to this challenge?,这个挑战的答案是什么？,,這項挑戰的答案是什麼？,이 도전에 대한 답은 무엇입니까?,¿Cuál es la respuesta a este desafío?
+ANSWER_VERIFY_PROMPT,Now press the A button to verify your answer,现在按“A”按钮验证您的答案,,現在，請按下 [A] 按鈕以驗證您的答案,"이제 ""A""버튼을 눌러 답을 확인하십시오",Ahora presiona el botón A para verificar tu respuesta
+PROMPT_HELP,"When you think you know the answer, type ""answer"" and press ENTER",如果您认为自己知道答案，请输入“answer”并按 ENTER 键,,當您認為自己知道答案時，請輸入「答案」，然後按下 ENTER 鍵,답을 알고 있다면 'answer'를 입력한 후 Enter 키를 누르세요.,"Cuando creas que sabes la respuesta, escribe ""answer"" y presiona ENTER"
+DIFFICULTY_HARD_HINT,"If you need a hint, maybe you should try an EASIER difficulty :)",如果您需要提示，也许您应该尝试一个较低的难度 :),,如果您需要提示，也許您應該試試「較簡單」的任務 :),혹시 힌트가 필요하다면 난이도를 낮추세요 :),"Si necesitas una pista, tal vez deberías intentar un nivel más sencillo:)"
+FAIL_MESSAGE_NO_ANSWER,"You haven't answered yet! You must run the ""answer"" command and press ENTER",您尚未作答！ 您必须运行“answer”命令并按 Enter 键,,您尚未回答！您必須執行「answer」指令，然後按下 ENTER 鍵,아직 답을 입력하지 않았습니다. 'answer' 명령어를 실행하고 Enter 키를 눌러야 합니다.,"¡Todavía no has respondido! Ejecuta el comando ""answer"" y presiona ENTER"
+FAIL_MESSAGE_INCORRECT,"Your answer is incorrect! Type ""hint"" if you are stuck.",您答错了！如果您实在卡住了，可以输入“hint”。,,答錯了！想不出答案時，請輸入「hint」。,정답이 아닙니다. 정답을 모르겠다면 'hint'를 입력하세요.,"¡Tu respuesta es incorrecta! Escribe ""hint"" si estás atascado."
+EXIT_HELP,To exit the game press Ctrl+Alt+Del,要退出游戏，请按Ctrl + Alt + Del,,,이 게임을 나가고 싶으시면 Ctrl+Alt+Del를 누르세요.,"Para salir del juego, presiona Ctrl+Alt+Del"
