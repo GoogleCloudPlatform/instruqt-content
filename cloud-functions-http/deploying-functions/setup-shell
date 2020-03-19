@@ -46,6 +46,6 @@ cat <<EOF > /root/package.json
 EOF
 
 echo "exports.cowsay = (req, res) => {res.end(require('cowsay').say({text:\`\${req.query.text || 'Google Cloud Functions are awesome'}\`}))}" > /root/index.js
-echo "gcloud functions deploy cowsay --source=/root/ --trigger-http > /dev/null 2>&1 &" >> /root/.instruqt/.customrc
+echo "nohup gcloud functions deploy cowsay --source=/root/ --trigger-http > /dev/null 2>&1 &" >> /root/.instruqt/.customrc
 
 set-workdir /home
