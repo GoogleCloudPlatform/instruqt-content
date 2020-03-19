@@ -13,7 +13,7 @@ The base container `gcr.io/instruqt-shadow/base` has the following features:
  * Adds `tiv` for printing images in the terminal via `tiv -256 /path/to/image.png`.
 
 Use it by adding `gcr.io/instruqt-shadow/base` to your `Dockerfile`, or setting it as your image in `config.yaml`.
-Modify it by editing the contents of `base-container/git diff `.
+Modify it by editing the contents of `base-container/`.
 
 ## Convensions
 
