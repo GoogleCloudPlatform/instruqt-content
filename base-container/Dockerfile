@@ -17,6 +17,9 @@ RUN curl -XGET https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz > /usr/local
 ENV GOPATH /usr/local/lib
 RUN ln -sf /usr/local/lib/go/bin/go /usr/local/bin/go
 
+# install zip
+RUN apt-get install -y zip 
+
 # Install terminal-quiz
 RUN mkdir -p /usr/local/lib/node_modules && \
     cd /usr/local/lib/node_modules && \
