@@ -53,41 +53,41 @@ Cloud 함수의 이름은 실행하려는 메서드의 이름과 동일해야 �
  注意：部署功能可能需時幾分鐘。"
 DEPLOYMENT_HINT,"The function you want to deploy is called $FUNCTION
 
-You want to set the function to triger on http requests, which means you want to use the --trigger-http flag
+You want to set the function to trigger on http requests, which means you want to use the --trigger-http flag
 
 This means you can deploy the function with:
 
-gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","A função que você quer implantar é chamada $FUNCTION
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http --allow-unauthenticated","A função que você quer implantar é chamada $FUNCTION
 
 Você precisa definir que ela seja acionada em solicitações HTTP. Para isso, use a sinalização “--trigger-http”
 
 Dessa forma, será possível implantar a função com o seguinte comando:
 
-gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","La función que quieres desplegar es $FUNCTION
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http --allow-unauthenticated","La función que quieres desplegar es $FUNCTION
 
 Si quieres configurarla para que se active con solicitudes HTTP, debes usar la marca --trigger-http
 
 Puedes desplegar la función con el siguiente comando:
 
-gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","您要部署的函式稱為 $FUNCTION
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http --allow-unauthenticated","您要部署的函式稱為 $FUNCTION
 
 您希望將該函式設定為在收到 http 要求時觸發，這表示您要使用 --trigger-http 標記
 
 這表示您可以使用以下指令來部署該函式：
 
-gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","사용자가 배포하려는 함수는 $FUNCTION입니다.
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http --allow-unauthenticated","사용자가 배포하려는 함수는 $FUNCTION입니다.
 
 http 요청 시 트리거되도록 함수를 설정하려면 --trigger-http 플래그를 사용해야 합니다.
 
 이 경우 다음과 같이 함수를 배포할 수 있습니다.
 
-gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","您要部署的函数名为 $FUNCTION
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http --allow-unauthenticated","您要部署的函数名为 $FUNCTION
 
 您希望将函数设置为由 http 请求触发，也就是说要使用 --trigger-http 标志
 
 因此，您可以通过如下命令部署函数：
 
-gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http","您要部署的功能名為「$FUNCTION」
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http --allow-unauthenticated","您要部署的功能名為「$FUNCTION」
  
  您要將功能設定為受 http 要求觸發，這代表您要使用 --trigger-http 標示
  
