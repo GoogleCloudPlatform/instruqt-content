@@ -9,6 +9,8 @@ containers:
 gcp_projects:
 - name: cloud-functions
   services:
+  - cloudresourcemanager.googleapis.com
+  - cloudbuild.googleapis.com
   - cloudfunctions.googleapis.com
   - storage-component.googleapis.com
   - storage-api.googleapis.com
