@@ -33,19 +33,4 @@ source /root/.instruqt/.translationsenv
 echo "$DEPLOYMENT_HELP" > /root/.instruqt/help.txt
 echo "$DEPLOYMENT_HINT" > /root/.instruqt/hint.txt
 
-cat <<EOF > /root/package.json
-{
-  "scripts": {
-    "start": "node index.js"
-  },
-  "license": "Apache-2.0",
-  "dependencies": {
-    "cowsay": "^1.4.0"
-  }
-}
-EOF
-
-echo "exports.cowsay = (req, res) => {res.end(require('cowsay').say({text:\`\${req.query.text || 'Google Cloud Functions are awesome'}\`}))}" > /root/index.js
-echo "nohup gcloud functions deploy cowsay --source=/root/ --trigger-http > /dev/null 2>&1 &" >> /root/.instruqt/.customrc
-
 set-workdir /home

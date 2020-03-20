@@ -13,5 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 set-workdir /home
+
 # Remove functions without the modified string
 grep -rLZ 'Hello, Google!' /home/ | xargs --null rm
+
+# Clean up cowsay build folder
+rm -rf /root/cowsay
