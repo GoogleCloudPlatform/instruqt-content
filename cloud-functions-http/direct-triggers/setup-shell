@@ -13,9 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 export URL=$(gcloud functions describe cowsay --format json | jq -r '.httpsTrigger.url')
-export OUTPUT=$(curl $URL?text=I%20hope%20you%20are%20having%20fun%20with%20this%20Cloud%20Functions%20challenge!)
+export OUTPUT=$(curl $URL?text=I%20hope%20you%20are%20having%20fun%20with%20this%20Cloud%20Functions%20challenge\!)
 
-source /root/.instruqt/translationsenv
+source /root/.instruqt/.translationsenv
 
 echo "$DIRECT_HELP" > /root/.instruqt/help.txt
 echo "$DIRECT_HINT" > /root/.instruqt/hint.txt
