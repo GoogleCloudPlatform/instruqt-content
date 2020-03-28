@@ -4,9 +4,6 @@ alias help="/usr/local/bin/help"
 # Override alias with a display message on how to exit
 alias exit="echo \"To exit the game press Ctrl+Alt+Del\""
 
-# Alias "gcloud" to "gcloud --format=yaml"
-alias gcloud="gcloud --format=yaml"
-
 INSTRUQT_DIR=/root/.instruqt
 
 # Load environment variables from .customenv
