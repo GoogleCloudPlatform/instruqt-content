@@ -12,12 +12,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-export URL=$(gcloud functions describe cowsay --format json | jq -r '.httpsTrigger.url')
+
+# Retry max 30s 
+DESCRIBE=$(max=6; for n in $(seq 1 $max); do gcloud functions describe cowsay --format json && break; sleep 5; done)
+export URL=$(echo $DESCRIBE | jq -r '.httpsTrigger.url')
 export OUTPUT=$(curl $URL?text=I%20hope%20you%20are%20having%20fun%20with%20this%20Cloud%20Functions%20challenge\!)
 
 source /root/.instruqt/.translationsenv
 
 echo "$DIRECT_HELP" > /root/.instruqt/help.txt
 echo "$DIRECT_HINT" > /root/.instruqt/hint.txt
+
+[ -z "$DESCRIBE" ] && echo "Something went wrong and we could not recover" > /root/.instruqt/help.txt
 
 set-workdir /home
