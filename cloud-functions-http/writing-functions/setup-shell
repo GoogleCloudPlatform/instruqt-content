@@ -13,6 +13,71 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# #
+# The cowsay function is for a next challenge. 
+# Let's deploy it now to make sure it is ready in time. 
+# #
+
+# Assign owner role to the Cloud Build service account 
+PROJECT_NUMBER=$(gcloud projects describe $INSTRUQT_GCP_PROJECT_CLOUD_FUNCTIONS_PROJECT_ID --format 'value(projectNumber)')
+CB_SA=$PROJECT_NUMBER@cloudbuild.gserviceaccount.com
+gcloud projects add-iam-policy-binding $INSTRUQT_GCP_PROJECT_CLOUD_FUNCTIONS_PROJECT_ID --member serviceAccount:$CB_SA --role roles/owner
+
+mkdir /root/cowsay 
+
+cat <<EOF > /root/cowsay/package.json
+{
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cowsay": "^1.4.0"
+  }
+}
+EOF
+
+echo "exports.cowsay = (req, res) => {res.end(require('cowsay').say({text:\`\${req.query.text || 'Google Cloud Functions are awesome'}\`}))}" > /root/cowsay/index.js
+
+# #
+# The command `gcloud functions deploy` can take a while. 
+# When you use a background process, the deploy is aborted if
+# it does not succeed before the shell closes. To make matters worse, 
+# it can also fail on first try (gcf-admin-robot.iam.gserviceaccount.com 
+# does not have storage.objects.create access to...) 
+#
+# This is why I deploy the function using Cloud Build, which will 
+# run independent of this shell process. I also add retry logic to get 
+# past the first failures. 
+#
+# Before I start the build, I give roles/owner permissions to the 
+# Cloud Build service account to make sure it can deploy the function. 
+# #
+
+# Build script with three retries
+CMD_DEPLOY="gcloud functions deploy cowsay --runtime nodejs10 --trigger-http --allow-unauthenticated"
+cat <<EOF > /root/cowsay/build.sh
+#!/bin/bash
+$CMD_DEPLOY || \
+$CMD_DEPLOY || \
+$CMD_DEPLOY 
+EOF
+chmod +x /root/cowsay/build.sh
+
+# Cloud Build job config
+cat <<EOF > /root/cowsay/cloudbuild.yaml
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: "/bin/sh"
+  args: ["./build.sh"]
+EOF
+
+# Execute build
+cd /root/cowsay
+gcloud builds submit --async
+
+## Challenge Set-up: 
+
 echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc
 
 echo "$CREATE_HELP" > /root/.instruqt/help.txt

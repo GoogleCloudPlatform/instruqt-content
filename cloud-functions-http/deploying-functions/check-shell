@@ -20,7 +20,7 @@ fi
 
 if [ -f /home/index.js ]; then
 	FUNCTION=helloHttp
-  RUNTIME=nodejs8
+  RUNTIME=nodejs10
 fi
 
 if [ -f /home/main.py ]; then
