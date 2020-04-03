@@ -1,0 +1,28 @@
+key,en
+slug,cloud-run-track-two
+teaser,A serverless container wants to chat with you
+description,You can run a GPT-2 based chat bot on Cloud Run
+deploy-image-notes-1,"GPT-2 is an **advanced AI model** which is known for its ability to generate text that looks like a human wrote it.
+\n\n
+In fact, the network is so **powerful** that the company that created it, OpenAI, didn't want to publish the model out of concerns over misuse. After a year, they changed course and decided to publish the *full model*.  "
+deploy-image-notes-2,"GPT-2 was trained from **8 million** documents for a total of **40 GB of internet text**. This makes it a a model that is able to complete a **broad range of texts**, including chat transcripts. 
+\n\n
+This is how we created a GPT-2 chat bot. We packaged the bot in a docker container: it's your task to *deploy* the container and *talk* to the bot. 
+\n\n
+This challenge shows that Cloud Run can be used to run *almost anything*, as long as it runs in a Docker container and speaks HTTP."
+deploy-image-assignment,"Deploy the GPT-2 image using ``gcloud run deploy`` 
+\n\n
+The tag for the image is in the environment variable **$GPT2_IMAGE**
+\n\n
+ 1. Give the service ``2G`` memory - the model requires a good amount of memory to run
+\n\n
+ 2. Specify two CPUs - or your chatbot will take a ...long... time to respond to your requests."
+chat-assignment,"Now that you deployed you chatbot, it's time to start a conversation. 
+\n\n
+You can find the URL of the service in **$SERVICE_URL**.
+\n\n
+Using ``curl``, you can send mesages.
+``curl $SERVICE_URL -d ""Hello, anybody there?""``
+\n\n
+You complete this challenge when you've sent at least 10 messages - feel free to talk longer if you enjoy the conversation."
+chat-notes-1,"This is how GPT-2 works: it starts from a seed and builds continuations. If you give it the seed *""Cloud Run is""*, it will complete the sentence. For example: *""Cloud Run is an open-source project which runs on an open-source background tool.""*"
