@@ -1,0 +1,57 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+### Challenge objective
+# Look at the files and execute response.sh
+
+source /root/.instruqt/.translationsenv
+
+echo "$GETTING_STARTED_HELP" > /root/.instruqt/help.txt
+echo "$GETTING_STARTED_HINT" > /root/.instruqt/hint.txt
+
+set-workdir /home
+
+cat <<END > /home/response.sh 
+#!/bin/sh
+
+#  
+# This returns a minimal HTTP response. 
+#  - $() is a subshell, you can use it to make your
+#    response dynamic. 
+#  - The blank line after "Connection: close" is significant,
+#    it separates the HTTP headers from the body. 
+#  
+
+cat - <<EOF
+HTTP/1.1 200 OK
+Connection: close
+
+\$(fortune)
+EOF
+END
+chmod +x /home/response.sh
+
+cat <<EOF > /home/Dockerfile
+FROM alpine
+RUN apk add fortune
+COPY response.sh response.sh
+
+# The next line starts netcat. It will listen on PORT and
+# execute 'response.sh' on incoming requests 
+CMD echo "Listening on :\${PORT:-8080}" && \\
+    nc -lkp \${PORT:-8080} -e ./response.sh
+EOF
+
+

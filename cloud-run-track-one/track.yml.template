@@ -1,0 +1,71 @@
+slug: {{{ slug }}}
+type: track
+title: Cloud Run Track One ({{ language-code }})
+teaser: {{{ teaser }}}
+description: {{{ description }}}
+icon: https://storage.googleapis.com/instruqt-shadow-resources/gcr.gif
+tags:
+- google
+- ' cloud'
+- ' run'
+owner: google
+developers:
+- wietsevenema@binx.io
+private: false
+published: true
+challenges:
+- slug: getting-started
+  type: challenge
+  title: Getting Started with Cloud Run
+  teaser: Understanding an example application
+  assignment: {{{ getting-started-assignment }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: build-image
+  type: challenge
+  title: Building a Container Image
+  teaser: Build a container image with Cloud Build
+  assignment: {{{ build-image-assignment }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: deploy-image
+  type: challenge
+  title: Deploying a Container
+  teaser: Deploy your container to Cloud Run
+  assignment: {{{ deploy-image-assignment }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 600
+- slug: authenticated-service
+  type: challenge
+  title: Protect Your Cloud Run Service
+  teaser: Allow Only Authenticated Traffic
+  assignment: {{{ authenticated-service-assignment }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: call-authenticated-service
+  type: challenge
+  title: Send Authenticated Requests
+  teaser: Make Sure You Can Connect
+  assignment: {{{ call-authenticated-service-assignment }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500  

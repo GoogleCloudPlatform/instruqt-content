@@ -1,0 +1,14 @@
+version: "2"
+containers:
+- name: shell
+  image: gcr.io/instruqt-shadow/cloud-run-track-one:0.0.1
+  shell: /bin/bash
+  memory: 128
+  environment:
+    INSTRUQT_LANGUAGE_CODE: {{languagecode}}
+gcp_projects:
+- name: cloud-run
+  services:
+  - cloudresourcemanager.googleapis.com
+  - cloudbuild.googleapis.com
+  - run.googleapis.com
