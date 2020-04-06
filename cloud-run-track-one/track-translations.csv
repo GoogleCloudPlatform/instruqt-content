@@ -1,0 +1,40 @@
+key,en
+slug,cloud-run-track-one
+teaser,Serverless containers
+description,"Cloud Run is a serverless platform you can use to run and scale serverless, container-based services"
+getting-started-assignment,"Cloud Run will run any container with an HTTP server as a service: you push your container image and get a URL back.  
+\n\n
+If it speaks HTTP, Cloud Run will serve it, even a **shell-based web server**. 
+\n\n
+First, take a look at the current directory. There is a ``Dockerfile`` and a ``response.sh``.
+\n\n
+The Dockerfile contains a list of commands to build a container image. 
+\n\n
+The response.sh file is executed for every incoming HTTP request. It returns an HTTP response. 
+\n\n
+Your task is to read both files and to execute ``response.sh``."
+build-image-assignment,"To start the service on **Cloud Run**, you need a container image. 
+\n\n
+We want to build an application from the Dockerfile in your local source, but we don't have docker installed locally. We can build it in the cloud with **Cloud Build**.
+\n\n
+Cloud Build will build any directory with a ``Dockerfile``, when you add the -t option with an image name.
+\n\n
+Your task: using ``gcloud builds submit``, push a build to Cloud Build and tag the container image with the name contained in the environment variable ``$IMAGE_TAG``"
+deploy-image-assignment,"The next step is to deploy the image to Cloud Run using ``gcloud run deploy``. 
+\n\n
+The tag for the image you just built is in the environment variable ``$IMAGE_TAG``
+\n\n
+1. Give the service you create public access by allowing unauthenticated invocations.\n
+2. Prove that your service works by calling the URL.\n"
+authenticated-service-assignment,"You can also protect Cloud Run services from public access. This is what you need to do:
+\n\n
+1. Deploy the same image (``$IMAGE_TAG``) as a second service with a different name. This time, do not allow unauthenticated access.\n
+2. Send a request to the service with ``curl``, to show you don't have permission to call it. \n
+"
+call-authenticated-service-assignment,"This is the final challenge to show you are mastered Cloud Run Part One!
+\n\n
+You now need to send **authenticated requests** to the protected service you deployed in the previous challenge.
+\n\n
+The URL of your protected service is in the environment variable **$SECRET_SERVICE_URL**
+\n\n
+Use ``gcloud auth print-identity-token`` to get your personal ID-token. Then add a ``Authorization: Bearer [TOKEN]`` HTTP header, and send a request with curl.\n"

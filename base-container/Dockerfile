@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y build-essential \
   software-properties-common
 
 # Install Node
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
 RUN apt-get update && \
     apt-get install -y nodejs
 
