@@ -1,0 +1,14 @@
+version: "2"
+containers:
+- name: shell
+  image: gcr.io/instruqt-shadow/knative-gke:1.0.0
+  shell: /bin/bash
+  memory: 128
+  environment:
+    INSTRUQT_LANGUAGE_CODE: {{languagecode}}
+gcp_projects:
+- name: cloud-run
+  services:
+  - cloudresourcemanager.googleapis.com
+  - container.googleapis.com
+  - logging.googleapis.com

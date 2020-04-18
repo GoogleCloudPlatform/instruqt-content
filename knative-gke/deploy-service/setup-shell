@@ -1,0 +1,50 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+set -o pipefail 
+
+source /root/.instruqt/.translationsenv
+
+echo "$DEPLOY_SERVICE_HELP" > /root/.instruqt/help.txt
+echo "$DEPLOY_SERVICE_HINT" > /root/.instruqt/hint.txt
+
+set-workdir /home
+
+# Wait for cluster to be RUNNING
+for i in `seq 1 36`; do     
+  CLUSTER_READY=$(gcloud container clusters list \
+    --filter="status:RUNNING AND name:knative" \
+    --format=json | jq length)
+  [ $CLUSTER_READY -ne 0 ] && break
+  echo "Cluster not ready: $CLUSTER_READY"
+  sleep 5
+done
+
+# Authenticate kubectl
+gcloud container clusters get-credentials knative
+
+# Wait for istio-ingress to be ready
+while : ; do 
+  kubectl get service/istio-ingress --namespace gke-system
+  [[ $? -eq "0" ]] && break
+  echo "istio-ingress not ready"
+done
+
+# Get the IP of the ingress and add it to the hosts file 
+while : ; do 
+  IP=$(kubectl get service/istio-ingress --namespace gke-system -o json | jq -r .status.loadBalancer.ingress[0].ip)
+  [[ "$IP" != "null" ]] && break
+done
+
+echo "$IP hello.default.example.com" >> /etc/hosts

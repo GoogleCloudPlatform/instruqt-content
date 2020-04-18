@@ -1,0 +1,8 @@
+key,en
+slug,knative-gke
+teaser,Kubernetes-based serverless workloads
+description,You can run managed Knative on Google Kubernetes Engine
+getting-started-notes-1,"Here's a service.yaml. Change the name of the service to ""hello"" "
+getting-started-assignment,"Read the yaml and add a name: ""hello"""
+deploy-service-notes-1,Deploy the service with kubectl and send a request
+deploy-service-assignment,Deploy the service with kubectl and send a request
