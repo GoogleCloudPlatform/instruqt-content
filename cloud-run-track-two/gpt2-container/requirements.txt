@@ -1,0 +1,5 @@
+transformers
+sentencepiece==0.1.85
+profanity-filter
+flask
+vaderSentiment

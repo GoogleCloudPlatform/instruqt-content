@@ -1,0 +1,44 @@
+slug: {{{ slug }}}
+type: track
+title: Knative ({{ language-code }})
+teaser: {{{ teaser }}}
+description: {{{ description }}}
+icon: https://storage.googleapis.com/instruqt-shadow-resources/knative.gif
+tags:
+- google
+- ' knative'
+- ' gke'
+owner: google
+developers:
+- wietsevenema@binx.io
+private: true
+published: true
+challenges:
+- slug: getting-started
+  type: challenge
+  title: Exploring a Service Definition
+  teaser: A little yaml goes a long way
+  assignment: {{{ getting-started-assignment }}}
+  notes:
+  - type: text
+    contents: {{{ getting-started-notes-1 }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: deploy-service
+  type: challenge
+  title: Deploy your Service
+  teaser: You need to apply first
+  assignment: {{{ deploy-service-assignment }}}
+  notes: 
+  - type: text
+    contents: {{{ deploy-service-notes-1 }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500

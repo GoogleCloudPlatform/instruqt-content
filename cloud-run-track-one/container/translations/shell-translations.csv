@@ -1,0 +1,77 @@
+key,en
+GETTING_STARTED_HELP,"Cloud Run will run any container with an HTTP server as a service: you push your container image and get a URL back.  
+
+If it speaks HTTP, Cloud Run will serve it, even a shell-based web server. 
+
+First, take a look at the current directory. There is a Dockerfile and a response.sh.
+
+The Dockerfile contains a list of commands to build a container image. 
+
+The response.sh file is executed for every incoming HTTP request. It returns an HTTP response.
+
+Your task is to read both files and to execute ""response.sh""."
+GETTING_STARTED_HINT,"You can use a text editor or the 'cat' program to inspect the files. 
+
+Execute the response.sh like this: ./response.sh"
+GETTING_STARTED_FAIL,You did not read this file: 
+BUILD_IMAGE_HELP,"To start the service on Cloud Run, you need a container image. 
+
+We want to build an application from the Dockerfile in your local source, but we don't have docker installed locally. We can build it in the cloud with Cloud Build. 
+
+Cloud Build will build any directory with a Dockerfile, when you add the -t option with an image name.
+
+Your task: using ""gcloud builds submit"", push a build to Cloud Build and tag the container image with the name contained in the environment variable \$IMAGE_TAG"
+BUILD_IMAGE_HINT,"If you run ""gcloud builds submit"" in a directory with a Dockerfile, it will build a container image. 
+
+Make sure to use the ""-t option"" to tag the image. 
+
+You do not need to create a ""cloudbuild.yaml""
+
+gcloud builds submit -t \$IMAGE_TAG"
+BUILD_IMAGE_FAIL,There is no container image in the registry.
+DEPLOY_IMAGE_HELP,"The next step is to deploy the image to Cloud Run using ""gcloud run deploy"".  
+
+The tag for the image you just built is in the environment variable \$IMAGE_TAG ($IMAGE_TAG).
+
+ 1. Give the service you create public access by allowing unauthenticated invocations. 
+
+ 2. Prove that your service works by calling the URL."
+DEPLOY_IMAGE_HINT,"> Deploy your image to Cloud Run to create the ""fortune"" service. 
+
+gcloud run deploy fortune --image \$IMAGE_TAG --allow-unauthenticated  
+
+> Call the URL using curl
+URL=\$(gcloud run services describe fortune --format=""value(status.url)"")
+curl \$URL
+"
+DEPLOY_IMAGE_FAIL_NOTHING,No service was deployed.
+DEPLOY_IMAGE_FAIL_NOT_READY,The service is not healthy.
+DEPLOY_IMAGE_FAIL_NOT_PUBLIC,"The service should allow public access: ""--allow-unauthenticated"". If you update access policy of the service, be patient, it can take some time."
+DEPLOY_IMAGE_FAIL_NO_CALL,Expected a HTTP request to the service: did you call the URL?
+AUTHENTICATED_SERVICE_HELP,"You can also protect Cloud Run services from public access. This is what you need to do:
+
+ 1. Deploy the same image (\$IMAGE_TAG) as a new service with a different name. This time, do not allow unauthenticated access.
+
+ 2. Send a request to the service with curl, to show you don't have permission to call it anonymously. "
+AUTHENTICATED_SERVICE_HINT,"> Deploy the same image as a new service with a different name: 
+
+gcloud run deploy secret-fortune --image \$IMAGE_TAG --no-allow-unauthenticated
+
+> Send a request to the new service and watch it being denied:
+
+URL=\$(gcloud run services describe secret-fortune --format=""value(status.url)"")
+curl \$URL
+"
+AUTHENTICATED_SERVICE_FAIL_NO_SERVICE,Expected an additional Cloud Run service
+AUTHENTICATED_SERVICE_FAIL_NO_DENIED,There was no denied request (HTTP 403) detected to the service
+CALL_AUTHENTICATED_SERVICE_HELP,"This is the final challenge to show you have mastered Cloud Run Part One!
+
+You now need to send authenticated requests to the protected service you deployed in the previous challenge.
+
+The URL of your protected service ""$SECRET_SERVICE_NAME"" is in the environment variable \$SECRET_SERVICE_URL 
+
+Use ""gcloud auth print-identity-token"" to get your personal ID-token. Then add a ""Authorization: Bearer [TOKEN]"" HTTP header, and send a request with curl."
+CALL_AUTHENTICATED_SERVICE_HINT,"> Send an authenticated request
+
+curl \$SECRET_SERVICE_URL -H ""Authorization: Bearer \$(gcloud auth print-identity-token)"""
+CALL_AUTHENTICATED_SERVICE_FAIL,"Expected an authenticated request to the protected service. It might take a while before we notice the request, please retry! "

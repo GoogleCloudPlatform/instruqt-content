@@ -1,0 +1,7 @@
+key,en
+GETTING_STARTED_HELP,"Read the service.yaml and add a name: ""hello"""
+GETTING_STARTED_HINT,"Edit the file with vi, vim, nano, or apt-get your own editor"
+GETTING_STARTED_FAIL_YAML,The service.yaml file has invalid syntax. 
+DEPLOYMENT_FAIL_NAME_CHANGE,"To pass, edit the name of the service in the service.yaml to ""hello"". Use vi, nano, or install your favorite editor. "
+DEPLOY_SERVICE_HELP,Deploy the service with kubectl and send a request
+DEPLOY_SERVICE_HINT,kubectl apply -f service.yaml

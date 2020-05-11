@@ -1,0 +1,29 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+### Challenge objective
+# Deploy the GPT-2 container to Cloud Run
+
+echo "export GPT2_IMAGE=gcr.io/instruqt-shadow/gpt-2:1.0.1" >> /root/.instruqt/.customrc
+
+source /root/.instruqt/.translationsenv
+
+echo "$DEPLOY_IMAGE_HELP" > /root/.instruqt/help.txt
+echo "$DEPLOY_IMAGE_HINT" > /root/.instruqt/hint.txt
+
+set-workdir /home
+
+gcloud config set run/platform managed
+gcloud config set run/region us-central1
