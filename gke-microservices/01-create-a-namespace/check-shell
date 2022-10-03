@@ -12,34 +12,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
-
-echo "$DEPLOYMENT_HELP" > /root/.instruqt/help.txt
-
-echo "$DEPLOYMENT_HINT" > /root/.instruqt/hint.txt
-
-set-workdir /home
-
-cat <<EOF > /home/deployment.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  namespace: <?>
-  name: <?>
-spec:
-  replicas: <?>
-  selector:
-    matchLabels:
-      <?>: <?>
-  template:
-    metadata:
-      labels:
-        <?>: <?>
-    spec:
-      containers:
-      - image: <?>
-        name: app
-        ports:
-          - name: http
-            containerPort: 3000
-EOF
+kubectl get ns challenge
+if [ $? -ne 0 ]; then
+    fail-message "Could not find a namespace called 'challenge'. Type 'hint' if you are stuck."
+    exit 1
+fi

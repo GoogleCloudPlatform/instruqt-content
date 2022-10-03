@@ -15,17 +15,17 @@
 
 kubectl get deployment frontend-deployment -n challenge
 if [ $? -ne 0 ]; then
-    fail-message "$DEPLOYMENT_FAIL_NO_DEPLOYMENT"
+    fail-message "Could not find Deployment called 'frontend-deployment' in the namespace 'challenge'. Type 'hint' if you are stuck."
     exit 1
 fi
 
 kubectl get deployment frontend-deployment -n challenge -o json | jq -e '.spec.template.metadata.labels != null and .spec.template.metadata.labels.role != null and .spec.template.metadata.labels.role == "frontend" and .spec.template.spec.containers[0].image == "gcr.io/gke-arcade/challenge" and .spec.template.spec.containers[0].env != null and (.spec.template.spec.containers[0].env[] | .name == "USERNAME" or .name == "PASSWORD") and (.spec.template.spec.containers[0].env[] | .valueFrom != null and ((.valueFrom.configMapKeyRef != null and .valueFrom.configMapKeyRef.key == "username" and .valueFrom.configMapKeyRef.name == "prod-configmap") or (.valueFrom.secretKeyRef != null and .valueFrom.secretKeyRef.key == "password" and .valueFrom.secretKeyRef.name == "prod-secret")))'
 if [ $? -ne 0 ]; then
-    fail-message "$COMBINED_FAIL_ENV"
+    fail-message "Deployment does not have the environment variables properly defined. Type 'hint' if you are stuck."
     exit 1
 fi
 
 if [ ! -f /home/finished.txt ]; then
-    fail-message "$COMBINED_FAIL_FILE"
+    fail-message "finished.txt' not found. Type 'hint' if you are stuck"
     exit 1
 fi

@@ -12,8 +12,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-kubectl get ns challenge
+kubectl get service frontend-service -n challenge
 if [ $? -ne 0 ]; then
-    fail-message "$NAMESPACE_FAIL"
+    fail-message "Could not find Service called 'frontend-service' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    exit 1
+fi
+
+
+kubectl get service frontend-service -n challenge -o json | jq -e '.spec.selector != null and .spec.selector.role != null and .spec.selector.role == "frontend" and .spec.type == "LoadBalancer"'
+if [ $? -ne 0 ]; then
+    fail-message "Service is not configured correctly. Type 'hint' if you are stuck."
     exit 1
 fi

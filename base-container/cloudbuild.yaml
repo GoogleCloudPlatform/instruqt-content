@@ -2,9 +2,9 @@ steps:
     - name: "gcr.io/cloud-builders/docker"
       args:
         [
-          "build", "-t", "gcr.io/$PROJECT_ID/base:$_TAG",
+          "build", "-t", "europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/base:$_TAG",
           ".",
         ]
 substitutions:   
   _TAG: 1.2.0
-images: ['gcr.io/$PROJECT_ID/base:$_TAG']
+images: ['europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/base:$_TAG']

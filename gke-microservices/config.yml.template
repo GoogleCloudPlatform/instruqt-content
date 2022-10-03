@@ -1,8 +1,0 @@
-version: "2"
-containers:
-- name: shell
-  image: gcr.io/instruqt-shadow/gkebootstrap:1.0.3
-  shell: /bin/bash
-  memory: 128
-  environment:
-    INSTRUQT_LANGUAGE_CODE: {{languagecode}}

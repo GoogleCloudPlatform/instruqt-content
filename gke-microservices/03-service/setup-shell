@@ -1,0 +1,70 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+cat <<EOF > /root/.instruqt/help.txt
+
+In the ""challenge"" namespace you previously created, create a Service called ""frontend-service"" of type ""LoadBalancer"" that routes traffic from port 80 to port 3000 of the pods in the 'frontend-deployment' Deployment.
+
+(remember, the pods are labeled ""role = frontend"")
+
+cURL the exposed service, and save the output of the service to a file called output.txt
+
+There is another partial file called 'service.yaml' that has been created for you to use.
+
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+
+Open the 'service.yaml' file that was created for you.
+
+For the namespace, use 'challenge'. This tells Kubernetes which namespace to deploy to.
+For the metadata name, use 'frontend-service'. This determins the name of the Service.
+For the selector, use 'role: frontend'. This tells Kubernetes to forward traffic to Pods with the label "role" set to "frontend".
+For the port name, use '80'. This is the port we want to expose.
+For the targetPort, use '3000'. This is the port the Pod is listening on.
+For the type, use 'LoadBalancer'. This tells Kubernetes to provision a cloud load balancer.
+
+Save the file, and deploy it with:
+
+kubectl apply -f service.yaml
+
+Now, get the External IP address of your service:
+
+'kubectl get service frontend-service --namespace challenge'
+
+Wait until the External IP goes from <pending> to an actual IP address. This means the load balancer is provisioned.
+
+Then, curl the output and save it to finished.txt
+
+curl -o output.txt <EXTERNAL_IP>
+
+EOF
+
+set-workdir /home
+
+cat <<EOF > /home/service.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  namespace: <?>
+  name: <?>
+spec:
+  selector:
+    <?>: <?>
+  ports:
+  - protocol: TCP
+    port: <?>
+    targetPort: <?>
+  type: <?>
+EOF

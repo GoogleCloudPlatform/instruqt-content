@@ -1,5 +1,5 @@
-# base instruqt client image
-FROM gcr.io/instruqt/gcp-project-client
+# Base image with all Google Cloud tools
+FROM google/cloud-sdk:latest
 
 # Install required dependency to build the image viewer
 RUN apt-get update && apt-get install -y build-essential \
@@ -7,17 +7,16 @@ RUN apt-get update && apt-get install -y build-essential \
   software-properties-common
 
 # Install Node
-RUN curl -sL https://deb.nodesource.com/setup_11.x | bash
-RUN apt-get update && \
-    apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
 
-# install go
-RUN curl -XGET https://dl.google.com/go/go1.12.5.linux-amd64.tar.gz > /usr/local/lib/go.tar.gz && \
+# Install go
+RUN curl -XGET https://dl.google.com/go/go1.19.1.linux-amd64.tar.gz > /usr/local/lib/go.tar.gz && \
   cd /usr/local/lib && tar -xvf go.tar.gz && rm go.tar.gz
 ENV GOPATH /usr/local/lib
 RUN ln -sf /usr/local/lib/go/bin/go /usr/local/bin/go
 
-# install zip
+# Install zip
 RUN apt-get install -y zip 
 
 # Install terminal-quiz
@@ -28,7 +27,23 @@ RUN mkdir -p /usr/local/lib/node_modules && \
 
 # Install tiv image viewer
 RUN git clone https://github.com/stefanhaustein/TerminalImageViewer.git \
-	&& cd TerminalImageViewer/src/main/cpp && make && make install
+	&& cd TerminalImageViewer/src/main/cpp && make LDLIBS=-lstdc++fs && make install
+
+# Install vim
+RUN apt-get install -y vim nano emacs jed
+
+# Configure auto completion
+RUN apt-get install bash-completion
+RUN echo 'source <(kubectl completion bash)' >> /etc/bash.bashrc
+
+# Set a few sensible defaults
+RUN echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> /etc/bash.bashrc && \    
+    mkdir -p $HOME/.vim/pack/tpope/start && \
+    git clone https://tpope.io/vim/sensible.git $HOME/.vim/pack/tpope/start/sensible && \
+    vim -u NONE -c "helptags sensible/doc" -c q && \
+    mkdir -p $HOME/.vim/colors && \
+    curl -sS --fail -L -o $HOME/.vim/colors/basic-dark.vim https://raw.githubusercontent.com/zcodes/vim-colors-basic/master/colors/basic-dark.vim && \
+    echo "include /usr/share/nano/*" > $HOME/.nanorc
 
 # Remove build deps
 RUN apt-get remove -y build-essential
@@ -54,3 +69,6 @@ COPY ./translations/shared-translations.csv /root/.instruqt/
 # Env for python translations
 ENV PYTHONIOENCODING utf-8
 ENV LANG C.UTF-8
+
+ENTRYPOINT [ "/opt/instruqt/docker-entrypoint.sh" ]
+COPY docker-entrypoint.sh /opt/instruqt/
