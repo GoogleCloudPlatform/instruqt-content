@@ -1,0 +1,53 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+
+# A service should have been deployed 
+COUNT=$(gcloud run services list --format json | jq length)
+if [ "$COUNT" -ne "1" ]; then
+  fail-message "$DEPLOY_IMAGE_FAIL_NO_SERVICE"
+  exit 1
+fi
+
+# The service should have the correct image settings
+
+SPEC=$(gcloud run services list  --format json | jq ".[0].spec.template.spec.containers[0] | \
+{ image, \
+  cpu: .resources.limits.cpu, \
+  memory: .resources.limits.memory \
+}")
+
+# Expected content of $SPEC
+# {
+#   "image": "gcr.io/instruqt-shadow/gpt-2...",
+#   "cpu": "2",
+#   "memory": "2G"
+# }
+
+source /root/.instruqt/.customrc
+if [[ $SPEC != *$GPT2_IMAGE* ]]; then
+  fail-message "$DEPLOY_IMAGE_FAIL_WRONG_IMAGE"
+  exit 1
+fi
+
+if [[ $SPEC != *"\"cpu\": \"2\""* ]]; then
+  fail-message "$DEPLOY_IMAGE_FAIL_WRONG_CPU"
+  exit 1
+fi
+
+if [[ $SPEC != *"\"memory\": \"2G\""* ]]; then
+  fail-message "$DEPLOY_IMAGE_FAIL_WRONG_MEMORY"
+  exit 1
+fi

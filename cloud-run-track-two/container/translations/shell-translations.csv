@@ -1,0 +1,26 @@
+key,en
+DEPLOY_IMAGE_HELP,"Deploy the GPT-2 image using ""gcloud run deploy"" 
+
+The tag for the image is in the environment variable \$GPT2_IMAGE. 
+
+ 1. Give the service 2G memory - the model requires a good amount of memory to run
+
+ 2. Specify two CPUs - or your chatbot will take a ...long... time to respond to your requests. "
+DEPLOY_IMAGE_HINT,"> Deploy the service from the image GPT2_IMAGE, having two CPUs and 2G of memory
+
+gcloud run deploy gpt2 --image \$GPT2_IMAGE --cpu 2 --memory 2G"
+DEPLOY_IMAGE_FAIL_NO_SERVICE,Expected the GPT2 service to be deployed.
+DEPLOY_IMAGE_FAIL_WRONG_IMAGE,Expected the image \$GTP2_IMAGE to be deployed. 
+DEPLOY_IMAGE_FAIL_WRONG_CPU,Service deployed without the expected two CPUs.
+DEPLOY_IMAGE_FAIL_WRONG_MEMORY,Service needs 2G of memory. 
+CHAT_HELP,"Now that you deployed you chatbot, it's time to start a conversation. 
+
+You can find the URL of the service in \$SERVICE_URL.
+
+Using ""curl"", you can send messages.
+curl \$SERVICE_URL -d ""Hello, anybody there?""
+
+You complete this challenge when you've sent at least 10 messages - feel free to talk longer. "
+CHAT_HINT,"You can send messages using curl: 
+curl \$SERVICE_URL -d ""Hi, what is your name?"""
+CHAT_FAIL,"When you've sent 10 messages to the bot, you can complete this challenge. You're almost there!"

@@ -1,0 +1,46 @@
+slug: {{{ slug }}}
+type: track
+title: Cloud Run Track Two ({{ language-code }})
+teaser: {{{ teaser }}}
+description: {{{ description }}}
+icon: https://storage.googleapis.com/instruqt-shadow-resources/gcr.gif
+tags:
+- google
+- ' cloud'
+- ' run'
+owner: google
+developers:
+- wietsevenema@binx.io
+private: true
+published: true
+challenges:
+- slug: deploy-image
+  type: challenge
+  title: Deploy a GPT-2 Model 
+  teaser: Cloud Run can run ML models
+  assignment: {{{ deploy-image-assignment }}}
+  notes:
+  - type: text
+    contents: {{{ deploy-image-notes-1 }}}
+  - type: text
+    contents: {{{ deploy-image-notes-2 }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
+- slug: chat
+  type: challenge
+  title: Strike up a Conversation
+  teaser: Your chatbot wants to talk to you
+  assignment: {{{ chat-assignment }}}
+  notes: 
+  - type: text
+    contents: {{{ chat-notes-1 }}}
+  tabs:
+  - title: Shell
+    type: terminal
+    hostname: shell
+  difficulty: basic
+  timelimit: 500
