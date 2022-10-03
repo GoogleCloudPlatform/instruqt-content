@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Create the alias for "help"
 alias help="/usr/local/bin/help"
 
@@ -5,7 +7,7 @@ alias help="/usr/local/bin/help"
 alias exit="echo \"To exit the game press Ctrl+Alt+Del\""
 
 # Alias "gcloud" to "gcloud --format=yaml"
-alias gcloud="gcloud --format=yaml"
+# alias gcloud="gcloud --format=yaml"
 
 INSTRUQT_DIR=/root/.instruqt
 

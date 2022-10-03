@@ -12,23 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-if [ -f /home/function.go ]; then
-  export FUNCTION=HelloHTTP
-  export RUNTIME=go111
-fi
-
-if [ -f /home/index.js ]; then
-  export FUNCTION=helloHttp
-  export RUNTIME=nodejs8
-fi
-
-if [ -f /home/main.py ]; then
-  export FUNCTION=hello_http
-  export RUNTIME=python37
-fi
-
-source /root/.instruqt/.translationsenv
+kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
 
 cat <<EOF > /root/.instruqt/help.txt
 
@@ -37,6 +21,7 @@ In the 'challenge' namespace you previously created, create a Deployment called 
 The Pod should be labeled with 'role = frontend'.
 
 There is a partial file called deployment.yaml that has been created for you to use.
+
 EOF
 
 cat <<EOF > /root/.instruqt/hint.txt
@@ -52,8 +37,32 @@ For the image, use 'gcr.io/gke-arcade/challenge'. This tells the Pods which Dock
 
 Create the deployment by running:
 
-'kubectl apply -f deployment.yaml'
+kubectl apply -f deployment.yaml
 
 EOF
 
 set-workdir /home
+
+cat <<EOF > /home/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: <?>
+  name: <?>
+spec:
+  replicas: <?>
+  selector:
+    matchLabels:
+      <?>: <?>
+  template:
+    metadata:
+      labels:
+        <?>: <?>
+    spec:
+      containers:
+      - image: <?>
+        name: app
+        ports:
+          - name: http
+            containerPort: 3000
+EOF

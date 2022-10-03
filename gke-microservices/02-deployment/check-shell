@@ -12,27 +12,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-kubectl get configmap prod-configmap -o json --namespace challenge
+kubectl get deployment frontend-deployment -n challenge
 if [ $? -ne 0 ]; then
-    fail-message "$CONFIGMAP_FAIL_NO_CONFIGMAP"
+    fail-message "Could not find Deployment called 'frontend-deployment' in the namespace 'challenge'. Type 'hint' if you are stuck."
     exit 1
 fi
 
-kubectl get configmap prod-configmap -o json --namespace challenge | jq -e '.data.username != null'
-if [ $? -ne 0 ]; then
-    fail-message "$CONFIGMAP_FAIL_NO_USERNAME"
-    exit 1
-fi
 
-kubectl get secret prod-secret -o json --namespace challenge
+kubectl get deployment frontend-deployment -n challenge -o json | jq -e '.spec.template.metadata.labels != null and .spec.template.metadata.labels.role != null and .spec.template.metadata.labels.role == "frontend" and .spec.template.spec.containers[0].image == "gcr.io/gke-arcade/challenge"'
 if [ $? -ne 0 ]; then
-    fail-message "$CONFIGMAP_FAIL_NO_SECRET"
-    exit 1
-fi
-
-kubectl get secret prod-secret -o json --namespace challenge | jq -e '.data.password != null'
-if [ $? -ne 0 ]; then
-    fail-message "$CONFIGMAP_FAIL_NO_PASSWORD"
+    fail-message "Pods in the Deployment are not labeled with 'role=frontend'. Type 'hint' if you are stuck."
     exit 1
 fi

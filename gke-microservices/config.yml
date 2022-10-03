@@ -1,0 +1,15 @@
+version: "3"
+containers:
+- name: shell
+  image: europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/base:1.2.0
+  shell: /bin/bash
+  environment:
+    INSTRUQT_LANGUAGE_CODE: en
+  memory: 265
+gcp_projects:
+- name: default
+  services:
+  - container.googleapis.com
+  roles: 
+  - roles/container.clusterAdmin
+  - roles/iam.serviceAccountUser

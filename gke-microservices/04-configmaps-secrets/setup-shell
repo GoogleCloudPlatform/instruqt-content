@@ -1,0 +1,45 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+kubectl label namespace default time=$(date '+%s') --overwrite # mark cluster as still used
+
+cat <<EOF > /root/.instruqt/help.txt
+
+In the ""challenge"" namespace you previously created, create a ConfigMap called ""prod-configmap"" with a key named ""username"" with any value.
+
+Then create a generic Secret called ""prod-secret"" with a key named ""password"" with any value in the challenge namespace.
+
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+
+The kubectl cli can be used to create ConfigMaps.
+
+You can do this with: kubectl create configmap <NAME OF CONFIGMAP> <OPTIONS>
+
+To create a ConfigMap called 'prod-configmap' and to create a key inside that ConfigMap called 'username', run:
+
+'kubectl create configmap prod-configmap --from-literal=username=Your_Value_Here --namespace=challenge'
+
+The kubectl cli can also be used to create Secrets.
+
+You can do this with: kubectl create secret <TYPE OF SECRET> <NAME OF SECRET> <OPTIONS>
+
+To create a Secret called 'prod-secret' and to create a key inside that Secret called 'password', run:
+
+'kubectl create secret generic prod-secret --from-literal=password=Your_Value_Here --namespace=challenge'
+
+EOF
+
+set-workdir /home

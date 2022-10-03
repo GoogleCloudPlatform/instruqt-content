@@ -1,0 +1,21 @@
+slug: gke-microservices
+id: 3ugxzwhjqfp6
+title: Kubernetes Engine
+teaser: Are you a master of microservices?
+description: Kubernetes Engine is a managed, production-ready environment for deploying
+  and managing containerized applications. It brings our latest innovations in developer
+  productivity, resource efficiency, automated operations, and open source flexibility
+  to accelerate your time to market.
+icon: https://storage.googleapis.com/instruqt-shadow-resources/gke_spinning.gif
+tags:
+- kubernetes
+- ' google'
+- ' containers'
+- ' microservices'
+owner: google
+developers:
+- venema@google.com
+- amuscarella@google.com
+private: true
+published: true
+checksum: "8226949650060130750"

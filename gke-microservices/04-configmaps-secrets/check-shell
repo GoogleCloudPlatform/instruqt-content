@@ -1,0 +1,38 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+kubectl get configmap prod-configmap -o json --namespace challenge
+if [ $? -ne 0 ]; then
+    fail-message "Could not find ConfigMap called 'prod-configmap' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    exit 1
+fi
+
+kubectl get configmap prod-configmap -o json --namespace challenge | jq -e '.data.username != null'
+if [ $? -ne 0 ]; then
+    fail-message "Could not find ConfigMap called 'prod-configmap' with a key called 'username' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    exit 1
+fi
+
+kubectl get secret prod-secret -o json --namespace challenge
+if [ $? -ne 0 ]; then
+    fail-message "Could not find Secret called 'prod-secret' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    exit 1
+fi
+
+kubectl get secret prod-secret -o json --namespace challenge | jq -e '.data.password != null'
+if [ $? -ne 0 ]; then
+    fail-message "Could not find Secret called 'prod-secret' with a key called 'password' in the namespace 'challenge'. Type 'hint' if you are stuck."
+    exit 1
+fi
