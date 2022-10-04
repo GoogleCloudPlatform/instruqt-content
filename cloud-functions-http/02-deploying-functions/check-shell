@@ -12,30 +12,30 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 if [ -f /home/function.go ]; then
-  export FUNCTION=HelloHTTP
-  export RUNTIME=go111
+	FUNCTION=HelloHTTP
+  RUNTIME=go111
 fi
 
 if [ -f /home/index.js ]; then
-  export FUNCTION=helloHttp
-  export RUNTIME=nodejs8
+	FUNCTION=helloHttp
+  RUNTIME=nodejs10
 fi
 
 if [ -f /home/main.py ]; then
-  export FUNCTION=hello_http
-  export RUNTIME=python37
+	FUNCTION=hello_http
+  RUNTIME=python37
 fi
 
-export U=$(gcloud functions describe ${FUNCTION} --format json | jq -r '.httpsTrigger.url')
+gcloud functions describe $FUNCTION
+if [ $? -ne 0 ]; then
+    fail-message "Could not find a function that triggers on HTTP requests. Type 'hint' if you are stuck."
+    exit 1
+fi
 
-cat <<EOF > /root/.instruqt/.customenv
-export URL=$U
-EOF
-
-source /root/.instruqt/.translationsenv
-
-echo "$HTTP_HELP" > /root/.instruqt/help.txt
-echo "$HTTP_HINT" > /root/.instruqt/hint.txt
-
-set-workdir /home
+gcloud functions describe $FUNCTION --format=json | jq -e '.entryPoint != null and .runtime != null and .httpsTrigger.url != null'
+if [ $? -ne 0 ]; then
+    fail-message "Could not find a function that triggers on HTTP requests. Type 'hint' if you are stuck."
+    exit 1
+fi

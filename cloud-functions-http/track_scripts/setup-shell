@@ -1,0 +1,33 @@
+# #!/bin/bash
+# set -euxo pipefail
+
+mkdir /root/cowsay 
+
+cat <<EOF > /root/cowsay/package.json
+{
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "cowsay": "^1.4.0"
+  }
+}
+EOF
+
+echo "exports.cowsay = (req, res) => {res.end(require('cowsay').say({text:\`\${req.query.text || 'Google Cloud Functions are awesome'}\`}))}" > /root/cowsay/index.js
+
+
+# Build script with three retries
+CMD_DEPLOY="gcloud functions deploy cowsay --runtime nodejs12 --trigger-http --allow-unauthenticated"
+cat <<EOF > /root/cowsay/build.sh
+#!/bin/bash
+$CMD_DEPLOY || \
+$CMD_DEPLOY || \
+$CMD_DEPLOY 
+EOF
+chmod +x /root/cowsay/build.sh
+
+cd /root/cowsay
+./build.sh
+rm build.sh

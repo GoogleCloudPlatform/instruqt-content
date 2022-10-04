@@ -20,8 +20,24 @@ export OUTPUT=$(curl $URL?text=I%20hope%20you%20are%20having%20fun%20with%20this
 
 source /root/.instruqt/.translationsenv
 
-echo "$DIRECT_HELP" > /root/.instruqt/help.txt
-echo "$DIRECT_HINT" > /root/.instruqt/hint.txt
+cat <<EOF > /root/.instruqt/help.txt
+Let's have some fun!
+
+We have deployed a function called 'cowsay' in your project.
+
+Here is a sample output:
+
+$OUTPUT
+
+Call this function using the gcloud cli
+EOF
+cat <<EOF > /root/.instruqt/hint.txt
+The function you want to test is called 'cowsay'
+
+This means you can test the function with:
+
+gcloud functions call cowsay
+EOF
 
 [ -z "$DESCRIBE" ] && echo "Something went wrong and we could not recover" > /root/.instruqt/help.txt
 

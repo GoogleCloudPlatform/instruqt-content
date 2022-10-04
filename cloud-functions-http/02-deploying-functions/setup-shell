@@ -1,0 +1,52 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+if [ -f /home/function.go ]; then
+  export FUNCTION=HelloHTTP
+  export RUNTIME=go111
+fi
+
+if [ -f /home/index.js ]; then
+  export FUNCTION=helloHttp
+  export RUNTIME=nodejs8
+fi
+
+if [ -f /home/main.py ]; then
+  export FUNCTION=hello_http
+  export RUNTIME=python37
+fi
+
+source /root/.instruqt/.translationsenv
+
+cat <<EOF > /root/.instruqt/help.txt
+Using the gcloud cli, deploy your modified function.
+
+The name of the Cloud Function must be the same as the name of the method you want it to run.
+
+The function should "trigger on http" requests.
+
+Note: Deploying a function can take a few minutes.
+EOF
+cat <<EOF > /root/.instruqt/hint.txt
+The function you want to deploy is called $FUNCTION
+
+You want to set the function to trigger on http requests, which means you want to use the --trigger-http flag
+
+This means you can deploy the function with:
+
+gcloud functions deploy $FUNCTION --runtime $RUNTIME --trigger-http --allow-unauthenticated
+EOF
+
+set-workdir /home

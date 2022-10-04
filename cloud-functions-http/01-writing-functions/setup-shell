@@ -1,0 +1,53 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+cat <<EOF > /root/.instruqt/help.txt
+We have provided you with a function written in the different languages (Node.js, Python and Go) that are supported by Google Cloud Functions.
+Open one of the functions using your favourite editor (vi, vim, nano or install your own) and change it so it returns "Hello, Google!" instead of "Hello, World!".
+EOF
+
+set-workdir /home
+
+cat <<EOF > /home/function.go
+// Package helloworld provides a set of Cloud Function samples.
+package helloworld
+
+import (
+	"fmt"
+	"net/http"
+)
+
+// HelloHTTP is an HTTP Cloud Function
+func HelloHTTP(w http.ResponseWriter, r *http.Request) {
+	// Print to stdout
+	fmt.Print("This is a log!")
+	fmt.Fprint(w, "Hello, World!")
+}
+EOF
+
+cat <<EOF > /home/index.js
+exports.helloHttp = (req, res) => {
+  // Print to stdout
+  console.log('This is a log!')
+  res.send('Hello, World!');
+};
+EOF
+
+cat <<EOF > /home/main.py
+def hello_http(request):
+    # Print to stdout
+    print('This is a log!')
+    return 'Hello, World!'
+EOF

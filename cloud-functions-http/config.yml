@@ -1,0 +1,16 @@
+version: "3"
+containers:
+- name: shell
+  image: europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/base:1.2.0
+  shell: /bin/bash
+  environment:
+    INSTRUQT_LANGUAGE_CODE: en
+  memory: 128
+gcp_projects:
+- name: cloud-functions
+  services:
+  - cloudfunctions.googleapis.com
+  - cloudbuild.googleapis.com
+  - serviceusage.googleapis.com
+  roles: 
+  - roles/editor
