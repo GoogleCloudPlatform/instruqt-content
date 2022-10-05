@@ -22,17 +22,6 @@ export PYTHONIOENCODING=utf-8
 # Load environment variables specified in config.yml
 source /etc/profile.d/instruqt-env.sh
 
-# Generate translated environment variables and save them in .translationsenv
-if [ ! -s .translationsenv ] && [ -f $INSTRUQT_DIR/shell-translations.csv ]; then
-    /usr/local/bin/csvtoenv $INSTRUQT_DIR/shared-translations.csv >> $INSTRUQT_DIR/.translationsenv
-    /usr/local/bin/csvtoenv $INSTRUQT_DIR/shell-translations.csv >> $INSTRUQT_DIR/.translationsenv
-fi
-
-# Load translations from .translationsenv
-if [ -f $INSTRUQT_DIR/.translationsenv ]; then
-    source $INSTRUQT_DIR/.translationsenv
-fi
-
 # The Instruqt background scripts load ".bashrc", so we check $INSTRUQT_GOTTY_SHELL
 # to ensure this block is only executed within a challenge.
 if [[ -v INSTRUQT_GOTTY_SHELL ]]; then
@@ -43,13 +32,4 @@ if [[ -v INSTRUQT_GOTTY_SHELL ]]; then
     fi
     # Display help text
     help
-
-    # Hack to print PROMPT_HELP every time except after running "answer"
-    # Only do this if "$INSTRUQT_DIR/choices.txt" is present
-    if [ -f $INSTRUQT_DIR/choices.txt ]; then
-        # Set bash prompt help env vars
-        export PROMPT_COMMAND=
-        export PROMPT_DEFAULT="$PS1"
-        trap 'if [ "$BASH_COMMAND" == "answer" ]; then export PS1="$PROMPT_DEFAULT"; else export PS1="$PROMPT_HELP\n$PROMPT_DEFAULT"; fi' DEBUG
-    fi
 fi

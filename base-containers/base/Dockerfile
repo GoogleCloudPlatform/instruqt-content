@@ -60,12 +60,6 @@ COPY ./bin/hint /usr/local/bin/hint
 # Copy over ".bash_aliases"
 COPY ./.bash_aliases /root/.bash_aliases
 
-# Copy over "csvtoenv" script
-COPY ./bin/csvtoenv /usr/local/bin/csvtoenv
-
-# Copy over shared translation csv
-COPY ./translations/shared-translations.csv /root/.instruqt/
-
 # Env for python translations
 ENV PYTHONIOENCODING utf-8
 ENV LANG C.UTF-8

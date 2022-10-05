@@ -34,8 +34,6 @@ of birth, state and gender. So for an example row:
 For example there were 355 females born with the name Anna in NJ during 1910.
 Using this table figure out what's the most common name in the US since 1910.
 
-When you think you know the answer, type ""answer"" and press ENTER.
-
 Here's an example query to get you started: 
 bq query 'SELECT * FROM \$USA_NAMES LIMIT 1'
 EOF
