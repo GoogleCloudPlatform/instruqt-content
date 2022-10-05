@@ -1,3 +1,0 @@
-#!/bin/sh
-fail-message "The check button is disabled for this game. Please do not press it!"
-exit 1
