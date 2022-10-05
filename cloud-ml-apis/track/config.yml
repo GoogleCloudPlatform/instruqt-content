@@ -5,7 +5,7 @@ containers:
   shell: /bin/bash --login
   environment:
     INSTRUQT_LANGUAGE_CODE: en
-  memory: 128
+  memory: 256
 gcp_projects:
 - name: default
   services:
@@ -13,5 +13,4 @@ gcp_projects:
   - speech.googleapis.com
   - videointelligence.googleapis.com
   - dlp.googleapis.com
-  roles: 
-  - roles/editor
+  roles: []
