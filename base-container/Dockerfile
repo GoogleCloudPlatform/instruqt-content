@@ -16,8 +16,8 @@ RUN curl -XGET https://dl.google.com/go/go1.19.1.linux-amd64.tar.gz > /usr/local
 ENV GOPATH /usr/local/lib
 RUN ln -sf /usr/local/lib/go/bin/go /usr/local/bin/go
 
-# Install zip
-RUN apt-get install -y zip 
+# Install more tools
+RUN apt-get install -y uuid-runtime jq zip
 
 # Install terminal-quiz
 RUN mkdir -p /usr/local/lib/node_modules && \
@@ -29,7 +29,7 @@ RUN mkdir -p /usr/local/lib/node_modules && \
 RUN git clone https://github.com/stefanhaustein/TerminalImageViewer.git \
 	&& cd TerminalImageViewer/src/main/cpp && make LDLIBS=-lstdc++fs && make install
 
-# Install vim
+# Install editors
 RUN apt-get install -y vim nano emacs jed
 
 # Configure auto completion
@@ -70,6 +70,7 @@ COPY ./translations/shared-translations.csv /root/.instruqt/
 ENV PYTHONIOENCODING utf-8
 ENV LANG C.UTF-8
 
+# Remove default homedir
 RUN rm -rf /home/cloudsdk
 
 ENTRYPOINT [ "/opt/instruqt/docker-entrypoint.sh" ]
