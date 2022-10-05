@@ -1,0 +1,54 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Starts the user in the /home directory
+set-workdir /home
+
+# Put the help text in help.txt
+cat <<EOF > /root/.instruqt/help.txt
+The image in file "doggo1.png" contains an adorable dog, yes, but what is his
+breed? Using "gcloud", send this precious pup through Google's Vision API and report
+back what the most prominent breed is.
+
+When you think you know the answer, type answer and press ENTER.
+
+*HINT* Type "gcloud ml vision" to get started.
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+Try running the following command:
+
+    gcloud ml vision detect-labels doggo1.png --max-results=6
+
+And look for the first value of "description" which describes a dog breed. Be
+sure to select the breed with the highest "score" value!
+EOF
+
+cat <<EOF > /root/.instruqt/choices.txt
+What is the dog's most prominent breed?
+Toy Bulldog
+English Bulldog
+Boston Terrier
+Scottish Terrier
+King Charles Cavalier
+EOF
+
+# Remove hint in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    echo "$DIFFICULTY_HARD_HINT" > /root/.instruqt/hint.txt
+fi
+
+cp /root/images/doggo1.png /home/doggo1.png
+cp /root/images/doggo1.png /root/.instruqt/help.png

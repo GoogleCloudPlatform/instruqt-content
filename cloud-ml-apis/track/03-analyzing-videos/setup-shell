@@ -17,19 +17,36 @@
 set-workdir /home
 
 # Put the help text in help.txt
-echo "$RECOGNIZING_AUDIO_HELP" > /root/.instruqt/help.txt
+cat <<EOF > /root/.instruqt/help.txt
+The puppy in "video1.mp4" wants to be your friend! But only if you can
+find her. Using "gcloud", send this good girl through Google's Video
+Intelligence API and report back the starting time in seconds (for example, "7")
+when she appears.
 
-echo "$RECOGNIZING_AUDIO_HINT" > /root/.instruqt/hint.txt
+*HINT* Type "gcloud ml video" to get started.
+EOF
 
-cp /root/images/raptor.png /root/.instruqt/hint.png
+cat <<EOF > /root/.instruqt/hint.txt
+Try running the following command:
 
-echo "$RECOGNIZING_AUDIO_CHOICES" > /root/.instruqt/choices.txt
+    gcloud ml video detect-labels video1.mp4 | more
 
-# Remove hint and multiple choice in hard mode
+Look for the value of "startTimeOffset" where the entity "description" is
+"dog" or "puppy"
+EOF
+
+cat <<EOF > /root/.instruqt/choices.txt
+What is the starting time in seconds? 
+1
+2
+6
+100
+EOF
+
+# Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
     echo $DIFFICULTY_HARD_HINT > /root/.instruqt/hint.txt
 fi
 
-cp /root/audio/quote1.wav /home/quote1.wav
-cp /root/audio/quote2.wav /home/quote2.wav
-cp /root/audio/quote3.wav /home/quote3.wav
+cp /root/videos/video1.mp4 /home/video1.mp4
+cp /root/videos/video1.png /root/.instruqt/help.png

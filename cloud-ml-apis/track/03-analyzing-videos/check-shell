@@ -14,18 +14,14 @@
 # limitations under the License.
 
 if [ ! -f /usr/local/bin/answer.txt ]; then
-    fail-message "$FAIL_MESSAGE_NO_ANSWER"
+    fail-message "No answer given. Type answer and press ENTER."
     exit 1
 fi
 
 ANSWER=$(cat /usr/local/bin/answer.txt)
 
-if [[ "$ANALYZING_IMAGES_ALMOST_CORRECT" == "$ANSWER" ]]; then
-    fail-message "You're close! There is one other dog breed which is more prominent"
-    exit 1
-fi
-
-if [[ "$ANALYZING_IMAGES_ANSWER" != "$ANSWER" ]]; then
-    fail-message "$FAIL_MESSAGE_INCORRECT"
+CORRECT="6"
+if [[ "$CORRECT" != "$ANSWER" ]]; then
+    fail-message "$ANSWER is not the right answer. Try again!"
     exit 1
 fi

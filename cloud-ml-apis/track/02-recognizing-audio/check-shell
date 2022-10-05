@@ -13,20 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Starts the user in the /home directory
-set-workdir /home
-
-# Put the help text in help.txt
-echo "$ANALYZING_IMAGES_HELP" > /root/.instruqt/help.txt
-
-echo "$ANALYZING_IMAGES_HINT" > /root/.instruqt/hint.txt
-
-echo "$ANALYZING_IMAGES_CHOICES" > /root/.instruqt/choices.txt
-
-# Remove hint in hard mode
-if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo $DIFFICULTY_HARD_HINT > /root/.instruqt/hint.txt
+if [ ! -f /usr/local/bin/answer.txt ]; then
+	fail-message "No answer given. Type answer and press ENTER."
+	exit 1
 fi
 
-cp /root/images/doggo1.png /home/doggo1.png
-cp /root/images/doggo1.png /root/.instruqt/help.png
+ANSWER=$(cat /usr/local/bin/answer.txt)
+
+if [[ "jurassic park" != "$ANSWER" ]]; then
+    fail-message "$ANSWER is not the correct answer. Try again!"
+    exit 1
+fi

@@ -1,0 +1,62 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# Put the user in the /home directory
+set-workdir /home
+
+# Put the help text in help.txt
+cat <<EOF > /root/.instruqt/help.txt
+There are three audio files: "quote1.wav", "quote2.wav",
+and "quote3.wav". Test your pop culture knowledge by identifying
+the undeniably classic 90's movie these quotes are from. Convert the audio into
+text using the Speech to Text API and report back with the title of the film.
+
+When you think you know the answer, type answer and press ENTER.
+
+*HINT* Type "gcloud ml speech" to get started.
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+Try running the following command:
+
+    gcloud ml speech recognize quote1.wav --language-code=en
+
+Run the same command using "quote2.wav" and "quote3.wav".
+
+If you don't recognize the movie, run the quotes using the googler script and that
+should help narrow it down:
+
+    googler "this is a movie quote!"
+EOF
+
+cp /root/images/raptor.png /root/.instruqt/hint.png
+
+cat <<EOF > /root/.instruqt/choices.txt
+What movie are these quotes from?
+Silence of the Lambs
+Jurassic Park
+The Room
+Pulp Fiction
+Forrest Gump
+EOF
+
+# Remove hint and multiple choice in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    echo "$DIFFICULTY_HARD_HINT" > /root/.instruqt/hint.txt
+fi
+
+cp /root/audio/quote1.wav /home/quote1.wav
+cp /root/audio/quote2.wav /home/quote2.wav
+cp /root/audio/quote3.wav /home/quote3.wav

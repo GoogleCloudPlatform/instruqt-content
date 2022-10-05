@@ -13,19 +13,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Put the user in the /home directory
-set-workdir /home
-
-# Put the help text in help.txt
-echo "$REDACT_TEXT_HELP" > /root/.instruqt/help.txt
-
-echo "$REDACT_TEXT_HINT" > /root/.instruqt/hint.txt
-
-echo "$REDACT_TEXT_CHOICES" > /root/.instruqt/choices.txt
-
-# Remove hint in hard mode
-if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo $DIFFICULTY_HARD_HINT > /root/.instruqt/hint.txt
+if [ ! -f /usr/local/bin/answer.txt ]; then
+    fail-message "No answer given. Type answer and press ENTER."
+    exit 1
 fi
 
-cp /root/text/memo.txt /home/memo.txt
+ANSWER=$(cat /usr/local/bin/answer.txt)
+
+if [[ "paul fleishman" != "$ANSWER" ]]; then
+    fail-message "$ANSWER is not the correct answer."
+    exit 1
+fi

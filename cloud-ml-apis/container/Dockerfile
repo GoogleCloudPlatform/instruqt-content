@@ -1,10 +1,5 @@
 # base instruqt client image
-FROM gcr.io/instruqt-shadow/base:1.1.3
-
-# Authorize gcloud for the Instruqt Shadow project
-ADD  svc.json svc.json
-RUN  gcloud auth activate-service-account --key-file=svc.json && rm svc.json
-RUN  gcloud config set project instruqt-shadow
+FROM europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/base:1.2.0
 
 # add "googler" script
 RUN cd /tmp && \
@@ -16,4 +11,3 @@ COPY ./images /root/images
 COPY ./audio /root/audio
 COPY ./videos /root/videos
 COPY ./text /root/text
-COPY ./translations/*.csv /root/.instruqt/

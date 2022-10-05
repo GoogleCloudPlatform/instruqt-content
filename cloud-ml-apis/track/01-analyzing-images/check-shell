@@ -14,14 +14,18 @@
 # limitations under the License.
 
 if [ ! -f /usr/local/bin/answer.txt ]; then
-    fail-message "$FAIL_MESSAGE_NO_ANSWER"
+    fail-message "Please provide an answer"
     exit 1
 fi
 
 ANSWER=$(cat /usr/local/bin/answer.txt)
 
-CORRECT="6"
-if [[ "$CORRECT" != "$ANSWER" ]]; then
-    fail-message "$FAIL_MESSAGE_INCORRECT"
+if [[ "toy bulldog" == "$ANSWER" ]]; then
+    fail-message "You're close! There is one other dog breed which is more prominent"
+    exit 1
+fi
+
+if [[ "english bulldog" != "$ANSWER" ]]; then
+    fail-message "That's not the right answer"
     exit 1
 fi
