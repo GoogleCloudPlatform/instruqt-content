@@ -12,33 +12,69 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+gsutil cp /usr/local/lib/buddy.png gs://bucket-"$(cat /usr/local/lib/UUID)"/challenge.png 
 
 cat <<EOF > /root/.instruqt/help.txt
-$UPLOADING_HELP_TEXT
+Your Quest
+-------------------------------
+
+By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", 
+or using gsutil directly, upload the local file foo.txt to a file named bar.txt 
+in the bucket you created in the last challenge.
+
+Hit the "A" button when you are done.
+
+Coding Your Solution
+-------------------------------
+
+If you run 'ls', you will see folders for each supported language; currently
+python, node (JavaScript), and go.
+
+Once you're ready to write some code, use vim, nano, or emacs to edit the
+challenge file in one of these directories, then use the given interpreter
+to execute it.
+
+To debug your answer, use the command "node", "python", or "go run", 
+to execute your program.
+
+Using gsutil
+-------------------------------
+
+You will also find the gsutil utility installed, and the environment variable
+\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
 EOF
 
 cat <<EOF > /root/.instruqt/hint.txt
-$UPLOADING_HINT_TEXT
+Hint
+----
+
+try running:
+
+gsutil cp /root/foo.txt gs://.../bar.txt.
+
+replacing "..." with the local filename.
 EOF
 
 cat <<EOF > node/challenge.js
-$CREATING_NODE_COMMENTS_1
+// Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage')
 
-$CREATING_NODE_COMMENTS_2
+
+// Globally unique bucket name (don't change this).
 const bucketName = "bucket-$(cat /usr/local/lib/UUID)"
 
-$CREATING_NODE_COMMENTS_3
+
+// An authenticated storage API client.
 const storage = new Storage()
 
 async function uploadFile () {
-  $UPLOADING_NODE_COMMENTS_1
-  $UPLOADING_NODE_COMMENTS_2
-  $UPLOADING_NODE_COMMENTS_3
+  // implement logic for uploading "/root/foo.txt" to "bar.txt"
+  // using the method "bucket" on the "Storage" class,
+  // and the method "upload" on the "bucket" class returned.
   //
-  $UPLOADING_NODE_COMMENTS_4
-  $UPLOADING_NODE_COMMENTS_5
-  $UPLOADING_NODE_COMMENTS_6
+  // "upload" accepts the first argument localFilePath ("/root/foo.txt"), and a
+  // second argument options; set the key "destination" on
+  // options, to set the remote filename.
 }
 
 uploadFile()
@@ -72,23 +108,23 @@ async function checkForFile () {
 checkForFile()
 EOF
 
-mkdir root/python
+mkdir /root/python
 
 cat <<EOF > python/challenge.py
 import os
 from google.cloud import storage
 
-$UPLOADING_PYTHON_COMMENTS_1
-$UPLOADING_PYTHON_COMMENTS_2
-$UPLOADING_PYTHON_COMMENTS_3
+# the bucket was already created
+# "filename" =  the source  file name
+# "desitnation_name" = the name to give the uploaded object
 def upload_blob():
     storage_client = storage.Client()
     bucket_name = os.environ['BUCKET_NAME']
     bucket = storage_client.get_bucket(bucket_name)
-    $UPLOADING_PYTHON_COMMENTS_4
-    $UPLOADING_PYTHON_COMMENTS_5
-    $UPLOADING_PYTHON_COMMENTS_6
-    $UPLOADING_PYTHON_COMMENTS_7
+    # using the method "blob" on "bucket", which accepts the
+    # option "remote_file_name".
+    # and using the method "upload_from_filename" on "blob",
+    # which accepts the "source_file_name", upload "/root/foo.txt" to "bar.txt".
 
 if __name__ == '__main__':
     upload_blob()
@@ -116,7 +152,7 @@ func main() {
 	}
 	// [END setup]
 
-	$DOWNLOADING_GO_COMMENT_1
+	// Give the bucket a unique name.
 	bucketName := os.Getenv("BUCKET_NAME")
 	if err := write(client, bucketName, "bar.txt"); err != nil {
 		log.Fatalf("Cannot write object: %v", err)
@@ -124,7 +160,7 @@ func main() {
 }
 
 func write(client *storage.Client, bucketName, object string) error {
-  $UPLOADING_GO_COMMENTS
+  // Using the code below, upload "/root/foo.txt" to the remote "bar.txt".
   ctx := context.Background()
   // f, err := os.Open("/root/foo.txt")
   // if err != nil {
@@ -145,5 +181,5 @@ EOF
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo "$CREATING_NODE_HINT_TOOLTIP" > /root/hint.txt
+    echo "Sorry, no hints in HARD mode!" > /root/hint.txt
 fi

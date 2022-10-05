@@ -15,35 +15,62 @@
 
 rm /root/foo.txt
 
-# alias answer to multiple choice quiz
-alias answer=terminal-quiz
-
 cat <<EOF > /root/.instruqt/help.txt
-$DOWNLOADING_HELP_TEXT
+Your Quest
+-------------------------------
+
+By modifying "python/challenge.py", "node/challenge.js", "go/challenge.go", or using gsutil
+directly, download the image we've hidden in \$BUCKET_NAME. Using "print-png",
+view the image, and type "answer" when you're ready to tell us what it is.
+
+Hit the "Check" button when you are done.
+
+Coding Your Solution
+-------------------------------
+
+If you run 'ls', you will see folders for each supported language; currently
+python, node (JavaScript), and go.
+
+Once you're ready to write some code, use vim, nano, or emacs to edit the
+challenge file in one of these directories, then use the given interpreter
+to execute it.
+
+Using gsutil
+-------------------------------
+
+You will also find the gsutil utility installed, and the environment variable
+\$BUCKET_NAME set. Run "gsutil --help" for information about this command.
 EOF
 
 cat <<EOF > /root/.instruqt/hint.txt
-$DOWNLOADING_HINT_TEXT
+Hint:
+----
+
+try running:
+
+gsutil cp gs://... .
+
+replacing "..." with the remote filename.
 EOF
 
 cat <<EOF > node/challenge.js
-$CREATING_NODE_COMMENTS_1
+// Imports the Google Cloud client library
 const {Storage} = require('@google-cloud/storage')
 
-$CREATING_NODE_COMMENTS_2
+// Globally unique bucket name (don't change this).
 const bucketName = process.env.BUCKET_NAME
 
-$CREATING_NODE_COMMENTS_3
+// An authenticated storage API client.
 const storage = new Storage()
 
 async function downloadImage () {
-  $DOWNLOADING_NODE_COMMENTS_1
-  $DOWNLOADING_NODE_COMMENTS_2
+  // put your code here for downloading the .png image stored in
+  // bucketName.
   const [files] = await storage.bucket(bucketName).getFiles();
 
   files.forEach(async (file) => {
-    $DOWNLOADING_NODE_COMMENTS_3
-    $DOWNLOADING_NODE_COMMENTS_4
+    // detecting the appropriate filename, use the method:
+    // "await storage" to download the file.
     //   .bucket(bucketName)
     //   .file(srcFilename)
     //   .download({destination: './local.example'});
@@ -59,8 +86,8 @@ cat <<EOF > python/challenge.py
 import os
 from google.cloud import storage
 
-$DOWNLOADING_PYTHON_COMMENTS_1
-
+"""The bucket has already been created and an additional file has
+   been uploaded.  Download and view the .png file"""
 def download_blob():
     storage_client = storage.Client()
     bucket = storage_client.get_bucket(os.environ['BUCKET_NAME'])
@@ -69,10 +96,10 @@ def download_blob():
 
     for blob in blobs:
         print(blob.name)
-        $DOWNLOADING_PYTHON_COMMENTS_2
+        # Add code to download the .png file
         if blob.name[-3:] == 'png':
-            $DOWNLOADING_PYTHON_COMMENTS_3
-            $DOWNLOADING_PYTHON_COMMENTS_4
+            # using the method blob.download_to_filename(destination_file_name)
+			# to download the appropriate file.
 
 if __name__ == '__main__':
 	download_blob()
@@ -95,14 +122,11 @@ import (
 func main() {
 	ctx := context.Background()
 
-	// [START setup]
 	client, err := storage.NewClient(ctx)
 	if err != nil {
 		log.Fatal(err)
 	}
-	// [END setup]
 
-	$DOWNLOADING_GO_COMMENT_1
 	bucketName := os.Getenv("BUCKET_NAME")
 	if err := download(client, bucketName); err != nil {
 		log.Fatalf("Cannot write object: %v", err)
@@ -123,9 +147,9 @@ func download(client *storage.Client, bucketName string) error {
 
 		if strings.Index(oattrs.Name, "png") != -1 {
 			//
-			$DOWNLOADING_GO_COMMENT_2
+			// logic for writing file to disk.
 			//
-			$DOWNLOADING_GO_COMMENT_3
+			// use the code below as a starting point.
 			// rc, err := client.Bucket(bucketName).Object(oattrs.Name).NewReader(ctx)
 			// if err != nil {
 			//	return err
@@ -148,10 +172,17 @@ EOF
 
 # configure a few additional bins for the user.
 cat <<EOF > /root/.instruqt/choices.txt
-$DOWNLOADING_QUIZ_CHOICES
+What was the .png an image of?
+horse
+television
+house
+person
+dog
+orange
+pizza
 EOF
 
 # Remove hint in hard mode
 if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
-    echo "$CREATING_NODE_HINT_TOOLTIP" > /root/hint.txt
+    echo "Sorry, no hints in HARD mode" > /root/hint.txt
 fi

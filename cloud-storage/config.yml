@@ -1,0 +1,15 @@
+version: "3"
+containers:
+- name: shell
+  image: europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/cloud-storage:1.2.0
+  shell: /bin/bash --login
+  environment:
+    INSTRUQT_LANGUAGE_CODE: en
+  memory: 512
+gcp_projects:
+- name: cloud-storage
+  services:
+  - storage-api.googleapis.com
+  - storage-component.googleapis.com
+  roles: 
+  - roles/storage.admin
