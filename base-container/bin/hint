@@ -20,3 +20,8 @@ fi
 if [ -f /root/.instruqt/hint.txt ]; then
 	cat /root/.instruqt/hint.txt
 fi
+
+if [ -f /root/.instruqt/choices.txt ]; then
+    echo ""
+    echo " -> Type \"answer\" to select your answer in the quiz."
+fi

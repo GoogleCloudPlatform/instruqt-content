@@ -22,8 +22,6 @@ The image in file "doggo1.png" contains an adorable dog, yes, but what is his
 breed? Using "gcloud", send this precious pup through Google's Vision API and report
 back what the most prominent breed is.
 
-When you think you know the answer, type answer and press ENTER.
-
 *HINT* Type "gcloud ml vision" to get started.
 EOF
 
@@ -34,6 +32,7 @@ Try running the following command:
 
 And look for the first value of "description" which describes a dog breed. Be
 sure to select the breed with the highest "score" value!
+
 EOF
 
 cat <<EOF > /root/.instruqt/choices.txt

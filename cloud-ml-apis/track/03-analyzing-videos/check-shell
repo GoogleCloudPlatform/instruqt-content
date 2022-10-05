@@ -14,7 +14,7 @@
 # limitations under the License.
 
 if [ ! -f /usr/local/bin/answer.txt ]; then
-    fail-message "No answer given. Type answer and press ENTER."
+        fail-message "Type the \"answer\" command to select the correct answer in the quiz."
     exit 1
 fi
 

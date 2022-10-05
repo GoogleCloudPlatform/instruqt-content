@@ -23,8 +23,6 @@ and "quote3.wav". Test your pop culture knowledge by identifying
 the undeniably classic 90's movie these quotes are from. Convert the audio into
 text using the Speech to Text API and report back with the title of the film.
 
-When you think you know the answer, type answer and press ENTER.
-
 *HINT* Type "gcloud ml speech" to get started.
 EOF
 

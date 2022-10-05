@@ -29,8 +29,6 @@ Let's figure out the overall average temperature in our West Coast road trip!
   editor to find the overall average temperature during this trip!
 
 * Then use 'bq query < query.sql' to execute the query.sql
-  
-* When you think you know the answer, type "answer" and press ENTER.
 
 If you need help, run "bq help" or type 'hint' if you're really stuck
 EOF

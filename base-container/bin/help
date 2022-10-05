@@ -19,16 +19,20 @@ if [ -f /root/.instruqt/help.png ]; then
 fi
 
 if [ -f /root/.instruqt/help.txt ]; then
-    [[ -z $YOUR_QUEST ]] && echo "# Your Quest" || echo "# $YOUR_QUEST"
+    echo "# Your Quest" 
 	echo "-------------------------------"
 	echo ""
 
 	cat /root/.instruqt/help.txt
 
 	echo ""
-	[[ -z $TYPE_HELP_MESSAGE ]] && echo "Type \"help\" to display this message again." || echo $TYPE_HELP_MESSAGE
+	echo " * Type \"help\" to display this message again." 
 fi
 
 if [ -f /root/.instruqt/hint.txt ]; then
-    [[ -z $TYPE_HINT_MESSAGE ]] && echo "Type \"hint\" if you get REALLY stuck." || echo $TYPE_HINT_MESSAGE
+    echo " * Type \"hint\" if you get REALLY stuck."
+fi
+
+if [ -f /root/.instruqt/choices.txt ]; then
+    echo " * Type \"answer\" to select the correct answer in the quiz."
 fi

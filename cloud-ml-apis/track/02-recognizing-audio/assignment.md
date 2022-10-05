@@ -11,4 +11,4 @@ tabs:
 difficulty: basic
 timelimit: 300
 ---
-Type the `hint` command to get a hint.
+If you're really stuck, type 'hint'

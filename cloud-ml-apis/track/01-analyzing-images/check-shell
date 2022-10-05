@@ -14,7 +14,7 @@
 # limitations under the License.
 
 if [ ! -f /usr/local/bin/answer.txt ]; then
-    fail-message "Please provide an answer"
+        fail-message "Type the \"answer\" command to select the correct answer in the quiz."
     exit 1
 fi
 
@@ -26,6 +26,6 @@ if [[ "toy bulldog" == "$ANSWER" ]]; then
 fi
 
 if [[ "english bulldog" != "$ANSWER" ]]; then
-    fail-message "That's not the right answer"
+    fail-message "$ANSWER is not the right answer. Try again!"
     exit 1
 fi
