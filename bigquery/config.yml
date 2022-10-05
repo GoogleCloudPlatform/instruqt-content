@@ -1,0 +1,15 @@
+version: "3"
+containers:
+- name: shell
+  image: europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/base:1.2.0
+  shell: /bin/bash --login
+  environment:
+    INSTRUQT_LANGUAGE_CODE: en
+  memory: 256
+gcp_projects:
+- name: default
+  services:
+  - bigquery.googleapis.com
+  roles: 
+  - roles/bigquery.dataEditor
+  - roles/bigquery.jobUser

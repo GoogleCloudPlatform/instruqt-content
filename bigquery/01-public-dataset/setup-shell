@@ -1,0 +1,68 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+echo "export USA_NAMES=usa_1910_current" >> /root/.instruqt/.customenv
+
+source /root/.instruqt/.customenv
+
+# Put the help text in help.txt
+cat << EOF > /root/.instruqt/help.txt
+Let's use the bigquery-public-data.usa_names.usa_1910_current table to
+figure out what's been the most common name in the US since 1910.
+The name of the table is available as an environment variable \$USA_NAMES.
+Each row represents the number of applicants for a Social Security card by year
+of birth, state and gender. So for an example row:
++-------+--------+------+------+--------+
+| state | gender | year | name | number |
++-------+--------+------+------+--------+
+| NJ    | F      | 1910 | Anna |    355 |
++-------+--------+------+------+--------+
+For example there were 355 females born with the name Anna in NJ during 1910.
+Using this table figure out what's the most common name in the US since 1910.
+When you think you know the answer, type ""answer"" and press ENTER.
+**Hint**:
+Example query:
+bq query 'SELECT * FROM \$USA_NAMES LIMIT 1'
+Or use this command to check the schema of the table:
+bq show bigquery-public-data:usa_names.usa_1910_current
+EOF
+
+# Put the hint text in hint.txt
+cat <<EOF > /root/.instruqt/hint.txt
+Remember that each row is aggregated by name and year. This query will help you
+get very close to the answer:
+    bq query 'SELECT name, sum(number) FROM '\$USA_NAMES' GROUP BY 1 ORDER BY 2 DESC LIMIT 10'
+EOF
+
+# Put the choices text in choices.txt
+cat <<EOF > /root/.instruqt/choices.txt
+What is the most common name?
+Leslie
+John
+Peter
+Lee
+James
+Mary
+EOF
+
+bq query "SELECT 1"
+
+cat <<EOF >> "$HOME"/.bigqueryrc
+--dataset_id=bigquery-public-data:usa_names
+--max_rows_per_request=100
+
+[query]
+--use_legacy_sql=false
+EOF

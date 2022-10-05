@@ -1,0 +1,22 @@
+slug: bigquery
+id: qfqvbbq1oqdv
+title: BigQuery
+teaser: Let's see how much you know about BigQuery.
+description: |-
+  # What is BigQuery?
+
+  BigQuery is Google's serverless, highly scalable enterprise data warehouse. Because there is no infrastructure to manage, you don't need to deploy any resources such as disks or virtual machines, so that you can focus on analyzing data to find meaningful insights using familiar SQL without the need
+  for a database administrator. Let's see how much you know about BigQuery! ![](https://storage.googleapis.com/instruqt-shadow-resources/bigquery/BigQuery.gif)
+icon: https://storage.googleapis.com/instruqt-shadow-resources/bigquery/BigQuery.gif
+tags:
+- cloud
+- bigquery
+- data warehouse
+- bigdata
+owner: google
+developers:
+- venema@google.com
+- amuscarella@google.com
+private: true
+published: true
+checksum: "4557190613844829011"

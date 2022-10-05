@@ -13,16 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ ! -f /usr/local/bin/answer.txt ]; then
-    fail-message "$ROAD_TRIP_FAIL_NO_ANSWER"
-    exit 1
-fi
-
-ANSWER=$(cat /usr/local/bin/answer.txt)
-
-CORRECT=$(bq query --quiet --format=prettyjson 'SELECT name, SUM(number) AS count FROM usa_1910_current GROUP BY 1 ORDER BY 2 DESC LIMIT 1' | jq -r ".[] .name | ascii_downcase")
-
-if [[ "$CORRECT" != "$ANSWER" ]]; then
-    fail-message "$PUBLIC_DATASET_FAIL"
+bq show "$DATASET_ID"
+if [ $? -ne 0 ]; then
+    fail-message "Could not find a dataset called $DATASET_ID"
     exit 1
 fi

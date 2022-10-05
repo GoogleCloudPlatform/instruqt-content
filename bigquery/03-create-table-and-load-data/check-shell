@@ -13,33 +13,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-bq show $DATASET_ID.road_trip
+bq show "$DATASET_ID.road_trip"
 if [ $? -ne 0 ]; then
-  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_TABLE"
+  fail-message "Could not find a table called $DATASET_ID.road_trip"
   exit 1
 fi
 
-OUTPUT=$(bq show --schema $DATASET_ID.road_trip)
+OUTPUT=$(bq show --schema "$DATASET_ID.road_trip")
 if [ $? -ne 0 ]; then
-  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_SCHEMA"
+  fail-message "Table was created but looks like you haven't specified a schema or loaded any data yet. Try doing that with 'bq load'"
   exit 1
 fi
 
-echo $OUTPUT | jq -e 'sort_by(.name) | .[0].name == "date" and .[1].name == "id" and .[2].name == "lat" and .[3].name == "long" and .[4].name == "place"'
+echo "$OUTPUT" | jq -e 'sort_by(.name) | .[0].name == "date" and .[1].name == "id" and .[2].name == "lat" and .[3].name == "long" and .[4].name == "place"'
 if [ $? -ne 0 ]; then
-  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_FIELDS"
+  fail-message "Please make sure the table has the following 3 fields: sales, timestamp and zipcode"
   exit 1
 fi
 
-echo $OUTPUT | jq -e 'sort_by(.name) | .[0].type == "DATE" and .[1].type == "INTEGER" and .[2].type == "FLOAT" and .[3].type == "FLOAT" and .[4].type == "STRING"'
+echo "$OUTPUT" | jq -e 'sort_by(.name) | .[0].type == "DATE" and .[1].type == "INTEGER" and .[2].type == "FLOAT" and .[3].type == "FLOAT" and .[4].type == "STRING"'
 if [ $? -ne 0 ]; then
-  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_WRONG_TYPES"
+  fail-message "Please make sure the table has the correct fields types"
   exit 1
 fi
 
 COUNT=$(bq query --format=prettyjson 'SELECT count(1) as num FROM `'$DATASET_ID'.road_trip`' | jq -r '.[].num')
 if [ "$COUNT" -ne "16" ]; then
   echo ""
-  fail-message "$CREATE_TABLE_AND_LOAD_DATA_FAIL_NO_DATA"
+  fail-message "Table was created but doesn't look like data was loaded from data.csv"
   exit 1
 fi

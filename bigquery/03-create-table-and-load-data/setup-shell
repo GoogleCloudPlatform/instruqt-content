@@ -13,10 +13,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-echo "$CREATE_TABLE_AND_LOAD_DATA_HINT" > /root/.instruqt/hint.txt
+cat <<EOF > /root/.instruqt/hint.txt
+Try running "bq load" it will guide you through the usage.
+Remember that the destination table is formed by [dataset].[table]
+EOF
 
 # Put the help text in help.txt
-echo "$CREATE_TABLE_AND_LOAD_DATA_HELP" > /root/.instruqt/help.txt
+cat <<EOF > /root/.instruqt/help.txt
+Now that we have our $DATASET_ID dataset created,
+let's create a table called "road_trip" in that dataset and load some data
+using the data.csv file available in the home directory.
+Remember you can access the dataset name in \$DATASET_ID.
+Use the schema.json file to define the table schema.
+And remember, if you need help run "bq help | grep table".
+EOF
 
 cat <<EOF > data.csv
 1,2019-02-02,Moscone Center,-122.40069,37.7843234

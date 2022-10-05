@@ -13,14 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if [ ! -f ./query.sql ]; then
-  echo "No query.sql file was found in this directory."
-  exit 0
-fi
+# Delete the answer file
+rm /usr/local/bin/answer.txt
 
-if [ ! -s ./query.sql ]; then
-  echo "The query.sql file in this directory is empty"
-  exit 0
-fi
+# Delete the help file
+rm /root/.instruqt/help.txt
 
-bq query "$(cat query.sql)"
+# Delete the hint file
+rm /root/.instruqt/hint.txt
+
+# Delete the choices file
+rm /root/.instruqt/choices.txt
+
+# Delete dataset_id flag from .bigqueryrc file
+sed -i '/dataset_id/d' "$HOME"/.bigqueryrc

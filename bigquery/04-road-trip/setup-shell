@@ -13,13 +13,32 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-echo "$ROAD_TRIP_HINT" > /root/.instruqt/hint.txt
+cat <<EOF > /root/.instruqt/hint.txt
+Try running "bq load" it will guide you through the usage.
+Remember that the destination table is formed by [dataset].[table]
+EOF
 
 # Put the help text in help.txt
-echo "$ROAD_TRIP_HELP" > /root/.instruqt/help.txt
+cat <<EOF > /root/.instruqt/help.txt
+In this last challenge we are going to combine the data we just uploaded with
+a GHCN Weather public dataset and figure out the average temperature in our West
+Coast road trip!
+Modify the query.sql located in the home directory using your favorite text
+editor to find the overall average temperature during this trip!
+Then use the 'run-query' command to execute the query.sql
+When you think you know the answer, type "answer" and press ENTER.
+And remember, if you need help run "bq help".
+EOF
 
 # Put the choices text in choices.txt
-echo "$ROAD_TRIP_CHOICES" > /root/.instruqt/choices.txt
+cat <<EOF > /root/.instruqt/choices.txt
+What was the overall average temperature during this trip?
+2.45
+8.31
+3.63
+10.91
+3.14
+EOF
 
 cat <<EOF > ./query.sql
 WITH params AS (

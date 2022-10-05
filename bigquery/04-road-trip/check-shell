@@ -13,18 +13,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Starts the user in the /home directory
-set-workdir /home
+if [ ! -f /usr/local/bin/answer.txt ]; then
+    fail-message "You haven't answered yet! You must run the \"answer\" command and press ENTER"
+    exit 1
+fi
 
-random_id=$(uuidgen)
-random_dataset_id=${random_id//-}"_bigquery"
+ANSWER=$(cat /usr/local/bin/answer.txt)
 
-source /root/.instruqt/.translationsenv
+CORRECT="3.63"
 
-echo "export DATASET_ID="$random_dataset_id >> /root/.instruqt/.customenv
-
-# Put the help text in help.txt
-echo "$CREATE_A_DATASET_HELP" > /root/.instruqt/help.txt
-
-# Put the hint text in hint.txt
-echo "$CREATE_A_DATASET_HINT" > /root/.instruqt/hint.txt
+if [[ "$CORRECT" != "$ANSWER" ]]; then
+    fail-message "Your answer is incorrect! If you are really stuck, type 'hint'."
+    exit 1
+fi

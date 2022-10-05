@@ -13,26 +13,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-gcloud config set project instruqt-shadow
+random_id=$(uuidgen)
+random_dataset_id=${random_id//-}"_bigquery"
 
-# Starts the user in the /home directory
-set-workdir /home
-
-echo "export USA_NAMES=usa_1910_current" >> /root/.instruqt/.customenv
-
-source /root/.instruqt/.customenv
 source /root/.instruqt/.translationsenv
 
+echo "export DATASET_ID="$random_dataset_id >> /root/.instruqt/.customenv
+
 # Put the help text in help.txt
-echo "$PUBLIC_DATASET_HELP" > /root/.instruqt/help.txt
+cat <<EOF > /root/.instruqt/help.txt
+In this challenge we are going to create a new dataset.
+Use the bq cli to create a dataset called $random_dataset_id.
+The name of the dataset is accessible as the environment variable \$DATASET_ID.
+Once the dataset is created, press the A button to verify it.
+If in doubt, run "bq help | grep dataset" to get some guidance.
+EOF
 
 # Put the hint text in hint.txt
-echo "$PUBLIC_DATASET_HINT" > /root/.instruqt/hint.txt
-
-# Put the choices text in choices.txt
-echo "$PUBLIC_DATASET_CHOICES" > /root/.instruqt/choices.txt
-
-bq query "SELECT 1"
-echo $'\n'"--dataset_id=bigquery-public-data:usa_names" >> $HOME/.bigqueryrc
-echo "--max_rows_per_request=100" >> $HOME/.bigqueryrc
-echo $'\n'"[query]"$'\n'"--use_legacy_sql=false" >> $HOME/.bigqueryrc
+cat <<EOF > /root/.instruqt/hint.txt
+Try running "bq help | grep dataset" that might help you find the right command.
+EOF

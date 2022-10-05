@@ -15,3 +15,4 @@
 
 # Delete the help file
 rm /root/.instruqt/help.txt
+rm /root/.instruqt/hint.txt
