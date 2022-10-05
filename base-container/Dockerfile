@@ -33,8 +33,8 @@ RUN git clone https://github.com/stefanhaustein/TerminalImageViewer.git \
 RUN apt-get install -y vim nano emacs jed
 
 # Configure auto completion
-RUN apt-get install bash-completion
-RUN echo 'source <(kubectl completion bash)' >> /etc/bash.bashrc
+RUN apt-get install bash-completion && \
+    echo 'source <(kubectl completion bash)' >> /etc/bash.bashrc
 
 # Set a few sensible defaults
 RUN echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> /etc/bash.bashrc && \    
@@ -69,6 +69,8 @@ COPY ./translations/shared-translations.csv /root/.instruqt/
 # Env for python translations
 ENV PYTHONIOENCODING utf-8
 ENV LANG C.UTF-8
+
+RUN rm -rf /home/cloudsdk
 
 ENTRYPOINT [ "/opt/instruqt/docker-entrypoint.sh" ]
 COPY docker-entrypoint.sh /opt/instruqt/
