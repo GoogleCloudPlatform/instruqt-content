@@ -21,6 +21,7 @@ source /root/.instruqt/.customenv
 cat << EOF > /root/.instruqt/help.txt
 Let's use the bigquery-public-data.usa_names.usa_1910_current table to
 figure out what's been the most common name in the US since 1910.
+
 The name of the table is available as an environment variable \$USA_NAMES.
 Each row represents the number of applicants for a Social Security card by year
 of birth, state and gender. So for an example row:
@@ -29,14 +30,14 @@ of birth, state and gender. So for an example row:
 +-------+--------+------+------+--------+
 | NJ    | F      | 1910 | Anna |    355 |
 +-------+--------+------+------+--------+
+
 For example there were 355 females born with the name Anna in NJ during 1910.
 Using this table figure out what's the most common name in the US since 1910.
+
 When you think you know the answer, type ""answer"" and press ENTER.
-**Hint**:
-Example query:
+
+Here's an example query to get you started: 
 bq query 'SELECT * FROM \$USA_NAMES LIMIT 1'
-Or use this command to check the schema of the table:
-bq show bigquery-public-data:usa_names.usa_1910_current
 EOF
 
 # Put the hint text in hint.txt

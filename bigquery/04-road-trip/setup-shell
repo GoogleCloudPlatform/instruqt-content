@@ -14,20 +14,25 @@
 # limitations under the License.
 
 cat <<EOF > /root/.instruqt/hint.txt
-Try running "bq load" it will guide you through the usage.
-Remember that the destination table is formed by [dataset].[table]
+If you run the query you get the average temperature per day. Use
+AVG(avg_temp_per_day) to get the overall average temperature during the trip.
 EOF
 
 # Put the help text in help.txt
 cat <<EOF > /root/.instruqt/help.txt
-In this last challenge we are going to combine the data we just uploaded with
-a GHCN Weather public dataset and figure out the average temperature in our West
-Coast road trip!
-Modify the query.sql located in the home directory using your favorite text
-editor to find the overall average temperature during this trip!
-Then use the 'run-query' command to execute the query.sql
-When you think you know the answer, type "answer" and press ENTER.
-And remember, if you need help run "bq help".
+You're almost there! In this last challenge, you're going to combine 
+the data you just uploaded with a GHCN Weather public dataset. 
+
+Let's figure out the overall average temperature in our West Coast road trip!
+
+* Modify the query.sql located in the home directory using your favorite text
+  editor to find the overall average temperature during this trip!
+
+* Then use 'bq query < query.sql' to execute the query.sql
+  
+* When you think you know the answer, type "answer" and press ENTER.
+
+If you need help, run "bq help" or type 'hint' if you're really stuck
 EOF
 
 # Put the choices text in choices.txt
@@ -46,7 +51,7 @@ WITH params AS (
          ST_GeogPoint(lat, long) AS center,
          date,
          50 AS maxdist_km
-  FROM \`instruqt-shadow.$DATASET_ID.road_trip\`
+  FROM \`$DATASET_ID.road_trip\`
 ),
 distance_from_center AS (
   SELECT

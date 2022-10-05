@@ -20,12 +20,18 @@ EOF
 
 # Put the help text in help.txt
 cat <<EOF > /root/.instruqt/help.txt
-Now that we have our $DATASET_ID dataset created,
-let's create a table called "road_trip" in that dataset and load some data
-using the data.csv file available in the home directory.
-Remember you can access the dataset name in \$DATASET_ID.
-Use the schema.json file to define the table schema.
-And remember, if you need help run "bq help | grep table".
+Now that you have created your dataset, let's load some data!
+
+Take a look at data.csv, it has a list of places we visited
+on a US West Coast road trip back in the winter of 2019.
+
+* Use the schema.json and data.csv provided in this directory
+
+* Create a table called "road_trip" in the dataset
+
+* Remember you can access the dataset name in \$DATASET_ID.
+
+If you need help run "bq help | grep table".
 EOF
 
 cat <<EOF > data.csv
