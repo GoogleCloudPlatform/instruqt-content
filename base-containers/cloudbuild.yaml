@@ -1,0 +1,38 @@
+steps:
+    - name: "gcr.io/cloud-builders/docker"
+      args: [
+        "pull", "$_REPO/base:$_TAG"
+      ]    
+    - name: "gcr.io/cloud-builders/docker"
+      dir: 'base'
+      args: [
+          "build", "-t", "$_REPO/base:$_TAG", "--cache-from", "$_REPO/base:$_TAG",
+          ".",
+        ]
+    - name: "gcr.io/cloud-builders/docker"
+      args: [
+        "pull", "$_REPO/cloud-ml-apis:$_TAG"
+      ]    
+    - name: "gcr.io/cloud-builders/docker"
+      dir: 'cloud-ml-apis'
+      args: [
+          "build", "-t", "$_REPO/cloud-ml-apis:$_TAG", "--cache-from", "$_REPO/cloud-ml-apis:$_TAG",
+          ".",
+        ]
+    - name: "gcr.io/cloud-builders/docker"
+      args: [
+        "pull", "$_REPO/cloud-storage:$_TAG"
+      ]
+    - name: "gcr.io/cloud-builders/docker"
+      dir: 'cloud-storage'
+      args: [
+          "build", "-t", "$_REPO/cloud-storage:$_TAG", "--cache-from", "$_REPO/cloud-storage:$_TAG",
+          ".",
+        ]
+substitutions:   
+  _TAG: 1.2.0
+  _REPO: europe-west1-docker.pkg.dev/instruqt-shadow-resources/library
+images: 
+  - $_REPO/base:$_TAG
+  - $_REPO/cloud-ml-apis:$_TAG
+  - $_REPO/cloud-storage:$_TAG
