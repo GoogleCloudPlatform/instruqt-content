@@ -1,0 +1,18 @@
+slug: cloud-run
+id: ka256ydiifdy
+title: Cloud Run
+teaser: Serverless containers
+description: Cloud Run is a serverless platform you can use to run and scale serverless,
+  container-based services
+icon: https://storage.googleapis.com/instruqt-shadow-resources/gcr.gif
+tags:
+- google
+- ' cloud'
+- ' run'
+owner: google
+developers:
+- wietsevenema@binx.io
+- venema@google.com
+private: true
+published: true
+checksum: "14749361533032210803"
