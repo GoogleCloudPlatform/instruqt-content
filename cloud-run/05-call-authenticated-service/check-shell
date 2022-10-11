@@ -21,7 +21,8 @@ COUNT_200=$(gcloud logging read \
 "httpRequest.status=200 AND \
 resource.type=\"cloud_run_revision\" AND \
 resource.labels.service_name=\"$SECRET_SERVICE_NAME\"" --format=json | jq length)
-if [ "$COUNT_200" -eq "0" ]; then
-    fail-message "$CALL_AUTHENTICATED_SERVICE_FAIL"
+
+if [ "$COUNT_200" -eq 0 ]; then
+    fail-message "Expected an authenticated request to the protected service. It might take a while before we notice the request, please retry!"
     exit 1
 fi

@@ -11,10 +11,4 @@ tabs:
 difficulty: basic
 timelimit: 500
 ---
-This is the final challenge to show you are mastered Cloud Run Part One!
-
- You now need to send **authenticated requests** to the protected service you deployed in the previous challenge.
-
- The URL of your protected service is in the environment variable **$SECRET_SERVICE_URL**
-
- Use ``gcloud auth print-identity-token`` to get your personal ID-token. Then add a ``Authorization: Bearer [TOKEN]`` HTTP header, and send a request with curl.
+Use `help` and `hint`

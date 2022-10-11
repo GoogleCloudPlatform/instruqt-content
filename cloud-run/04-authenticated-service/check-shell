@@ -17,7 +17,7 @@
 # A new service should have been deployed 
 COUNT=$(gcloud run services list --format json | jq length)
 if [ "$COUNT" -lt "2" ]; then
-    fail-message "$AUTHENTICATED_SERVICE_FAIL_NO_SERVICE"
+    fail-message "Expected an additional Cloud Run service"
     exit 1
 fi
 
@@ -26,7 +26,7 @@ COUNT_403=$(gcloud logging read \
 "httpRequest.status=403 AND \
 resource.type=\"cloud_run_revision\"" --format=json | jq length)
 if [ "$COUNT_403" -eq "0" ]; then
-    fail-message "$AUTHENTICATED_SERVICE_FAIL_NO_DENIED"
+    fail-message "There was no denied request (HTTP 403) detected to the service. This might take a while to detect, please try again in a bit."
     exit 1
 fi
 

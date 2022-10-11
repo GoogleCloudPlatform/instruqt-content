@@ -16,12 +16,12 @@
 # Player should have executed, or looked at response.sh
 grep "response.sh" ~/.bash_history 
 if [ $? -ne 0 ]; then
-    fail-message "$GETTING_STARTED_FAIL response.sh"
+    fail-message "You did not read this file: response.sh"
     exit 1
 fi
 
 grep "Dockerfile" ~/.bash_history 
 if [ $? -ne 0 ]; then
-    fail-message "$GETTING_STARTED_FAIL Dockerfile"
+    fail-message "You did not read this file: Dockerfile"
     exit 1
 fi

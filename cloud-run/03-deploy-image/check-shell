@@ -16,7 +16,7 @@
 # There should be more than zero services deployed
 COUNT=$(gcloud run services list --format json | jq length)
 if [ "$COUNT" -eq "0" ]; then
-  fail-message "$DEPLOY_IMAGE_FAIL_NOTHING"
+  fail-message "No service was deployed."
   exit 1
 fi
 
@@ -26,7 +26,7 @@ READY=$(gcloud run services list --format json | \
       map(select( .type == \"Ready\")) | \
       all(.status==\"True\")")
 if [ $READY = "false" ]; then
-  fail-message "$DEPLOY_IMAGE_FAIL_NOT_READY"
+  fail-message "The service is not healthy."
   exit 1
 fi
 
@@ -34,7 +34,7 @@ fi
 SERVICE_NAME=$(gcloud run services list --format json | jq -r .[0].metadata.name)
 gcloud run services get-iam-policy $SERVICE_NAME | grep allUsers
 if [ $? -ne 0 ]; then 
-    fail-message "$DEPLOY_IMAGE_FAIL_NOT_PUBLIC"
+    fail-message "The service should allow public access: \"--allow-unauthenticated\". If you update access policy of the service, be patient, it can take some time."
     exit 1
 fi
 
@@ -43,7 +43,7 @@ COUNT_200=$(gcloud logging read \
 resource.type=\"cloud_run_revision\" AND \
 resource.labels.service_name=\"$SERVICE_NAME\"" --format=json | jq length)
 if [ "$COUNT_200" -eq "0" ]; then
-    fail-message "$DEPLOY_IMAGE_FAIL_NO_CALL"
+    fail-message "Expected a HTTP request to the service: did you call the URL?"
     exit 1
 fi
 
