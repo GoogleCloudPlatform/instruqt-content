@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 # Copyright 2019 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,12 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-rm /root/foo.txt
+source /etc/profile.d/google-adc.sh
+gcloud config set run/region europe-west1
 
 cat <<EOF > /root/.instruqt/help.txt
-Your Quest
--------------------------------
-
 To speed up the processing time for the batch job, you can parallelize different tasks. 
 The image used for the job allows distributing the work into several tasks, so let's 
 modify the Cloud Run Job to run 10 tasks in parallel. 
