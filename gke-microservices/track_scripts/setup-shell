@@ -26,4 +26,9 @@ gcloud beta container clusters create "default" \
   --enable-shielded-nodes \
   --node-locations "europe-west1-b" 
 
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+cat <<EOF >> ~/.bashrc
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+EOF
 gcloud container clusters get-credentials default
+

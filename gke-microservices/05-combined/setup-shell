@@ -75,7 +75,7 @@ spec:
         role: frontend
     spec:
       containers:
-      - image: gcr.io/gke-arcade/challenge
+      - image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
         name: app
         ports:
           - name: http

@@ -13,9 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+echo "export IMAGE=" >> /root/.bashrc
+
 cat <<EOF > /root/.instruqt/help.txt
 
-In the 'challenge' namespace you previously created, create a Deployment called 'frontend-deployment' that runs a single Pod with the 'gcr.io/gke-arcade/challenge' image.
+In the 'challenge' namespace you previously created, create a Deployment called 'frontend-deployment' that runs a single Pod with the 
+'us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0' image. This image name is also stored in the environment variable 'IMAGE'.
 
 The Pod should be labeled with 'role = frontend'.
 
@@ -32,7 +35,7 @@ For the metadata name, use 'frontend-deployment'. This determins the name of the
 For replicas, use '1'. This tells Kubernetes how many copies of your app to run.
 For the matchLabels, use 'role: frontend'. This tells Kubernetes what pods this Deployment controls.
 For the template metadata labels, use 'role: frontend'. This gives the Pods created by this Deployment the label 'role = frontend'.
-For the image, use 'gcr.io/gke-arcade/challenge'. This tells the Pods which Docker container to run.
+For the image, use 'us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0'. This tells the Pods which Docker container to run.
 
 Create the deployment by running:
 
@@ -59,7 +62,7 @@ spec:
         <?>: <?>
     spec:
       containers:
-      - image: <?>
+      - image: us-docker.pkg.dev/google-samples/containers/gke/hello-app:1.0
         name: app
         ports:
           - name: http
