@@ -1,0 +1,67 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+rm /root/foo.txt
+
+echo "export SA_EMAIL=run-jobs-invoker@$(gcloud config get project).iam.gserviceaccount.com" >> /root/.bashrc
+echo "export REGION=$(gcloud config get run/region)" >> /root/.bashrc
+echo "export JOB_URI=https://$(gcloud config get run/region)-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/$(gcloud config get project)/jobs/batchjob:run" >> /root/.bashrc
+
+cat <<EOF > /root/.instruqt/help.txt
+Your Quest
+-------------------------------
+
+Now your job is processing all tasks fast, but triggering a job manually that's 
+supposed to run every minute is not convenient at all.
+Let's add a Cloud Scheduler to execute the job on a 1 minute CRON schedule. 
+The job should be named "scheduler".
+
+To invoke the Cloud Run Job, you will need to assign the Cloud Scheduler a Service 
+Account with permissions to do so. The email address of this service account has 
+been stored in the environment variable "SA_EMAIL".
+
+You will also need the Job's URI and region, you can find these in the environment 
+variables $JOB_URI and $REGION respectively.
+
+To get started, you can use
+`gcloud scheduler jobs`
+
+Tip: A CRON schedule for every minute can be defined by  "* * * * *"
+
+Hit the "Check" button when you are done.
+
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+Hint:
+----
+
+try running:
+
+gcloud scheduler jobs create http scheduler \
+--location $REGION \
+--schedule="* * * * *" \
+--uri=$JOB_URI \
+--http-method POST \
+--oauth-service-account-email $SA_EMAIL
+
+
+replacing "..." with the amount of tasks to be executed.
+EOF
+
+# Remove hint in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    echo "Sorry, no hints in HARD mode" > /root/hint.txt
+fi

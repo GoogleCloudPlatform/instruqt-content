@@ -1,0 +1,50 @@
+#!/bin/bash
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# ensure utf-8 is configured:
+echo 'set encoding=utf-8' >> ~/.vimrc
+
+# setup aliases.
+echo "alias python=python3" >> /root/.bashrc
+
+# create a folder for placing our check scripts in:
+mkdir -p /usr/local/lib/goog/bin
+
+
+echo "export SA_NAME=serviceAccount:run-jobs-invoker@$(gcloud config get project).iam.gserviceaccount.com" >> /root/.bashrc
+
+
+cat <<EOF > /root/.instruqt/help.txt
+Cloud Run Jobs allow you to run finite processes on a defined schedule. Create a new Cloud Run Job using the gcloud CLI. 
+The job should be named "batchjob" and use the image "us-docker.pkg.dev/cloudrun/container/job:latest".
+
+Since Cloud Run Jobs are currently still in preview, you have to use gcloud beta.
+
+You can get started with:
+
+gcloud beta run jobs
+
+
+Hit the "Check" button when you are done.
+
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+The easiest way to solve this challenge is to use the "gcloud" command, try using "gcloud beta run jobs create"
+EOF
+
+# Remove hint in hard mode
+if [[ "$INSTRUQT_DIFFICULTY" = "hard" ]]; then
+    echo "If you need a hint, maybe you should try an EASIER difficulty ;-)" > /root/hint.txt
+fi

@@ -1,0 +1,41 @@
+#!/bin/bash --login
+# Copyright 2019 Google Inc.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+source /etc/profile.d/google-adc.sh
+
+# check if a Cloud Scheduler with name 'scheduler' exists
+NAME=$(gcloud scheduler jobs list --location europe-west1 --format yaml | grep name: | head -1 | sed 's/name: //g')
+
+if [[ ${NAME} != *"scheduler"* ]]; then 
+    fail-message "You do not appear to have created any Cloud Schedulers with the name 'scheduler'."
+    exit 1
+fi
+
+# check if the Cloud Scheduler calls the correct Cloud Run Jobs URL
+URI=$(gcloud scheduler jobs list --location europe-west1 --format yaml | grep uri: | head -1 | sed 's/uri: //g')
+TARGET_URI="https://$(gcloud config get run/region)-run.googleapis.com/apis/run.googleapis.com/v1/namespaces/$(gcloud config get project)/jobs/batchjob:run"
+
+if [[ ${URI} != *"$TARGET_URI"* ]]; then
+    fail-message "The Cloud Run Scheduler does not invoke the correct Cloud Run Jobs URI."
+    exit 1
+fi
+
+# check if the Cloud Scheduler is scheduled to execute every minute
+SCHEDULE=$(gcloud scheduler jobs list --location europe-west1 --format yaml | grep schedule: | head -1 | sed 's/schedule: //g')
+AMNT_STAR_IN_SCHEDULE=$(echo "${SCHEDULE}" | tr -cd '*' | wc -c)
+
+if [[ AMNT_STAR_IN_SCHEDULE -ne 5 ]]; then
+    fail-message "The scheduler's CRON schedule $SCHEDULE is incorrect."
+    exit 1
+fi
