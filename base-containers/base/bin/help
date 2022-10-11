@@ -26,6 +26,7 @@ if [ -f /root/.instruqt/help.txt ]; then
 	cat /root/.instruqt/help.txt
 
 	echo ""
+	echo "----"
 	echo " * Type \"help\" to display this message again." 
 fi
 
