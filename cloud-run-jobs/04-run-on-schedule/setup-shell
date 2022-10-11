@@ -34,22 +34,23 @@ cat <<EOF > /root/.instruqt/help.txt
 Your Quest
 -------------------------------
 
-Now your job is processing all tasks fast, but triggering a job manually that's 
-supposed to run every minute is not convenient at all.
+Now your job is processing all tasks fast, but triggering a job manually 
+that's supposed to run every minute is not convenient at all.
 Let's add a Cloud Scheduler to execute the job on a 1 minute CRON schedule. 
-The job should be named "scheduler".
+Name the job "scheduler".
 
-To invoke the Cloud Run Job, you will need to assign the Cloud Scheduler a Service 
-Account with permissions to do so. The email address of this service account has 
-been stored in the environment variable "SA_EMAIL".
+To invoke the Cloud Run Job, you will need to assign the Cloud Scheduler a 
+Service Account with permissions to do so. We’ve already created a service 
+account for you to use, and stored the identifier of the service account in 
+the environment variable "\$SA_EMAIL".
 
-You will also need the Job's URI and region, you can find these in the environment 
-variables $JOB_URI and $REGION respectively.
+You will also need the Job's URI and region, you can find these in the environment variables "\$JOB_URI" and "\$REGION" respectively.
 
 To get started, you can use
 `gcloud scheduler jobs`
 
-Tip: A CRON schedule for every minute can be defined by  "* * * * *"
+Tip: A CRON schedule for every minute can be defined with "* * * * *"
+
 
 Hit the "Check" button when you are done.
 
