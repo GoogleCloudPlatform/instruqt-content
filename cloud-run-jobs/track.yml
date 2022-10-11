@@ -1,6 +1,6 @@
-slug: cloud-storage
-id: bp1bhvluvcrj
-title: Cloud Run
+slug: cloud-run-jobs
+id: dia0h7pb8slr
+title: Cloud Run Jobs
 teaser: Executing jobs serverlessly
 description: |-
   What is Google Cloud Run Jobs?
@@ -16,4 +16,4 @@ developers:
 - venema@google.com
 private: true
 published: true
-checksum: "14878094909766522281"
+checksum: "5393508581598492301"

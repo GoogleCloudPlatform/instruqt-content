@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 # Copyright 2019 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-rm /root/foo.txt
+set-workdir /home
+
+source /etc/profile.d/google-adc.sh
+gcloud config set run/region europe-west1
+
+gcloud iam service-accounts create run-jobs-invoker \
+    --description="Cloud Run Jobs invoker for Cloud Scheduler" \
+    --display-name="run-jobs-invoker"
+  
+gcloud projects add-iam-policy-binding $(gcloud config get project) \
+    --member="serviceAccount:run-jobs-invoker@$(gcloud config get project).iam.gserviceaccount.com" \
+    --role="roles/run.invoker"
 
 echo "export SA_EMAIL=run-jobs-invoker@$(gcloud config get project).iam.gserviceaccount.com" >> /root/.bashrc
 echo "export REGION=$(gcloud config get run/region)" >> /root/.bashrc

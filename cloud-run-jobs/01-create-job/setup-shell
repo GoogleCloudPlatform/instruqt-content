@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 # Copyright 2019 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,13 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 # ensure utf-8 is configured:
-echo 'set encoding=utf-8' >> ~/.vimrc
+set-workdir /home
 
-# setup aliases.
-echo "alias python=python3" >> /root/.bashrc
+echo 'set encoding=utf-8' >> ~/.vimrc
 
 # create a folder for placing our check scripts in:
 mkdir -p /usr/local/lib/goog/bin
+
+source /etc/profile.d/google-adc.sh
+gcloud config set run/region europe-west1
 
 
 echo "export SA_NAME=serviceAccount:run-jobs-invoker@$(gcloud config get project).iam.gserviceaccount.com" >> /root/.bashrc
