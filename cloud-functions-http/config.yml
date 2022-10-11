@@ -14,3 +14,4 @@ gcp_projects:
   - serviceusage.googleapis.com
   roles: 
   - roles/editor
+  - roles/cloudfunctions.admin

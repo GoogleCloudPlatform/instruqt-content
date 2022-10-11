@@ -1,7 +1,7 @@
-# #!/bin/bash
-# set -euxo pipefail
+#!/bin/bash
+set -euxo pipefail
 
-mkdir /root/cowsay 
+mkdir -p /root/cowsay 
 
 cat <<EOF > /root/cowsay/package.json
 {
@@ -17,17 +17,6 @@ EOF
 
 echo "exports.cowsay = (req, res) => {res.end(require('cowsay').say({text:\`\${req.query.text || 'Google Cloud Functions are awesome'}\`}))}" > /root/cowsay/index.js
 
-
 # Build script with three retries
-CMD_DEPLOY="gcloud functions deploy cowsay --runtime nodejs12 --trigger-http --allow-unauthenticated"
-cat <<EOF > /root/cowsay/build.sh
-#!/bin/bash
-$CMD_DEPLOY || \
-$CMD_DEPLOY || \
-$CMD_DEPLOY 
-EOF
-chmod +x /root/cowsay/build.sh
+gcloud functions deploy cowsay --runtime nodejs12 --trigger-http --allow-unauthenticated --source /root/cowsay
 
-cd /root/cowsay
-./build.sh
-rm build.sh

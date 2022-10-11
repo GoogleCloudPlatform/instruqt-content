@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+gcloud functions add-iam-policy-binding cowsay --member='allUsers' --role='roles/cloudfunctions.invoker'
+
 # Retry max 30s 
 DESCRIBE=$(max=6; for n in $(seq 1 $max); do gcloud functions describe cowsay --format json && break; sleep 5; done)
 export URL=$(echo $DESCRIBE | jq -r '.httpsTrigger.url')
