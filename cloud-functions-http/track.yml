@@ -1,6 +1,6 @@
 slug: cloud-functions-http
 id: zrlyhsm41tb7
-title: Cloud Functions (en)
+title: Cloud Functions
 teaser: Event-driven serverless compute platform
 description: |-
   Google Cloud Functions is a serverless execution environment for building and connecting cloud services. With Cloud Functions you write simple, single-purpose functions that are attached to events emitted from your cloud infrastructure and services. Your function is triggered when an event being watched is fired. Your code executes in a fully managed environment. There is no need to provision any infrastructure or worry about managing any servers.
@@ -17,4 +17,4 @@ developers:
 - amuscarella@google.com
 private: true
 published: true
-checksum: "3056477830271733350"
+checksum: "7194610952048875496"

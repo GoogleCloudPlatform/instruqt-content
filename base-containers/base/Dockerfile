@@ -60,6 +60,9 @@ COPY ./bin/hint /usr/local/bin/hint
 # Copy over ".bash_aliases"
 COPY ./.bash_aliases /root/.bash_aliases
 
+# Provide a home for the help and hint resources
+RUN mkdir -p /root/.instruqt/
+
 # Env for python translations
 ENV PYTHONIOENCODING utf-8
 ENV LANG C.UTF-8
