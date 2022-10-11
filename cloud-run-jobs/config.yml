@@ -13,4 +13,4 @@ gcp_projects:
   - cloudscheduler.googleapis.com
   roles: 
   - roles/run.admin
-  - roles/
+  - roles/cloudscheduler.admin
