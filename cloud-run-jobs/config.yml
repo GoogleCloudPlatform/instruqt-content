@@ -1,0 +1,16 @@
+version: "3"
+containers:
+- name: shell
+  image: europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/base:1.2.0
+  shell: /bin/bash
+  environment:
+    INSTRUQT_LANGUAGE_CODE: en
+  memory: 512
+gcp_projects:
+- name: cloud-storage
+  services:
+  - run.googleapis.com
+  - cloudscheduler.googleapis.com
+  roles: 
+  - roles/run.admin
+  - roles/cloudscheduler.admin

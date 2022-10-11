@@ -1,0 +1,12 @@
+#!/bin/bash
+set -euxo pipefail
+
+gcloud config set run/region europe-west1
+
+gcloud iam service-accounts create run-jobs-invoker \
+    --description="Cloud Run Jobs invoker for Cloud Scheduler" \
+    --display-name="run-jobs-invoker"
+  
+gcloud projects add-iam-policy-binding $(gcloud config get project) \
+    --member="serviceAccount:run-jobs-invoker@$(gcloud config get project).iam.gserviceaccount.com" \
+    --role="roles/run.invoker"
