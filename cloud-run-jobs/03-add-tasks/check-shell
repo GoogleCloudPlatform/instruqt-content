@@ -17,9 +17,8 @@ set-workdir /home
 
 source /etc/profile.d/google-adc.sh
 
-TASK_COUNT=$(gcloud beta run jobs describe batchjob --format yaml | grep taskCount | sed 's/taskCount: //g')
-TASK_COUNT=$(expr $TASK_COUNT)
-if [[ $TASK_COUNT != 10 ]]; then
+TASK_COUNT=$(gcloud beta run jobs describe batchjob --format="value(spec.template.spec.taskCount)")
+if [ $TASK_COUNT != 10 ]; then
     fail-message "The batchjob's task count $TASK_COUNT is incorrect"
     exit 1
 fi

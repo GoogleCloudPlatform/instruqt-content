@@ -14,9 +14,8 @@
 # limitations under the License.
 source /etc/profile.d/google-adc.sh
 
-EXECUTION_TIME=$(gcloud beta run jobs executions list --job=batchjob --format yaml | grep completionTime | sed 's/completionTime: //g')
-
-if [ -z "$EXECUTION_TIME" ]; then
+COMPLETION_TIME=$(gcloud beta run jobs executions list --job=batchjob --format="value(status.completionTime)")
+if [[ -z $COMPLETION_TIME ]]; then
     fail-message "The Cloud Run Job 'batchjob' has not been executed yet."
     exit 1
 fi
