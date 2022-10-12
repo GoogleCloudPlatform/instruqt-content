@@ -42,8 +42,7 @@ RUN echo "source /usr/lib/google-cloud-sdk/completion.bash.inc" >> /etc/bash.bas
     git clone https://tpope.io/vim/sensible.git $HOME/.vim/pack/tpope/start/sensible && \
     vim -u NONE -c "helptags sensible/doc" -c q && \
     mkdir -p $HOME/.vim/colors && \
-    curl -sS --fail -L -o $HOME/.vim/colors/basic-dark.vim https://raw.githubusercontent.com/zcodes/vim-colors-basic/master/colors/basic-dark.vim && \
-    echo "include /usr/share/nano/*" > $HOME/.nanorc
+    curl -sS --fail -L -o $HOME/.vim/colors/basic-dark.vim https://raw.githubusercontent.com/zcodes/vim-colors-basic/master/colors/basic-dark.vim
 
 # Remove build deps
 RUN apt-get remove -y build-essential
