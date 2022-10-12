@@ -30,16 +30,20 @@ echo "export IMAGE_NAME=us-docker.pkg.dev/cloudrun/container/job:latest" >> /roo
 
 cat <<EOF > /root/.instruqt/help.txt
 Cloud Run Jobs allow you to run finite processes on a defined schedule. 
+
+YOUR TASK
+----------
 Create a new Cloud Run Job using the gcloud CLI. 
-The job should be named "batchjob" and use the image 
+
+The job should be named **batchjob** and use the image 
 "us-docker.pkg.dev/cloudrun/container/job:latest" which is stored in the 
-environment variable "\$IMAGE_NAME".
+environment variable **\$IMAGE_NAME**.
 
 Since Cloud Run Jobs are currently still in preview, you have to use gcloud beta.
 
 You can get started with:
 
-gcloud beta run jobs
+"gcloud beta run jobs"
 
 
 Hit the "Check" button when you are done.

@@ -27,7 +27,7 @@ use the "--tasks" flag.
 Since Cloud Run Jobs is still in preview, you have to use gcloud beta.
 
 You can get started with 
-`gcloud beta run jobs`
+"gcloud beta run jobs"
 
 Hit the "Check" button when you are done.
 

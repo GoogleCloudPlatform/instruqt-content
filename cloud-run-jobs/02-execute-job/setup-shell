@@ -24,7 +24,7 @@ For now, we will only execute it manually.
 Since Cloud Run Jobs is still in preview, you will have to use gcloud beta.
 
 You can get started with
-gcloud beta run
+"gcloud beta run"
 
 Hit the "Check" button when you are done.
 

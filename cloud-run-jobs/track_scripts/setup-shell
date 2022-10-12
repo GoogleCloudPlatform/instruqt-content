@@ -1,0 +1,10 @@
+#!/bin/bash
+
+gcloud config set run/region europe-west1
+
+gcloud beta run jobs create setup-job --image=us-docker.pkg.dev/cloudrun/container/hello
+
+yes | gcloud beta run jobs delete setup-job
+
+gcloud beta run jobs list
+

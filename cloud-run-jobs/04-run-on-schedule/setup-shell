@@ -47,7 +47,7 @@ the environment variable "\$SA_EMAIL".
 You will also need the Job's URI and region, you can find these in the environment variables "\$JOB_URI" and "\$REGION" respectively.
 
 To get started, you can use
-`gcloud scheduler jobs`
+"gcloud scheduler jobs"
 
 Tip: A CRON schedule for every minute can be defined with "* * * * *"
 
@@ -63,11 +63,11 @@ Hint:
 try running:
 
 gcloud scheduler jobs create http scheduler \
---location $REGION \
+--location \$REGION \
 --schedule="* * * * *" \
---uri=$JOB_URI \
+--uri=\$JOB_URI \
 --http-method POST \
---oauth-service-account-email $SA_EMAIL
+--oauth-service-account-email \$SA_EMAIL
 
 
 replacing "..." with the amount of tasks to be executed.

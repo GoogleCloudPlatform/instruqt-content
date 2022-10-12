@@ -17,4 +17,6 @@ tabs:
 difficulty: intermediate
 timelimit: 300
 ---
+Cloud Run Jobs allow you to run finite processes on a defined schedule.
+
 Feeling stuck? type "help", or "hint".
