@@ -18,12 +18,13 @@ source /etc/profile.d/google-adc.sh
 gcloud config set run/region europe-west1
 
 cat <<EOF > /root/.instruqt/help.txt
-Now it's time to execute your newly create Cloud Run Job with the name "batchjob". For now, we will only execute it manually.
+Now it's time to execute your newly create Cloud Run Job with the name "batchjob". 
+For now, we will only execute it manually.
 
 Since Cloud Run Jobs is still in preview, you will have to use gcloud beta.
 
 You can get started with
-gcloud beta run
+"gcloud beta run"
 
 Hit the "Check" button when you are done.
 

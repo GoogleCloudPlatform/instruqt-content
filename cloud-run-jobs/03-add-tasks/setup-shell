@@ -16,15 +16,18 @@
 source /etc/profile.d/google-adc.sh
 gcloud config set run/region europe-west1
 
+echo "export IMAGE_NAME=us-docker.pkg.dev/cloudrun/container/job:latest" >> /root/.bashrc
+
 cat <<EOF > /root/.instruqt/help.txt
 To speed up the processing time for the batch job, you can parallelize different tasks. 
 The image used for the job allows distributing the work into several tasks, so let's 
-modify the Cloud Run Job to run 10 tasks in parallel. 
+modify the Cloud Run Job to run 10 tasks in parallel. To specify the amount of tasks,
+use the "--tasks" flag.
 
 Since Cloud Run Jobs is still in preview, you have to use gcloud beta.
 
 You can get started with 
-`gcloud beta run jobs`
+"gcloud beta run jobs"
 
 Hit the "Check" button when you are done.
 

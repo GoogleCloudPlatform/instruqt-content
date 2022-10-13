@@ -21,6 +21,33 @@ echo "$GETTING_STARTED_HINT" > /root/.instruqt/hint.txt
 
 set-workdir /home
 
+cat <<EOF > /root/.instruqt/help.txt
+Cloud Run will run any container with an HTTP server as a service: 
+you push your container image and get a URL back.
+
+If it speaks HTTP, Cloud Run will serve it, even a *shell-based web server*.
+
+First, take a look at the current directory. There is a ``Dockerfile`` 
+and a ``response.sh``.
+
+The Dockerfile contains a list of commands to build a container image.
+
+The response.sh file is executed for every incoming HTTP request. It 
+returns an HTTP response.
+
+Your task is to read both files and to execute ``response.sh``.
+
+
+Hit the "Check" button when you are done.
+
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+You can use a text editor or the 'cat' program to inspect the files. 
+
+Execute the response.sh like this: ./response.sh"
+EOF
+
 cat <<END > /home/response.sh 
 #!/bin/sh
 

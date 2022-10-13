@@ -23,7 +23,33 @@ resource.type=\"cloud_run_revision\"" --format=json | jq -r .[0].resource.labels
 export SECRET_SERVICE_URL=$(gcloud run services describe $SECRET_SERVICE_NAME --format="value(status.url)")
 echo "export SECRET_SERVICE_URL=$SECRET_SERVICE_URL" >> /root/.instruqt/.customrc
 
-echo "$CALL_AUTHENTICATED_SERVICE_HELP" > /root/.instruqt/help.txt
-echo "$CALL_AUTHENTICATED_SERVICE_HINT" > /root/.instruqt/hint.txt
 
 set-workdir /home
+
+cat <<EOF > /root/.instruqt/help.txt
+This is the final challenge to show you have mastered Cloud Run Part One!
+
+You now need to send authenticated requests to the protected service you 
+deployed in the previous challenge.
+
+The URL of your protected service "\$SECRET_SERVICE_NAME" is in the 
+environment variable \$SECRET_SERVICE_URL 
+
+Use "gcloud auth print-identity-token" to get your personal ID-token. Then 
+add a "Authorization: Bearer [TOKEN]" HTTP header, and send a request with curl.
+
+ATTENTION: The validation of this challenge might take a while. If the challenge
+validation fails, please retry after 1 minute.
+
+Hit the "Check" button when you are done.
+
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+Send an authenticated request
+
+curl \$SECRET_SERVICE_URL -H "Authorization: Bearer \$(gcloud auth print-identity-token)"
+EOF
+
+
+

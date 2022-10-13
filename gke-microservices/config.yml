@@ -10,6 +10,6 @@ gcp_projects:
 - name: default
   services:
   - container.googleapis.com
-  roles: 
+  roles:
   - roles/container.admin
   - roles/iam.serviceAccountUser

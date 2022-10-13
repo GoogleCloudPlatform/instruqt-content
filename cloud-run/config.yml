@@ -1,7 +1,7 @@
 version: "3"
 containers:
 - name: shell
-  image: gcr.io/instruqt-shadow/cloud-run-track-one:0.0.1
+  image: europe-west1-docker.pkg.dev/instruqt-shadow-resources/library/base:1.2.0
   shell: /bin/bash
   environment:
     INSTRUQT_LANGUAGE_CODE: en
@@ -12,4 +12,7 @@ gcp_projects:
   - cloudresourcemanager.googleapis.com
   - cloudbuild.googleapis.com
   - run.googleapis.com
-  roles: []
+  roles: 
+  - roles/run.admin
+  - roles/logging.admin
+  - roles/editor

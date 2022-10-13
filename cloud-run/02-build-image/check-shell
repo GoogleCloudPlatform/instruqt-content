@@ -16,6 +16,6 @@
 # There should be an image in Container Registry
 COUNT=$(gcloud container images list --format json | jq length)
 if [ "$COUNT" -eq "0" ]; then
-    fail-message "$BUILD_IMAGE_FAIL"
+    fail-message "There is no container image in the registry."
     exit 1
 fi

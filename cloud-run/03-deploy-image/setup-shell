@@ -29,3 +29,29 @@ set-workdir /home
 
 gcloud config set run/platform managed
 gcloud config set run/region us-central1
+
+cat <<EOF > /root/.instruqt/help.txt
+The next step is to deploy the image as service to Cloud Run using 
+"gcloud run deploy".
+
+The tag for the image you just built is in the environment variable 
+"\$IMAGE_TAG". Feel free to name the services however you like.
+
+1. Give the service you create public access by allowing unauthenticated 
+invocations.
+
+2. Prove that your service works by calling the URL.
+
+Hit the "Check" button when you are done.
+
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+Deploy your image to Cloud Run to create the "fortune" service. 
+
+gcloud run deploy fortune --image \$IMAGE_TAG --allow-unauthenticated
+
+Call the URL using curl
+URL=\$(gcloud run services describe fortune --format="value(status.url)")
+curl \$URL
+EOF

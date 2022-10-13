@@ -20,3 +20,28 @@ echo "$AUTHENTICATED_SERVICE_HELP" > /root/.instruqt/help.txt
 echo "$AUTHENTICATED_SERVICE_HINT" > /root/.instruqt/hint.txt
 
 set-workdir /home
+
+cat <<EOF > /root/.instruqt/help.txt
+You can also protect Cloud Run services from public access. This is what 
+you need to do:
+
+1. Deploy the same image (\$IMAGE_TAG) as a new service with a different 
+name. This time, do not allow unauthenticated access.
+
+2. Send a request to the service with curl, to show you don't have 
+permission to call it anonymously. 
+
+Hit the "Check" button when you are done.
+
+EOF
+
+cat <<EOF > /root/.instruqt/hint.txt
+Deploy the same image as a new service with a different name: 
+
+gcloud run deploy secret-fortune --image \$IMAGE_TAG --no-allow-unauthenticated
+
+> Send a request to the new service and watch it being denied:
+
+URL=\$(gcloud run services describe secret-fortune --format="value(status.url)")
+curl \$URL
+EOF

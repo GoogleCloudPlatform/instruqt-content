@@ -6,14 +6,14 @@ description: |-
   What is Google Cloud Run Jobs?
 
   Cloud Run Jobs allow you to run finite processes on a defined schedule.
-icon: https://storage.googleapis.com/instruqt-shadow-resources/Cloud-Storage-spin.gif
+icon: https://storage.cloud.google.com/instruqt-logos/colors_cloud_run_color_2x_web_32dp.png
 tags:
 - cloud
 - run
 owner: google
 developers:
-- amuscarella@google.com
 - venema@google.com
+- amuscarella@google.com
 private: true
 published: true
-checksum: "5393508581598492301"
+checksum: "7794336868239881814"
